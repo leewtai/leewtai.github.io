@@ -15,7 +15,7 @@ Homework 1 is meant to give you some practice to refresh your basics for the cou
 - The sample standard deviation for zip codes between 11000 and 11500
 
 **Q2** 
-Please express $$Var(X + Y)$$ using $Var(X)$, $Var(Y)$, and $Cov(X, Y)$.
+Please express $Var(X + Y)$ using $Var(X)$, $Var(Y)$, and $Cov(X, Y)$.
 
 **Q3** 
 Imagine I have a coin with $P(coin toss = Heads) = p$, write down the probability that I have `k` heads after tossing the coin `n` times?
