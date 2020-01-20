@@ -1,4 +1,4 @@
-# Homework 1: Prerequisite Check
+# Homework 1: Prerequisite
 
 ### Purpose
 Homework 1 is meant to give you some practice to refresh your basics for the course.
