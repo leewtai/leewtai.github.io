@@ -92,8 +92,3 @@ Normalizing data
 ![R is still popular](images/language_popularity.png)
 
 Thanks to Prof Thibault Vatter for this slide.
-
-#### Overview
-- Read the syllabus
-- Fisher's experiment to learn about applying functions on subsets of data
-- Use simulations to test the mean of 2 groups
