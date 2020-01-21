@@ -16,14 +16,14 @@ The beginning of modern statistics:
 - Task1: Try recreating Fisher's results with [his straw data (in 0.5 of pounds)](https://docs.google.com/spreadsheets/d/1sUbW8UlqfjmMN1U8F1y0-x4aM9W8UBePiQhje6LOGpg/edit?usp=sharing) and [grain data in 1/8 of pounds](https://docs.google.com/spreadsheets/d/1sUbW8UlqfjmMN1U8F1y0-x4aM9W8UBePiQhje6LOGpg/edit?usp=sharing) using Spreadsheets (i.e. Google Drive).
 ![Fisher's data](images/fisher_straw.png)
 - Task2: Try recreating the first 3 differences for **grain**
-![Fisher's calculations](images/fisher_sums.png) first
+![Fisher's calculations](images/fisher_sums.png)
 
 #### Key programming skill: Working backwards from the specifications
 
-Requirements?
+Requirement:
 - Reproduce the first 3 numbers behind Table III for grain.
 
-Drawing a diagram going backwards from the desired final outcome.
+Start with drawing a diagram going backwards from the desired final outcome.
 
 #### Concepts required!
 - **Aggregating** data
