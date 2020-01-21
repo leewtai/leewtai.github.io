@@ -69,7 +69,8 @@ Lectures:
   [TuTh 8:40pm - 9:55pm, Location: 627 Seeley W. Mudd Building](https://www.vergil.registrar.columbia.edu/)
 
 Office Hours:
-  TBD
+  Owen: M 3-4pm and W 4-5pm at the School of Social Works 10th Floor Lounge (1255 Amsterdam Ave)
+  Wayne: Th 10am-Noon at 715 Watson Hall (612 W 115th St)
 
 
 ### Grading
