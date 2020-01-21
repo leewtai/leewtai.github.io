@@ -38,33 +38,33 @@ I reserve the right to change the ordering and the content for the course throug
 |2020-01-21|- [Statistical computing](lectures/lec1/lec1.md) <br> - [Recreating Fisher's results](lectures/lec1/fisher_in_R.md)|||
 |2020-01-23|- [Fisher's continued](lectures/lec1/fisher_in_R.md)||Get [R](https://cran.rstudio.com/) installed, then [R studio](https://rstudio.com/products/rstudio/download/) installed|
 |2020-01-28|- [Fisher's continued](lectures/lec1/fisher_in_R.md)<br>- [Data types](lectures/lec1/data_types_and_common_uses.md)|||
-|2020-01-30|- [vectors in R](lectures/lec1/vectors_in_R.md)<br>- [data frames](lectures/lec1/data_frames_in_R.md)<br>|||
+|2020-01-30|- [vectors in R](lectures/lec1/vectors_in_R.md)<br>- [data frames](lectures/lec1/data_frames_in_R.md)<br>||Homework 1|
 |2020-02-04|- [Built-in Functions in R](lectures/lec2/builtin_functions_in_R.md)<br>- [Writing functions in R](lectures/lec2/writing_functions_in_R.md)|||
 |2020-02-06|- [For loops](lectures/lec3/loops_in_R.md) <br> - [if/else](lectures/lec3/ifelse_in_R.md)|||
-|2020-02-11|Best practices - DRY|||
+|2020-02-11|Best practices - DRY||Homework 2|
 |2020-02-13|Review session|||
 |2020-02-18|Midterm 1|||
 |2020-02-20|*apply functions and vectorized calculations|||
 |2020-02-25|Lists|||
-|2020-02-27|Data wrangling with Indeed job descriptions|||
+|2020-02-27|Data wrangling with Indeed job descriptions||Homework 3|
 |2020-03-03|Data visualization|||
 |2020-03-05|Data visualization 2|||
-|2020-03-10|Simulating data|||
+|2020-03-10|Simulating data||Homework 4|
 |2020-03-12|Bootstrap and cross validation|||
 |2020-03-17|Spring Recess No Class|||
 |2020-03-19|Spring Recess No Class|||
-|2020-03-24|Hypothesis testing and simulations|||
+|2020-03-24|Hypothesis testing and simulations||Homework 5|
 |2020-03-26|Review session|||
 |2020-03-31|Midterm 2|||
 |2020-04-02|Debugging|||
 |2020-04-07|Debugging 2|||
-|2020-04-09|Introduction to Version Control and Git|||
+|2020-04-09|Introduction to Version Control and Git||Homework 6|
 |2020-04-14|Scraping vs calling APIs|||
 |2020-04-16|String manipulation and parsing HTML|||
-|2020-04-21|Designing a data pipeline|||
+|2020-04-21|Designing a data pipeline||Homework 7|
 |2020-04-23|Putting things together|||
 |2020-04-28|Putting things together|||
-|2020-04-30|Review session and wrap up|||
+|2020-04-30|Review session and wrap up||Homework 8|
 |[TBD](https://ssol.columbia.edu/cgi-bin/ssol/8qDDYeMUzcpWYvwaP3d6Sh/?p_r_id=8qDDYeMUzcpWYvwaP3d6Sh&p_t_id=1&tran%5B1%5D_tran_name=scel&tran%5B1%5D_term_id=20201&tran%5B1%5D_act=Update+View)||Final Exam|You!|
 
 
