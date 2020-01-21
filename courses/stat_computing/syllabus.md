@@ -36,7 +36,7 @@ I reserve the right to change the ordering and the content for the course throug
 |Date|Topic|Reference|Due|
 |---|---|---|---|
 |2020-01-21|- [Statistical computing](lectures/lec1/lec1.md) <br> - [Recreating Fisher's results](lectures/lec1/fisher_in_R.md)|||
-|2020-01-23|- [Fisher's continued](lectures/lec1/fisher_in_R.md)||Get [R studio](https://rstudio.com/products/rstudio/download/) installed|
+|2020-01-23|- [Fisher's continued](lectures/lec1/fisher_in_R.md)||Get [R](https://cran.rstudio.com/) installed, then [R studio](https://rstudio.com/products/rstudio/download/) installed|
 |2020-01-28|- [Fisher's continued](lectures/lec1/fisher_in_R.md)<br>- [Data types](lectures/lec1/data_types_and_common_uses.md)|||
 |2020-01-30|- [vectors in R](lectures/lec1/vectors_in_R.md)<br>- [data frames](lectures/lec1/data_frames_in_R.md)<br>|||
 |2020-02-04|- [Built-in Functions in R](lectures/lec2/builtin_functions_in_R.md)<br>- [Writing functions in R](lectures/lec2/writing_functions_in_R.md)|||
