@@ -32,7 +32,7 @@ my learnings from the courses I teach below.
 
 #### Courses
 The following courses will hopefully be constructed from a collection of concepts above.
-- Applied Statistical Computing
+- [Applied Statistical Computing](courses/stat_computing/README.md)
 - [Linear Regression](courses/linear_regression/README.md)
 - Applied statistical methods beyond 
 
