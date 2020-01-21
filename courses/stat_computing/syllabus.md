@@ -36,34 +36,34 @@ I reserve the right to change the ordering and the content for the course throug
 |Date|Topic|Reference|Due|
 |---|---|---|---|
 |2020-01-21|- [Statistical computing](lectures/lec1/lec1.md) <br> - [Recreating Fisher's results](lectures/lec1/fisher_in_R.md)|||
-|2020-01-23|- [Fisher's continued](lectures/lec1/fisher_in_R.md)|||
+|2020-01-23|- [Fisher's continued](lectures/lec1/fisher_in_R.md)||Get [R studio](https://rstudio.com/products/rstudio/download/) installed|
 |2020-01-28|- [Fisher's continued](lectures/lec1/fisher_in_R.md)<br>- [Data types](lectures/lec1/data_types_and_common_uses.md)|||
 |2020-01-30|- [vectors in R](lectures/lec1/vectors_in_R.md)<br>- [data frames](lectures/lec1/data_frames_in_R.md)<br>|||
 |2020-02-04|- [Built-in Functions in R](lectures/lec2/builtin_functions_in_R.md)<br>- [Writing functions in R](lectures/lec2/writing_functions_in_R.md)|||
 |2020-02-06|- [For loops](lectures/lec3/loops_in_R.md) <br> - [if/else](lectures/lec3/ifelse_in_R.md)|||
-|2020-02-11|- *apply functions|||
+|2020-02-11|Best practices - DRY|||
 |2020-02-13|Review session|||
 |2020-02-18|Midterm 1|||
-|2020-02-20|TOPIC or No Class|||
-|2020-02-25|TOPIC or No Class|||
-|2020-02-27|TOPIC or No Class|||
-|2020-03-03|TOPIC or No Class|||
-|2020-03-05|TOPIC or No Class|||
-|2020-03-10|TOPIC or No Class|||
-|2020-03-12|TOPIC or No Class|||
+|2020-02-20|*apply functions and vectorized calculations|||
+|2020-02-25|Lists|||
+|2020-02-27|Data wrangling with Indeed job descriptions|||
+|2020-03-03|Data visualization|||
+|2020-03-05|Data visualization 2|||
+|2020-03-10|Simulating data|||
+|2020-03-12|Bootstrap and cross validation|||
 |2020-03-17|Spring Recess No Class|||
 |2020-03-19|Spring Recess No Class|||
-|2020-03-24|Introduction to Version Control and Git|||
+|2020-03-24|Hypothesis testing and simulations|||
 |2020-03-26|Review session|||
 |2020-03-31|Midterm 2|||
-|2020-04-02|TOPIC or No Class|||
-|2020-04-07|TOPIC or No Class|||
-|2020-04-09|TOPIC or No Class|||
-|2020-04-14|TOPIC or No Class|||
-|2020-04-16|TOPIC or No Class|||
-|2020-04-21|TOPIC or No Class|||
-|2020-04-23|TOPIC or No Class|||
-|2020-04-28|TOPIC or No Class|||
+|2020-04-02|Debugging|||
+|2020-04-07|Debugging 2|||
+|2020-04-09|Introduction to Version Control and Git|||
+|2020-04-14|Scraping vs calling APIs|||
+|2020-04-16|String manipulation and parsing HTML|||
+|2020-04-21|Designing a data pipeline|||
+|2020-04-23|Putting things together|||
+|2020-04-28|Putting things together|||
 |2020-04-30|Review session and wrap up|||
 |[TBD](https://ssol.columbia.edu/cgi-bin/ssol/8qDDYeMUzcpWYvwaP3d6Sh/?p_r_id=8qDDYeMUzcpWYvwaP3d6Sh&p_t_id=1&tran%5B1%5D_tran_name=scel&tran%5B1%5D_term_id=20201&tran%5B1%5D_act=Update+View)||Final Exam|You!|
 
@@ -91,7 +91,9 @@ If your final grade is in [93-97), you will earn at least an A, [90-93) will ear
 ##### Exam accomodations
 In order to receive disability-related academic accommodations for this course, students must first be registered with their school Disability Services (DS) office. Detailed information is available online for both the [Columbia](https://health.columbia.edu/content/disability-services) and Barnard registration processes.
 
-Refer to the appropriate website for information regarding deadlines, disability documentation requirements, and drop-in hours(Columbia)/intake session (Barnard).
+Refer to the appropriate website for information regarding deadlines, disability documentation requirements, and [drop-in hours](https://health.columbia.edu/getting-care/drop-offices/disability-services-drop-hours)(Columbia)/[intake session]() (Barnard).
+
+ 
 
 For this course, students are not required to have testing forms or accommodation letters signed by faculty. However, students must do the following:
 
@@ -100,6 +102,7 @@ For this course, students are not required to have testing forms or accommodatio
 ·         The student must complete the Student section of the form and submit the form to Disability Services.
 
 ·         Master forms are available in the Disability Services office or online: https://health.columbia.edu/services/testing-accommodations
+
 
 ### Prerequisites
 - An introductory statistics class
