@@ -15,7 +15,7 @@
 - Always have an expectation, then validate it
   - Run the examples and try to break it
 
-  ```
+  ```r
   evens_example <- c(2, 4, 6)
 
   # Try things out!
@@ -54,7 +54,7 @@ Thanks to Prof Thibault Vatter for this slide.
 
 #### Why statistical computing? - Lots of data are in non-tabular formats
 JSON data from Indeed.com
-```
+```json
 {"request_params":
     {"jt": "fulltime",
      "q": "data",
@@ -71,7 +71,7 @@ JSON data from Indeed.com
 #### Why statistical computing? - Readable code
 Normalizing data
 - Using code
-  ```
+  ```r
   std_unit_data <- (data - mean(data)) / sd(data)
 
   max_range <- max(data) - min(data)
@@ -82,7 +82,7 @@ Normalizing data
 
 #### Why statistical computing? - Reproducible research
 - Using code to clean data - original data is not perturbed!
-  ```
+  ```r
   large_dev <- 3 * sd(data)
   outliers <- abs(data - mean(data)) > large_dev
   clean_data <- data[!outlier]
