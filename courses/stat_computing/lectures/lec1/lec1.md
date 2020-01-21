@@ -14,6 +14,7 @@
 #### How to be successful in this class?
 - Always have an expectation, then validate it
   - Run the examples and try to break it
+
   ```
   evens_example <- c(2, 4, 6)
 
@@ -21,6 +22,7 @@
   more_evens <- c(2, 4, 6, 8)
   evens_no_comma <- c(2 4 6)
   ```
+
 - Ask questions online with clear attempts at the problem
   - Bad example
     ```
