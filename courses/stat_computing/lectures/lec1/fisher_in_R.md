@@ -210,14 +210,15 @@ a[1]
 ```
 #### Overview of boolean operations
 
-|Code|Operation| Example|
-|---|---|---|
-|`>`|greater|`vec_demo <- 1:5`<br>`vec_demo > 2`|
-|`==`|equal|`vec_demo <- c("A", "B", "B")`<br>`vec_demo == "A"`|
-|`>=`|greater or equal|`vec_demo <- 1:5`<br>`vec >= 2`|
-|`!=`|Not equal|`vec_demo <- c("A", "B", "B")`<br>`vec_demo != "A"`|
-|`&`|and|`vec_demo <- 1:5`<br> `(vec_demo > 2) & (vec_demo >= 2)`|
-|`|`|or|`vec_demo <- 1:5`<br> `(vec_demo > 2) | (vec_demo >= 2)`|
+Code|Operation|Example
+----|---------|-------
+`>`|greater|`vec_demo <- 1:5`<br>`vec_demo > 2`
+`==`|equal|`vec_demo <- c("A", "B", "B")`<br>`vec_demo == "A"`
+`>=`|greater or equal|`vec_demo <- 1:5`<br>`vec >= 2`
+`!=`|Not equal|`vec_demo <- c("A", "B", "B")`<br>`vec_demo != "A"`
+`&`|and|`vec_demo <- 1:5`<br> `(vec_demo > 2) & (vec_demo >= 2)`
+`|`|or|`vec_demo <- 1:5`<br> `(vec_demo > 2) | (vec_demo >= 2)`
+
 
 #### Exercise - getting the different row sums
 How can we add up the row sums corresponding to just the `early` treatments?
