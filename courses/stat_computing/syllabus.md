@@ -38,7 +38,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2020-01-21|- [Statistical computing](lectures/lec1/lec1.md) <br> - [Recreating Fisher's results](lectures/lec1/fisher_in_R.md)|||
 |2020-01-23|- [Fisher's continued](lectures/lec1/fisher_in_R.md)|- read.csv() Text 10.2.1<br>- filtering Text 3.2.4<br>- For-loops Text 7.1.1<br>- vectors Text 2.1.1, 2.4.2<br>- boolean operations Text 7.2<br>- writing functions 1.3|Get [R](https://cran.rstudio.com/) installed, then [R studio](https://rstudio.com/products/rstudio/download/) installed|
 |2020-01-28|- [Fisher's continued](lectures/lec1/fisher_in_R.md)<br>- [Data types](lectures/lec1/data_types_and_common_uses.md)|Same as previous class + Text 1.4.1,1.4.2||
-|2020-01-30|- [vectors in R](lectures/lec1/vectors_in_R.md)<br>- [data frames](lectures/lec1/data_frames_in_R.md)<br>|Text 2.* + Text 5.* |Homework 1|
+|2020-01-30|- [vectors in R](lectures/lec1/vectors_in_R.md)<br>- [data frames](lectures/lec1/data_frames_in_R.md)<br>|Text 2.* + Text 5.* |[Homework 1](homeworks/hw1.md)|
 |2020-02-04|- [Built-in Functions in R](lectures/lec2/builtin_functions_in_R.md)<br>- [Writing functions in R](lectures/lec2/writing_functions_in_R.md)|Text 1.3, 7.3, 7.4, 7.5, 7.6||
 |2020-02-06|- [For loops](lectures/lec3/loops_in_R.md) <br> - [if/else](lectures/lec3/ifelse_in_R.md)|Text 7.1.1 + 7.1*||
 |2020-02-11|Best practices - DRY||Homework 2|
