@@ -2,7 +2,6 @@
 
 #### Learning objectives
 - Breakdown steps required in standard computing
--
 
 #### The first randomized controlled experiment with more than one treatment!
 The beginning of modern statistics:
@@ -34,7 +33,7 @@ Start with drawing a diagram going backwards from the desired final outcome.
 
 #### Reading in the data
 Place the downloaded data into your `Download` folder
-```
+```r
 df <- read.csv("~/Downloads/fisher_1927_grain.csv",          
                na.strings="")
 ```
@@ -48,14 +47,14 @@ Here we've already used several concepts:
 #### Side Note - common mistakes when reading in data
 - Your working directory (often abbreviated as "wd") is not where you think it is.
   Be sure you know which folder R is operating from in your computer
-  ```
+  ```r
   getwd()
   list.files()
   # you can change the wd to the Desktop using the following
   setwd("~/Desktop")
   ```
 - Misspelling file names, case matters and copy/paste __can be__ your friend
-  ```
+  ```r
   df <- read.csv("~/Downloads/Fisher_1927_grain.csv")
   list.files()
   ```
@@ -63,7 +62,7 @@ Here we've already used several concepts:
 #### How could you stress test this piece of code so far?
 df often stands for "data frame"
 
-```
+```r
 df <- read.csv("~/Downloads/fisher_1927_grain.csv",
                na.strings="")
 ```
@@ -77,7 +76,7 @@ Notice what errors might be returned:
 - ...
 
 #### How to examine a data frame
-```
+```r
 dim(df)
 head(df)
 colnames(df)
@@ -85,7 +84,7 @@ rownames(df)
 ```
 
 Why not examine all the data?
-```
+```r
 df
 print(df)
 ```
@@ -99,11 +98,11 @@ print(df)
 #### Subsetting a column using a single value
 Assume we're worknig with the `timing` column
 - Using indices
-  ```
+  ```r
   timing <- df[, 3]
   ```
 - Using column names
-  ```
+  ```r
   timing <- df[, "timing"]
   ```
 
@@ -114,11 +113,11 @@ Which method of subsetting is preferable?
 #### Subsetting a row using a single value
 Similarly, we can subset a row out of the data frame
 - Using indices
-  ```
+  ```r
   row <- df[1, ]
   ```
 - Using column names
-  ```
+  ```r
   rownames(df)
   row <- df["3", ]
   ```
@@ -128,18 +127,18 @@ Again, nothing after the comma implies "all columns"
 We want to only work with the part under "blockX" in the data frame. To do this, we can subset using
 
 - Column names (character vector)
-```
+```r
 block_cols <- c("block1", "block2", "block3", "block4",
                 "block5", "block6", "block7", "block8")
 yield <- df[, block_cols]
 ```
 - Indices of the columns (numerical vector)
-```
+```r
 block_cols <- 4:11
 yield <- df[, block_cols]
 ```
 - TRUE/FALSE vectors (boolean vector)
-```
+```r
 block_cols <- grepl("block", colnames(df))
 yield <- df[, block_cols]
 ```
@@ -152,14 +151,14 @@ yield <- df[, block_cols]
 - Can be constructed using `c(1, 2, -5)`
 - A convenient short hand for a vector of consecutive integers is `START:END`
 - To insert values into a vector, you can
-  ```
+  ```r
   place_holder <- c()
   place_holder[1] <- pi
   place_holder[3] <- -pi
   ```
 
 #### How to stress test vector creation?
-```
+```r
 -5:2
 2:-5
 c("1", 2, 3)
@@ -170,7 +169,7 @@ length(demo_vec)
 
 #### For-loop - avoid repetition in "blockX"?
 For-loops are an easy way to repeat steps efficiently
-```
+```r
 block_cols <- c()
 for(i in 1:8){
   block_cols[i] <- paste0('block', i)
@@ -182,7 +181,7 @@ block_cols
 To get the sum of a collection of numbers, pass them into `sum()`
 
 For example:
-```
+```r
 sum(1:100)
 ```
 
@@ -195,7 +194,7 @@ Hint:
 
 #### Subsetting vectors
 You can also subset vectors similarly as data frames using other vectors
-```
+```r
 vec_demo <- 1:5
 vec_demo[3]
 vec_demo[vec_demo > 3]
@@ -203,7 +202,7 @@ vec_demo[vec_demo > 3]
 
 #### A single value is a vector of one value
 Note that a single numeric value is just a vector of length 1
-```
+```r
 a <- 1
 length(a)
 a[1]
@@ -225,10 +224,12 @@ How can we add up the row sums corresponding to just the `early` treatments?
 Now repeat it for the `late` treatments!
 
 #### Try repeating the calculation over the other treatments
-```
+
+```r
 trts <- c("timing", "top_dressing", "fertilizer_type")
 fertilized <- df[, "top_dressnig"] > 0
 df_fert <- df[fertilized, ]
+
 for(trt in trts){
    ????
 }
@@ -238,17 +239,3 @@ No need to get sign correct, i.e. you simply need to get the absolute value corr
 
 Hint:
 - You can get the different treatments via `levels(df[, "timing"])` then loop over those 2 values.
-
-#### Writing functions to convert the units
-
-The data is in 0.5 pounds if it's straw and 1/8 pounds if it's grain. To convert the units, we can write a function to do this for us.
-
-```
-unit_converter <- function(raw_data, scale=0.5){
-  return(half_pound * scale)
-}
-```
-- Function name
-- Required inputs
-- Optional units
-- Returned values

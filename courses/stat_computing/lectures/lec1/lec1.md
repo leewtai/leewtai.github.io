@@ -78,7 +78,11 @@ Normalizing data
   frac_data <- (data - min(data)) / max_range
   ```
 - Using spreadsheets
+
   ![normalizing data in Spreadsheets](images/grades_snapshot.png)
+
+  Excel does not guarantee each cell has the same code, allowing
+  [people to plant bugs](https://www.businessinsider.com/logic-bomb-siemens-spreadsheet-contract-programmer-2019-7)
 
 #### Why statistical computing? - Reproducible research
 - Using code to clean data - original data is not perturbed!
