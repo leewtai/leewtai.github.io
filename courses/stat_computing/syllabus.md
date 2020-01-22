@@ -83,9 +83,11 @@ If your final grade is in [93-97), you will earn at least an A, [90-93) will ear
 - Homework solutions will exist in R
 - Your lowest homework grade will be dropped (this is for students who add this course late)
   - No make-up homeworks will be granted even if you registered late to the class
+
 #### - Exams (80%)
 - Midterms (25% each)
 - Final (30%)
+
 #### - Participation (5%)
 - This will be based on in-class online activities
 
