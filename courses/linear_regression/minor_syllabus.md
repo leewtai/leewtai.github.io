@@ -24,7 +24,7 @@ Instructor:
 Wayne Tai Lee: wtl2109
 
 Teaching Assistant:
-Owen Ward: 	ogw2103
+Owen Ward: ogw2103
 
 ### Timeline
   I reserve the right to change the ordering and the content for the course throughout the semester.

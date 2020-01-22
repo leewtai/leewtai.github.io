@@ -73,7 +73,9 @@ Lectures:
   [TuTh 4:10pm - 5:25pm, Location: TBD](https://vergil.registrar.columbia.edu/#/courses/APPLIED%20STATISTICAL%20COMPUTING)
 
 Office Hours:
-  TBD
+  Ding: M 5-6pm and W 1-2pm at the School of Social Works 10th Floor Lounge (1255 Amsterdam Ave)
+  Jialin: TBD
+  Wayne: TBD
 
 ### Grading
 If your final grade is in [93-97), you will earn at least an A, [90-93) will earn at least an A-, [87-90) will earn at least a B+, etc. A grading curves may occur depending on the class performance but I will not curve downwards. I may not give out A+ in this class.
