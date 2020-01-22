@@ -209,6 +209,7 @@ length(a)
 a[1]
 ```
 #### Overview of boolean operations
+
 |Code|Operation| Example|
 |---|---|---|
 |`>`|greater|`vec_demo <- 1:5`<br>`vec_demo > 2`|
