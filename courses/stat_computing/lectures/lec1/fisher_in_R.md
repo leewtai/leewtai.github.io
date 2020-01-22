@@ -116,6 +116,7 @@ Similarly, we can subset a row out of the data frame
   ```r
   row <- df[1, ]
   ```
+  What happens when you use a **negative** index? (unique to R!)
 - Using column names
   ```r
   rownames(df)
@@ -144,6 +145,18 @@ yield <- df[, block_cols]
 ```
 
 - Note that `block_cols` is a vector of 3 different types of data in the 3 examples above
+
+
+#### Subsetting rows using multiple values (vectors)
+
+- Using boolean vectors
+```r
+fertilized <- df[, "top_dressnig"] > 0
+df_fert <- df[fertilized, ]
+```
+
+It is possible to use the same methods as when subsetting for columns but that is not
+recommended!
 
 #### Properties of vectors
 - One dimensional with finite elements, check the length using `length(VEC)`
