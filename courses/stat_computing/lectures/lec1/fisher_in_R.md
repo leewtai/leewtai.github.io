@@ -96,7 +96,7 @@ print(df)
 - Rows often represent different records
 
 #### Subsetting a column using a single value
-Assume we're worknig with the `timing` column
+Assume we're working with the `timing` column
 - Using indices
   ```r
   timing <- df[, 3]
@@ -151,7 +151,7 @@ yield <- df[, block_cols]
 
 - Using boolean vectors
 ```r
-fertilized <- df[, "top_dressnig"] > 0
+fertilized <- df[, "top_dressing"] > 0
 df_fert <- df[fertilized, ]
 ```
 
@@ -240,7 +240,7 @@ Now repeat it for the `late` treatments!
 
 ```r
 trts <- c("timing", "top_dressing", "fertilizer_type")
-fertilized <- df[, "top_dressnig"] > 0
+fertilized <- df[, "top_dressing"] > 0
 df_fert <- df[fertilized, ]
 
 for(trt in trts){
