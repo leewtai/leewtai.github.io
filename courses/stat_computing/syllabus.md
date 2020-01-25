@@ -26,8 +26,8 @@ Instructor:
 Wayne Tai Lee: wtl2109
 
 Teaching Assistant(s):
-Jialin Ouyang: jo2559
-Ding Zhou: dz2336
+[Jialin Ouyang](http://stat.columbia.edu/department-directory/ph-d-students/): jo2559
+[Ding Zhou](http://stat.columbia.edu/department-directory/ph-d-students/): dz2336
 
 ### Timeline
 I reserve the right to change the ordering and the content for the course throughout the semester.
@@ -73,9 +73,9 @@ Lectures:
   [TuTh 4:10pm - 5:25pm, Location: TBD](https://vergil.registrar.columbia.edu/#/courses/APPLIED%20STATISTICAL%20COMPUTING)
 
 Office Hours:
-  Ding: M 5-6pm and W 1-2pm at the School of Social Works 10th Floor Lounge (1255 Amsterdam Ave)
-  Jialin: TBD
-  Wayne: TBD
+  - [Ding](http://stat.columbia.edu/department-directory/ph-d-students/): M 5-6pm and W 1-2pm at the School of Social Works 10th Floor Lounge (1255 Amsterdam Ave)
+  - [Jialin](http://stat.columbia.edu/department-directory/ph-d-students/): M 3-4pm and W 4-5pm at the School of Social Works 10th Floor Lounge (1255 Amsterdam Ave)
+  - Wayne: Th 1-3pm 715 Watson Hall 
 
 ### Grading
 If your final grade is in [93-97), you will earn at least an A, [90-93) will earn at least an A-, [87-90) will earn at least a B+, etc. A grading curves may occur depending on the class performance but I will not curve downwards. I may not give out A+ in this class.
