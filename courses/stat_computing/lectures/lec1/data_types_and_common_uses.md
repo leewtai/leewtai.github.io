@@ -79,11 +79,12 @@ paste0(na_demo, "One")
 class(na_demo)
 ```
 
-#### Dealing with missing values depend on the problem
-Term Frequency Matrix
-TODO ![term frequency matrix](images/term_freq_mat.png)
+#### How to deal with missing values depends on the problem
+Example: 
+Term Frequency Matrix (rows are different documents and columns are words)
+![term frequency matrix](images/bag_of_words_with_nan.png)
 
-Calculating grade averages
+Example: Calculating grade averages
 ![missing grades](images/grades_snapshot.png)
 
 
