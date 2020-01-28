@@ -53,9 +53,9 @@ Here we've already used several concepts:
   # you can change the wd to the Desktop using the following
   setwd("~/Desktop")
   ```
-- Misspelling file names, case matters and copy/paste __can be__ your friend
+- Misspelling file names, copy/paste __can be__ your friend
   ```r
-  df <- read.csv("~/Downloads/Fisher_1927_grain.csv")
+  df <- read.csv("~/Downloads/fisher_7291_grain.csv")
   list.files()
   ```
 
@@ -190,36 +190,31 @@ for(i in 1:8){
 block_cols
 ```
 
-#### Exercise - getting the sum of row using a for-loop?
-To get the sum of a collection of numbers, pass them into `sum()`
+#### Exercise - getting the sum of each row using a for-loop?
+To get the sum of each row, it is best to break up the steps:
+- To get the sum of each row, we first need to sum of the first row. A for-loop should help us repeat the calculation for the other rows.
+  - To get the sum of a collection of numbers, pass them into `sum()`
 
-For example:
-```r
-sum(1:100)
-```
+    For example:
+    ```r
+    sum(1:100)
+    ```
+- To get the sum of the first row, we first need to get the data corresponding to the first row then add them up.
+- To get the first row data, we need to subset only the columns corresponding to "blockX" and the row index = 1.
 
-How would you get the sum of each row from Fisher's data now?
-Hint:
-- What happens when you try to subset the columns and rows together?
-- Add up the numbers
-- Repeat the process using for-loops
-- Compare your results with your Spreadsheet results
+Compare your results with your Spreadsheet results afterwards.
 
 #### Subsetting vectors
-You can also subset vectors similarly as data frames using other vectors
+Next we only want the values corresponding to the "early" treatments. To do this, we want to subset the sum of each row from above using the treatment information. The sum of each row should be in a vector if you followed the examples.
+
+You can subset vectors similarly as data frames using other vectors
 ```r
 vec_demo <- 1:5
 vec_demo[3]
-vec_demo[vec_demo > 3]
+vec_demo[vec_demo == 3]
+vec_demo[vec_demo >= 3]
 ```
 
-#### A single value is a vector of one value
-Note that a single numeric value is just a vector of length 1
-```r
-a <- 1
-length(a)
-a[1]
-```
 #### Overview of boolean operations
 
 Code|Operation|Example
@@ -234,21 +229,6 @@ Code|Operation|Example
 
 #### Exercise - getting the different row sums
 How can we add up the row sums corresponding to just the `early` treatments?
-Now repeat it for the `late` treatments!
+Note, for the treatment to be early, there must be at least 1 application of fertilizer as well.
 
-#### Try repeating the calculation over the other treatments
-
-```r
-trts <- c("timing", "top_dressing", "fertilizer_type")
-fertilized <- df[, "top_dressing"] > 0
-df_fert <- df[fertilized, ]
-
-for(trt in trts){
-   ????
-}
-
-```
-No need to get sign correct, i.e. you simply need to get the absolute value correct!
-
-Hint:
-- You can get the different treatments via `levels(df[, "timing"])` then loop over those 2 values.
+Try repeating this for the `late` treatments as well

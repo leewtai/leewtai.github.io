@@ -1,16 +1,63 @@
-# Different types of data
+# Functions and data in R
 
-#### Goal - Know about data types and their importance
-- The source of many, many, many, many issues in industry and in classes
-- Understanding data types is how you understand expected behavior of functions
-- Constraints from the data will also constrain the possible errors
-- Building block for more complex data structures
+#### Statistical Computing
+- Giving a sequence of instructions to a computer
+- Often each instruction involves an action (function) and an object (data)
+
+#### Functions and data
+A simple function common in calculators and programming languages
+```r
+log(10, base=10)
+```
+
+- function name:
+- required function arguments (required data)
+- how you pass the arguments (data) to the function
+- optional function arguments (optional data)
+
+#### Get the documentation of a function via `?FUN`
+```r
+?log
+?"+"
+```
+- Arguments
+- Output
+- Examples
+- Might work on different data types
+  ```r
+  1 + 1
+  TRUE + FALSE
+  ```
+
+#### Error messages from functions
+```r
+log(-2)
+log("2")
+```
+- Errors vs warnings
+- Always read the error message
+- Always check your understanding of the function against the documentation
+
+IMPORTANT: Just because there is no error message does not mean your code is correct!
+
+#### Practice
+```r
+a <- "this is a string"
+1 + 2
+sin(180)
+```
+- function name:
+- required function arguments (required data)
+- how you pass the arguments (data) to the function
+- optional function arguments (optional data)
+
 
 #### Basic data types - Overview
 - numeric (Continuous or discrete)
 - character
 - factor (Categorical)
 - boolean (TRUE/FALSE)
+- functions
 - Not Available (NA)
 
 #### Basic data type - numerics
@@ -33,8 +80,8 @@ char_demo <- "All is well! Missiles launched from Iran ..."
 class(char_demo)
 # [1] "character"
 
-"Iran" %in% char_demo
-# [1] TRUE
+grepl("Iran", char_demo)
+[1] TRUE
 ```
 
 - How would you split the string by white spaces?
@@ -51,6 +98,8 @@ fac_demo
 # Levels: male female
 ```
 
+In some programming languages, this is called **enum**
+
 #### Basic data type - booleans
 TRUE/FALSE, usually intermediate data to filter data or control the program, e.g. if the data point is an outlier, remove it.
 
@@ -64,10 +113,27 @@ bool_demo1
 # FALSE
 bool_demo2
 # TRUE
+!bool_demo2
+
 bool_demo1 + bool_demo2
 bool_demo1 & bool_demo2
 bool_demo1 | bool_demo2
 # Guess!
+```
+
+IMPORTANT: in general arithmatic with booleans treat
+- TRUE as 1
+- FALSE as 0
+
+#### Basic data type - functions
+Functions can also be considered to be a type of data. Often passed to create other functions.
+```r
+class(sin)
+sin(180)
+sin_deg <- function(deg){
+    return(sin(deg / 180 * pi))
+}
+sin_deg(180)
 ```
 
 #### Basic data type - Not Available (NA)
@@ -94,6 +160,19 @@ var1 <- "1"
 class(var1)
 ```
 
+#### Example - converting between data types
+```r
+var1 <- "1"
+var1_num <- as.numeric(var1)
+class(var1_num)
+```
+
+But this doesn't always work
+```r
+var1 <- "a"
+as.numeric(var1)
+```
+
 #### Example - R has a lot of built-in mathematical operations by default
 
 Just like a normal calculator
@@ -105,7 +184,7 @@ sin(pi)
 This is not true for Python
 ![python lacks basic math operations](images/python_lacks_math.png)
 
-#### Example - constraint from data types will constrain the error
+#### Why care about data types - constraint from data types will constrain the error
 ```r
 var1 <- "1"
 var2 <- 2
@@ -128,19 +207,19 @@ TRUE > FALSE
 ```
 
 #### Common misunderstandings - truncation in R output vs numerical stability
-Examples like 
+Rounding example:
 ```r
 (1e-7 + 10) * 1e7
 (1e-7 + 10) * 1e7 - 1e8
 ```
 
-which is different from the underflow/overflow issue a.k.a. numerical stability issues
+Numerical stability example:
 ```r
 1e-20 + 1e-8 - 1e-8
 1e-20 * 1e-10
 1e-20 * 1e-10 + 1e-8 - 1e-8
 ```
 
-Key message:
+#### Key message:
 - Computers are not perfect, different computers are also different. This is why people ask for your computer specifications when you report issues.
 - This explains why we perform certain operations on data even though it does not change the problem mathematically, e.g. maximizing log(P(X)) vs maximizing P(X)

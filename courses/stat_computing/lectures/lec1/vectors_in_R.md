@@ -58,6 +58,10 @@ num_demo <- c(1, 2, 3, 4)
 
 num_demo >= 3
 # [1] FALSE FALSE  TRUE  TRUE
+num_demo * -1
+# [1] -1 -2 -3 -4
+num_demo * c(1, 2)
+# ???
 ```
 
 What else should you try?
@@ -111,11 +115,12 @@ In **Python**, this is NOT true!
 
 In general, it's better to think about containers separately from the elements themselves.
 
-#### Example - common operations with vectors
-Aggregation and filtering
-  ```r
-  pos_nums <- c(1, 1, 1, 1, 100, 1)
-  med <- median(pos_nums)
-  not_outlier <- pos_nums <= (2 * med)
-  clean_nums <- pos_nums[not_outlier]
-  ```
+#### Exercise - aggregation and filtering
+For each line, identify the type and length of the vector
+```r
+pos_nums <- c(1, 1, 1, 1, 100, 1)
+med <- median(pos_nums)
+not_outlier <- pos_nums <= (2 * med)
+num_not_outlier <- sum(not_outlier)
+clean_nums <- pos_nums[not_outlier]
+```
