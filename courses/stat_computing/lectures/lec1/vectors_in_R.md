@@ -80,11 +80,22 @@ In **Python**, an error will be thrown
 #### `[ ]` vs `[[ ]]` in **R**
 The python behavior is closer to `[[ ]]`
 ```r
-num_vec <- c(3, 1)
+num_vec <- c(3, 1, 2)
 num_vec[3]
 num_vec[[3]]
 ```
-This difference will make more sense once we start talking about `data.frame()` in **R**.
+This difference will make more sense once we start talking about `list()` in **R**.
+
+#### The Empty vector
+
+This is common for creating a place holder for data.
+```r
+place_holder <- c()
+for(j in 1:5){
+    place_holder[j] <- j / 2
+}
+place_holder 
+```
 
 #### Common mistakes with vectors - mixing data types
 ```r
