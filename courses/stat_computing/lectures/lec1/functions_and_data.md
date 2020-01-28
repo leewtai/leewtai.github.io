@@ -174,18 +174,7 @@ var1 <- "a"
 as.numeric(var1)
 ```
 
-#### Example - R has a lot of built-in mathematical operations by default
-
-Just like a normal calculator
-```r
-log(1)
-sin(pi)
-```
-
-This is not true for Python
-![python lacks basic math operations](images/python_lacks_math.png)
-
-#### Why care about data types - constraint from data types will constrain the error
+#### Why care about data types - constraint from data types will limit the possible errors
 ```r
 var1 <- "1"
 var2 <- 2
@@ -221,6 +210,30 @@ Numerical stability example:
 1e-20 * 1e-10 + 1e-8 - 1e-8
 ```
 
-#### Key message:
+#### Key message about numerical stability
 - Computers are not perfect, different computers are also different. This is why people ask for your computer specifications when you report issues.
 - This explains why we perform certain operations on data even though it does not change the problem mathematically, e.g. maximizing log(P(X)) vs maximizing P(X)
+
+#### Exercise
+
+Where do you see vectors, what are their types and lengths?
+```r
+df <- read.csv("~/Downloads/fisher_1927_grain.csv",
+               na.strings = "")
+
+top_dressing <- df[, "top_dressing"]
+timing <- df[, "timing"]
+fertilized <- top_dressing > 0
+early <- timing == "early"
+
+row_sums <- c()
+df_size <- dim(df)
+block_cols <- c("block1", "block2", "block3", "block4",
+                "block5", "block6", "block7", "block8")
+for(i in 1:df_size[1]){
+  row_sums[i] <- sum(df[i, block_cols])
+}
+
+early_row_sums <- row_sums[early & fertilized]
+early_total <- sum(early_row_sums)
+```
