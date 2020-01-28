@@ -14,6 +14,7 @@ log(10, base=10)
 - required function arguments (required data)
 - how you pass the arguments (data) to the function
 - optional function arguments (optional data)
+- What are its effects?
 
 #### Get the documentation of a function via `?FUN`
 ```r
