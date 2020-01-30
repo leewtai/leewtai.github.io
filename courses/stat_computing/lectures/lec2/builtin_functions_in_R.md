@@ -9,7 +9,7 @@ The foundations to statistical computing are
 coin_tosses <- sample(c("HEAD", "TAIL"), 10, replace=TRUE)`
 ```
 
-#### Example we talked about the Law of Large Numbers
+#### Example: the Law of Large Numbers
 Theorem:
 
 As the sample size increases, the sample average converges to the population
