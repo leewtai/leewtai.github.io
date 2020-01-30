@@ -50,6 +50,21 @@ num_demo[num_demo >= 3]
 ```
 What do I mean by "should"?
 
+#### Changing values inside a vector
+You can change a value inside a vector by reassigning a value to it
+
+```r
+outcomes <- 1:5
+
+outcome
+outcome[2] <- -10
+outcome
+
+outcome[10] <- 100
+outcome
+```
+This is useful for for-loops!
+
 #### Vectorized operations
 Notice how we compared a vector to a single value and R compared each element to the single value.
 
@@ -76,15 +91,6 @@ num_vec[3]
 
 In **Python**, an error will be thrown
 ![python out of range](images/python_out_of_range.png)
-
-#### `[ ]` vs `[[ ]]` in **R**
-The python behavior is closer to `[[ ]]`
-```r
-num_vec <- c(3, 1, 2)
-num_vec[3]
-num_vec[[3]]
-```
-This difference will make more sense once we start talking about `list()` in **R**.
 
 #### The Empty vector
 
