@@ -40,7 +40,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2020-01-30|- [vectors in R](lectures/lec1/vectors_in_R.md)<br>- [Random functions](lectures/lec2/builtin_functions_in_R.md)<br>|Text 2.* + Text 5.* |[Homework 1](homeworks/hw1.md)|
 |2020-02-04|- [Writing functions in R](lectures/lec2/writing_functions_in_R.md)|Text 1.3, 7.3, 7.4, 7.5, 7.6||
 |2020-02-06|- [For loops](lectures/lec3/loops_in_R.md) <br> - [if/else](lectures/lec3/ifelse_in_R.md)|Text 7.1.1 + 7.1*||
-|2020-02-11|Best practices - DRY||Homework 2|
+|2020-02-11|Best practices - DRY||[Homework 2](homeworks/hw2.md)|
 |2020-02-13|Review session|||
 |2020-02-18|Midterm 1|||
 |2020-02-20|*apply functions and vectorized calculations|||
