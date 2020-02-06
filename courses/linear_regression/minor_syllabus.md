@@ -34,16 +34,16 @@ Owen Ward: ogw2103
   |2020-01-21|[Introduction, expectations, and transitions oh my!](https://drive.google.com/open?id=12GIwf8KVtYc7KN7C6eVC8c3R41LiQNtQlVBHTNv4HmA)|||
   |2020-01-23|[Reviewing Hypothesis Testing with R Simulations](https://drive.google.com/open?id=1zBjQ9G508s4PBlmMWR2_fofictjvj3Achw30BBCVmnc)|Any R Tutorial Videos on For-Loop, e.g. [R Tutorial Videos](https://www.stat.berkeley.edu/share/rvideos/R_Videos/R_Videos.html)|Make sure R is installed and running|
   |2020-01-28|[Deriving simple linear regression](https://docs.google.com/presentation/d/15m8XkAKZaDA4lsTJxvTaHekrFPXFVv22qZ6j5MDrBrg/edit?usp=sharing)|Text 2.1.1|Homework 1 (postponed due to mistake)|
-  |2020-01-30|[Properties of the regression coefficients](https://docs.google.com/presentation/d/1NalZQ2EWSt3Z7ojP0iPOt902VyJfRrP-MsEyc8qXoE0/edit?usp=sharing)|Text 2.7.1||
-  |2020-02-04|[Simulating the SLR](https://docs.google.com/presentation/d/1-TaFO-3j1-een-w3pjExEbKQXdrJqV6ZI-AOZc9ZQHM/edit?usp=sharing)|Text 2.7.3||
-  |2020-02-06|Properties of the regression prediction|Text 2.7.4|Homework 2|
-  |2020-02-11|Diagnostics of SLR|Text 3.1||
-  |2020-02-13|Review session|||
+  |2020-01-30|[Linking regression coefficients to the data generation process](https://docs.google.com/presentation/d/1NalZQ2EWSt3Z7ojP0iPOt902VyJfRrP-MsEyc8qXoE0/edit?usp=sharing)|Text 2.7.1||
+  |2020-02-04|[Linking math to simulations](https://docs.google.com/presentation/d/1-TaFO-3j1-een-w3pjExEbKQXdrJqV6ZI-AOZc9ZQHM/edit?usp=sharing)|Text 2.7.3||
+  |2020-02-06|[Properties of the regression coefficients](https://us.edstem.org/courses/182/lessons/670/slides/2979)|Text 2.7.2 + 2.7.3||
+  |2020-02-11|[Properties of the regression prediction](https://docs.google.com/presentation/d/16TKbjKxikcg47PtF9krSuQpFMUU5ylNxrTdLNqRY92s/edit?usp=sharing)|Text 2.7.4|Homework 2|
+  |2020-02-13|Diagnostics of SLR|Text 3.1||
   |2020-02-18|Midterm 1|||
   |2020-02-20|Maximum likelihood|||
   |2020-02-25|Bootstrapping vs cross validation|||
   |2020-02-27|Categorical response|Text 8.1|Homework 3|
-  |2020-03-03|Categorical features|||
+  |2020-03-03|Categorical features|Text 2.6||
   |2020-03-05|Linear algebra review and more|||
   |2020-03-10|Multivariate linear regression||Homework 4|
   |2020-03-12|Multivariate linear regression|||
