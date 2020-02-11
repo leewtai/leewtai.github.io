@@ -23,7 +23,7 @@ Which statement is true about relationship between the answers from Q1 and Q3. N
    an estimate for the population average, will decrease.
 2. TRUE/FALSE, if we increase `n`, then the uncertainty of the sample average, as
    a random variable, will decreases.
-3. TRUE/FALSE, if we increase `B`, the number of sample averages in Q3 that deviate from
+3. TRUE/FALSE, if we increase `B`, the proportion of sample averages in Q3 that deviate from
    0.5 by a magnitude of 0.05 will decrease.
 4. TRUE/FALSE, if we increase `B` the variance from Q3 will get closer to the answer in Q1.
 
