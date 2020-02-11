@@ -24,7 +24,7 @@ Which statement is true about relationship between the answers from Q1 and Q3. N
 2. TRUE/FALSE, if we increase `n`, then the uncertainty of the sample average, as
    a random variable, will decreases.
 3. TRUE/FALSE, if we increase `B`, the proportion of sample averages in Q3 that deviate from
-   0.5 by a magnitude of 0.05 will decrease.
+   0.5 by a magnitude of 0.05 or greater will decrease.
 4. TRUE/FALSE, if we increase `B` the variance from Q3 will get closer to the answer in Q1.
 
 Hint: there are two sample sizes here: one for the average and one for the simulation, you need to keep these two concepts clearly separated.
