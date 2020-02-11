@@ -1,4 +1,4 @@
-### Hello world
+## Hello world
 
 Hello there! This is Wayne, a statistician with a huge passion in education and dance.
 I've worked as a professional data scientist in agriculture, social networks, and aerospace.
@@ -7,7 +7,7 @@ My current goals are to make useful statistics a mandatory subject in high schoo
 There are many reasons why I think this can make the world a better place :)
 
 
-### Teaching
+## Teaching
 Many friends have commented on the desire to learn statistics better yet also showed a lot of
 frustration in the typical statistical curriculum. The desire is often a result of being
 surprised by data at work where the frustration is often from the disconnect between the classic
@@ -19,16 +19,15 @@ education.
 If there's one lesson in data science, it's about creating meaningful feedback loops to guide
 you towards the desired end-goal. For statistics education, I believe this feedback can be
 achieved by developing a statistics concept inventory. We need to know if changes
-result in measurable improved understanding for the students. A lot of EdTech solutions
-seem to focus on ease of access or administration rather than the outcome of students.
+result in measurable improved understanding for the students.
 
 A [concept inventory](https://en.wikipedia.org/wiki/Concept_inventory) is a collection of
 multiple-choice questions to assess students' working knowledge of a specific set of concepts.
 They should have representative coverage of the material, should not focus on derivations, and
 the distractors should be developed from common misconceptions. 
 
-I'll hopefully have some updates on how I wish to tackle this issue more practically using
-my learnings from the courses I teach below.
+I'm slowly compiling certain concepts overtime:
+- [Intro Stat Concepts](stat_concept_inv/README.md)
 
 #### Courses
 The following courses will hopefully be constructed from a collection of concepts above.
