@@ -9,13 +9,13 @@ If our setup has potential conflicts, Anaconda will save us before it's too late
 ![conda dependency conflict demo](images/conda_dep_conflict_demo.png)
 
 Overall, installing `conda` will automatically install `Python` so there are only 2 steps:
-- Install `conda`
-- Install jupyter notebook (and optionally R) as a package
+- [Install Anaconda](#install-anaconda)
+- [Install jupyter notebook (and optionally R) as a package](#installing-jupyter-or-r-as-packages)
 
 ## Installing Anaconda
 There are two methods to do this depending on if you're comfortable with the command line:
 - Not sure: then just install [Anaconda Navigator](#anaconda-gui-via-anaconda-navigator)
-- Yes, then jump ahead to [installing conda](#Command-line-interface-with-Anaconda-via-conda)
+- Yes, then jump ahead to [installing conda](#command-line-interface-with-anaconda-via-conda)
 
 
 #### Anaconda GUI via Anaconda Navigator
