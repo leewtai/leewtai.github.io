@@ -37,11 +37,11 @@ Owen Ward: ogw2103
   |2020-01-30|[Linking regression coefficients to the data generation process](https://docs.google.com/presentation/d/1NalZQ2EWSt3Z7ojP0iPOt902VyJfRrP-MsEyc8qXoE0/edit?usp=sharing)|Text 2.7.1||
   |2020-02-04|[Linking math to simulations](https://docs.google.com/presentation/d/1-TaFO-3j1-een-w3pjExEbKQXdrJqV6ZI-AOZc9ZQHM/edit?usp=sharing)|Text 2.7.3||
   |2020-02-06|[Properties of the regression coefficients](https://us.edstem.org/courses/182/lessons/670/slides/2979)|Text 2.7.2 + 2.7.3||
-  |2020-02-11|[Properties of the regression prediction](https://docs.google.com/presentation/d/16TKbjKxikcg47PtF9krSuQpFMUU5ylNxrTdLNqRY92s/edit?usp=sharing)|Text 2.7.4|Homework 2|
-  |2020-02-13|Diagnostics of SLR|Text 3.1||
+  |2020-02-11|[Properties of the regression coefficients](https://us.edstem.org/courses/182/lessons/670/slides/2979)|Text 2.7.2 + 2.7.3|Homework 2|
+  |2020-02-13|[Diagnostics of SLR](https://docs.google.com/presentation/d/1_ydaxURpK2F-YkuGXKHxYF9rJ4bRAi6B9ftnyh_LXrM/edit?usp=sharing)|Text 3.1||
   |2020-02-18|Midterm 1|||
-  |2020-02-20|Maximum likelihood|||
-  |2020-02-25|Bootstrapping vs cross validation|||
+  |2020-02-20|Bootstrapping vs cross validation|||
+  |2020-02-25|Properties of regression prediction|||
   |2020-02-27|Categorical response|Text 8.1|Homework 3|
   |2020-03-03|Categorical features|Text 2.6||
   |2020-03-05|Linear algebra review and more|||
