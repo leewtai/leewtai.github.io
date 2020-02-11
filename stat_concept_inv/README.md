@@ -7,7 +7,7 @@ However, the document should cover 3 levels of audience: MA, BA, and users.
 Jupyter notebooks are nice because the same interface can support multiple
 interactive programming langauges (R + Python).
 
-[These instructions](setup/README.md) will help you setup your Jupyter Notebook
+[These instructions](setup/conda_and_navigator_setup.md) will help you setup your Jupyter Notebook
 with Python or R that is managed by Anaconda. 
 
 ## Concepts
