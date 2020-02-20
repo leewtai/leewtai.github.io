@@ -43,11 +43,11 @@ I reserve the right to change the ordering and the content for the course throug
 |2020-02-11|- [For loops](lectures/lec3/loops_in_R.md) <br>- [if/else](lectures/lec3/ifelse_in_R.md)|Text 7.1.1 + 7.1*|[Homework 2](homeworks/hw2.md)|
 |2020-02-13|Review session|||
 |2020-02-18|Midterm 1|||
-|2020-02-20|*apply functions and vectorized calculations|||
-|2020-02-25|Lists|||
-|2020-02-27|Data wrangling with Indeed job descriptions||Homework 3|
-|2020-03-03|Data visualization|||
-|2020-03-05|Data visualization 2|||
+|2020-02-20|[Data visualization - baseR](https://us.edstem.org/courses/181/lessons/744/slides/3422)|Text 12||
+|2020-02-25|Data visualization - ggplot2|[Online Tutorials](http://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html)||
+|2020-02-27|lists and data frames||Homework 3|
+|2020-03-03| *apply functions and vectorized calculations|||
+|2020-03-05|Data wrangling with Indeed job descriptions|||
 |2020-03-10|Simulating data||Homework 4|
 |2020-03-12|Bootstrap and cross validation|||
 |2020-03-17|Spring Recess No Class|||
