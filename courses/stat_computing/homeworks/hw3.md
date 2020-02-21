@@ -43,13 +43,13 @@ Please submit the code for this quesiton.
 Please apply your function above with the following inputs and show the desired output:
 - `rgaussmix(10, 1:3, 1:4)`
   - Please show that this should return an error
-- `rgaussmix(mus=1:3, sds=rep(0.3, 3), n=300)`
+- `rgaussmix(mus=1:3, sds=rep(0.1, 3), n=300)`
   - Please show the histogram for this.
-- `rgaussmix(300, mus=1:3, sds=rep(0.3, 3), prob=c(0.5, 0.4, 0.1))`
+- `rgaussmix(300, mus=1:3, sds=rep(0.1, 3), prob=c(0.5, 0.4, 0.1))`
   - Please show the histogram for this.
-- `rgaussmix(0, mus=1:3, sds=rep(0.3, 3), prob=c(0.5, 0.4, 0.1))`
+- `rgaussmix(0, mus=1:3, sds=rep(0.1, 3), prob=c(0.5, 0.4, 0.1))`
   - This should return an empty vector
-- `rgaussmix(300, mus=1:3, sds=c(0.2, -1, 1))`
+- `rgaussmix(300, mus=1:3, sds=c(0.2, -1, 0.5))`
   - If you leveraged `rnorm()`, you should have `NA` values for some with a warning message, please show these messages.
   - Please plot the histogram from this command.
 - Please comment how `hist()` addresses NA values in your data:
