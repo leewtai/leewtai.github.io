@@ -22,14 +22,15 @@ The inputs should be:
 - `mus`, a numeric vector with length `k`
 - `sds`, a numeric vector with length `k`
 - `prob`, a numeric vector with length `k` that indicates the probability of choosing the different Gaussians. This should have a default to `NULL`.
+
 What should be returned is:
-- a numeric vector of length `n` where each element is a realization from a Gaussian mixture.
+- a numeric vector of length `n` where each element is a realization from the Gaussian mixture specified.
 
 
 Requirements for the function:
 - Please check that the length of `mus` matches the length of `sds`. If not, please use `stop()`
     to return an Error message saying "mus and sds have different lengths".
-- If given `n=0`, the function should return an empty vector, please AVOID using `if()` to address this issue. 
+- If given `n=0`, the function should return an empty vector, please AVOID using `if()` to address this issue. Hint: `seq_len()`
 - If `prob` is NULL (hint: `is.null()`), each side of the dice should be equally likely to appear.
 - For the dice roll, please use `sample()` combined with the `prob` input value.
 - Pleaes leverage `rnorm()` in your code.
