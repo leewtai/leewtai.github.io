@@ -63,8 +63,10 @@ Here we are going to simulate the central limit theorem.
 We want to demonstrate that the CLT works on complicated distributions, like a Gaussian mixture. Imagine we had a Gaussian mixture where the first and second components are Normal(10, sd=2) and Normal(18, sd=2) respectively, and the first component is 4 times more likely to appear than the second component.
 By demonstrate, we mean that the sample averages will follow a bell curve and the width of the bell curve will decrease with larger sample sizes.
 
+You are expected to leverage your function from Q1.
+
 Please demonstrate the CLT works by showing the following:
-- Choose 2 appropriate sample sizes where histograms from these sample sizes clearly show a bimodal pattern. Please plot 2 histograms with their sample sizes in the title of the graph where each histogram has the sample distribution from the Gaussian mixtures.
+- Choose 2 appropriate sample sizes where samples from the Gaussian mixture with the respective sample sizes can produce histograms that clearly show the bimodal pattern (e.g. n > 10). Please plot 2 histograms with their sample sizes in the title of the graph where each histogram has the sample distribution from the Gaussian mixtures.
 - (this is worded intentionally more statistically) Please simulate 2500 different sample averages for both sample sizes and plot the simulated distribution for the 2 different sample averages separately. Please make sure the plots are comparable so a reader can observe (without reading the x-axis units, e.g. if I hid the tick marks) that the distribution with the larger sample size has a tighter distribution.
   - You should not hide the tick marks!
 
