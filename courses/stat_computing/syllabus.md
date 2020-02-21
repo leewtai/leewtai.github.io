@@ -45,15 +45,15 @@ I reserve the right to change the ordering and the content for the course throug
 |2020-02-18|Midterm 1|||
 |2020-02-20|[Data visualization - baseR](https://us.edstem.org/courses/181/lessons/744/slides/3422)|Text 12||
 |2020-02-25|Data visualization - ggplot2|[Online Tutorials](http://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html)||
-|2020-02-27|lists and data frames||Homework 3|
-|2020-03-03| *apply functions and vectorized calculations|||
+|2020-02-27|lists and data frames|||
+|2020-03-03| *apply functions and vectorized calculations||[Homework 3](homeworks/hw3.md)|
 |2020-03-05|Data wrangling with Indeed job descriptions|||
-|2020-03-10|Simulating data||Homework 4|
-|2020-03-12|Bootstrap and cross validation|||
+|2020-03-10|Simulating data|||
+|2020-03-12|Bootstrap and cross validation||Homework 4|
 |2020-03-17|Spring Recess No Class|||
 |2020-03-19|Spring Recess No Class|||
-|2020-03-24|Hypothesis testing and simulations||Homework 5|
-|2020-03-26|Review session|||
+|2020-03-24|Hypothesis testing and simulations|||
+|2020-03-26|Review session||Homework 5|
 |2020-03-31|Midterm 2|||
 |2020-04-02|Debugging|||
 |2020-04-07|Debugging 2|||
