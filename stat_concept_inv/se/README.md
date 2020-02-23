@@ -59,6 +59,8 @@ TBD
       is focused on using the sample average, $$\bar{Y}$$ as an estimate
       for the population average.
 
+## Key issues
+- Haven't talked about what to do when you don't have an unbiased estimator
 
 ## Dependent concepts
 - Expectation
@@ -66,3 +68,4 @@ TBD
 - standard deviation
 
 {% include lib/mathjax.html %}
+

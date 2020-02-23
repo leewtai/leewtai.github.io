@@ -81,6 +81,7 @@ If your final grade is in [93-97), you will earn at least an A, [90-93) will ear
   - Homework solutions will exist in R
   - Your lowest homework grade will be dropped
   - No make-up homeworks will be granted even if you registered late to the class
+  - Please export all homeworks in PDF files following these [instructions](../setup/math_and_code.md)
 #### - Exams (85%)
   - Midterms (15% for midterm 1 and 30% for Midterm 2)
   - Final (40%)
