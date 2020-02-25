@@ -44,11 +44,11 @@ I reserve the right to change the ordering and the content for the course throug
 |2020-02-13|Review session|||
 |2020-02-18|Midterm 1|||
 |2020-02-20|[Data visualization - baseR](https://us.edstem.org/courses/181/lessons/744/slides/3422)|Text 12||
-|2020-02-25|Data visualization - ggplot2|[Online Tutorials](http://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html)||
-|2020-02-27|lists and data frames|||
-|2020-03-03| *apply functions and vectorized calculations||[Homework 3](homeworks/hw3.md)|
+|2020-02-25|[lists and data frames](https://us.edstem.org/courses/181/lessons/771/slides/3536)|Text 4 + Text 5||
+|2020-02-27|Data frames and JOINS|||
+|2020-03-03|*apply functions and vectorized calculations||[Homework 3](homeworks/hw3.md)|
 |2020-03-05|Data wrangling with Indeed job descriptions|||
-|2020-03-10|Simulating data|||
+|2020-03-10|Data wrangling continued|||
 |2020-03-12|Bootstrap and cross validation||Homework 4|
 |2020-03-17|Spring Recess No Class|||
 |2020-03-19|Spring Recess No Class|||
@@ -61,7 +61,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2020-04-14|Scraping vs calling APIs|||
 |2020-04-16|String manipulation and parsing HTML|||
 |2020-04-21|Designing a data pipeline||Homework 7|
-|2020-04-23|Putting things together|||
+|2020-04-23|Data Visualization ggplot()|[Online Tutorials](http://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html)||
 |2020-04-28|Putting things together|||
 |2020-04-30|Review session and wrap up||Homework 8|
 |[TBD](https://ssol.columbia.edu/cgi-bin/ssol/8qDDYeMUzcpWYvwaP3d6Sh/?p_r_id=8qDDYeMUzcpWYvwaP3d6Sh&p_t_id=1&tran%5B1%5D_tran_name=scel&tran%5B1%5D_term_id=20201&tran%5B1%5D_act=Update+View)||Final Exam|You!|
