@@ -25,7 +25,7 @@ There are two methods to do this depending on if you're comfortable with the com
 3. Go to `Environments` on the left tab
 4. Click on `Create` at the bottom to create a separate environment so the materials here will not conflict with your other work
     ![Anaconda Navigator Environment Tab](images/anaconda_nav_environments.png)
-5. Create an environment called `statcomp` (or whatever you prefer) and use the dropdown menu to run under Python version 3.7, then choose `Create`.
+5. Create an environment called `text-mine` (or whatever you prefer) and use the dropdown menu to run under Python version 3.7, then choose `Create`.
     ![Anaconda Navigator Creating New Environments](images/anaconda_nav_create_env.png)
 
 #### Command line interface with Anaconda via conda
@@ -35,22 +35,22 @@ There are two methods to do this depending on if you're comfortable with the com
     - on Windows, this is called "Anaconda Command Prompt"
     - on OSX, this is called "Terminal"
     ![different command line prompts](images/diff_command_line_prompts.png)
-3. Type in the following to create an environment called `statcomp` under Python version 3.7.
+3. Type in the following to create an environment called `text-mine` under Python version 3.7.
 
-    `conda create -n statcomp python=3.7`
+    `conda create -n text-mine python=3.7`
 
     You will likely be asked to confirm with the packages it'll install. Type in `y` then enter to accept.
-4. Type in `conda activate statcomp` and notice how your command prompt changes to `statcomp`
+4. Type in `conda activate text-mine` and notice how your command prompt changes to `text-mine`
     ![Conda activate changes prompt](images/conda_activate_switch.png)
 
-    It's possible that you have an older version of `conda`, then you should type in `source activate statcomp` instead.
+    It's possible that you have an older version of `conda`, then you should type in `source activate text-mine` instead.
 
 
 ## Installing Jupyter or R as packages
 A program'ss true value is in its large community of developers and users. To leverage their work, we often will depend on packages outside of the default Python installation. Similar to before, we'll cover the instructions both using [Anaconda Navigator](#installing-packages-using-anaconda-navigator) and the [command line](#Installing-packages-using-conda).
 
 #### Installing packages using Anaconda Navigator
-1. Go back to the `Environment` tab on the far left and make sure your desired environment is selected (in this document that's `statcomp`).
+1. Go back to the `Environment` tab on the far left and make sure your desired environment is selected (in this document that's `text-mine`).
     ![install packages for anaconda navigator](images/anaconda_nav_packages.png)
 2. Use the dropdown menu shown above to examine the packages not installed.
 3. Use the search box to find `jupyter`. IF you want R, you should look for `r-base`, `r-essentials`, and `r-irkernel` as well.
@@ -58,7 +58,7 @@ A program'ss true value is in its large community of developers and users. To le
 
     I would make sure all packages you want are selected before moving to the next step. Once the ![download icon](images/download_icon.png) appears, you can safely search for the next package. Notice the number of packages selected are indicated at the right bottom of the Navigator Window.
 4. (This will take awhile)  Click on `Apply` on the right bottom and wait for the packages to be installed. Click on `Apply` once more to confirm the packages you wanted.
-5. To confirm it all worked, go back to the `Home` tab, make sure you use the dropdown menu behind "Applications on" to `statcomp` (or whatever you called the new environment)
+5. To confirm it all worked, go back to the `Home` tab, make sure you use the dropdown menu behind "Applications on" to `text-mine` (or whatever you called the new environment)
     ![Selecting new environments](images/anaconda_nav_custom_home.png)
 6. Select `Launch` under Jupyter. This should launch a few things but ultimately on your default browser, you'll see a jupyter session.
     ![Jupyter Initial Launch Screen](images/jupyter_initial_launch.png)
@@ -68,7 +68,7 @@ A program'ss true value is in its large community of developers and users. To le
 
 
 #### Installing packages using conda
-1. Make sure your command line prompt activated the environment you created (`statcomp` in this document).
+1. Make sure your command line prompt activated the environment you created (`text-mine` in this document).
 2. We will use the `conda install` command to install packages we need. Specifically, you should type in
     ```
     conda install jupyter numpy matplotlib
