@@ -44,8 +44,8 @@ I reserve the right to change the ordering and the content for the course throug
 |2020-02-13|Review session|||
 |2020-02-18|Midterm 1|||
 |2020-02-20|[Data visualization - baseR](https://us.edstem.org/courses/181/lessons/744/slides/3422)|Text 12||
-|2020-02-25|[lists and data frames](https://us.edstem.org/courses/181/lessons/771/slides/3536)|Text 4 + Text 5||
-|2020-02-27|Data frames and JOINS|||
+|2020-02-25|[lists](https://us.edstem.org/courses/181/lessons/771/slides/3536)|Text 4||
+|2020-02-27|[Data frames](https://us.edstem.org/courses/181/lessons/773/slides/3551) and [JOINS](https://us.edstem.org/courses/181/lessons/778/slides/3567)|Text 5||
 |2020-03-03|*apply functions and vectorized calculations||[Homework 3](homeworks/hw3.md)|
 |2020-03-05|Data wrangling with Indeed job descriptions|||
 |2020-03-10|Data wrangling continued|||
