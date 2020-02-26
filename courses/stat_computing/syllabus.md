@@ -119,7 +119,7 @@ For this course, students are not required to have testing forms or accommodatio
 - Some understanding of Microsoft Excel or Google Spreadsheets
 
 ### Textbooks / Supplies
-[The Art of R Programming: Tour of Statistical Software Design](https://clio.columbia.edu/catalog/13882895?counter=1) is available through CLIO
+[The Art of R Programming: Tour of Statistical Software Design](https://clio.columbia.edu/catalog/13882895) is available through CLIO
 
 ### Acknowledgement
 A lot of these materials are based off the materials from Prof Thibault Vatter and Prof Gabriel Young.
