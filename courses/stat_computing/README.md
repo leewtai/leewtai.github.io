@@ -100,13 +100,15 @@ yet its similarity to the mathematical notation makes it easy to understand.
 In R, you can assign values to variables so you can refer to them later and increase readability of your code
 (very important!).
 
+To do assign a value to a variable name, you can use the `<-` or `=` symbol with the variable name on the left and the value on the right.
+
 - ```r
   demo_num <- 2
   demo_num * 3
   ```
 - `demo.char <- "hello"`
 - ```r
-  demo_num2 <- -0.2
+  demo_num2 = -0.2
   abs(demo_num2)
   ```
 
@@ -120,5 +122,18 @@ demo.char
 ```
 
 [Exercises](exercises/r_variables.md)
+
+#### In R, the most basic element is a vector
+In general, a vector is a collection of values where each value has the same data type.
+
+Here are some examples of vectors:
+- `dice <- c(1, 2, 3, 4, 5, 6)`
+- `char_vec <- c("h", "e", "l", "l", "o")`
+
+To group multiple values into a single vectors, we use the `c()` function. Notice how a vector can contain numbers or characters!
+
+This is not the only way to create vectors. The most common alternative is using the `:` symbol that creates a sequence of numbers, incremented by `1`. For example: `1:4`
+
+[Exercises](exercises/r_vectors_basic.md)
 {% include lib/mathjax.html %}
 
