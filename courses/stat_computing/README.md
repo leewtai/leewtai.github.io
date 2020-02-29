@@ -96,5 +96,19 @@ yet its similarity to the mathematical notation makes it easy to understand.
 
 [Exercises](exercises/r_calc_functions.md)
 
+#### Variables in programming
+In R, you can assign values to variables so you can refer to them later and increase readability of your code
+(very important!).
+
+- ```r
+  demo_num <- 2
+  demo_num * 3
+  ```
+- `demo.char <- "hello"`
+- ```r
+  demo_num2 <- -0.2
+  abs(demo_num2)
+  ```
+
 {% include lib/mathjax.html %}
 
