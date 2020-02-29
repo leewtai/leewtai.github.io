@@ -95,3 +95,6 @@ Notice how the third example does not follow the convention for calling function
 yet its similarity to the mathematical notation makes it easy to understand. 
 
 [Exercises](exercises/r_calc_functions.md)
+
+{% include lib/mathjax.html %}
+

@@ -100,3 +100,6 @@ Please make sure:
 - Your legends are roughly the same
 - Your colors are aligned with the same states
 - No data points are hidden/lost
+
+{% include lib/mathjax.html %}
+
