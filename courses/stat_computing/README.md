@@ -110,5 +110,15 @@ In R, you can assign values to variables so you can refer to them later and incr
   abs(demo_num2)
   ```
 
+This allows you to refer to them later when you have repeated use of the same variable (e.g. think about the sample size **n** in intro statistics that appears in the mean and sample variance calculation).
+
+Later, if you forget what's assigned to the variable, usually you can use the `print()` function or simply type in the variable name at the end of the cell to get the value returned.
+
+```r
+print(demo_num)
+demo.char
+```
+
+[Exercises](exercises/r_variables.md)
 {% include lib/mathjax.html %}
 
