@@ -177,5 +177,43 @@ The metaphor is similar to an individual (`num_vec`) vs talking about a team wit
 
 However, in R, these are the same thing because the most basic element in R is a vector.
 
+#### Elements of functions (big picture)
+We said before that data we've taught in intro stat $$y_1,…,y_n$$ can be thought as vectors in R like coin tosses.
+
+```r
+n <- 20
+coin <- c(0, 1)
+coin_tosses <- sample(coin, n, replace=TRUE)
+print(coin_tosses)
+```
+
+`sample()` here is a function that is tossing the coin n times, it has a few components that you should be aware of
+- **Function name**: `sample`
+- **Inputs/arguments**: all values separated by `,` within the `()` are inputs to the function `sample`
+    - The first 2 values are passed in "by order" where the third value is passed in "by name". The function has a default order of how inputs are entered which is why the first 2 inputs do not need to be given a name explicitly. To know the order or the names, you would **need** to read the documentation for the function by running the code `?sample` in R.
+- **How inputs are passed to the function**: this is done via the `()` and the different inputs are separated by `,`.
+- The **consequence and/or output** of the function:
+    - In the example above, an output is generated and assigned into `coin_tosses`, by examining `coin_tosses`, you'll see that the output is a numeric vector of 0 and 1 values.
+    - Some functions do not produce "output" but have a consequence on the environment. For example, deleting a variable, changing your working directory (we will explain this more later), etc. 
+
+[Exercise](exercises/r_function_elements.md)
+
+#### Inputs/arguments to functions
+Same example as before
+
+```r
+n <- 20
+coin <- c(0, 1)
+coin_tosses <- sample(coin, n, replace=TRUE)
+```
+
+If you look into the documentation `?sample`. You should notice the order and names
+of the inputs/arguments:
+
+`sample(x, size, replace = FALSE, prob = NULL)`
+
+Here, arguments without an equal sign behind them do not have defaults.
+
+
 {% include lib/mathjax.html %}
 
