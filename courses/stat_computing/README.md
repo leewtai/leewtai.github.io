@@ -80,8 +80,18 @@ If I were to run the following code:
 [Exercises](exercises/r_make_mistakes.md)
 
 #### Calculator-like functions
-Just like your algebra class where $y=f(x)$, R has functions.
+Just like your algebra class where $$y=f(x)$$, R has functions.
 
 Similar to our mathematical notation, the most common method
 to refer to functions are used by typing out their "name" followed
 by the parentheses `()`, e.g. `log(1)`
+
+The simplest example are functions that manipulate a single number. 
+- `log(1)`
+- `sin( 90 / 180 * pi)`
+- `2^3`
+
+Notice how the third example does not follow the convention for calling functions
+yet its similarity to the mathematical notation makes it easy to understand. 
+
+[Exercises](exercises/r_calc_functions.md)
