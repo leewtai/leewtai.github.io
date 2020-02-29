@@ -126,14 +126,56 @@ demo.char
 #### In R, the most basic element is a vector
 In general, a vector is a collection of values where each value has the same data type.
 
-Here are some examples of vectors:
+Here are some examples of creating vectors:
 - `dice <- c(1, 2, 3, 4, 5, 6)`
-- `char_vec <- c("h", "e", "l", "l", "o")`
+- `hello_letters <- c("h", "e", "l", "l", "o")`
 
-To group multiple values into a single vectors, we use the `c()` function. Notice how a vector can contain numbers or characters!
+To group multiple values into a single vectors, we use the `c()` function. Notice how a vector can contain numbers or characters and the different values are separated by `,`.
 
 This is not the only way to create vectors. The most common alternative is using the `:` symbol that creates a sequence of numbers, incremented by `1`. For example: `1:4`
 
 [Exercises](exercises/r_vectors_basic.md)
+
+#### Why do we care about vectors?
+In statistics, we often talk about a sample of data, $$y_1, \dots, y_n$$ where
+$$n$$ is the sample size.
+
+In statistical computing, the corresponding equivalent is a numeric vector of length n where the first element in the vector is $$y_1$$, second element is $$y_2$$, etc.
+
+The most basic random variable is the outcome of $$n$$ coin tosses where heads correspond to 1 and tails correspond to 0.
+
+To generate this kind of data:
+
+```r
+n <- 20
+coin <- c(0, 1)
+coin_tosses <- sample(coin, n, replace=TRUE)
+print(coin_tosses)
+```
+
+- We've assigned the value 20 to the variable `n`
+- We've created a vector named `coin`, with 2 values, `0` and `1`.
+- We've then used the function `sample()` to generate n random numbers (0 or 1)
+    - We will talk more about this function later.
+
+
+#### Biggest misunderstanding of R
+Again, the most confusing thing about R is that everything is a vector
+
+```r
+num_vec <- 1.96
+num_vec1 <- c(1.96)
+num_vec == num_vec1
+class(num_vec) == class(num_vec1)
+```
+
+`num_vec`, from a traditional programming sense, is a single number.
+
+`num_vec1`, from a traditional programming sense, is a vector with single element, the element happens to be a number. 
+
+The metaphor is similar to an individual (`num_vec`) vs talking about a team with only one member `num_vec1`. These are 2 conceptually different things.
+
+However, in R, these are the same thing because the most basic element in R is a vector.
+
 {% include lib/mathjax.html %}
 
