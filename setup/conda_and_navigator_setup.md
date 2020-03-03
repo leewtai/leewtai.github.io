@@ -53,7 +53,7 @@ A program'ss true value is in its large community of developers and users. To le
 1. Go back to the `Environment` tab on the far left and make sure your desired environment is selected (in this document that's `text-mine`).
     ![install packages for anaconda navigator](images/anaconda_nav_packages.png)
 2. Use the dropdown menu shown above to examine the packages not installed.
-3. Use the search box to find `jupyter`. IF you want R, you should look for `r-base`, `r-essentials`, and `r-irkernel` as well.
+3. Use the search box to find `jupyter` and `pandas`. IF you want R, you should look for `r-base`, `r-essentials`, and `r-irkernel` as well.
     ![choosing packages in anaconda navigator](images/anaconda_nav_choosing_packages.png)
 
     I would make sure all packages you want are selected before moving to the next step. Once the ![download icon](images/download_icon.png) appears, you can safely search for the next package. Notice the number of packages selected are indicated at the right bottom of the Navigator Window.
@@ -63,20 +63,29 @@ A program'ss true value is in its large community of developers and users. To le
 6. Select `Launch` under Jupyter. This should launch a few things but ultimately on your default browser, you'll see a jupyter session.
     ![Jupyter Initial Launch Screen](images/jupyter_initial_launch.png)
 7. Click down your file path to where you want your work stored, then click on `New` on the far right to launch a `Python 3` or `R` session.
-8. You should be able to confirm if the installation succeeded by repeating this little example below in your Jupyter Notebook
-      ![confirm install success](images/install_success_test.png)
+8. You should be able to confirm if the installation succeeded by repeating this little example below in your Jupyter Notebook.
+    - type `1 + 1` into one of the "cells"
+    - Use "Shift Enter" or "Command Enter" to run the code
+        - Or you could use the "Run" button above the cells.
 
 
 #### Installing packages using conda
 1. Make sure your command line prompt activated the environment you created (`text-mine` in this document).
 2. We will use the `conda install` command to install packages we need. Specifically, you should type in
+    - If you are getting Python
     ```
-    conda install jupyter numpy matplotlib
+    conda install jupyter numpy matplotlib pandas
     ```
     ![conda commands](images/conda_install_nltk_packages.png)
+    - If you want `R` then you should **insetad** type in:
+    ```
+    conda install jupyter r-base r-essentials r-irkernel
+    ```
 3. To confirm it all worked, navigate to your desired working directory, then type in `jupyter notebook` to launch your jupyter session. This should launch a few things but ultimately on your default browser, you'll see a jupyter session.
     ![Jupyter Initial Launch Screen](images/jupyter_initial_launch.png)
 4. Click on `New` on the far right to launch a `Python 3` or `R` session. Now you have a functioning Jupyter notebook session
     ![initial Jupyter Session](images/initial_jupyter_session.png)
 5. You should be able to confirm if the installation succeeded by repeating this little example below in your Jupyter Notebook
-      ![confirm install success](images/install_success_test.png)
+    - type `1 + 1` into one of the "cells"
+    - Use "Shift Enter" or "Command Enter" to run the code
+        - Or you could use the "Run" button above the cells.
