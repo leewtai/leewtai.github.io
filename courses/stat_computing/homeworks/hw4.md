@@ -3,10 +3,10 @@
 CHANGE IN FORMAT:
 
 For ease of grading, we're switching to **html** or **pdf** files from RMarkdown OR Jupyter Notebooks.
-You can research this online for now but I'll be adding instructions how to do this soon.
+You can research this online for how or follow these [instructions](../../setup/math_and_code.md)
 
 #### Q0 Practice with JOINS
-When evaluating where to build your future startup headquarters, you may want to know whether JFK is "more connected" than ATL. One naive way to quantify this is to see the total number of domestic airports that are reachable within a single vs double flight assuming we depart from JFK or ATL.
+When evaluating where to build your future startup headquarters, you may want to know whether JFK is "more connected" than ATL (fictional story, this will not be your top concern). One naive way to quantify this is to see the total number of domestic airports that are reachable within a single vs double flight assuming we depart from JFK or ATL.
 
 We could achieve this using the `unique_domestic_us_flights_2019.csv` and `unique_international_us_flights_2019.csv` on Canvas (same files as in class). These files contain all the domestic and international flights where the origin or destination is a US airport.
 
