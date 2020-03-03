@@ -49,7 +49,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2020-03-03|[*apply functions and vectorized calculations](https://us.edstem.org/courses/181/lessons/783/slides/3601)||[Homework 3](homeworks/hw3.md)|
 |2020-03-05|Data wrangling with Indeed job descriptions|||
 |2020-03-10|Data wrangling continued|||
-|2020-03-12|Bootstrap and cross validation||Homework 4|
+|2020-03-12|Bootstrap and cross validation||[Homework 4](homeworks/hw4.md)|
 |2020-03-17|Spring Recess No Class|||
 |2020-03-19|Spring Recess No Class|||
 |2020-03-24|Hypothesis testing and simulations|||

@@ -46,7 +46,7 @@ Please show the code for the following:
     Hint: `count` should be an integer, `uniq_airports` should be a character vector with length equally to `count`, `origin_airport` should be the `origin_airport` passed to the function originally. 
 - Please use your function to answer the number of unique domestic airports reachable if we started from "MSO" vs "ATL"
 
-Side comment: please take a moment and see how much you could figure out if I simply asked "how many unique domestic airports are reachable within 2 flights starting from JFK vs ATL?"
+Side comment: please take a moment and see how much you could figure out if I simply asked "how many unique domestic airports are reachable within 2 flights starting from JFK vs ATL?". This is not easy but where we want to be after graduation.
 
 
 #### Q1 Exploring data from Twitter
@@ -70,7 +70,7 @@ twitter_output <- read_json("data/twitter_standard_api_results.json")
 - Navigate through the `twitter_output` object, what tag/namne is associated with the actual tweet (no code)
   - hint1: the 10th tweet starts with "White House requesting"
   - hint2: you could also look at the [Example Response](https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets) in the documentation.
-- How many tweets are in this object? (Try navigating `twitter_output`, there are multiple ways of inferring this, one line code)
+- How many different tweets are in this object? (Try navigating `twitter_output`, there are multiple ways of inferring this, can be a one line code)
 
 
 #### Q2 Data wrangling
@@ -108,7 +108,7 @@ Hints:
     }
     ```
 
-#### Q3 Why we bother data wrangling
+#### Q3 Why we bother with data wrangling
 Please use one of the data frames from Q2
 - Between `followers_count` and `friends_count`, which variable has a higher correlation with `retweet_count`?
 - Please plot the scatter plot between `retweer_count` and your answer from above (`retweet_count` should be on the y-axis). Please make sure the axis labels are correct and do not mention the data frame itself. Please have the correlation number (rounded to 2 decimals) displayed in the plot title (hint: `paste("Correlation: ", round(cor(?, ?)))`). This will NOT be pretty!
@@ -117,7 +117,7 @@ Please use one of the data frames from Q2
     - Please use the fact that these 4 values are beyond 1 SD from the mean.
 - Anomalies can be interesting case studies, please report the content of the tweet and the screen_name of the tweet with the highest `retweet_count` (hint: `which.max()`)
 
-Side comment: notice how much easier/cleaner the plotting/subsetting is with the data frame rather than constant for-loops
+Side comment: notice how much easier/cleaner the plotting/subsetting is with the data frame rather than writing for-loops over the dataset multiple times
 
 
 {% include lib/mathjax.html %}
