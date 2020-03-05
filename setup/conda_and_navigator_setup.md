@@ -25,7 +25,7 @@ There are two methods to do this depending on if you're comfortable with the com
 3. Go to `Environments` on the left tab
 4. Click on `Create` at the bottom to create a separate environment so the materials here will not conflict with your other work
     ![Anaconda Navigator Environment Tab](images/anaconda_nav_environments.png)
-5. Create an environment called `text-mine` (or whatever you prefer) and use the dropdown menu to run under Python version 3.7, then choose `Create`.
+5. Create an environment called `text-mine` (or whatever you prefer) and use the dropdown menu to run under Python version 3.7, then choose `Create` (yes, even if you want R in the end).
     ![Anaconda Navigator Creating New Environments](images/anaconda_nav_create_env.png)
 
 #### Command line interface with Anaconda via conda
@@ -35,7 +35,7 @@ There are two methods to do this depending on if you're comfortable with the com
     - on Windows, this is called "Anaconda Command Prompt"
     - on OSX, this is called "Terminal"
     ![different command line prompts](images/diff_command_line_prompts.png)
-3. Type in the following to create an environment called `text-mine` under Python version 3.7.
+3. Type in the following to create an environment called `text-mine` under Python version 3.7 (yes, even if you want R in the end!)
 
     `conda create -n text-mine python=3.7`
 
@@ -53,7 +53,7 @@ A program'ss true value is in its large community of developers and users. To le
 1. Go back to the `Environment` tab on the far left and make sure your desired environment is selected (in this document that's `text-mine`).
     ![install packages for anaconda navigator](images/anaconda_nav_packages.png)
 2. Use the dropdown menu shown above to examine the packages not installed.
-3. Use the search box to find `jupyter` and `pandas`. IF you want R, you should look for `r-base`, `r-essentials`, and `r-irkernel` as well.
+3. Use the search box to find `jupyter`. IF you want R, you should look for `r-base`, `r-essentials`, and `r-irkernel` as well. If you are working in Python, you should look for `pandas`, `matplotlib`, `numpy`, and `statsmodels`.
     ![choosing packages in anaconda navigator](images/anaconda_nav_choosing_packages.png)
 
     I would make sure all packages you want are selected before moving to the next step. Once the ![download icon](images/download_icon.png) appears, you can safely search for the next package. Notice the number of packages selected are indicated at the right bottom of the Navigator Window.
@@ -74,7 +74,7 @@ A program'ss true value is in its large community of developers and users. To le
 2. We will use the `conda install` command to install packages we need. Specifically, you should type in
     - If you are getting Python
     ```
-    conda install jupyter numpy matplotlib pandas
+    conda install jupyter numpy matplotlib pandas statsmodels
     ```
     ![conda commands](images/conda_install_nltk_packages.png)
     - If you want `R` then you should **insetad** type in:
