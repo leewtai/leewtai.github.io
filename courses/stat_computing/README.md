@@ -10,26 +10,28 @@ between abstract concepts, mathematical formalism, and programming.
 An example is like "health of a nation" is a concept, infant mortality
 per 1000 births is one way to formalize a measure for a nation's health,
 where automating this report would require us to think about practical
-data collection, transfer, and an audience.
+data collection, graphics, and reproducability.
 
 To gain a better understanding of programming, we will cover the main
-concepts behind statistical computing that focuses on data wrangling and
-simulations while focusing less on data structures and algorithmic efficiency.
-For example, we will introduce the idea like random numeric vectors to reinforce
-ideas like the law of large numbers but we will not differentiate between
+concepts behind statistical computing that
+- focuses on data wrangling and simulations
+- less on data structures and algorithmic efficiency
+
+For example, we will introduce random numeric vectors relatively early on to reinforce
+concepts like the law of large numbers but we will not differentiate between
 integers, longs, vs doubles.
 
 #### My assumptions
 My assumption is that you have been exposed to
-- basic statistical concepts like the average, sample standard deviation,
+- basic statistical concepts like the average, sample standard deviation (vs population variance),
   and histograms.
-- calculators
+- calculators and Excel (Google Spreadsheets)
 
 #### Setting up
 I encourage you to set up [Jupyter Notebooks on your computer](../../setup/conda_and_navigator_setup.md)
 so you could use R or Python for this in the future.
 
-In the current version, I'll focus on R programming for now.
+In the current version, I'll focus on **R programming** for now.
 
 #### Using programming as a calculator
 I'm assuming you've used a calculator before. Try out a few of the following
@@ -104,7 +106,8 @@ To do assign a value to a variable name, you can use the `<-` or `=` symbol with
 
 - ```r
   demo_num <- 2
-  demo_num * 3
+  print(demo_num * 3)
+  print(demo_num - 4)
   ```
 - `demo.char <- "hello"`
 - ```r
@@ -123,20 +126,67 @@ demo.char
 
 [Exercises](exercises/r_variables.md)
 
-#### In R, the most basic element is a vector
-In general, a vector is a collection of values where each value has the same data type.
+#### Overwriting variables
+What if I want to update a variable? You simply assign a new value to it.
 
-Here are some examples of creating vectors:
-- `dice <- c(1, 2, 3, 4, 5, 6)`
-- `hello_letters <- c("h", "e", "l", "l", "o")`
+I recommend running these 3 chunks separately but in order:
+```
+my_name <- 'Wayne Lee'
+print(my_name)
 
-To group multiple values into a single vectors, we use the `c()` function. Notice how a vector can contain numbers or characters and the different values are separated by `,`.
+my_name <- 'Wayne Tai Lee'
+print(my_name)
 
-This is not the only way to create vectors. The most common alternative is using the `:` symbol that creates a sequence of numbers, incremented by `1`. For example: `1:4`
+my_name <- 0
+print(my_name)
+```
+
+A few things to note:
+- The **last** assignment will dictate the value in `my_name` (try playing with the order and find out)
+- We were able to assign numbers to something that was a character string before
+- One of the biggest source of error in beginner coders is that you forget what order your code was ran in
+  and you recycle the same variable name which causes issues in the code later.
+- Good naming is considered one of the hardest tasks in programming :)
+
+
+#### What is a function?
+A function in programming is similar to a function in mathematics.
+Given inputs, it performs operations and (usually) returns an output.
+
+We've introduced calculator-like functions before like `log()` and `sin()`
+but functions can be more complex:
+- The inputs can be more complex than a single number
+- They can take in multiple inputs
+- Functions can have defaults
+- Outputs can be more complex than a single number as well
+
+#### Creating data with functions
+Besides the usual calculator-like functions, the most basic functions
+are those that create a collection of values, this is how we will
+represent "data" in programming. 
+
+For example, to make a dice with the 6 sides or a coin with the 2 sides,
+we can use the `c()` function to combine the different values into
+one variable. This type of data is called a **vector**.
+```r
+dice <- c(1, 2, 3, 4, 5, 6)
+coin <- c("Head", "Tail")
+print(dice)
+print(coin)
+```
+
+A few things to note:
+- The inputs can be numbers or characters
+- The inputs are separated by `,`
+- There are multiple inputs
+- `c` is the function name
+- Functions that create data tend to be able to take in arbitrary number of inputs
+
+This is not the only way to create vectors. A common alternative is to use the `:` symbol that creates a sequence of numbers, incremented by `1`. For example: `1:4`
 
 [Exercises](exercises/r_vectors_basic.md)
 
-#### Why do we care about vectors?
+#### Why do we care about vectors in statistical computing?
 In statistics, we often talk about a sample of data, $$y_1, \dots, y_n$$ where
 $$n$$ is the sample size.
 
@@ -144,8 +194,7 @@ In statistical computing, the corresponding equivalent is a numeric vector of le
 
 The most basic random variable is the outcome of $$n$$ coin tosses where heads correspond to 1 and tails correspond to 0.
 
-To generate this kind of data:
-
+To generate this kind of data, you could use the following commands:
 ```r
 n <- 20
 coin <- c(0, 1)
@@ -153,38 +202,66 @@ coin_tosses <- sample(coin, n, replace=TRUE)
 print(coin_tosses)
 ```
 
+In the code above:
 - We've assigned the value 20 to the variable `n`
 - We've created a vector named `coin`, with 2 values, `0` and `1`.
 - We've then used the function `sample()` to generate n random numbers (0 or 1)
     - We will talk more about this function later.
 
+#### Properties of vectors
+It's important to know the properties of vectors because different types of data
+will have different properties and therefore limit how functions can interact with them.
 
-#### Biggest misunderstanding of R
-Again, the most confusing thing about R is that everything is a vector
+Before continuing below, first define a variable called `dice <- c(1, 2, 3, 4, 5, 6)`
+- The number of elements within a vector is called its **length**
+    - `length(dice)`
+- The type of the elements within a vector is the vector's **type** (implication is that elements within a vector must all share the same type).
+    - `class(dice)`
+- You can subset different elements within the vector using `[]` (we will cover the idea of subsetting later)
+    - `dice[3]` grabs the 3rd element within the vector `dice`
+    - `dice[c(2, 3)]` grabs the 2nd and 3rd element within the vector, `dice`
+- You can change elements within a vector
+    - ```r
+      dice[1] <- 6
+      print(dice)
+      ```
+[Exercises](exercises/r_vector_properties.md)
 
+#### Biggest confusion in R
+The most confusing thing about R is that most data are vectors, including a single number a vector of length 1.
 ```r
 num_vec <- 1.96
 num_vec1 <- c(1.96)
 num_vec == num_vec1
 class(num_vec) == class(num_vec1)
+print(num_vec[1])
 ```
 
-`num_vec`, from a traditional programming sense, is a single number.
+If you come from a programming background, `num_vec` is a single number where `num_vec1`, should be a vector with single element, the element happens to be a number. 
 
-`num_vec1`, from a traditional programming sense, is a vector with single element, the element happens to be a number. 
+The metaphor is similar to an individual (`num_vec`) vs talking about a team with only one member `num_vec1`. These are 2 conceptually different things. However, **in R**, these are the same thing because the most basic element in R is a vector.
 
-The metaphor is similar to an individual (`num_vec`) vs talking about a team with only one member `num_vec1`. These are 2 conceptually different things.
-
-However, in R, these are the same thing because the most basic element in R is a vector.
-
-#### Elements of functions (big picture)
-We said before that data we've taught in intro stat $$y_1,…,y_n$$ can be thought as vectors in R like coin tosses.
+#### Functions on vectors
+A popular operation we perform on data is to take the average.
+To do this in R, we can use the `mean()` function
 
 ```r
 n <- 20
 coin <- c(0, 1)
 coin_tosses <- sample(coin, n, replace=TRUE)
-print(coin_tosses)
+mean(coin_tosses)
+```
+
+A few things to note:
+- Given each value is a 0 or 1, the averaeg is also the fraction of 1's
+in the vector.
+- `coin_tosses` is a collection of values that are all passed as **one input** into the function `mean()`. This is different from how `c()` took in multiple inputs that were separated by `,`.
+
+#### Elements of functions (big picture)
+```r
+coin <- c(0, 1)
+coin_tosses <- sample(coin, 10, replace=TRUE)
+coin_tosses
 ```
 
 `sample()` here is a function that is tossing the coin n times, it has a few components that you should be aware of
@@ -199,7 +276,8 @@ print(coin_tosses)
 [Exercise](exercises/r_function_elements.md)
 
 #### Inputs/arguments to functions
-Same example as before
+
+Same example as before:
 
 ```r
 n <- 20
@@ -207,13 +285,43 @@ coin <- c(0, 1)
 coin_tosses <- sample(coin, n, replace=TRUE)
 ```
 
-If you look into the documentation `?sample`. You should notice the order and names
-of the inputs/arguments:
+If you want to look into the documentation, run the code `?sample`.
+You should notice the order and names of the inputs/arguments:
 
 `sample(x, size, replace = FALSE, prob = NULL)`
+- Since multiple inputs exist, you can pass inputs into a function by name or by order. 
+    If we want to change the order of inputs for the code above, we can simply pass the
+    inputs in by name
+    ```r
+    coin_tosses <- sample(size=n, x=coin, replace=TRUE)
+    ```
+- Inputs with an `=` within the documentation often mean they have **default values**.
+    In other words, if we do not specify those inputs, the defaults will be used.
+    ```r
+    dice <- 1:6
+    # Notice that replace=FALSE guaratees no repeats!
+    sample(dice, size=4)
+    ```
 
-Here, arguments without an equal sign behind them do not have defaults.
+#### More detailed explanations on sample()
+Again from the documentation:
+`sample(x, size, replace = FALSE, prob = NULL)`
 
+- `x`: here is either a single number OR a vector with length greater than 1 (notice
+    this vector can contain numbers or other values), the function will behave
+    differently in these 2 cases.
+- `size`: this is the sample size which will determine the length of the
+    output (i.e. `coin_tosses` will be length `n` in this example)
+- `replace`: this can only take on 2 possible values: `TRUE` or `FALSE`.
+    If `TRUE`, the sampling from the vector `x` will be done **with replacement**
+    where `FALSE` means the sampling is done **without placement**. The implication
+    is that if `replace=FALSE` then `size` cannot be larger than the length of `x`
+- `prob`: prob is vector that indicates the probability for each element
+    in `x` (in order) to be picked. If `prob` is not specified, each element within
+    `x` will have the same probability of being picked.
+
+In general, only very popular functions will have good documentation and explanations.
+You should get comfortable "testing" funcrtions out to see what will happen vs not.
 
 {% include lib/mathjax.html %}
 
