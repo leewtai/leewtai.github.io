@@ -171,8 +171,10 @@ one variable. This type of data is called a **vector**.
 ```r
 dice <- c(1, 2, 3, 4, 5, 6)
 coin <- c("Head", "Tail")
+empty_vec <- c()
 print(dice)
 print(coin)
+print(empty_vec)
 ```
 
 A few things to note:
@@ -190,9 +192,11 @@ This is not the only way to create vectors. A common alternative is to use the `
 In statistics, we often talk about a sample of data, $$y_1, \dots, y_n$$ where
 $$n$$ is the sample size.
 
-In statistical computing, the corresponding equivalent is a numeric vector of length n where the first element in the vector is $$y_1$$, second element is $$y_2$$, etc.
+In statistical computing, the corresponding equivalent is a numeric vector
+of length n where the first element in the vector is $$y_1$$, second element is $$y_2$$, etc.
 
-The most basic random variable is the outcome of $$n$$ coin tosses where heads correspond to 1 and tails correspond to 0.
+The most basic random variable is the outcome of $$n$$ coin tosses where
+heads correspond to 1 and tails correspond to 0.
 
 To generate this kind of data, you could use the following commands:
 ```r
@@ -206,7 +210,7 @@ In the code above:
 - We've assigned the value 20 to the variable `n`
 - We've created a vector named `coin`, with 2 values, `0` and `1`.
 - We've then used the function `sample()` to generate n random numbers (0 or 1)
-    - We will talk more about this function later.
+  - We will talk more about this function later.
 
 #### Properties of vectors
 It's important to know the properties of vectors because different types of data
@@ -214,17 +218,17 @@ will have different properties and therefore limit how functions can interact wi
 
 Before continuing below, first define a variable called `dice <- c(1, 2, 3, 4, 5, 6)`
 - The number of elements within a vector is called its **length**
-    - `length(dice)`
+  - `length(dice)`
 - The type of the elements within a vector is the vector's **type** (implication is that elements within a vector must all share the same type).
-    - `class(dice)`
+  - `class(dice)`
 - You can subset different elements within the vector using `[]` (we will cover the idea of subsetting later)
-    - `dice[3]` grabs the 3rd element within the vector `dice`
-    - `dice[c(2, 3)]` grabs the 2nd and 3rd element within the vector, `dice`
+  - `dice[3]` grabs the 3rd element within the vector `dice`
+  - `dice[c(2, 3)]` grabs the 2nd and 3rd element within the vector, `dice`
 - You can change elements within a vector
-    - ```r
-      dice[1] <- 6
-      print(dice)
-      ```
+  - ```r
+    dice[1] <- 6
+    print(dice)
+    ```
 [Exercises](exercises/r_vector_properties.md)
 
 #### Biggest confusion in R
@@ -241,6 +245,8 @@ If you come from a programming background, `num_vec` is a single number where `n
 
 The metaphor is similar to an individual (`num_vec`) vs talking about a team with only one member `num_vec1`. These are 2 conceptually different things. However, **in R**, these are the same thing because the most basic element in R is a vector.
 
+EXERCISES TBW
+
 #### Functions on vectors
 A popular operation we perform on data is to take the average.
 To do this in R, we can use the `mean()` function
@@ -253,9 +259,11 @@ mean(coin_tosses)
 ```
 
 A few things to note:
-- Given each value is a 0 or 1, the averaeg is also the fraction of 1's
-in the vector.
-- `coin_tosses` is a collection of values that are all passed as **one input** into the function `mean()`. This is different from how `c()` took in multiple inputs that were separated by `,`.
+- Given each value is a 0 or 1, the average is also the fraction of 1's
+  in the vector.
+- `coin_tosses` is a collection of values that are all passed as **one input**
+  into the function `mean()`. This is different from how `c()` took in multiple
+  inputs that were separated by `,`.
 
 #### Elements of functions (big picture)
 ```r
@@ -267,11 +275,11 @@ coin_tosses
 `sample()` here is a function that is tossing the coin n times, it has a few components that you should be aware of
 - **Function name**: `sample`
 - **Inputs/arguments**: all values separated by `,` within the `()` are inputs to the function `sample`
-    - The first 2 values are passed in "by order" where the third value is passed in "by name". The function has a default order of how inputs are entered which is why the first 2 inputs do not need to be given a name explicitly. To know the order or the names, you would **need** to read the documentation for the function by running the code `?sample` in R.
+  - The first 2 values are passed in "by order" where the third value is passed in "by name". The function has a default order of how inputs are entered which is why the first 2 inputs do not need to be given a name explicitly. To know the order or the names, you would **need** to read the documentation for the function by running the code `?sample` in R.
 - **How inputs are passed to the function**: this is done via the `()` and the different inputs are separated by `,`.
 - The **consequence and/or output** of the function:
-    - In the example above, an output is generated and assigned into `coin_tosses`, by examining `coin_tosses`, you'll see that the output is a numeric vector of 0 and 1 values.
-    - Some functions do not produce "output" but have a consequence on the environment. For example, deleting a variable, changing your working directory (we will explain this more later), etc. 
+  - In the example above, an output is generated and assigned into `coin_tosses`, by examining `coin_tosses`, you'll see that the output is a numeric vector of 0 and 1 values.
+  - Some functions do not produce "output" but have a consequence on the environment. For example, deleting a variable, changing your working directory (we will explain this more later), etc. 
 
 [Exercise](exercises/r_function_elements.md)
 
@@ -290,38 +298,137 @@ You should notice the order and names of the inputs/arguments:
 
 `sample(x, size, replace = FALSE, prob = NULL)`
 - Since multiple inputs exist, you can pass inputs into a function by name or by order. 
-    If we want to change the order of inputs for the code above, we can simply pass the
-    inputs in by name
-    ```r
-    coin_tosses <- sample(size=n, x=coin, replace=TRUE)
-    ```
+  If we want to change the order of inputs for the code above, we can simply pass the
+  inputs in by name
+  ```r
+  coin_tosses <- sample(size=n, x=coin, replace=TRUE)
+  ```
 - Inputs with an `=` within the documentation often mean they have **default values**.
-    In other words, if we do not specify those inputs, the defaults will be used.
-    ```r
-    dice <- 1:6
-    # Notice that replace=FALSE guaratees no repeats!
-    sample(dice, size=4)
-    ```
+  In other words, if we do not specify those inputs, the defaults will be used.
+  ```r
+  dice <- 1:6
+  # Notice that replace=FALSE guaratees no repeats!
+  sample(dice, size=4)
+  ```
 
 #### More detailed explanations on sample()
 Again from the documentation:
 `sample(x, size, replace = FALSE, prob = NULL)`
 
 - `x`: here is either a single number OR a vector with length greater than 1 (notice
-    this vector can contain numbers or other values), the function will behave
-    differently in these 2 cases.
+  this vector can contain numbers or other values), the function will behave
+  differently in these 2 cases.
 - `size`: this is the sample size which will determine the length of the
-    output (i.e. `coin_tosses` will be length `n` in this example)
+  output (i.e. `coin_tosses` will be length `n` in this example)
 - `replace`: this can only take on 2 possible values: `TRUE` or `FALSE`.
-    If `TRUE`, the sampling from the vector `x` will be done **with replacement**
-    where `FALSE` means the sampling is done **without placement**. The implication
-    is that if `replace=FALSE` then `size` cannot be larger than the length of `x`
+  If `TRUE`, the sampling from the vector `x` will be done **with replacement**
+  where `FALSE` means the sampling is done **without placement**. The implication
+  is that if `replace=FALSE` then `size` cannot be larger than the length of `x`
 - `prob`: prob is vector that indicates the probability for each element
-    in `x` (in order) to be picked. If `prob` is not specified, each element within
-    `x` will have the same probability of being picked.
+  in `x` (in order) to be picked. If `prob` is not specified, each element within
+  `x` will have the same probability of being picked.
 
 In general, only very popular functions will have good documentation and explanations.
 You should get comfortable "testing" funcrtions out to see what will happen vs not.
+
+#### Avoiding repetitive tasks: for-loops
+In statistics, we often talk about probability as something happening over repeated trials.
+To emulate that, we can use **for-loops**.
+
+First, run a simple for-loop example in R:
+```r
+values_to_loop_over <- c(1, 5, 8)
+for(i in values_to_loop_over){
+    print(i)
+}
+```
+
+At this level, it's fine to think about the for-loop above as condensing this code:
+```r
+values_to_loop_over <- c(1, 5, 8)
+i = values_to_loop_over[1]
+print(i)
+i = values_to_loop_over[2]
+print(i)
+i = values_to_loop_over[3]
+print(i)
+```
+Notice how the repeated code is `print(i)`. This repeated piece will often
+become the body of the for-loop. On the otherhand, `i` is simply taking on
+the next value within `values_to_loop_over` for each loop/iteration. This
+slight change is controlled by whatever you provide in `values_to_loop_over`.
+
+[Exercise](exercises/r_forloop1.md)
+
+#### Common for-loops mistake - overwriting your variables
+For example, if we wanted to simulate 3 coin tosses but
+you were restricted to only using `sample(c(0, 1), 1)`, i.e.
+your function could only toss one coin at a time.
+
+A natural instinct is to write a loop like the following:
+```r
+arbitrary_vec <- 1:3
+for(i in arbitrary_vec){
+    coin_toss <- sample(c(0, 1), 1)
+}
+```
+
+The issue with this loop is that `coin_toss` is over-written from
+loop to loop because you can re-imagine the code as:
+```r
+arbitrary_vec <- 1:3
+i <- arbitrary_vec[1]
+coin_toss <- sample(c(0, 1), 1)
+i <- arbitrary_vec[2]
+coin_toss <- sample(c(0, 1), 1)
+i <- arbitrary_vec[3]
+coin_toss <- sample(c(0, 1), 1)
+```
+- Notice that `coin_toss` will only take on the final result from
+  `sample(c(0, 1), 1)` and the 2 previous coin_toss values are
+essentially discarded.
+- Notice also that `i` in this case does not serve any purpose
+  but is simply a side effect from the for-loop. Try typing in
+  `print(i)` after the for-loop above, you'll see that `i`
+  has taken up the final value in `arbitrary_vec`.
+
+#### Collecting outputs over each loop
+The issue above was that any variable **defined within the
+loop** will get overwritten in each loop.
+
+There are 2 strategies around this!
+- When overwriting a variable, the variable will do so by including
+  the output from the loop AND the variable itself.
+- Update a variable that was defined outside the loop.
+
+Below are examples for the 2 strategies using the same example before.
+At the end of the loop, notice how a variable `coin_tosses` will be
+created that will contain the results from the coin_tosses across
+each loop.
+
+Here's an example for the first strategy:
+```r
+arbitrary_vec <- 1:3
+coin_tosses <- c()
+for(i in arbitrary_vec){
+    coin_toss <- sample(c(0, 1), 1)
+    coin_tosses <- c(coin_tosses, coin_toss)
+}
+```
+- Notice in this case, we are leveraging `c()` to combine
+  the results 
+
+Here's an example for the second strategy:
+```r
+arbitrary_vec <- 1:3
+coin_tosses <- c()
+for(i in arbitrary_vec){
+    coin_toss <- sample(c(0, 1), 1)
+    coin_tosses[i] <- coin_toss
+}
+```
+
+
 
 {% include lib/mathjax.html %}
 
