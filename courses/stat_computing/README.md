@@ -33,6 +33,24 @@ so you could use R or Python for this in the future.
 
 In the current version, I'll focus on **R programming** for now.
 
+## Problem 1, How to simulate Law of Large Numbers?
+We will use the law of large numbers to motivate the following content
+in statistical computing.
+
+The law of large numbers says that sample averages based on a larger
+sample size will have a smaller standard error than a sample average
+based on a smaller sample size. Standard error here means the expected
+error of the sample average as an estimate for the population average.
+
+To accomlish this, you'll need to be able to
+- Create a collection of random data from a population
+- Assign the data to variables
+- Apply the average function over the data
+- Simulate the sample average multiple times
+- Collect the outcome from each simulation
+
+The following steps should lead you to that final step.
+
 #### Using programming as a calculator
 I'm assuming you've used a calculator before. Try out a few of the following
 calculations in the Jupyter Notebook. To run the code, highlight the cell,
@@ -67,17 +85,17 @@ If I were to run the following code:
 ```
 
 - read the code
-    - I see two `1`s are separated by a few white spaces
+  - I see two `1`s are separated by a few white spaces
 - anticipate the error/warning (or lack of error/warning)
-    - I expect R to not return a warning and just print out two 1's separated by the same number of white spaces
+  - I expect R to not return a warning and just print out two 1's separated by the same number of white spaces
 - run the code
-    - copy/paste the `1  1` into the Notebook and run it
+  - copy/paste the `1  1` into the Notebook and run it
 - read the error message
-    - `Error: unexpected numeric constant in "1  1"`
+  - `Error: unexpected numeric constant in "1  1"`
 - make sense of the error message
-    - This is not obvious! Ask the instructor/TA for an explanation.
-    - Instructor's attempt at explaining:
-        When R is interpreting that command, the error is referring to the second 1  being unexpected. After typing in the first 1 followed by spaces, R is anticipating you to operate with it like + , *, /, etc. However, it encounters the second 1 instead of what it was anticipating. R decided it could not interpret the intent of the command so it throws an error and does not run the command. You can verify by running `1  "a"` and see how the error message changes.
+  - This is not obvious! Ask the instructor/TA for an explanation.
+  - Instructor's attempt at explaining:
+    When R is interpreting that command, the error is referring to the second 1  being unexpected. After typing in the first 1 followed by spaces, R is anticipating you to operate with it like + , *, /, etc. However, it encounters the second 1 instead of what it was anticipating. R decided it could not interpret the intent of the command so it throws an error and does not run the command. You can verify by running `1  "a"` and see how the error message changes.
 
 [Exercises](exercises/r_make_mistakes.md)
 
@@ -151,18 +169,19 @@ A few things to note:
 
 #### What is a function?
 A function in programming is similar to a function in mathematics.
-Given inputs, it performs operations and (usually) returns an output.
+Given inputs, it performs some operations and (usually) returns an output.
 
 We've introduced calculator-like functions before like `log()` and `sin()`
 but functions can be more complex:
-- The inputs can be more complex than a single number
+- The inputs can be more complex than a single number (e.g. a matrix!)
 - They can take in multiple inputs
-- Functions can have defaults
+- Functions can have defaults, i.e. if you do not specify a significance level,
+  we often default to 5%.
 - Outputs can be more complex than a single number as well
 
 #### Creating data with functions
 Besides the usual calculator-like functions, the most basic functions
-are those that create a collection of values, this is how we will
+are those that create a **collection of values**, this is how we will
 represent "data" in programming. 
 
 For example, to make a dice with the 6 sides or a coin with the 2 sides,
@@ -184,7 +203,15 @@ A few things to note:
 - `c` is the function name
 - Functions that create data tend to be able to take in arbitrary number of inputs
 
-This is not the only way to create vectors. A common alternative is to use the `:` symbol that creates a sequence of numbers, incremented by `1`. For example: `1:4`
+This is not the only way to create vectors. There are two other common alternatives:
+- Creating a sequence of numbers, incremented by `1` using the `:` example
+  ```r
+  1:4
+  ```
+- Creating a vector by repeating another vector.
+  ```r
+  rep(1, 5)
+  ```
 
 [Exercises](exercises/r_vectors_basic.md)
 
@@ -209,17 +236,20 @@ print(coin_tosses)
 In the code above:
 - We've assigned the value 20 to the variable `n`
 - We've created a vector named `coin`, with 2 values, `0` and `1`.
-- We've then used the function `sample()` to generate n random numbers (0 or 1)
+- We've then used the function `sample()` to generate `n` random numbers (each 0 or 1)
   - We will talk more about this function later.
+- The key here is to know that vectors are the most basic form of data!
 
 #### Properties of vectors
-It's important to know the properties of vectors because different types of data
-will have different properties and therefore limit how functions can interact with them.
+It's important to know the properties of vectors because these
+properties limit how different functions can interact with them.
 
 Before continuing below, first define a variable called `dice <- c(1, 2, 3, 4, 5, 6)`
+
 - The number of elements within a vector is called its **length**
-  - `length(dice)`
-- The type of the elements within a vector is the vector's **type** (implication is that elements within a vector must all share the same type).
+  - Try running the code: `length(dice)`
+- The type of the elements within a vector is the vector's **type** (implication
+  of this statement is that elements within a vector must all share the same type).
   - `class(dice)`
 - You can subset different elements within the vector using `[]` (we will cover the idea of subsetting later)
   - `dice[3]` grabs the 3rd element within the vector `dice`
@@ -232,20 +262,25 @@ Before continuing below, first define a variable called `dice <- c(1, 2, 3, 4, 5
 [Exercises](exercises/r_vector_properties.md)
 
 #### Biggest confusion in R
-The most confusing thing about R is that most data are vectors, including a single number a vector of length 1.
+The most confusing thing about R is that a single value (e.g. a single number) is a vector of length 1.
 ```r
 num_vec <- 1.96
 num_vec1 <- c(1.96)
 num_vec == num_vec1
 class(num_vec) == class(num_vec1)
 print(num_vec[1])
+print(num_vec1[1])
 ```
 
-If you come from a programming background, `num_vec` is a single number where `num_vec1`, should be a vector with single element, the element happens to be a number. 
+If you come from a classic programming background, `num_vec` is a single number (scalar),
+where `num_vec1` should be a vector with single element, the element being a scalar. 
 
-The metaphor is similar to an individual (`num_vec`) vs talking about a team with only one member `num_vec1`. These are 2 conceptually different things. However, **in R**, these are the same thing because the most basic element in R is a vector.
+The analogy is similar to an individual (`num_vec`) vs a team with only one member (`num_vec1`).
+These are 2 conceptually different things.
 
-EXERCISES TBW
+However, **in R**, given its focus on data, the most basic element is a vector
+which can cause some unintuitive behaviors sometimes.
+
 
 #### Functions on vectors
 A popular operation we perform on data is to take the average.
@@ -311,6 +346,14 @@ You should notice the order and names of the inputs/arguments:
   sample(dice, size=4)
   ```
 
+#### How to read documentation in R
+Documentation is often not well written but here are a few tips:
+- Pay attention to the variable names. Most functions are written
+  so the meaning of the variables can help you understand the function.
+- Look at examples: what is entered, what is outputed. Most functions
+  are meant to be simple so a few examples can often help you decipher
+  different functions. R commonly has examples at the bttom of its documentation.
+
 #### More detailed explanations on sample()
 Again from the documentation:
 `sample(x, size, replace = FALSE, prob = NULL)`
@@ -346,11 +389,11 @@ for(i in values_to_loop_over){
 At this level, it's fine to think about the for-loop above as condensing this code:
 ```r
 values_to_loop_over <- c(1, 5, 8)
-i = values_to_loop_over[1]
+i <- values_to_loop_over[1]
 print(i)
-i = values_to_loop_over[2]
+i <- values_to_loop_over[2]
 print(i)
-i = values_to_loop_over[3]
+i <- values_to_loop_over[3]
 print(i)
 ```
 Notice how the repeated code is `print(i)`. This repeated piece will often
@@ -359,6 +402,22 @@ the next value within `values_to_loop_over` for each loop/iteration. This
 slight change is controlled by whatever you provide in `values_to_loop_over`.
 
 [Exercise](exercises/r_forloop1.md)
+
+#### Elements to the for-loop
+```r
+values_to_loop_over <- c(1, 5, 8)
+for(i in values_to_loop_over){
+    print(i)
+}
+
+The above loop has a few elements to consider:
+- First, the "body" of the loop are enclosed in `{}`
+- The `i` will be a the varaible that changes from loop to loop
+- The `values_to_loop_over` will control which values
+  `i` can take from loop to loop.
+- `for(? in ?){???}` is the basic structure that clarifies
+  the different roles within the code.
+
 
 #### Common for-loops mistake - overwriting your variables
 For example, if we wanted to simulate 3 coin tosses but
@@ -384,19 +443,18 @@ coin_toss <- sample(c(0, 1), 1)
 i <- arbitrary_vec[3]
 coin_toss <- sample(c(0, 1), 1)
 ```
-- Notice that `coin_toss` will only take on the final result from
+- Notice that `coin_toss` will only take on the final result for
   `sample(c(0, 1), 1)` and the 2 previous coin_toss values are
-essentially discarded.
+  essentially discarded.
 - Notice also that `i` in this case does not serve any purpose
-  but is simply a side effect from the for-loop. Try typing in
-  `print(i)` after the for-loop above, you'll see that `i`
-  has taken up the final value in `arbitrary_vec`.
+  but is simply a side effect from the for-loop.
 
 #### Collecting outputs over each loop
 The issue above was that any variable **defined within the
 loop** will get overwritten in each loop.
 
-There are 2 strategies around this!
+There are 2 strategies to overcome this issue (recall our goal is to
+create 3 coin tosses using a for-loop).
 - When overwriting a variable, the variable will do so by including
   the output from the loop AND the variable itself.
 - Update a variable that was defined outside the loop.
@@ -416,18 +474,231 @@ for(i in arbitrary_vec){
 }
 ```
 - Notice in this case, we are leveraging `c()` to combine
-  the results 
+  the results from previous `coin_tosses` (notice plural!)
+  with the newest `coin_toss`
+- Notice how `coin_tosses` is being overwritten in each loop
+- Notice that we needed to define `coin_tosses` before the loop
+- Notice how `i` still serves no purpose here!
 
 Here's an example for the second strategy:
 ```r
-arbitrary_vec <- 1:3
+sequential_integers <- 1:3
 coin_tosses <- c()
-for(i in arbitrary_vec){
+for(i in sequential_integers){
     coin_toss <- sample(c(0, 1), 1)
     coin_tosses[i] <- coin_toss
 }
 ```
+- Notice in this case, we are leveraging the "subset" operation
+  to update `coin_tosses` in each loop. 
+- Notice we needed to define `coin_tosses` before the loop!
+- Notice that, in R, you can subset for an index that is longer than the length of the vector. 
+  This is observable from the fact that `coin_tosses` start with length 0 then we update
+  the first element by **assigning** the output from `coin_toss` to the empty vector. Subsequence
+  updates are also subsetting indices longer than the vector to extend the vector.
+- To do this, we had to make sure that `i` is no longer looping
+  over arbitrary values but should be sequential integers to
+  update different values within `coin_tosses`
+- Notice how `i` now serves a purpose!
 
+[Exercises](exercises/r_forloop2.md)
+
+#### Special note on `c()`
+Above, we used the fact that given two vectors, `c()` will
+combine the inputs into a single vector. 
+
+This is logically consistent with how `c(1, 2, 6)` behaves
+because each number is also considered a vector of length 1.
+
+Given this, you need to think about `c()` as a function that
+combines multiple vectors into a single vector.
+
+#### First Statistical Simulation!
+We've learned:
+- How to create vectors that represents data, e.g. `sample()`
+- How to write a for-loop
+- How to apply functions on vectors, e.g. `mean()`
+
+Now we can run simulations for the Law of Large Numbers!
+
+The Law of Large Numbers says that sample averages with larger sample
+sizes will be "closer" to the population average. Instead of the standard
+error, however, we will use the mean absolute error for simplicity.
+
+To demonstrate this, we will use the following template. I encourage you to
+- Read the comments, code, variable names to get an overall understanding of the code
+- Update `sample_size` to 100 see the impact on the final result, this should align with
+  your understanding of the law of large numbers.
+- THEN go back and make sure you understand each line
+  - What operation is being done:
+    - assigning a new variable?
+    - subsetting?
+    - applying a function to a vector?
+    - is the output a vector of length 1 (single number) or more?
+
+```r
+# Creating the unknown population mean
+fair_coin <- c(0, 1)
+biased_coin <- sample(fair_coin, 7, replace=TRUE)
+population_avg <- mean(biased_coin)
+
+# We will change the sample size to see the impact on the final result
+sample_size <- 10
+
+# The loop contains the repeated process of calculating different samples,
+# calculating their corresponding sample averages, then calculating the
+# the absolute error from the true population average.
+abs_errors <- c()
+num_simulation <- 1000
+for(i in 1:num_simulation){
+    sim_sample <- sample(biased_coin, sample_size, replace=TRUE)
+    sample_avg <- mean(sim_sample)
+    abs_error <- abs(sample_avg - population_avg)
+    abs_errors[i] <- abs_error
+}
+
+# Finall, to evaluate "closeness" we will simply take the average
+# across all absolute errors, a smaller value here would indicate
+# "closer"
+mean(abs_errors)
+```
+
+Comment on the code: the code above is intentionally written in a very
+verbose fashion. 
+
+[Exercise](exercises/r_law_large_num.md)
+
+#### Best practices on writing for-loops for beginners
+In general, when you are about to write a for-loop, the **last thing**
+you want to write is the `for(){}` statement. 
+
+Given the law of large number example, the first things that should be
+written is the final result, the mean absolute error.
+```r
+mean_abs_error <- mean(abs_errors)
+```
+
+This line won't run because `abs_errors` is not defined yet. `abs_errors`,
+however, is a collection of different values of `abs_error`, otherwise
+the average operation wouldn't make sense.
+```r
+abs_errors <- c()
+i <- 1
+
+abs_errors[i] <- abs_error
+mean_abs_error <- mean(abs_errors)
+```
+
+Following the same logic, `abs_error` has not been defined yet.
+```r
+abs_errors <- c()
+i <- 1
+
+abs_error <- abs(sample_avg - population_avg)
+abs_errors[i] <- abs_error
+mean_abs_error <- mean(abs_errors)
+```
+
+Now `sample_avg` and `population_avg` are not defined.
+But both of these require us to define a population. This would
+normally be provided to you or defined by the problem context:
+```r
+fair_coin <- c(0, 1)
+biased_coin <- sample(fair_coin, 7, replace=TRUE)
+population_avg <- mean(biased_coin)
+
+sample_size <- 10
+
+abs_errors <- c()
+i <- 1
+
+sample_data <- sample(biased_coin, sample_size, replace=TRUE)
+sample_avg <- mean(sample_data)
+abs_error <- abs(sample_avg - population_avg)
+abs_errors[i] <- abs_error
+mean_abs_error <- mean(abs_errors)
+```
+
+Now we need to repeat the calculation with a for-loop.
+This requires us to replace the `i=1` since that will
+be defined by the for-loop instead.
+```r
+fair_coin <- c(0, 1)
+biased_coin <- sample(fair_coin, 7, replace=TRUE)
+population_avg <- mean(biased_coin)
+
+sample_size <- 10
+
+abs_errors <- c()
+for(i in 1:1000){
+    sample_data <- sample(biased_coin, sample_size, replace=TRUE)
+    sample_avg <- mean(sample_data)
+    abs_error <- abs(sample_avg - population_avg)
+    abs_errors[i] <- abs_error
+}
+mean_abs_error <- mean(abs_errors)
+```
+
+By fixing the naming afterwards, the code is finished!
+
+#### Problem 2 - data visualization
+The next task we need to learn is how to plot the data.
+Specifically, plotting the different trajectory of
+corn production for different states.
+
+To do this, we will need to learn about
+- Boolean vectors
+- Character vectors
+- Vectorized operations
+- Subsetting
+- Data frames
+- Plotting functions
+
+#### Subsetting
+Before, we taught about subsetting vectors using numerical vectors, e.g.
+```r
+arbitrary_data <- 10:15
+print(arbitrary_data[2])
+print(arbitrary_data[2:4])
+```
+
+But turns out you can subset using boolean vectors and character vectors.
+```r
+arbitrary_data <- 10:15
+names(arbitrary_data) <- c("a", "b", "x", "y", "z")
+print(arbitrary_data)
+print(arbitrary_data['a'])
+print(arbitrary_data[c('b', 'x', 'z')])
+
+bool_vec <- c(TRUE, TRUE, FALSE, FALSE, FALSE)
+print(arbitrary_data[bool_vec])
+```
+Things to notice:
+- To subset using character vectors, we had to change the "name"
+  for the different elements in the vector.
+- To subset using boolean vectors, the boolean vector needs
+  to be the same length as the original vector.
+
+#### What are character vectors?
+Character vectors are composed of character strings like `"a"`,
+`"hello"`, `c("statistical", "computing")`, etc
+
+Characters values can be used to change axis labels, create file
+names dynamically, or find keywords in job descriptions.
+
+A common function we'll use with characters is `paste0()` that
+combines different characters together.
+```r
+alphas <- c('a', 'b', 'c')
+paste0('file_', alphas, '.csv')
+```
+
+[Exercises](exercises/r_char_vectors.md)
+
+#### What are boolean vectors?
+Boolean values are `TRUE` or `FALSE` values.
+
+These are often created as a result of a conditional statement like `1 < 2`
 
 
 {% include lib/mathjax.html %}
