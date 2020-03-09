@@ -745,6 +745,7 @@ nums[c(FALSE, FALSE, TRUE, TRUE, TRUE)]
 
 [Exercises](exercises/r_boolean.md)
 
+
 #### Vectorized operations with vectors
 It is common to operate between a vector and a single value.
 For example, checking which numbers are larger than a certain value.
@@ -757,7 +758,8 @@ In the code above, `nums` is a vector of length 5. When compared
 to `3`, a constant, the comparison was carried out between each
 element in `nums` and the value `3` as in the following code:
 ```r
-large_than_3 <- c(1 > 3, 2 > 3, 3 > 3, 4 > 3, 5 > 3)
+larger_than_3 <- c(1 > 3, 2 > 3, 3 > 3, 4 > 3, 5 > 3)
+print(larger_than_3)
 ```
 
 The distribution of the operation across the vector is a form
@@ -767,6 +769,33 @@ nums <- 1:5
 print(nums - 3)
 print(nums * -1)
 ```
+
+#### Why bother with vectorized operations?
+- We can subset specific elements from a vector using the boolean vector created. This is common
+  in data cleaning or when you want to analyze a sub-population more closely.
+  ```r
+  nums <- 1:5
+  larger_than_3 <- nums > 3
+  print(nums[larger_than_3])
+  ```
+- We can create transformed data much faster, imagine the task of subtracting the mean from
+  a vector of data using a loop vs using vectorized operations:
+  ```r
+  data <- sample(c(0, 1), 10, replace=TRUE)
+  avg <- mean(data)
+
+  # Using vectorized operations (1 line!)
+  mean_0_data_vecop <- data - avg
+
+  # Using a for-loop (2-4 lines!)
+  mean_0_data_forloop <- c()
+  for(i in 1:length(data)){
+      mean_0_data_forloop[i] <- data[i] - avg
+  }
+
+  print(mean_0_data_vecop)
+  print(mean_0_data_forloop)
+  ```
 
 [Exercises](exercises/r_vectorized_ops.md)
 
@@ -786,6 +815,176 @@ Code|Operation|Example
 
 
 [Exercises](exercises/r_boolean_ops.md)
+
+
+#### Vectors again!
+Recall that vectors are a collection of data with a type and length.
+We mentioned that the data within a vector had to all belong to the
+same type before. We show that again here
+```r
+num_demo <- 1
+demo_vec <- c(num_demo, 'hello')
+class(num_demo) == class(demo_vec[1])
+```
+- Please examine the class of `demo_vec`
+- Why? Intuitively, vectorized operations only make
+  sense if we can perform the same operation on each element. Therefore
+  restricting each element to be the same in a vector is important for
+  us to be able to carry out efficient vectorized operations.
+
+[Exercises](exercises/r_vectors_same_class.md)
+
+#### Special data types - missing values
+A very special type of data is the missing data type and data types
+that are easily mistaken as missing values.
+
+The missing value data type is `NA` in R. Properties of `NA` include:
+- It can be any other data type
+  ```r
+  na_demo <- NA
+  num_vec <- c(na_demo, 1:5)
+
+  print(na_demo + 1)
+  print(mean(num_vec))
+  ```
+- Most operations with NA will propagate the NA downstream
+  ```r
+  na_demo <- NA
+  num_vec <- c(na_demo, 1:5)
+  char_vec <- c(na_demo, "hello")
+  
+  NA values can be any data type
+  print(class(na_demo))
+  print(class(num_vec[1]))
+  print(class(char_vec[1]))
+  ```
+- To check if a value is `NA`, you need to use the `is.na()` function
+  ```r
+  na_demo <- NA
+  num_vec <- c(na_demo, 1:5)
+
+  # is.na() with NA 
+  print(na_demo == NA)
+  print(is.na(na_demo))
+  
+  # Vectorizing is.na()
+  print(num_vec == NA)
+  print(is.na(num_vec))
+  ```
+
+#### What's the point of missing values?
+Missing values are **great defaults** because no data can be better than bad data.
+
+For example
+- When reporting rain data from weather stations,
+  defaulting data to 0 (i.e. no rain) seems sensible at times but then you lose the ability
+  to differentiate a confirmed 0 rain event or simply a loss in data.
+- When examing surveys with minorities, there can sometimes be missing
+  or only one respondent, in either case, "margin or error" calculations
+  are not possible and an NA is more appropriate than estimating the data.
+- When handling surveys with "non-response", you often want to be notified
+  if there are missing values. For example,
+  imagine a psychology survey where you have 3 questions asking about
+  people's well-being, and some people do not answer your question with
+  10% chance. Then you may want to know how many complete surveys you'll have.
+  ```r
+  sim_num <- 100
+  # Let 0 be disagree and 1 be agree to the survey question
+  survey_answers <- c(NA, 0, 1)
+  sim_avgs <- rep(NA, sim_num)
+  for(i in 1:sim_num){
+      sim_data <- sample(survey_answers,
+                         size=3,
+                         replace=TRUE,
+                         prob=c(0.1, 0.45, 0.45))
+      sim_avgs[i] <- mean(sim_data)
+  }
+  # Calculate the perfectage of cases that are NA
+  mean(!is.na(sim_avgs))
+  ```
+
+#### Next most common collective data type - Data Frames
+Data frames are most often thought of a collection of vectors,
+each capable of being a different type.
+```r
+student_roster <- data.frame(
+    student_id = 1:3,
+    family_name = c("Doe", "Lee", "Liang"),
+    given_name = c("John", "Billy", "Sally"),
+    dropped = c(TRUE, FALSE, FALSE)
+    )
+print(student_roster)
+print(class(student_roster))
+print(colnames(student_roster)) # colnames = column names
+print(dim(student_roster)) # dim = dimension
+print(length(student_roster))
+```
+Above, we create a data frame named `student_roster` with 4 different
+columns, 1 numeric, 2 character, and 1 boolean vector.
+
+Some things to note:
+- Unlike vectors, data frames can hold different types of data which is
+  very convenient like Excel Spreadsheets.
+- Notice that the `length()` argument corresponds to the number of columns,
+  we will learn why this is in the future.
+- Data frames have 2 dimensions, rows and columns
+
+[Exercises](exercises/r_data_frames.md)
+
+#### Subsetting different columns and rows
+Similar to vectors, you can subset data frames using the `[]` 
+operator but with some modifications.
+
+As a practice, try walking through the code below, line by line,
+to guess what's happening before being told what's happening!
+```r
+student_roster <- data.frame(
+    student_id = 1:3,
+    family_name = c("Doe", "Lee", "Liang"),
+    given_name = c("John", "Billy", "Sally"),
+    dropped = c(TRUE, FALSE, FALSE)
+    )
+# To get the 2nd column
+student_roster[, 2]
+# To get the 2nd row
+student_roster[2, ]
+# To subset by column
+student_roster[, c('family_name', 'given_name')]
+# To subset using booleans, e.g. those who have NOT dropped the class
+dropped <- student_roster[, "dropped"]
+student_roster[!dropped, ]
+```
+Things to notice:
+- Notice that similar rules apply to data frames as vector subsetting
+  - you can use different data types to subset, e.g. integers, characters, booleans
+  - booleans should share the same length as the number of rows or columns
+  - you can subset using a single value or a vector
+- To specify subsetting row vs column, you use the `,` within `[]` to differentiate the two cases.
+
+[Exercises](exercises/r_data_frames2.md)
+
+#### Reading data from existing files
+```r
+```
+
+#### Common errors when loading data
+
+#### stringsAsFactors=FALSE in data.frame() and read.csv()
+
+#### Plotting 
+#### Legends and axis labels
+#### Range of data
+#### points()
+#### Corn trajectories
+
+#### Saving plots with png()
+
+## Problem 3 - Data Wrangling
+#### Joining Data Frames
+#### Most flexible data type - list()
+#### Subsetting lists
+#### do.call()
+
 
 {% include lib/mathjax.html %}
 
