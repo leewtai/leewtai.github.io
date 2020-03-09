@@ -641,7 +641,7 @@ mean_abs_error <- mean(abs_errors)
 
 By fixing the naming afterwards, the code is finished!
 
-#### Problem 2 - data visualization
+## Problem 2 - data visualization
 The next task we need to learn is how to plot the data.
 Specifically, plotting the different trajectory of
 corn production for different states.
@@ -663,6 +663,7 @@ print(arbitrary_data[2:4])
 ```
 
 But turns out you can subset using boolean vectors and character vectors.
+We show some examples below but we will elaborate.
 ```r
 arbitrary_data <- 10:15
 names(arbitrary_data) <- c("a", "b", "x", "y", "z")
@@ -670,14 +671,26 @@ print(arbitrary_data)
 print(arbitrary_data['a'])
 print(arbitrary_data[c('b', 'x', 'z')])
 
-bool_vec <- c(TRUE, TRUE, FALSE, FALSE, FALSE)
+bool_vec <- c(FALSE, TRUE, TRUE, FALSE, TRUE)
 print(arbitrary_data[bool_vec])
 ```
 Things to notice:
+- The same "subset" operation could be achieved via different means.
 - To subset using character vectors, we had to change the "name"
   for the different elements in the vector.
 - To subset using boolean vectors, the boolean vector needs
   to be the same length as the original vector.
+
+#### Quick note on data types
+It is important to know data types in programming because
+- Many functions behave differently when it interacts with different types of data
+- Data types will help you understand many errors. 
+  The general philosophy in programming is to trigger errors/warnings early on
+  before it's too hard to find the mistake. So operations that are not sensible,
+  e.g. `1 + "a"`, will often produce an error to act as an enforcer of writing
+  logical code.
+- Certain data types are capable of different operations and wrangling
+  the data into the most suitable format will increase your efficiency.
 
 #### What are character vectors?
 Character vectors are composed of character strings like `"a"`,
@@ -693,13 +706,86 @@ alphas <- c('a', 'b', 'c')
 paste0('file_', alphas, '.csv')
 ```
 
+You can also give names to different elements
+```r
+num_rolls <- 5
+coin_tosses <- sample(c(1, 0), num_rolls, replace=TRUE)
+names(coin_tosses) <- paste0('toss', 1:num_rolls)
+print(coin_tosses)
+print(coin_tosses['toss5'])
+```
+
 [Exercises](exercises/r_char_vectors.md)
 
 #### What are boolean vectors?
 Boolean values are `TRUE` or `FALSE` values.
 
-These are often created as a result of a conditional statement like `1 < 2`
+These are often created as a result of a logical statements like `1 < 2`
 
+Boolean values can be used to identify outliers, filter data that belongs
+to a particular group (e.g. country), or control the flow of code (we'll
+explain this later).
+
+One important feature about boolean values is that they behave like 0 or 1 values
+when we perform arithmetic with them.
+```r
+TRUE + FALSE
+TRUE * FALSE
+FALSE + FALSE
+TRUE * 3
+sum(c(TRUE, TRUE, FALSE))
+```
+
+When using booleans to subset another vector, only the elements corresponding
+to the TRUE values will be kept
+```r
+nums <- 1:5
+nums[c(FALSE, FALSE, TRUE, TRUE, TRUE)]
+```
+
+[Exercises](exercises/r_boolean.md)
+
+#### Vectorized operations with vectors
+It is common to operate between a vector and a single value.
+For example, checking which numbers are larger than a certain value.
+```r
+nums <- 1:5
+larger_than_3 <- nums > 3
+print(larger_than_3)
+```
+In the code above, `nums` is a vector of length 5. When compared
+to `3`, a constant, the comparison was carried out between each
+element in `nums` and the value `3` as in the following code:
+```r
+large_than_3 <- c(1 > 3, 2 > 3, 3 > 3, 4 > 3, 5 > 3)
+```
+
+The distribution of the operation across the vector is a form
+of the vectorized operation. This can happen with other operations too:
+```r
+nums <- 1:5
+print(nums - 3)
+print(nums * -1)
+```
+
+[Exercises](exercises/r_vectorized_ops.md)
+
+#### Other Boolean Operators
+The most common logical statements are:
+
+Code|Operation|Example
+----|---------|-------
+`!`|negation of|`!TRUE`
+`>`|greater|`vec_demo <- 1:5`<br>`vec_demo > 2`
+`==`|equal|`vec_demo <- c("A", "B", "B")`<br>`vec_demo == "A"`
+`>=`|greater or equal|`vec_demo <- 1:5`<br>`vec >= 2`
+`<=`|less or equal|`vec_demo <- 1:5`<br>`vec <= 2`
+`!=`|Not equal|`vec_demo <- c("A", "B", "B")`<br>`vec_demo != "A"`
+`&`|and|`vec_demo <- 1:5`<br> `(vec_demo > 2) & (vec_demo >= 2)`
+`|`|or|`vec_demo <- 1:5`<br> `(vec_demo > 2) | (vec_demo >= 2)`
+
+
+[Exercises](exercises/r_boolean_ops.md)
 
 {% include lib/mathjax.html %}
 
