@@ -1,3 +1,5 @@
+#### Exercises
+
 - Define `coin <- c("head", "Tail")`
     - What is the length of `coin`
     - What is the data type for `coin`
@@ -13,3 +15,4 @@
 - What is the class and length of `mix_vec <- c(1, "tail")`
 - If I have the vector `dice <- c(6, 5, 4, 3, 2, 1)`, please define a variable named `small_dice`
     using `dice` and subsetting that is equivalent to `c(1, 2, 3)`. Hint: what does `dice[c(4, 3)]` return?
+- What is the length and class of an empty vector, `c()`?
