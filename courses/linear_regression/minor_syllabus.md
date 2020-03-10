@@ -49,17 +49,17 @@ Owen Ward: ogw2103
   |2020-03-12|[Cross Validation](https://us.edstem.org/courses/182/lessons/734/slides/3362)||Homework 4|
   |2020-03-17|Spring Recess No Class|||
   |2020-03-19|Spring Recess No Class|||
-  |2020-03-24|Simultaneous inference on regression estimates||Homework 5|
+  |2020-03-24|Interactions and polynomials||Homework 5|
   |2020-03-26|Review session|||
   |2020-03-31|Midterm 2|||
-  |2020-04-02|Categorical variables|||
+  |2020-04-02|Categorical variables in X|||
   |2020-04-07|Logistic regression|||
-  |2020-04-09|Changing significance when adding/deleting features|Text 4.1|Homework 6|
+  |2020-04-09|DAGs: Changing significance when adding/deleting features|Text 4.1|Homework 6|
   |2020-04-14|Weighted Least squares|||
   |2020-04-16|Wrong models in linear regression + instrumental variables|||
   |2020-04-21|Variable selection||Homework 7|
-  |2020-04-23|Data Quality|||
-  |2020-04-28|Real life practice|||
+  |2020-04-23|Variable selection|||
+  |2020-04-28|Data Quality|||
   |2020-04-30|Review session and wrap up||Homework 8|
   |[TBD](https://ssol.columbia.edu/cgi-bin/ssol/8qDDYeMUzcpWYvwaP3d6Sh/?p_r_id=8qDDYeMUzcpWYvwaP3d6Sh&p_t_id=1&tran%5B1%5D_tran_name=scel&tran%5B1%5D_term_id=20201&tran%5B1%5D_act=Update+View)||Final Exam|You!|
 
