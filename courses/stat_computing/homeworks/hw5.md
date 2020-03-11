@@ -1,4 +1,4 @@
-# HW5 - More data cleaning
+# HW5 - More data wrangling
 
 ## Q0 Correcting data format
 One of the students have had an issue loading data for a different class into R.
@@ -37,30 +37,73 @@ points are for context.
     print(convert_decimal('9_01', '_'))
     ```
   - Use the result above along with `as.numeric()` and possibly other functions, please subset out the problematic data point and print out its value.
-  - Please correct this value by overwriting it with an appropriate value. Appropriate here means that if you gave this data to someone else, they would know that this data point was corrupted.
+  - Please correct this value by overwriting it with an appropriate value. Appropriate here means that if you gave this data to someone else, they would know that some data points were corrupted if they calculated any statistics using it.
   - Please overwrite the column with the correct numeric data in the original data frame.
   - Please write the data out to a CSV file using `write.csv()` with the name `"better_formated_data.csv"` and make sure the argument `row.names=FALSE`.
-  - In 2 sentences, please describe what does `row.names=TRUE` do to the data in `write.csv()`?
+  - In 2 sentences, please describe what does `row.names=TRUE` do to the exported data from `write.csv()`?
   - Pleaes load the clean data using `read.csv('YOURPATH/better_formated_data.csv')`
   - Please plot the scatter plot with the first column on the x-axis and the second column on the y-axis. Please label the axes according to the names of the columns.
 
-Side comment: You should NOT correct the file `poorly_formatted_data.csv` directly because now your code records all the cleaning done to the data.
+Side comment: You should NOT correct the file `poorly_formatted_data.csv` directly because now your code records all the cleaning done to the data and now everyone can replicate your steps.
 
 ## Q1 Spatial data
 The government has been collecting weather information for quite some years and 
-a calibrated version of this data exists through [NOAA](https://www.ncdc.noaa.gov/ushcn/introduction).
+a calibrated version of [this data is maintained by NOAA](https://www.ncdc.noaa.gov/ushcn/introduction).
 
-In `hw5_spatia.zip` on Canvas, there are 3 station's data that was converted into a CSV file for
-you using a similar process to Q0 above. You could download the raw data in the future using
-the information under **Data Access** on the NOAA page. We will not work with the raw data yet.
+For this problem, imagine that you are a research intern for a climate scientist
+who wants to study the annual precipitation for different locations over time.
+
+In `hw5_spatia.zip` on Canvas, there are `k` station's data that was converted into a CSV file for
+you using a similar process to Q0 above. You could download the "raw" data in the future using
+the information under **Data Access** on the NOAA page (not CSVs!). We will not work with the raw data yet.
 
 Please download and unzip the file on Canvas (no need to use R to do this).
 This contains 2 types of csvs:
 - `station_metadata.csv`: this contains metadata for the station like location, state, etc.
-- Station measurements data in the format of `STATIONNAME.VARIABLE.csv`
+- Data on station measurements in the format of `STATIONNAME.VARIABLE.csv`
   - We are only using the US data so the station names begin with `USH` followed by 8 digits.
-  - The variables can be `prcp`, `tmax`, or `tmin` which stands for precipitation, maximum daily temperature, and minimum daily temperature.
+  - The variables can be `prcp`, `tmax`, or `tmin` which respectively stands for total **monthly** precipitation, monthly average of the daily maximum temperature, and monthly average of the daily minimum temperature.
+  - The columns `value0`, ..., `value11` correspond, respectively, to the January-December measurements.
+(If you want to understand these, please see the [NOAA website](https://www.ncdc.noaa.gov/ushcn/introduction), under "Data Access", there's a ftp hyperlink which has a readme.txt file with detailed explanations.)
 
-The above description is all for context and nothing needs to be done for them yet. The following questions intentionally gives fewer instructions than the past homeworks.
+The above description is all for context and nothing needs to be reported for them yet. The following questions intentionally gives fewer instructions than the past homeworks.
 
-- What are the different types of metadata within `station_metadata.csv`?
+- What are the names of the metadata columns within `station_metadata.csv`? 
+- What value represents missing values in these files?
+- How many stations are there in the zip file?
+- Please write the **code** that creates a single data frame that contains the **yearly
+  total precipitation** for each station in the zip file. The columns should represent
+  different stations, with the exception that the first column should record the "year"
+  information. Different rows should represent different years. Please make sure the `colnames()`
+  of the data frame are either "year" or the name of the station.
+  You should keep all data records, i.e. if an old station has data in the 1890 but no other station does, the final data frame should have a column for 1890. There should not be other pieces data in this data frame. For grading, please report
+  - **the dimensions** of your final data frame
+  - **the range of the years** covered in your data frame (range = max - min)
+  - **the number of missing values** in your data frame
+  - Please use `apply()` in your code to get the annual totals.
+  - Please treat missing values as 0 when calculating this total (side comment: think about how would you recommend to handle this in real life?)
+  - Hints/Warnings/Clarifications:
+    - Please first examine the data you have, the data you want, then think backwards.
+    - To get all files with a particular naming pattern in your current directory, hint: `list(pattern='tmax')`
+    - To help with subsetting repetitive names: `paste('hello', 0:3, sep="")` OR recall `grepl('dflag', c('dflag1', 'dflag2', 'value3'))`
+    - "total" means to add up the precipitation over different days.
+    - To grab the first `m` characters starting at the x'th index in a character value, `substring('hello', 1, 4)`
+    - You can overwrite the names of a data frame using the assignment operation `colnames(df) <- c('a', 'b', 'c)`
+    - How can you ensure the years are aligned across the different stations
+
+
+## Q2 tapply() or aggregate() practice
+Please summarize the data frame from Q1 to obtain the **decade total** precipitation for the different stations.
+- Please separate the years into different decades first, e.g. 1801-1810, 1811-1820, etc, then calculate the total
+precipitation.
+- Please use `tapply()` OR `aggregate()` to get the decade total precipitations.
+- Please treat missing values as 0 again.
+Hints:
+- To split the years into different factors
+  ```r
+  rand_nums <- sample(1:30, 5, replace=TRUE)
+  cut(rand_nums,
+      breaks=seq(0, 30, by=10),
+      include.lowest=TRUE)
+  ```
+  Notice that `(10, 20]` is the notation for an interval that includes 20 but does NOT include 10.
