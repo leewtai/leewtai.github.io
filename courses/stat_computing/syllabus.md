@@ -47,23 +47,23 @@ I reserve the right to change the ordering and the content for the course throug
 |2020-02-25|[lists](https://us.edstem.org/courses/181/lessons/771/slides/3536)|Text 4||
 |2020-02-27|[Data frames](https://us.edstem.org/courses/181/lessons/773/slides/3551) and [JOINS](https://us.edstem.org/courses/181/lessons/778/slides/3567)|Text 5||
 |2020-03-03|[*apply functions and vectorized calculations](https://us.edstem.org/courses/181/lessons/783/slides/3601)||[Homework 3](homeworks/hw3.md)|
-|2020-03-05|Data wrangling with Indeed job descriptions|||
-|2020-03-10|Data wrangling continued|||
-|2020-03-12|Bootstrap and cross validation||[Homework 4](homeworks/hw4.md)|
+|2020-03-05|[tapply, aggregate, and data wrangling](https://us.edstem.org/courses/181/lessons/802/slides/3701)|||
+|2020-03-10|Suspended due to University policy|||
+|2020-03-12|Data wrangling continued||[Homework 4](homeworks/hw4.md) due 3/13|
 |2020-03-17|Spring Recess No Class|||
 |2020-03-19|Spring Recess No Class|||
-|2020-03-24|Hypothesis testing and simulations|||
-|2020-03-26|Review session||Homework 5|
+|2020-03-24|Reading in data |||
+|2020-03-26|Review session||[Homework 5](homeworks/hw5.md)|
 |2020-03-31|Midterm 2|||
-|2020-04-02|Debugging|||
-|2020-04-07|Debugging 2|||
-|2020-04-09|Introduction to Version Control and Git||Homework 6|
-|2020-04-14|Scraping vs calling APIs|||
-|2020-04-16|String manipulation and parsing HTML|||
-|2020-04-21|Designing a data pipeline||Homework 7|
-|2020-04-23|Data Visualization ggplot()|[Online Tutorials](http://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html)||
-|2020-04-28|Putting things together|||
-|2020-04-30|Review session and wrap up||Homework 8|
+|2020-04-02|Bootstrap, simulations, and cross validation|||
+|2020-04-07|Bootstrap, simulations, and cross validation|||
+|2020-04-09|Debugging ||Homework 6|
+|2020-04-14|Introduction to Version Control and Git|||
+|2020-04-16|Scraping vs calling [APIs]|||
+|2020-04-21|String manipulation and parsing HTML||Homework 7|
+|2020-04-23|Designing a data pipeline|[Online Tutorials](http://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html)||
+|2020-04-28|Data Visualization ggplot()|||
+|2020-04-30|Putting things together and review||Homework 8|
 |[TBD](https://ssol.columbia.edu/cgi-bin/ssol/8qDDYeMUzcpWYvwaP3d6Sh/?p_r_id=8qDDYeMUzcpWYvwaP3d6Sh&p_t_id=1&tran%5B1%5D_tran_name=scel&tran%5B1%5D_term_id=20201&tran%5B1%5D_act=Update+View)||Final Exam|You!|
 
 
