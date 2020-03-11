@@ -40,24 +40,24 @@ Owen Ward: ogw2103
   |2020-02-11|[Properties of the regression coefficients](https://us.edstem.org/courses/182/lessons/670/slides/2979)|Text 2.7.2 + 2.7.3|Homework 2|
   |2020-02-13|[Diagnostics of SLR](https://docs.google.com/presentation/d/1_ydaxURpK2F-YkuGXKHxYF9rJ4bRAi6B9ftnyh_LXrM/edit?usp=sharing)|Text 3.1||
   |2020-02-18|Midterm 1|||
-  |2020-02-20|[Bootstrapping vs cross validation](https://us.edstem.org/courses/182/lessons/724/slides/3287)|||
+  |2020-02-20|[Bootstrapping](https://us.edstem.org/courses/182/lessons/724/slides/3287)|[Stanford Notes](http://statweb.stanford.edu/~tibs/sta305files/FoxOnBootingRegInR.pdf)||
   |2020-02-25|[Inferring the true line](https://us.edstem.org/courses/182/lessons/688/slides/3343)|Text 2.3||
   |2020-02-27|[Predicting new data points](https://us.edstem.org/courses/182/lessons/688/slides/3357)|Text 2.4||
   |2020-03-03|[Linear algebra view of linear regression](https://us.edstem.org/courses/182/lessons/765/slides/3496)|Text 5.2|Homework 3|
   |2020-03-05|[Simultaneous inference on coefficients](https://us.edstem.org/courses/182/lessons/767/edit/slides/3504)|||
-  |2020-03-10|[Issues with multiple variables](https://us.edstem.org/courses/182/lessons/770/slides/3524)|||
-  |2020-03-12|[Cross Validation](https://us.edstem.org/courses/182/lessons/734/slides/3362)||Homework 4|
+  |2020-03-10|Class suspended due to coronavirus|||
+  |2020-03-12|[Issues with multiple variables](https://us.edstem.org/courses/182/lessons/770/slides/3524)||Homework 4|
   |2020-03-17|Spring Recess No Class|||
   |2020-03-19|Spring Recess No Class|||
-  |2020-03-24|Interactions and polynomials||Homework 5|
+  |2020-03-24|[Cross Validation](https://us.edstem.org/courses/182/lessons/734/slides/3362)||Homework 5|
   |2020-03-26|Review session|||
   |2020-03-31|Midterm 2|||
-  |2020-04-02|Categorical variables in X|||
-  |2020-04-07|Logistic regression|||
-  |2020-04-09|DAGs: Changing significance when adding/deleting features|Text 4.1|Homework 6|
-  |2020-04-14|Weighted Least squares|||
-  |2020-04-16|Wrong models in linear regression + instrumental variables|||
-  |2020-04-21|Variable selection||Homework 7|
+  |2020-04-02|Interactions and polynomials|||
+  |2020-04-07|Categorical variables in X|||
+  |2020-04-09|Logistic regression|Text 4.1|Homework 6|
+  |2020-04-14|DAGs: Changing significance when adding/deleting features|||
+  |2020-04-16|Weighted Least squares|||
+  |2020-04-21|Wrong models in linear regression + instrumental variables||Homework 7|
   |2020-04-23|Variable selection|||
   |2020-04-28|Data Quality|||
   |2020-04-30|Review session and wrap up||Homework 8|
