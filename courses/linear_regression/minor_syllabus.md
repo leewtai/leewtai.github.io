@@ -49,8 +49,8 @@ Owen Ward: ogw2103
   |2020-03-12|[Issues with multiple variables](https://us.edstem.org/courses/182/lessons/770/slides/3524)||Homework 4|
   |2020-03-17|Spring Recess No Class|||
   |2020-03-19|Spring Recess No Class|||
-  |2020-03-24|[Cross Validation](https://us.edstem.org/courses/182/lessons/734/slides/3362)||Homework 5|
-  |2020-03-26|Review session|||
+  |2020-03-24|[Cross Validation](https://us.edstem.org/courses/182/lessons/734/slides/3362)|||
+  |2020-03-26|Review session||Homework 5|
   |2020-03-31|Midterm 2|||
   |2020-04-02|Interactions and polynomials|||
   |2020-04-07|Categorical variables in X|||
