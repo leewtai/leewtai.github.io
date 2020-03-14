@@ -236,7 +236,10 @@ print(coin_tosses)
 In the code above:
 - We've assigned the value 20 to the variable `n`
 - We've created a vector named `coin`, with 2 values, `0` and `1`.
-- We've then used the function `sample()` to generate `n` random numbers (each 0 or 1)
+- We've then used the function `sample()` to generate `n` random numbers (each 0 or 1).
+  (Not important yet: the `replace=TRUE` statement just means that each random number
+  is drawn from `coin` with replacement
+  so we can have a sample size that is larger than the total possible numbers.)
   - We will talk more about this function later.
 - The key here is to know that vectors are the most basic form of data!
 
@@ -244,7 +247,7 @@ In the code above:
 It's important to know the properties of vectors because these
 properties limit how different functions can interact with them.
 
-Before continuing below, first define a variable called `dice <- c(1, 2, 3, 4, 5, 6)`
+Before continuing below, first define a variable called `dice <- c(1, 3, 5, 2, 4, 6)`
 
 - The number of elements within a vector is called its **length**
   - Try running the code: `length(dice)`
@@ -301,15 +304,17 @@ A few things to note:
   inputs that were separated by `,`.
 
 #### Elements of functions (big picture)
+We will use our previous example with `sample()` to elaborate on the elements of a function.
 ```r
 coin <- c(0, 1)
 coin_tosses <- sample(coin, 10, replace=TRUE)
 coin_tosses
 ```
 
-`sample()` here is a function that is tossing the coin n times, it has a few components that you should be aware of
+`sample()` here is a function that is tossing the coin 10 times, it has a few components that you should be aware of
 - **Function name**: `sample`
-- **Inputs/arguments**: all values separated by `,` within the `()` are inputs to the function `sample`
+- **Inputs/arguments**: all inputs are separated by `,` within the `()`. These inputs to the function `sample`
+  often have names to help you understand their purpose.
   - The first 2 values are passed in "by order" where the third value is passed in "by name". The function has a default order of how inputs are entered which is why the first 2 inputs do not need to be given a name explicitly. To know the order or the names, you would **need** to read the documentation for the function by running the code `?sample` in R.
 - **How inputs are passed to the function**: this is done via the `()` and the different inputs are separated by `,`.
 - The **consequence and/or output** of the function:
@@ -350,9 +355,10 @@ You should notice the order and names of the inputs/arguments:
 Documentation is often not well written but here are a few tips:
 - Pay attention to the variable names. Most functions are written
   so the meaning of the variables can help you understand the function.
-- Look at examples: what is entered, what is outputed. Most functions
+- Look at examples: at the bottom of the R documentaiton often has examples.
+  Pay attention to what what is entered (vector of what type?), what is outputed. Most functions
   are meant to be simple so a few examples can often help you decipher
-  different functions. R commonly has examples at the bttom of its documentation.
+  different functions.
 
 #### More detailed explanations on sample()
 Again from the documentation:
@@ -372,7 +378,8 @@ Again from the documentation:
   `x` will have the same probability of being picked.
 
 In general, only very popular functions will have good documentation and explanations.
-You should get comfortable "testing" funcrtions out to see what will happen vs not.
+You should get comfortable "testing" functions to see what will happen vs not.
+
 
 #### Avoiding repetitive tasks: for-loops
 In statistics, we often talk about probability as something happening over repeated trials.
@@ -403,12 +410,13 @@ slight change is controlled by whatever you provide in `values_to_loop_over`.
 
 [Exercise](exercises/r_forloop1.md)
 
-#### Elements to the for-loop
+#### Elements of the for-loop
 ```r
 values_to_loop_over <- c(1, 5, 8)
 for(i in values_to_loop_over){
     print(i)
 }
+```
 
 The above loop has a few elements to consider:
 - First, the "body" of the loop are enclosed in `{}`
@@ -464,7 +472,7 @@ At the end of the loop, notice how a variable `coin_tosses` will be
 created that will contain the results from the coin_tosses across
 each loop.
 
-Here's an example for the first strategy:
+First strategy:
 ```r
 arbitrary_vec <- 1:3
 coin_tosses <- c()
@@ -480,7 +488,7 @@ for(i in arbitrary_vec){
 - Notice that we needed to define `coin_tosses` before the loop
 - Notice how `i` still serves no purpose here!
 
-Here's an example for the second strategy:
+Second strategy:
 ```r
 sequential_integers <- 1:3
 coin_tosses <- c()
@@ -642,9 +650,10 @@ mean_abs_error <- mean(abs_errors)
 By fixing the naming afterwards, the code is finished!
 
 ## Problem 2 - data visualization
-The next task we need to learn is how to plot the data.
-Specifically, plotting the different trajectory of
-corn production for different states.
+The next task we need to learn is how to plot the data. Data visualization
+is a powerful technique that often highlights useful patterns in the data.
+We will specifically try to plot the different trajectory of
+corn production for different states over the years.
 
 To do this, we will need to learn about
 - Boolean vectors
@@ -663,14 +672,17 @@ print(arbitrary_data[2:4])
 ```
 
 But turns out you can subset using boolean vectors and character vectors.
-We show some examples below but we will elaborate.
+We show some examples below:
 ```r
 arbitrary_data <- 10:15
 names(arbitrary_data) <- c("a", "b", "x", "y", "z")
 print(arbitrary_data)
+
+# Subsetting with character vectors
 print(arbitrary_data['a'])
 print(arbitrary_data[c('b', 'x', 'z')])
 
+# Subsetting with boolean vectors
 bool_vec <- c(FALSE, TRUE, TRUE, FALSE, TRUE)
 print(arbitrary_data[bool_vec])
 ```
@@ -690,7 +702,7 @@ It is important to know data types in programming because
   e.g. `1 + "a"`, will often produce an error to act as an enforcer of writing
   logical code.
 - Certain data types are capable of different operations and wrangling
-  the data into the most suitable format will increase your efficiency.
+  the data into the most suitable type will increase your efficiency.
 
 #### What are character vectors?
 Character vectors are composed of character strings like `"a"`,
@@ -726,8 +738,15 @@ Boolean values can be used to identify outliers, filter data that belongs
 to a particular group (e.g. country), or control the flow of code (we'll
 explain this later).
 
+When using booleans to subset another vector, only the elements corresponding
+to the TRUE values will be kept
+```r
+nums <- 1:5
+nums[c(FALSE, FALSE, TRUE, TRUE, TRUE)]
+```
+
 One important feature about boolean values is that they behave like 0 or 1 values
-when we perform arithmetic with them.
+when we perform **arithmetic** with them.
 ```r
 TRUE + FALSE
 TRUE * FALSE
@@ -736,15 +755,7 @@ TRUE * 3
 sum(c(TRUE, TRUE, FALSE))
 ```
 
-When using booleans to subset another vector, only the elements corresponding
-to the TRUE values will be kept
-```r
-nums <- 1:5
-nums[c(FALSE, FALSE, TRUE, TRUE, TRUE)]
-```
-
 [Exercises](exercises/r_boolean.md)
-
 
 #### Vectorized operations with vectors
 It is common to operate between a vector and a single value.
@@ -755,8 +766,8 @@ larger_than_3 <- nums > 3
 print(larger_than_3)
 ```
 In the code above, `nums` is a vector of length 5. When compared
-to `3`, a constant, the comparison was carried out between each
-element in `nums` and the value `3` as in the following code:
+to `3`, a constant, the comparison was carried out between **each
+element** in `nums` and the value `3` as in the following code:
 ```r
 larger_than_3 <- c(1 > 3, 2 > 3, 3 > 3, 4 > 3, 5 > 3)
 print(larger_than_3)
@@ -813,6 +824,23 @@ Code|Operation|Example
 `&`|and|`vec_demo <- 1:5`<br> `(vec_demo > 2) & (vec_demo >= 2)`
 `|`|or|`vec_demo <- 1:5`<br> `(vec_demo > 2) | (vec_demo >= 2)`
 
+For the `&` and `|` operation, it's especially important to understand:
+- Order of operations. Notice how we added `()` to ensure that the expressions
+  are evaluated into boolean terms between the `&` and `|` operation. Although
+  your code would run fine in R, it's best to be explicit in these cases.
+- The behavior with with different inputs:
+  - For the "and" operation, you'll get TRUE only if all the inputs
+    are TRUE, the outcome of `x&y` is:
+    `x & y`  | `y=TRUE` | `y=FALSE`
+    ---------|----------|----------
+    `x=TRUE` |`TRUE`    | `FALSE`
+    `x=FALSE`|`FALSE`   | `FALSE`
+  - For the "or" operation, you'll get TRUE as long as one input is TRUE,
+    the outcome of `x|y` is:
+    `x | y`  | `y=TRUE` | `y=FALSE`
+    ---------|----------|----------
+    `x=TRUE` |`TRUE`    | `TRUE`
+    `x=FALSE`|`TRUE`    | `FALSE`
 
 [Exercises](exercises/r_boolean_ops.md)
 
@@ -867,7 +895,7 @@ The missing value data type is `NA` in R. Properties of `NA` include:
   print(na_demo == NA)
   print(is.na(na_demo))
   
-  # Vectorizing is.na()
+  # is.na() is vectorized!
   print(num_vec == NA)
   print(is.na(num_vec))
   ```
@@ -899,7 +927,7 @@ For example
                          prob=c(0.1, 0.45, 0.45))
       sim_avgs[i] <- mean(sim_data)
   }
-  # Calculate the perfectage of cases that are NA
+  # Calculate the percentage of cases that are NA
   mean(!is.na(sim_avgs))
   ```
 
@@ -911,8 +939,8 @@ student_roster <- data.frame(
     student_id = 1:3,
     family_name = c("Doe", "Lee", "Liang"),
     given_name = c("John", "Billy", "Sally"),
-    dropped = c(TRUE, FALSE, FALSE)
-    )
+    dropped = c(TRUE, FALSE, FALSE),
+    stringsAsFactors=FALSE)
 print(student_roster)
 print(class(student_roster))
 print(colnames(student_roster)) # colnames = column names
@@ -920,13 +948,16 @@ print(dim(student_roster)) # dim = dimension
 print(length(student_roster))
 ```
 Above, we create a data frame named `student_roster` with 4 different
-columns, 1 numeric, 2 character, and 1 boolean vector.
+columns, 1 numeric, 2 character, and 1 boolean vector. The argument
+`stringsAsFactors=FALSE` was made to ensure character values remained
+characters because the default in R is to convert them into factors
+a different type of data we will introduce later.
 
 Some things to note:
 - Unlike vectors, data frames can hold different types of data which is
   very convenient like Excel Spreadsheets.
 - Notice that the `length()` argument corresponds to the number of columns,
-  we will learn why this is in the future.
+  we will learn why this is the case in the future.
 - Data frames have 2 dimensions, rows and columns
 
 [Exercises](exercises/r_data_frames.md)
@@ -942,17 +973,17 @@ student_roster <- data.frame(
     student_id = 1:3,
     family_name = c("Doe", "Lee", "Liang"),
     given_name = c("John", "Billy", "Sally"),
-    dropped = c(TRUE, FALSE, FALSE)
-    )
-# To get the 2nd column
+    dropped = c(TRUE, FALSE, FALSE),
+    stringsAsFactors=FALSE)
+# To get the 2nd column with integers
 student_roster[, 2]
-# To get the 2nd row
+# To get the 2nd row with integers
 student_roster[2, ]
-# To subset by column
+# To subset by column with character vectors
 student_roster[, c('family_name', 'given_name')]
 # To subset using booleans, e.g. those who have NOT dropped the class
-dropped <- student_roster[, "dropped"]
-student_roster[!dropped, ]
+dropped_class <- student_roster[, "dropped"]
+student_roster[!dropped_class, ]
 ```
 Things to notice:
 - Notice that similar rules apply to data frames as vector subsetting
@@ -964,14 +995,91 @@ Things to notice:
 [Exercises](exercises/r_data_frames2.md)
 
 #### Reading data from existing files
+The most common way to get a data frame is actually by reading in
+an existing file like [fisher_1927_grain.csv](data/fisher_1927_grain.csv) that
+contains the data from 1927 harvests with different treatments.
+
+Download the [fisher_1927_grain.csv](data/fisher_1927_grain.csv) file.
+The function to read in this data is `read.csv()`
 ```r
+df <- read.csv("~/Downloads/fisher_1927_grain.csv")
 ```
+A few things to know:
+- If you get an error, don't worry yet, we'll cover most cases later.
+- The code above assigns the data into a variable named `df`.
+- The input to `read.csv()` is a character that describes the path and name of the file.
+- `csv` stands for "comma separate value" which means each value in the file
+  is separated by a comma. If you read the file successfully though, notice
+  that you don't see any commas in the data.
 
 #### Common errors when loading data
+If you encoutered an issue when you tried to read in the file, here are
+some common mistakes that beginners do:
 
-#### stringsAsFactors=FALSE in data.frame() and read.csv()
+- Typo in function or file name, notice the error produced when the file
+  name or function name is misspelled
+  ```r
+  # Using "_" instead of "." in the function name
+  df <- read_csv("fisher_1927_grain.csv")
+  
+  # Misspelling the name has a different error!
+  df <- read.csv("fisher_1927_straw.csv")
+
+  # ODDLY, the filename is NOT case sensitive with R
+  df <- read.csv("FISHER_1927_grain.csv")
+  ```
+- Not knowing "where" the file is stored or R's working directory.
+  When you download a file, it is stored in a certain folder on your computer.
+  You need to be able to specify how R can find that file from its working folder.
+  - If R's working directory is in `"/Users/wayne/Documents/School/Spring2020/UN2102"`
+    and the data is under a folder called `"/Users/wayne/Documents/School/Spring2020/data"`
+    then in R, you would type out
+    - The relative path: `df <- read.csv("../data/fisher_1927_grain.csv")`.
+      The relative path is the file's location relative to R's working directory.
+      This indicates "go up one folder, then find a folder named data, then find
+      a file called fisher_1927_grain.csv"
+    - The absolute path: `df <- read.csv("/Users/wayne/Documents/School/Spring2020/data/fisher_1927_grain.csv")`.
+      The absolute path is the path from the root of your computer.
+  - To know what your current directory is, you can use the following functions:
+    - `getwd()`, running this without any arguments will tell you where R's working directory is
+      - The working directory is like "the folder" that R is working from
+    - `setwd('THE_PATH_YOU_WANT_TO_MOVE_TO')`, running this with the proper string
+      will help you move your working directory to the desired "folder"
+
+#### Arguments in read.csv()
+You should look at `?read.csv` to see the type of arguments that can change
+how the program reads your file. The function relies on the file to be properly
+formatted in a certain way to help differentiate different data values,
+numbers vs characters, and column headings etc. But if the file is formatted
+incorrectly, usually you can change a few settings by changing some arguments.
+
+The most popular arguments are:
+- `stringsAsFactors`: should strings be interested as factors? The default is `TRUE` but you
+  usually want this to be `FALSE` these days.
+- `sep`: the symbol that "separates" the data values, e.g. csv means the values are separated by `","`.
+  The common alternative is tab delimited values which would be `"\t"`.
+- `na.strings`: all strings that should be interested as missing values, the default is `"NA"`. Popular
+  alternatives include `-9999` or `""` (the empty string).
+- `header`: should the first line be interested as column names, default is `TRUE`
+
+#### Exploring Larger Data Frames
+In general, it's never good practice to "see all the data" as we do in Excel.
+With large datasets, I recommend you to use these functions:
+- `names(df)` to see the column names
+- `head(df)` or `tail(df)` to see the first or last few rows
+- `dim(df)` to see the dimension of the data frame
+- `class(df[, 1])` to see the class of different columns
+These are usually sufficient for you to start plotting for better understanding of the data.
 
 #### Plotting 
+Data visualization is a field in itself so we will only cover the basics for histograms and scatter plots.
+
+The first thing about plotting is to realize the number of choices available and how
+these choices can affect the interpretation or message of the graph.
+
+We will be working with the file [usda_i_state_corn_yields_cleaned.csv](data/usda_i_state_corn_yields_cleaned.csv)
+In the following examples. Download the file and read it in.
+
 #### Legends and axis labels
 #### Range of data
 #### points()
