@@ -975,12 +975,18 @@ student_roster <- data.frame(
     given_name = c("John", "Billy", "Sally"),
     dropped = c(TRUE, FALSE, FALSE),
     stringsAsFactors=FALSE)
+
 # To get the 2nd column with integers
 student_roster[, 2]
 # To get the 2nd row with integers
 student_roster[2, ]
+
 # To subset by column with character vectors
 student_roster[, c('family_name', 'given_name')]
+# A common alternative if you only need one column is to use "$" followed
+# by the column name without quotes
+student_roster$family_name
+
 # To subset using booleans, e.g. those who have NOT dropped the class
 dropped_class <- student_roster[, "dropped"]
 student_roster[!dropped_class, ]
@@ -1033,16 +1039,20 @@ some common mistakes that beginners do:
   You need to be able to specify how R can find that file from its working folder.
   - If R's working directory is in `"/Users/wayne/Documents/School/Spring2020/UN2102"`
     and the data is under a folder called `"/Users/wayne/Documents/School/Spring2020/data"`
-    then in R, you would type out
-    - The relative path: `df <- read.csv("../data/fisher_1927_grain.csv")`.
-      The relative path is the file's location relative to R's working directory.
-      This indicates "go up one folder, then find a folder named data, then find
-      a file called fisher_1927_grain.csv"
-    - The absolute path: `df <- read.csv("/Users/wayne/Documents/School/Spring2020/data/fisher_1927_grain.csv")`.
-      The absolute path is the path from the root of your computer.
-  - To know what your current directory is, you can use the following functions:
+    then in R, you could use 2 approaches:
+    1. The relative path: `df <- read.csv("../data/fisher_1927_grain.csv")`.
+       The relative path is the file's location relative to R's working directory.
+       The examples specifies "go up one folder, then find a folder named data, then find
+       a file called fisher_1927_grain.csv"
+    2. The absolute path: `df <- read.csv("/Users/wayne/Documents/School/Spring2020/data/fisher_1927_grain.csv")`.
+       The absolute path is the path from the root of your computer. This
+       can be used without knowing where R's working directory is.
+  - To know what your current directory is, you can use the following functions
+    (warning, the same folder name can appear under different branches of your
+    computer so be sure the path is aligned):
     - `getwd()`, running this without any arguments will tell you where R's working directory is
       - The working directory is like "the folder" that R is working from
+    - `list.files()`, this will show you which files can be observed in R's working directory.
     - `setwd('THE_PATH_YOU_WANT_TO_MOVE_TO')`, running this with the proper string
       will help you move your working directory to the desired "folder"
 
@@ -1069,7 +1079,30 @@ With large datasets, I recommend you to use these functions:
 - `head(df)` or `tail(df)` to see the first or last few rows
 - `dim(df)` to see the dimension of the data frame
 - `class(df[, 1])` to see the class of different columns
+
 These are usually sufficient for you to start plotting for better understanding of the data.
+
+#### The dataset - corn yields
+We will plot the corn yields over time. First, we need the data
+by downloading the file: [usda_i_state_corn_yields_cleaned.csv](data/usda_i_state_corn_yields_cleaned.csv).
+
+Follow the code below to get the recent (after year 2000) corn yields from Idaho.
+```r
+df <- read.csv("usda_i_state_corn_yields_cleaned.csv")
+states <- df$state_name
+years <- df$year
+is_idaho <- states == "IDAHO"
+after_2000 <- years > 2000
+
+idaho <- df[is_idaho & after_2000, ]
+dim(idaho)
+```
+
+A quick summary of the code above is:
+- We read in the corn yields into a variable called `df`
+- We create 2 boolean vectors, one that has TRUE for records from IDAHO and one that has TRUE for records
+  after the year 2000.
+- We use the 2 booleans to subset `df` by rows to get the records that were from Idaho and after 2000.
 
 #### Plotting 
 Data visualization is a field in itself so we will only cover the basics for histograms and scatter plots.
@@ -1077,10 +1110,21 @@ Data visualization is a field in itself so we will only cover the basics for his
 The first thing about plotting is to realize the number of choices available and how
 these choices can affect the interpretation or message of the graph.
 
-We will be working with the file [usda_i_state_corn_yields_cleaned.csv](data/usda_i_state_corn_yields_cleaned.csv)
-In the following examples. Download the file and read it in.
+```r
+plot(idaho$year, idaho$yield_bu_per_ac)
+```
+The code above generates a scatter plot where each point's
+x value is the year of the record and its y value is the
+`yield_bu_per_ac` of the record. Yield is the amount of
+corn produced (in units of bushels, shortened as `bu`) over
+the area required to produce it (in units of acres, shortened
+as `ac`). This should produce a plot like below:
+
+![idaho_after_2000_no_label](edu_images/idaho_no_label_post_2000.png)
 
 #### Legends and axis labels
+
+
 #### Range of data
 #### points()
 #### Corn trajectories
@@ -1091,6 +1135,7 @@ In the following examples. Download the file and read it in.
 #### Joining Data Frames
 #### Most flexible data type - list()
 #### Subsetting lists
+#### Writing your own function
 #### do.call()
 
 
