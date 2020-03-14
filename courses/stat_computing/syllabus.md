@@ -48,11 +48,11 @@ I reserve the right to change the ordering and the content for the course throug
 |2020-02-27|[Data frames](https://us.edstem.org/courses/181/lessons/773/slides/3551) and [JOINS](https://us.edstem.org/courses/181/lessons/778/slides/3567)|Text 5||
 |2020-03-03|[*apply functions and vectorized calculations](https://us.edstem.org/courses/181/lessons/783/slides/3601)||[Homework 3](homeworks/hw3.md)|
 |2020-03-05|[tapply, aggregate, and data wrangling](https://us.edstem.org/courses/181/lessons/802/slides/3701)|||
-|2020-03-10|Suspended due to University policy|||
+|2020-03-10|Class cancelled for social distancing|||
 |2020-03-12|Data wrangling continued||[Homework 4](homeworks/hw4.md) due 3/13|
 |2020-03-17|Spring Recess No Class|||
 |2020-03-19|Spring Recess No Class|||
-|2020-03-24|Reading in data |||
+|2020-03-24|Reading in different types of data|||
 |2020-03-26|Review session||[Homework 5](homeworks/hw5.md)|
 |2020-03-31|Midterm 2|||
 |2020-04-02|Bootstrap, simulations, and cross validation|||
