@@ -1310,6 +1310,7 @@ plot(1, type="n",
      xlim=x_range, ylim=y_range)
 for(i in seq_along(uniq_states)){
     is_target_state <- states == uniq_states[i]
+    # Subset only the records that correspond to the state of interest
     sub_df <- df[is_target_state, ]
     points(sub_df$year, sub_df$yield_bu_per_ac,
            col=colors[i], pch=16)
@@ -1366,16 +1367,219 @@ different colors according to a factor.
 [Exercises](exercises/r_factors.md)
 
 #### Corn trajectories
+Below we re-write the code from the for-loop above using factors.
+```r
+df <- read.csv("usda_i_state_corn_yields_cleaned.csv")
+states <- df$state_name
+print(class(states))
+colors <- c("red", "blue", "black", "purple")
+plot(df$year, df$yield_bu_per_ac,
+     pch=16,
+     xlab='Year', ylab='Yield (bu/ac)',
+     main='Corn Yields Increased across all i-States',
+     col=colors[states])
+legend('bottomright', legend=levels(states),
+       col=colors, pch=16)
+```
+![plot using factors](edu_images/usda_i_state_corn_yield_factors.png)
+
+What to notice:
+- Notice that all the data was used in `plot()` so we did not need to
+  specify the xlim or ylim values.
+- Notice that `colors[states]` is a character vector with the same length
+  as `states`
+- The code is much shorter this way!
 
 #### Saving plots with png()
+If you want to save an image file using code, you can surround the
+plotting code between a `png("FILE_NAME.png")` call and a `dev.off()` call.
+
+Warning, the code below will create 3 ".png" files in your working directory!
+```r
+colors <- c('red', 'blue', 'black')
+for(i in seq_along(colors)){
+    file_name <- paste0('test_plot_', colors[i], '.png')
+    png(file_name)
+    plot(1:4, 1:4, pch=1:4, col=colors[i])
+    dev.off()
+}
+list.files()
+```
+You do not need to have a for-loop to save the for-loops but this is 
+an example for you to create similar plots over different iterations.
+
+Note that a common mistake is that people forget the `dev.off()` call.
+
+[Exercise](exercise/r_png.md)
 
 ## Problem 3 - Data Wrangling
+Notice that a lot of our functions above rely on having the vectors
+having the same length and same element in different vectors corresponded
+to the same records.
+
+Sadly, data rarely comes in this format because this is rarely the most
+efficient format for storage or recording.
+
+For example, imagine my dental visits over several years. These are
+often done twice yearly and each visit would have a record of my dental health.
+However, my name, health insurance, phone number, address, etc would unlikely
+change over these visits. In this case, storing data in the data frame format would be
+wasteful because the columns corresponding to non-dental records would be repeated. 
+Because of these reasons, the raw data is rarely in a "rectangular" format
+(where the number of rows per column is the same).
+
+The task that converts the data between these non-rectangular formats (efficient for storage
+and measurement) into the rectangular formats (easy for analysis) is called
+data wrangling.
+
 #### Joining Data Frames
+There is a special type of wrangling that simply requires combining
+2 rectangular forms of data (tables) according to one or more columns of
+data. 
+
+For example, imagine the 2 tables below could be a small subset of
+your online start-up's data: one containing your users' more permanent information
+and one containing their activity information.
+
+![pre-join tables](edu_images/pre_join.png)
+
+You can imagine different analysis questions that require you to 
+combine the two tables together in different ways which we'll elaborate below.
+
+To create this data in R, you could run the following code:
+```r
+user <- data.frame(
+    user_id=c(1, 2, 3),
+    family_name=c("Snow", "Stark", "Stark"),
+    given_name=c("John", "Rob", "Arya"))
+activity <- data.frame(
+    user_id=c(1, 3, 5),
+    page_views=c(14, 20, 1))
+```
+
+#### Left/Right Joins
+This first type is a left join, where all 
+
+![left join](edu_images/left_join.png)
+
+```r
+left_join_df <- merge(user, activity,
+                      by='user_id', all.x=TRUE)
+left_join_df
+```
+What to notice:
+- If you tweaked the code around, you would have realized that
+  we didn't need to specify `by`. The default is to use the
+  overlapping column names between the 2 data frames to join
+  the data. But it is good practice to be explicit in these
+  cases. 
+- `all.x=TRUE` implies that you want to preserve all records
+  in the left data frame.
+- Notice that the record missing in the right data frame had
+  `NA` values filled in its place.
+
+A right join is simply the opposite, where you preserve all
+the records in the second data frame.
+![right join](edu_images/right_join.png)
+
+```r
+right_join_df <- merge(user, activity,
+                       by='user_id', all.y=TRUE)
+right_join_df
+```
+
+#### Inner/Outer Join
+An inner join is where only records existing in both data frames
+are preserved like below:
+
+![inner join](edu_images/inner_join.png)
+
+```r
+inner_join_df <- merge(user, activity, by='user_id')
+inner_join_df
+```
+
+An outer join is the opposite, as long as a record exists in
+one of the data frames, the final outcome will have have it.
+![outer join](edu_images/outer_join.png)
+
+```r
+outer_join_df <- merge(user, activity,
+                       by='user_id', all=TRUE)
+outer_join_df
+```
+
+#### Repeated values when joining
+One common issue when joining is when there are repeated values.
+
+Imagine an example with individual donations and individual voting
+patterns where some individuals have the same name.
+![repeated values in tables](edu_images/repeated_values_in_join.png)
+
+```r
+votes <- data.frame(
+    voted_for=c(1, 0, 1, 3),
+    family_name=c("Snow", "Lee", "Lee", "Lee"),
+    given_name=c("John", "John", "John", "John"))
+donations <- data.frame(
+    donation=c(100, 30),
+    FAMILY_NAME=c("Snow", "Lee"),
+    given_name=c("John", "John"),
+    candidate=c(1, 1))
+df <- merge(votes, donations,
+            by.x = c("family_name", "given_name"),
+            by.y = c("FAMILY_NAME", "given_name"))
+df
+```
+What to notice:
+- With no specifications with the `all`, `all.x`, or `all.y` arguments,
+  the default is to perform an inner join.
+- Read the output, notice that John Lee's donation is matched to both records
+  in the `votes` data frame.
+- If you do not want all possible matches to be joined together, you have to
+  de-duplicate the data before the merge.
+- One common way to notice if a repeated value was matched in your join is
+  when the number of rows from the inner join is larger than the number of rows
+  from either data frames that were used as inputs to `merge()`
+
+[Exercises TBW]()
+
 #### Most flexible data type - list()
+Back to the case where the data do not follow a rectangular format, data
+is often stored in a hierarchical format. In R, the most common format to 
+store this type of data is in a list.
+
+Lists are the most flexible data type that can contain other types of data.
+A list can contain different different types of data in each element, even another list.
+Moreover, unlike data frames, each element within a list does not have
+to have the same length as another element. This allows lists to be
+flexible but also relatively hard to work with as well.
+
+To construct a list, here's an example:
+```r
+dat <- list(
+  students=list(
+    studentA=list("wayne", "Columbia College", 2020),
+    studentB=list("wayne", "Engineering", 2019)
+  ),
+  class_title="UN2102",
+  class_cap=120
+)
+
+class(dat)
+length(dat)
+names(dat)
+```
+
+I personally visualize a list like a sequence of packages with possible labels on them.
+
 #### Subsetting lists
 #### Writing your own function
 #### do.call()
 
+#### Apply family functions
+
+## Problem 4 Data cleaning
 
 {% include lib/mathjax.html %}
 
