@@ -1559,8 +1559,8 @@ To construct a list, here's an example:
 ```r
 dat <- list(
   students=list(
-    studentA=list("wayne", "Columbia College", 2020),
-    studentB=list("wayne", "Engineering", 2019)
+    list(name="wayne", school="CC", graduation=2020),
+    list(name="wayne", school="ENG", graduation=2021)
   ),
   class_title="UN2102",
   class_cap=120
@@ -1572,9 +1572,129 @@ names(dat)
 ```
 
 I personally visualize a list like a sequence of packages with possible labels on them.
+![list as pacakges](edu_images/list_as_packages.png)
+
+What to notice?
+- Not all lists need to be given names (second layer)
+- Notice our first layer has a list, a character, and a numeric value in each of its elements
+- Notice that the different elements do not need to have the same length.
 
 #### Subsetting lists
+Continuing from the previous example, there are many ways to subsets the elements within a list.
+
+```r
+# Subset by integers
+dat_element1 <- dat[[1]]
+# Subset by character
+dat_element2 <- dat[['class_title']]
+dat_element3 <- dat$class_cap
+
+class(dat_element1)
+class(dat_element2)
+class(dat_element3)
+```
+This is the first time you've seen the double square bracket `[[]]`. 
+It's not clear what the difference until you compare this to subsetting a list using `[]`.
+For clarity, we will focus on the second element with the name of `"class_title"`
+
+```r
+dat_second_slice <- dat['class_title']
+
+print(dat_element2)
+print(dat_second_slice)
+
+class(dat_second_slice)
+```
+Notice how `[]` returned a list with the original name/tag of `"class_title"`,
+like a slice of the original list, where `[[]]` returned the character, the
+element within the list, and no longer has the name `"class_title"` associated with it.
+
+To continue our analogy to a "sequence of packages with possible labels", you
+can consider subsetting with `[]` returns a subset of the packages with their
+labels intact where subsetting with `[[]]` or `$` returns the contents **within** the package.
+
+To give a visual perspective, subsetting with `[]` returns the data like in the "red"
+box. Subsetting with `[[]]` and `$` returns the data in the "blue" box.
+![list diff subset](edu_images/list_diff_subset.png)
+
+#### How is this different from subsetting with vectors?
+You might be wondering how does this align with your understanding of
+vector subsetting.
+
+I hope you tried some code like below:
+```r
+demo_vec <- 1:5
+print(demo_vec[3])
+print(demo_vec[[3]])
+```
+Notice that the output from both cases are identical. However,
+the understanding that `[]` returns a **slice** of the original
+vector is still quite correct. The exception is that R does not
+really have a data type as a single number (recall the smallest element is
+a vector of length 1) so subsetting with `[[]]` returns the smallest
+possible type of data allowed.
+
+#### How is this different from subsetting with data frames?
+Again, let's try to create an example
+```r
+df <- data.frame(a=1:3, b=4:6, c=7:9)
+class(df[, 2:3])
+
+class(df[, 2])
+
+class(df[2:3, ])
+
+class(df[2, ])
+```
+Notice how subsetting with `[]` in all but one case returned a
+slide of the original data frame. The one exception is when we
+subset the columns using a vector of length 1. This is an example
+of R's user-friendly yet inconsistent behavior that bothers many programmers.
+This can actually be avoided with a simple argument `drop` in `[]`
+
+```r
+df <- data.frame(a=1:3, b=4:6, c=7:9)
+class(df[, 2, drop=FALSE])
+```
+
+#### Data frames are a special case of lists
+If you ever played around with subsetting data frames before, you
+might have noticed that columns in a data frame behave like elements
+within a list.
+
+```r
+df <- data.frame(a=1:3, b=4:6, c=7:9)
+df['b']
+df[['b']]
+df$b
+```
+In the above code, we are subsetting as if `df` is a list but
+the behavior is identical to how a list behaves. This is because
+data frames are a special case of lists where each element has the
+same length where lists do not have this restriction.
+
+#### Exploring a list with real Twtter data
+Here's an [example of data](data/twitter_standard_api_results.json)
+from [Twitter's Standard Search API](https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets)
+You can read this in using a library called `jsonlite`. Download
+the data like you did with the CSV, then try the code below:
+```r
+library(jsonlite)
+twitter <- read_json("twitter_standard_api_results.json")
+
+class(twitter)
+names(twitter)
+length(twitter)
+```
+Keeping the same analogy 
+
+```r
+
+```
+
 #### Writing your own function
+
+
 #### do.call()
 
 #### Apply family functions
