@@ -1105,10 +1105,8 @@ A quick summary of the code above is:
 - We use the 2 booleans to subset `df` by rows to get the records that were from Idaho and after 2000.
 
 #### Plotting 
-Data visualization is a field in itself so we will only cover the basics for histograms and scatter plots.
-
-The first thing about plotting is to realize the number of choices available and how
-these choices can affect the interpretation or message of the graph.
+Data visualization is a field in itself so we will only cover the basics for scatter plots, using
+the `plot()` function.
 
 ```r
 plot(idaho$year, idaho$yield_bu_per_ac)
@@ -1122,11 +1120,251 @@ as `ac`). This should produce a plot like below:
 
 ![idaho_after_2000_no_label](edu_images/idaho_no_label_post_2000.png)
 
-#### Legends and axis labels
+What to notice:
+- There is a positive trend between the yield and years
+- The x-axis label was inherited from the code passed into `plot()`
+- The y-axis label was inherited from the code passed into `plot()`
+- The range for x and y were automatically inferred from the data passed to `plot()`
 
+[Exercises](exercises/r_plot1.md)
+
+#### Axis labels and titles
+The first thing to modify about a plot is the axis labels and title.
+```r
+plot(idaho$year, idaho$yield_bu_per_ac,
+     xlab='Year', ylab='Yield (bu/ac)',
+     main='Idaho Corn Yields have Increased Since 2000')
+```
+![idaho_after_2000_labeled](edu_images/idaho_yields_by_years.png)
+
+What to notice:
+- The arguments: `xlab`, `ylab`, and `main` each take a character value
+- It is best practice to have units on your axis labels
+- Notice the title is larger than the axis labels by default
+
+#### Overlaying data with points()
+A common operation is to compare data across different sources on the same plot.
+We will add the data from Illinois to our plot above using `points()`
+```r
+is_illinois <- states == "ILLINOIS"
+after_2000 <- years > 2000
+
+illinois <- df[is_illinois & after_2000, ]
+
+plot(idaho$year, idaho$yield_bu_per_ac,
+     xlab='Year', ylab='Yield (bu/ac)',
+     main='Idaho Corn Yields have Increased Since 2000',
+     col="blue")
+points(illinois$year, illinois$yield_bu_per_ac,
+       col="red")
+```
+![idaho_with_illinois_after_2000](edu_images/point_demo_idaho_illinois.png)
+
+What to notice?
+- The new argument `col` assigns the same color to all points in the same
+  function and the color can be specified using a character vector.
+- `points()`, similar to `plot()` take in similar arguments (x, y coordinate
+  for the points plotted)
+- Notice that some years are missing for Illinois relative to Idaho. This
+  could be missing data for yields or the data could be out of the range of
+  Idaho. Again, the range of the plot is determined by the `plot()` function.
+  The `points()` function only adds points to the existing canvas.
+
+[Exercises](exercises/r_points.md)
 
 #### Range of data
-#### points()
+If you quickly check the range of the Illinois data, you'll notice that
+its lowest value is much lower than the Idaho values. This suggests that
+the plot above is censoring some of the data because its range is limited
+by the Idaho data.
+
+Turns out `plot()` allows you to tweak the range of the plot with arguments
+`xlim` and `ylim`:
+```r
+all_y_data <- c(idaho$yield_bu_per_ac, illinois$yield_bu_per_ac)
+y_range <- range(all_y_data) # This is a vector of length 2
+
+plot(idaho$year, idaho$yield_bu_per_ac,
+     xlab='Year', ylab='Yield (bu/ac)',
+     main='Idaho Corn Yields have Increased Since 2000',
+     col="blue", ylim=y_range)
+points(illinois$year, illinois$yield_bu_per_ac,
+       col="red")
+```
+
+![plot with corrected range](edu_images/IL_ID_with_low_pt.png)
+
+What to notice?
+- We only used the `ylim` argument because the years are the same
+- `ylim` expects a numeric vector of length 2, the first indicating the lower bound and the second indicating the upper bound.
+- Notice that we had to had to set the `ylim` argument with the `plot()` function call.
+- Notice that a viewer seeing out graph have no idea which the different colors represent.
+
+#### Starting with an empty plot
+A common plot strategy is to start with an empty plot, then
+add points() from different sources. 
+
+```r
+x_range <- range(idaho$year)
+
+plot(1, type="n",
+     xlab='Year', ylab='Yield (bu/ac)',
+     main='Idaho Corn Yields have Increased Since 2000',
+     xlim=x_range, ylim=y_range)
+points(idaho$year, idaho$yield_bu_per_ac,
+       col="blue", pch=16)
+points(illinois$year, illinois$yield_bu_per_ac,
+       col="red", pch=15)
+```
+Notice that the function call to `points()` is slightly repetitive
+which can be done with a for-loop later.
+
+Breaking the calls this way makes `plot()` handle the shared
+properties across data where `points()` will handle the
+point locations, colors, and plotting characters for different
+groups of the data. This division of responsibility for
+different functions is a good way to think about structuring your code.
+
+
+#### Legends
+To label the different points, we will use a legend.
+```r
+plot(1, type="n",
+     xlab='Year', ylab='Yield (bu/ac)',
+     main='ID/IL Corn Yields have Increased Since 2000',
+     xlim=x_range, ylim=y_range)
+points(idaho$year, idaho$yield_bu_per_ac,
+       col="blue", pch=16)
+points(illinois$year, illinois$yield_bu_per_ac,
+       col="red", pch=15)
+legend("bottomright", legend=c("Idaho", "Illinois"),
+       col=c("blue", "red"), pch=1)
+```
+
+![plot with legend](edu_images/IL_ID_legend.png)
+
+Here we introduced several arguments within the `legend()` function
+- The first argument is the location of the legend, choices are `bottomright`, `topright`, `bottomleft`, or `topleft`.
+- The `legend` argument is the text that should be displayed, this is often a character vector
+- `pch` is the plotting character for the different legend values, `0` happens to correspond
+  to a hollow point, this **can be a vector** so the different legends can take on
+  different plotting characters.
+- The `col` here is the color for the different plotting characters. This is usually a character
+  vector.
+- Notice that the order of `legend`, `pch`, and `col` need to align. A single value will be "recycled"
+  to match the other values passed to the function.
+
+#### Changing the property for each point with vectors
+Just like how each point can have its location specified using a vector,
+we can also use vectors to change each point's color and plotting character.
+
+For the example, we are switching away from real data for clarity
+```r
+plot(1:20, 1:20, pch=1:20)
+```
+![pch possibilities](edu_images/pch_1to20.png)
+
+Notice how each point has a different plotting character starting from 1 to 20.
+The same can be done with colors. Instead of using the usual character strings,
+we're going to use the `rgb()` function that specifies the amount of red, green,
+vs blue coloring.
+```r
+plot(1:5, 1:5, pch=16, col=c(rgb(0, 0, 0),
+                             rgb(1, 0, 0),
+                             rgb(0, 1, 0),
+                             rgb(0, 0, 1),
+                             rgb(0.9, 0.9, 0.9))
+    )
+```
+![pch possibilities](edu_images/color_rgb_demo.png)
+
+And you can change both at the same time:
+```r
+plot(1:5, 1:5, pch=c(1, 15, 16, 3, 17),
+     col=c(rgb(0, 0, 0), rgb(1, 0, 0),
+           rgb(0, 1, 0), rgb(0, 0, 1),
+           rgb(0.9, 0.9, 0.9))
+    )
+```
+![pch possibilities](edu_images/rgb_pch_demo.png)
+
+
+#### Plotting different states with different colors: for-loops
+Imagining carrying out the example above for the different
+states in our original dataset for [historical USDA corn yields](data/usda_i_state_corn_yields_cleaned.csv).
+Our example above was slightly tedious to type out so
+we will use the for-loop to handle the different states.
+
+```r
+df <- read.csv("usda_i_state_corn_yields_cleaned.csv")
+states <- df$state_name
+years <- df$year
+uniq_states <- unique(states)
+colors <- c("red", "blue", "black", "purple")
+
+x_range <- range(years)
+y_range <- range(df$yield_bu_per_ac)
+plot(1, type="n",
+     xlab='Year', ylab='Yield (bu/ac)',
+     main='Corn Yields Increased across all i-States',
+     xlim=x_range, ylim=y_range)
+for(i in seq_along(uniq_states)){
+    is_target_state <- states == uniq_states[i]
+    sub_df <- df[is_target_state, ]
+    points(sub_df$year, sub_df$yield_bu_per_ac,
+           col=colors[i], pch=16)
+}
+legend('bottomright', legend=uniq_states,
+       col=colors, pch=16)
+```
+
+#### Factors
+There's another strategy that can plot quickly for different subgroups
+using a special data type called factors.
+
+To give you an idea about the properties of factors:
+```r
+char_demo <- c("red", "yellow", "yellow", "green", "red")
+fac_demo <- as.factor(char_demo)
+class(fac_demo)
+# [1] "factor"
+
+# Property 1, factors have levels
+levels(fac_demo)
+# [1] "green"  "red"    "yellow"
+
+# Factors can be turned into numbers or characters
+print(fac_demo)
+print(as.numeric(fac_demo))
+print(as.character(fac_demo))
+```
+Notice how the numbers from `as.numeric` correspond to the order of the
+output from `levels()`. 
+
+Levels are a unique attribute of factors!
+
+A very special behavior in R is that if we try to subset with factors,
+it's like subsetting with numeric values (in particular, the value
+corresponding to the different levels)!
+```r
+levels(fac_demo)
+# Notice the actions are intentionally chosen
+# to be in order of the levels!
+traffic_actions <- c('go', 'stop', 'yield')
+print(traffic_actions[fac_demo])
+print(fac_demo)
+```
+
+You can imagine that what happened in the subsetting above is that
+the factors were turned into numbers (according to the order of their level),
+then they were used to subset the vector.
+
+What's new is that, before, we have not subsetted the same value multiple
+times. Here, we will use this behavior to help us assign the different points
+different colors according to a factor.
+
+[Exercises](exercises/r_factors.md)
+
 #### Corn trajectories
 
 #### Saving plots with png()
