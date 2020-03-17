@@ -12,18 +12,18 @@ points are for context.
 - Please find the data `poorly_formatted_data.csv` on Canvas, and load
   it into R using the following code.
   ```r
-  weird_data <- read.csv('YOUR_PATH/poorly_formatted_data.csv',
-                         stringsAsFactors=FALSE)
+  weird_data <- read.delim('YOUR_PATH/poorly_formatted_data.csv',
+                           stringsAsFactors=FALSE)
   ```
   - What is the dimension of this file?
   - Please show the first 5 records.
 - You should have noticed 2 issues. The decimal symbol and the symbol used
-  to separate different values are not what `read.csv()` expects.
+  to separate different values are not what `read.delim()` expects (this just separates values by tab rather than commas)
   - What symbol is being used instead of the usual `.` for decimals?
   - What is being used to separate the different columns?
 - `csv` is short for "comma separated values", turns out we can change
   the symbol that separates the values and the symbol that acts as the decimal point.
-  Find the arguments through the documentation `?read.csv` and try to load the data again with `read.csv()`:
+  Find the arguments through the documentation `?read.delim` and try to load the data again with `read.delim()`:
   - What is the dimension of this file?
   - What are the **names** and **classes** for the 2 different columns? Please use `lapply()` and `class()` to answer this in one line.
 - Your previous attempt should have a disappointing outcome. Turns out one value within your data does not follow the same format as other values which is causing the entire column to be interpreted incorrectly. To identify this value, there are many ways but we will take the 2 steps approach for this question: first try to convert the values into numerical values, then identify which value failed the conversion to fix the data.
