@@ -1686,14 +1686,96 @@ class(twitter)
 names(twitter)
 length(twitter)
 ```
-Keeping the same analogy 
+If you see an error, make sure you noticed the `_` instead of `.` in
+`read_json`.
+
+Keeping the same analogy, you can tell that `twtiter` is a sequence
+of 2 packages, one labeled `"statuses"` and the other as `"search_metadata"`.
+To explore further, iterate between subsetting and functions that
+explore the type of data.
 
 ```r
+class(twitter$search_metadata)
+names(twitter$search_metadata)
+length(twitter$search_metadata)
 
+class(twitter$search_metadata$query)
+length(twitter$search_metadata$query)
+twitter$search_metadata$query
 ```
 
-#### Writing your own function
+In the code above, we notice that `twitter` is at least a list with
+2 layers, we have found that the query used to create this dataset is "coronavirus".
+By repeating the process above, you can figure out the general 
+structure of the data without needing to print out all of the data at once.
 
+In general, the structure would be documented within a document.
+However, these are not always easy to understand unless you have been
+working with data for some time.
+
+#### Exploring a list with real Twtter data - continued
+If you explored further above, you would likely have deduced that the different
+"statuses" correpsond to the different tweets. So you can imagine that if we
+wanted to study tweets, we could want to create a data frame where the rows
+correspond to different tweets and the columns correspond to different features
+of the tweet like followers or retweets, etc.
+
+Here's some code to grab some features out of a tweet.
+```r
+tweet <- twitter$statuses$text
+retweet_count <- twitter$statuses[[1]]$retweet_count
+screen_name <- twitter$statuses[[1]]$user$screen_name
+follower_count <- twitter$statuses[[1]]$user$followers_count
+favorite_acount <- twitter$statuses[[1]]$favorite_count
+```
+Notice how under "user", there are many attributes associated with the user
+as well where tweets themselves have a different set of attributes.
+
+However, as the amount of data you want to extract increases, it might be
+better to create a function that extracts the data given an individual "status".
+
+#### Writing your own function
+Here we will talk about how to write a function so you can use it
+like `mean()` and `log()` etc.
+
+A common calculation in machine learning and physics is to calculate the
+percent error when you are prediction a quantity (e.g. the wind speed
+in the next hour, the demand for toilet paper in the next month, etc):
+
+$$100*\left|\frac{y - \hat{y}}{y}\right|$$
+
+In general, $$\hat{y}$$ would be what your algorithm/model predicted
+and $$y$$ would be the realized outcome (the actual data point).
+
+To translate this into code:
+```r
+perc_error <- function(prediction, data){
+    err <- prediction - data
+    abs_err <- abs(err / data) * 100
+    return(abs_err)
+}
+
+# Test out your function
+perc_error(90, 100)
+perc_error(-90, -100)
+```
+
+What to notice:
+- `perc_error` is the function name. You should not overwrite existing
+  functions like `c()`, `mean()`, etc.
+- `function( ){      }` is the skeleton for defining the extent of the
+  function.
+  - Values that go into `()` are the inputs/arguments to the function
+  - Code going between the `{}` will be ran everytime the function is called,
+    using the inputs provided.
+- `return()` is a special function that can only be run within a function.
+  In general, it's best to be explicit what value is being returned. This
+  will also terminate the function at hand.
+- Keep functions simple!
+- Test out the function, it's always best to test out the function on a small
+  example to make sure things behave as you expected.
+
+[Exercises](exercises/r_func1.md)
 
 #### do.call()
 
