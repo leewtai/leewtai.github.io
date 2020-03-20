@@ -1544,6 +1544,15 @@ What to notice:
 
 [Exercises TBW]()
 
+#### Joining a data frame with itself
+Some people like to talk about a data frame joining with itself to be a
+special case, it isn't. 
+
+This is common when you want to calculate the number of friends who are within
+2 degrees of separation away given a data frame that records the friendships,
+i.e. each row corresponds to a friendship (measured by Facebook status) and
+the 2 columns corresponding to 2 user IDs.
+
 #### Most flexible data type - list()
 Back to the case where the data do not follow a rectangular format, data
 is often stored in a hierarchical format. In R, the most common format to 
@@ -1776,6 +1785,64 @@ What to notice:
   example to make sure things behave as you expected.
 
 [Exercises](exercises/r_func1.md)
+
+#### if statements and error messages in functions
+If you did the exercises above, you should have noted that when you passed
+in a character value, the function would result in an error. The error,
+however, was not terribly informative.
+
+To fix this, we can add some checks that will return a much more informative
+message.
+```r
+perc_error <- function(prediction, data){
+    if(!is.numeric(data) | !is.numeric(prediction)){
+        stop('data and prediction must both be numeric values! Please check your inputs')
+    }
+    err <- prediction - data
+    abs_err <- abs(err / data) * 100
+    return(abs_err)
+}
+perc_error(90, "100")
+```
+What to know?
+- `if( ){   }` is a very common programming concept that runs certain lines of code
+only if a condition is satisfied. 
+  - What goes into `()` should be a single TRUE/FALSE value, if the value is TRUE,
+    then the code in `{}` will be run. If the value is FALSE, the code in `{}` will
+    be skipped.
+- `stop()` actually does 2 operations: 1) terminates the function and 2) prints
+  out a message based on the character value passed to it.
+
+#### if/else statements
+Another common code pattern with `if(){}` is coupled with an `else{}` statement. 
+For example, if `data = 0` in our example, we would result in an infinite percentage
+error. For this example, we're just going to return an `NaN` (Not a Number) when
+`data=0` and run the code as usual in other cases.
+
+```r
+perc_error <- function(prediction, data){
+    if(!is.numeric(data) | !is.numeric(prediction)){
+        stop('data and prediction must both be numeric values! Please check your inputs')
+    }
+
+    if(data == 0){
+        abs_err <- NaN
+    } else {
+        err <- prediction - data
+        abs_err <- abs(err / data) * 100
+    }
+    return(abs_err)
+}
+perc_error(0, 0)
+```
+What to notice?
+- Notice that the `else{}` is written immediately after the closing `}` from the
+  `if(){}` statement.
+- The code in the `else{}` statement will be run if the boolean value in the `if()`
+  statement is FALSE.
+
+IMPORTANT! if/else statements can exist outside of functions! They are common seen
+in functions or for-loops to help control the flow of the code depending on the context.
 
 #### do.call()
 
