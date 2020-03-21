@@ -10,7 +10,8 @@ between abstract concepts, mathematical formalism, and programming.
 An example is like "health of a nation" is a concept, infant mortality
 per 1000 births is one way to formalize a measure for a nation's health,
 where automating this report would require us to think about practical
-data collection, graphics, and reproducability.
+data collection (we will not touch the complicated topics of sampling, measurement, and compliance),
+graphics, and reproducability.
 
 To gain a better understanding of programming, we will cover the main
 concepts behind statistical computing that
@@ -20,6 +21,7 @@ concepts behind statistical computing that
 For example, we will introduce random numeric vectors relatively early on to reinforce
 concepts like the law of large numbers but we will not differentiate between
 integers, longs, vs doubles.
+
 
 #### My assumptions
 My assumption is that you have been exposed to
@@ -648,6 +650,15 @@ mean_abs_error <- mean(abs_errors)
 ```
 
 By fixing the naming afterwards, the code is finished!
+
+#### Review
+In this section, we have learned about
+- Vectors of numeric values
+- How to use built-in functions on vectors
+  - This includes functions that generate data
+  - This includes functions that summarizes data
+- for-loops
+
 
 ## Problem 2 - data visualization
 The next task we need to learn is how to plot the data. Data visualization
@@ -1412,6 +1423,16 @@ Note that a common mistake is that people forget the `dev.off()` call.
 
 [Exercise](exercise/r_png.md)
 
+#### Review
+- Subsetting vectors with numeric, character, and boolean values
+- New data type: booleans
+  - Operations with boolean values
+- Concept that the same function with different data types can behave differently
+- New data type: data frame
+- Reading in data from a .csv file
+- New data type: factors
+- `plot()`
+
 ## Problem 3 - Data Wrangling
 Notice that a lot of our functions above rely on having the vectors
 having the same length and same element in different vectors corresponded
@@ -1731,7 +1752,7 @@ of the tweet like followers or retweets, etc.
 
 Here's some code to grab some features out of a tweet.
 ```r
-tweet <- twitter$statuses$text
+tweet <- twitter$statuses[[1]]$text
 retweet_count <- twitter$statuses[[1]]$retweet_count
 screen_name <- twitter$statuses[[1]]$user$screen_name
 follower_count <- twitter$statuses[[1]]$user$followers_count
@@ -1744,7 +1765,7 @@ However, as the amount of data you want to extract increases, it might be
 better to create a function that extracts the data given an individual "status".
 
 #### Writing your own function
-Here we will talk about how to write a function so you can use it
+Here we detour from our example to talk about how to write a function just
 like `mean()` and `log()` etc.
 
 A common calculation in machine learning and physics is to calculate the
@@ -1817,15 +1838,16 @@ only if a condition is satisfied.
 Another common code pattern with `if(){}` is coupled with an `else{}` statement. 
 For example, if `data = 0` in our example, we would result in an infinite percentage
 error. For this example, we're just going to return an `NaN` (Not a Number) when
-`data=0` and run the code as usual in other cases.
+`data` is smaller than a certain threshold (exactly 0 can sometimes be rare)
+and run the code as usual in other cases.
 
 ```r
-perc_error <- function(prediction, data){
+perc_error <- function(prediction, data, threshold){
     if(!is.numeric(data) | !is.numeric(prediction)){
         stop('data and prediction must both be numeric values! Please check your inputs')
     }
 
-    if(data == 0){
+    if(abs(data) < threshold){
         abs_err <- NaN
     } else {
         err <- prediction - data
@@ -1833,6 +1855,10 @@ perc_error <- function(prediction, data){
     }
     return(abs_err)
 }
+
+perc_error(0, 0, 1e-10)
+perc_error(0, 1e-9, 1e-10)
+# Notice you'll get an error if you do not specify the threshold value.
 perc_error(0, 0)
 ```
 What to notice?
@@ -1840,15 +1866,269 @@ What to notice?
   `if(){}` statement.
 - The code in the `else{}` statement will be run if the boolean value in the `if()`
   statement is FALSE.
+- `1e-9` is the same as $$10^{-9}$$
 
 IMPORTANT! if/else statements can exist outside of functions! They are common seen
 in functions or for-loops to help control the flow of the code depending on the context.
 
-#### do.call()
+#### Default values in functions
+Sometimes it can be hard for users to know specify every value so it's nice to
+have some sensible defaults that can be overwritten by users.
 
-#### Apply family functions
+```r
+perc_error <- function(prediction, data, threshold=.Machine$double.eps){
+    if(!is.numeric(data) | !is.numeric(prediction)){
+        stop('data and prediction must both be numeric values! Please check your inputs')
+    }
 
-## Problem 4 Data cleaning
+    if(abs(data) < threshold){
+        abs_err <- NaN
+    } else {
+        err <- prediction - data
+        abs_err <- abs(err / data) * 100
+    }
+    return(abs_err)
+}
+
+perc_error(0, 1e-11, 1e-10)
+perc_error(0, 1e-11)
+```
+What to notice?
+- To introduce the default, we do so at the time of defining the function using the `=`
+  to assign a sensible value to the variable.
+- Some people set defaults to `NA` or `NULL` then use `if(){}` statements to catch
+  these values, then use the other inputs to calculate sensible defaults. An example
+  of this is how `xlim` and `ylim` arguments are set in `plot()`.
+- (Advanced, don't worry if you don't get it) Some people's computers can handle
+  more decimals than others (recall computers cannot truly have an infinite level of
+  precision), then you could have set `threshold=.Machine$double.eps` so the 
+  `threshold` argument will be dependent on the users' computer.
+
+#### Incrementally writing a function
+Similar to writing loops, you never want to start writing a function with `function(){}`.
+
+That said, let's return to our original problem of extracting data from the
+[raw Twitter data](data/twitter_standard_api_results.json), starting with the code we had initially
+```r
+library(jsonlite)
+twitter <- read_json("twitter_standard_api_results.json")
+
+tweet <- twitter$statuses[[1]]$text
+retweet_count <- twitter$statuses[[1]]$retweet_count
+screen_name <- twitter$statuses[[1]]$user$screen_name
+follower_count <- twitter$statuses[[1]]$user$followers_count
+favorite_acount <- twitter$statuses[[1]]$favorite_count
+```
+
+To convert this into a function, first identify the input and output:
+- The common source for all of the features is `twitter$statuses[[1]]`
+- It's probably best that we have all of the different features collected
+  as different columns in a data frame to facilitate plotting later (e.g. if we
+  want to study the relationship between retweets and followers).
+
+I would then rewrite the code as:
+```r
+status <- twitter$statuses[[1]]
+out <- data.frame(
+    tweet = status$text,
+    retweet_count = status$retweet_count,
+    screen_name = status$user$screen_name,
+    follower_count = status$user$followers_count,
+    favorite_acount = status$favorite_count)
+```
+
+After testing it out (i.e. the output is as expected), I would now
+formally define the function and test it:
+
+```r
+extract_twitter_status <- function(status){
+    out <- data.frame(
+        tweet = status$text,
+        retweet_count = status$retweet_count,
+        screen_name = status$user$screen_name,
+        follower_count = status$user$followers_count,
+        favorite_acount = status$favorite_count)
+    return(out)
+}
+extract_twitter_status(twitter$statuses[[1]]) 
+```
+
+Now we can extract all the tweets (a repetitive task) with a for-loop.
+```r
+twitter_key_feats <- list()
+statuses <- twitter$statuses
+
+for(i in seq_along(statuses)){
+    status <- statuses[[i]]
+    twitter_key_feats[[i]] <- extract_twitter_status(status)
+}
+```
+What to notice?
+- Notice how writing the function allows you to isolate the extraction logic,
+  navigating a single status, from the for-loop logic, iterating over `statuses`.
+- Comment: our code above is slightly verbose because of the two topics we
+  we want to introduce later.
+
+#### Distribute/map the function using lapply()
+A cleaner way to write the code above, is to use the `lapply()` function.
+```r
+statuses <- twitter$statuses
+twitter_key_feats <- lapply(statuses, extract_twitter_status)
+```
+The first argument to `lapply()` is a list, the second input is a function.
+What happens is `lapply()` will apply the function on each **element** in the
+list provided and return the output in a list format. To visualize what is
+`lapply()` doing, you can see the following image.
+
+![lapply visualization](edu_images/lapply_visualized.png)
+
+What to notice?
+- The input data is a list, the output data is a list
+- The length of the input is the length of the output
+- The same function is "distributed" across each element within the list
+- (Not obvious) the element is passed as the **first** argument to the function.
+
+Notice that the code is much cleaner and does not require you to create a variable
+up front like for-loops. The trade-off is that for-loops still enjoy more flexibility
+because `lapply()` relies on the individual elements to follow a similar format
+for the function to work properly.
+
+#### What if the function takes in more than one arugment for lapply()?
+To demonstrate how to pass extra arguments to functions with
+`lapply()`, we will add a bit of logic to `extract_twitter_status()` to
+control the `stringsAsFactors` argument in `data.frame()`
+
+```r
+extract_twitter_status <- function(status, stringsAsFactors=TRUE){
+    out <- data.frame(
+        tweet = status$text,
+        retweet_count = status$retweet_count,
+        screen_name = status$user$screen_name,
+        follower_count = status$user$followers_count,
+        favorite_acount = status$favorite_count,
+        stringsAsFactors=stringsAsFactors)
+    return(out)
+}
+
+twitter_key_feats <- lapply(statuses, extract_twitter_status)
+print(class(twitter_key_feats[[1]]$tweet))
+twitter_key_feats <- lapply(statuses, extract_twitter_status, stringsAsFactors=FALSE)
+print(class(twitter_key_feats[[1]]$tweet))
+twitter_key_feats <- lapply(statuses, extract_twitter_status, FALSE)
+print(class(twitter_key_feats[[1]]$tweet))
+```
+What to notice:
+- Notice that to specify the argument, we can do so by specifying the argument by name
+  or just let the argument be treated as "the 2nd argument" to the function.
+- The argument was passed using a comma after the function itself. `lapply()` will
+  will handle how the functions and arguments are put together.
+
+
+#### Combine/reduce the outputs together with do.call()
+The code above creates a list where each element contains a data frame of a single
+row. To facilitate our usual analysis, it would be ideal to combine these different
+rows into a single data frame. This can be done easily with a function named `do.call()`
+
+First, a small demo:
+```r
+demo_list <- list(1, 2:4, c(5, 6))
+print(demo_list)
+do.call(c, demo_list)
+```
+
+The first argument to `do.call()` is a **function** that will "combine" the elements
+within the second argument (commonly a list). The functions that can combine
+multiple values are usually functions that can take in arbitrary arguments like
+`c()`, `data.frame()`, `list()`, etc.
+
+A nice visual for this would be:
+![visualized do.call](edu_images/do_call_visualized.png)
+
+2 other functions worth knowing that have this capability are `rbind()`, combining
+the elements by row (vertically), or `cbind()`, combining the elements by column
+(horizontally). The fastest way is to try them out!
+
+```r
+demo_list <- list(1:2, 2:3, 3:4)
+rbind_out <- do.call(rbind, demo_list)
+cbind_out <- do.call(cbind, demo_list)
+print(dim(rbind_out))
+print(dim(cbind_out))
+```
+
+[Exercises](exercise/r_do_call.md)
+
+#### Using do.call() on the output of lapply()
+It's very common to combine `lapply()` and `do.call()` together.
+So to create a data frame where each row contains the information
+from each tweet, then we can just do:
+
+```r
+library(jsonlite)
+twitter <- read_json("twitter_standard_api_results.json")
+statuses <- twitter$statuses
+twitter_key_feats <- lapply(statuses,
+                            extract_twitter_status,
+                            stringsAsFactors=FALSE)
+df <- do.call(rbind, twitter_key_feats)
+```
+What to notice?
+- Notice how few lines it took to turn the hierarchical data to a rectangular format
+- Notice how isolating the logic in `extract_twitter_status` keeps the overall flow
+  clean.
+
+#### Why did we bother?
+Now that you've created a data frame, you can do the usual calculations and plots.
+
+```r
+# What is the average number of followers among our dataset?
+mean(df$follower_count)
+cor(df$follower_count, df$retweet_count)
+plot(df$follower_count, df$retweet_count)
+```
+
+#### Review
+What did we learn?
+- The different joins via `merge()`
+- A new data type `list`
+  - The relationship between data frames and lists
+  - Why we have hierarchical data types
+- Writing custom functions in R
+  - default values in R
+- `lapply()` and `do.call()`
+- General concept of data wrangling - manipulating data from one
+  format to another format.
+  - The desired format is defined by "what do you want to do?" For example,
+    you want to use `plot()` without needing to loop over the hierarchical
+    dataset everytime. Since the function expects vectors as inputs for the
+    different records, you would benefit a lot from formating a data frame
+    with the different features.
+  - The key skill to gain is a clear mental map of the existing dataset
+    and a similarly clear idea for the resulting dataset.
+  - JOINs are a special case of wrangling because you have multiple datasets
+    that need to be combined to answer your questions.
+
+
+## Problem 4 quickly summarizing data
+Notes to self, Fisher -> apply, aggregate, 
+
+
+farming progress -> text manipulation, debug, mapply()
+
+
+#### Identifying the presence of key words with grepl()
+A common operation is to check for the presence of a key word
+within a piece of text.
+```r
+grepl("taboo", c("Taboo is a game", "where saying the forbidden words is taboo."))
+```
+What to notice?
+- `grepl()` is a function we will elaborate more in the future. But here
+  it simply looks for the word "taboo" (1st input) within the different character values
+  within the character vector (2nd input). Notice how it is case sensitive!
+- The output is the same length as the character vector you passed in,
+  each being TRUE/FALSE.
+
 
 {% include lib/mathjax.html %}
 
