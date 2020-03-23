@@ -46,19 +46,19 @@ Owen Ward: ogw2103
   |2020-03-03|[Linear algebra view of linear regression](https://us.edstem.org/courses/182/lessons/765/slides/3496)|Text 5.2|Homework 3|
   |2020-03-05|[Simultaneous inference on coefficients](https://us.edstem.org/courses/182/lessons/767/edit/slides/3504)|||
   |2020-03-10|Class suspended due to coronavirus|||
-  |2020-03-12|Issues with multiple variables [notes](https://us.edstem.org/courses/182/lessons/770/slides/3524) and [lecture - can bad features hurt](https://vimeo.com/398651931) and [lecture - collinearity](https://vimeo.com/398652055)||Homework 4|
+  |2020-03-12|[Issues with multiple variables](https://us.edstem.org/courses/182/lessons/770/slides/3524) and [lecture - can bad features hurt](https://vimeo.com/398651931) and [lecture - collinearity](https://vimeo.com/398652055)||Homework 4|
   |2020-03-17|Spring Recess No Class|||
   |2020-03-19|Spring Recess No Class|||
-  |2020-03-24|Cross Validation [notes](https://us.edstem.org/courses/182/lessons/734/slides/3362) and [lecture](https://vimeo.com/398680410)|||
-  |2020-03-26|Review session||Homework 5|
-  |2020-03-31|Midterm 2|||
-  |2020-04-02|Interactions and polynomials|||
-  |2020-04-07|Categorical variables in X|||
-  |2020-04-09|Logistic regression|Text 4.1|Homework 6|
-  |2020-04-14|DAGs: Changing significance when adding/deleting features|||
+  |2020-03-24|Class cancelled|||
+  |2020-03-26|[Cross Validation](https://us.edstem.org/courses/182/lessons/734/slides/3362) and [lecture](https://vimeo.com/398680410)|||
+  |2020-03-31|Review session||Homework 5|
+  |2020-04-02|Midterm 2|||
+  |2020-04-07|Interactions, polynomials, and categorical variables for X|||
+  |2020-04-09|Logistic regression|Text 4.1||
+  |2020-04-14|DAGs: Changing significance when adding/deleting features||Homework 6|
   |2020-04-16|Weighted Least squares|||
-  |2020-04-21|Wrong models in linear regression + instrumental variables||Homework 7|
-  |2020-04-23|Variable selection|||
+  |2020-04-21|Wrong models in linear regression + instrumental variables|||
+  |2020-04-23|Variable selection||Homework 7|
   |2020-04-28|Data Quality|||
   |2020-04-30|Review session and wrap up||Homework 8|
   |[TBD](https://ssol.columbia.edu/cgi-bin/ssol/8qDDYeMUzcpWYvwaP3d6Sh/?p_r_id=8qDDYeMUzcpWYvwaP3d6Sh&p_t_id=1&tran%5B1%5D_tran_name=scel&tran%5B1%5D_term_id=20201&tran%5B1%5D_act=Update+View)||Final Exam|You!|
