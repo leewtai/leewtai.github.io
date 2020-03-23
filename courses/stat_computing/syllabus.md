@@ -52,17 +52,17 @@ I reserve the right to change the ordering and the content for the course throug
 |2020-03-12|Data wrangling continued||[Homework 4](homeworks/hw4.md) due 3/13|
 |2020-03-17|Spring Recess No Class|||
 |2020-03-19|Spring Recess No Class|||
-|2020-03-24|Reading in different types of data|||
-|2020-03-26|Review session||[Homework 5](homeworks/hw5.md)|
-|2020-03-31|Midterm 2|||
-|2020-04-02|Bootstrap, simulations, and cross validation|||
-|2020-04-07|Bootstrap, simulations, and cross validation|||
-|2020-04-09|Debugging ||Homework 6|
-|2020-04-14|Introduction to Version Control and Git|||
-|2020-04-16|Scraping vs calling [APIs]|||
-|2020-04-21|String manipulation and parsing HTML||Homework 7|
-|2020-04-23|Designing a data pipeline|[Online Tutorials](http://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html)||
-|2020-04-28|Data Visualization ggplot()|||
+|2020-03-24|Class cancelled given nation lockdown and moving situations|||
+|2020-03-26|[Reading in different types of data](https://us.edstem.org/courses/181/lessons/870/slides/3962) |||
+|2020-03-31|Review session||[Homework 5](homeworks/hw5.md)|
+|2020-04-02|Midterm 2|||
+|2020-04-07|[Basic text manipulation - dates](https://us.edstem.org/courses/181/lessons/872/slides/3972)|||
+|2020-04-09|[Regular expression](https://us.edstem.org/courses/181/lessons/872/slides/3977)|||
+|2020-04-14|[Debugging](https://us.edstem.org/courses/181/lessons/873/slides/4012)||Homework 6|
+|2020-04-16|[Scraping](https://us.edstem.org/courses/181/lessons/871/edit/slides/3970) vs calling [APIs](https://us.edstem.org/courses/181/lessons/871/edit/slides/4013)|||
+|2020-04-21|Introduction to Version Control and Git|||
+|2020-04-23|Entering tidyverse||Homework 7|
+|2020-04-28|Data Visualization ggplot()|[Online Tutorials](http://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html)||
 |2020-04-30|Putting things together and review||Homework 8|
 |[TBD](https://ssol.columbia.edu/cgi-bin/ssol/8qDDYeMUzcpWYvwaP3d6Sh/?p_r_id=8qDDYeMUzcpWYvwaP3d6Sh&p_t_id=1&tran%5B1%5D_tran_name=scel&tran%5B1%5D_term_id=20201&tran%5B1%5D_act=Update+View)||Final Exam|You!|
 
