@@ -4,13 +4,13 @@ This **entire** exercise has a few typos that needs to be corrected!
 This was meant as an exercise for you to clone via Github then correct by
 submitting a Pull Request.
 
-On Canvas, there is a large film titled `nyc311_2018.csv`, this is from
+On Canvas, there is a large file titled `nyc311_2018.csv`, this is from
 [311 NYC OpenData](https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9)
 (I do encourage you to apply for an application key to down this data
 to practice API calls!)
 
 Feel free to read about [NYC 311](https://www.ny.gov/agencies/nyc-311) but
-for our example, since the file is relatively relatively large, many people will be
+for our example, since the file is relatively large, many people will be
 tempted to use only the first k records of the dataset to not overload their 
 computers. An alternative method is to draw a randdom sample which requires generating random numbers.
 We will use try to answer whether first k records from the
