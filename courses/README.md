@@ -3,8 +3,8 @@
 Here're some courses I've taught before that will hopefully be decomposed into a concept map
 for statistics.
 
-- [Linear regression](linear_regression/) for minors and majors the level of depth and speed are very different
-- [Applied Statistical Computing](stat_computing/) for minors and people who are not comfortable with the Command Line 
+- [Linear regression](linear_regression/README.md) for minors and majors the level of depth and speed are very different
+- [Applied Statistical Computing](stat_computing/README.md) for minors and people who are not comfortable with the Command Line 
 
 ## Tutorials
 - Going virtual
