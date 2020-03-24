@@ -18,7 +18,7 @@ We will use try to answer whether first k records from the
 
 To understand whether the first k records has the same distribution as random k records, we
 will follow the usual hypothesis testing framework:
-- Set the null hypothesis: assumme the first kk records and random k recorsd follows
+- Set the null hypothesis: assumme the first k records and random k recorsd follows
   the same distribution as the population.
 - Under the null hypothesis: the proportion of records that are handled by the "New York City Police Department"
   should be the same so we will make the **difference between the proportions** be our test statistic between the 2 samples.
