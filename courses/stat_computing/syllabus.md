@@ -53,7 +53,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2020-03-17|Spring Recess No Class|||
 |2020-03-19|Spring Recess No Class|||
 |2020-03-24|Class cancelled given nation lockdown and moving situations|||
-|2020-03-26|[Reading in different types of data](https://us.edstem.org/courses/181/lessons/870/slides/3962) and [lec-vimeo](https://vimeo.com/399962856) or [lec-youku]()|||
+|2020-03-26|[Reading in different types of data](https://us.edstem.org/courses/181/lessons/870/slides/3962) and [lec-vimeo](https://vimeo.com/399962856) or [lec-youku](https://v.youku.com/v_show/id_XNDYwMTQ5ODUyOA==.html)|||
 |2020-03-31|Review session||[Homework 5](homeworks/hw5.md)|
 |2020-04-02|Midterm 2|||
 |2020-04-07|[Basic text manipulation - dates](https://us.edstem.org/courses/181/lessons/872/slides/3972)|Text 11||
