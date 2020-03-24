@@ -1427,6 +1427,7 @@ Note that a common mistake is that people forget the `dev.off()` call.
 - Subsetting vectors with numeric, character, and boolean values
 - New data type: booleans
   - Operations with boolean values
+- Vectorized operations with vectors
 - Concept that the same function with different data types can behave differently
 - New data type: data frame
 - Reading in data from a .csv file
@@ -1984,6 +1985,7 @@ list provided and return the output in a list format. To visualize what is
 
 What to notice?
 - The input data is a list, the output data is a list
+- Functions can be inputs to other functions!
 - The length of the input is the length of the output
 - The same function is "distributed" across each element within the list
 - (Not obvious) the element is passed as the **first** argument to the function.
