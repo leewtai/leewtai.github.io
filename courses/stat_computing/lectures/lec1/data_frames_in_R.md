@@ -12,32 +12,20 @@ A special class of data is a collection of other types of data. The main example
 
 #### Containers - data frames
 ```r
-df <- read.csv("~/Downloads/fisher_1927_straw.csv")
+df <- read.csv("~/Downloads/fisher_1927_straw.csv",
+               na.strings="")
 class(df)
 ```
 
 The beginning of modern statistics: Fisher in 1927
 ![Fisher's data](images/fisher_straw.png)
 
-#### Side Note - common mistakes when reading in data
-- Your working directory is not where you think it is
-  Be sure you know which folder R is operating from in your computer
-  ```r
-  getwd()
-  list.files()
-  ```
-- Misspelling file names, case matters and copy/paste __can be__ your friend
-  ```r
-  df <- read.csv("~/Downloads/fIsher_1927_straw.csv")
-  list.files()
-  ```
-- Actual format vs exntenion are not correct. We will talk about this in the future
-
 #### Attributes and properties of data frames
 - dimension
 - data type of each column
 - column/row names
 - behaves like a list with structure (we will expand on this in the future)
+
 ```r
 dim(df)
 str(df)
@@ -47,7 +35,7 @@ rownames(df)
 num_grades <- c(99, 92, 60)
 letter_grades <- c("A", "A", "C-")
 grades <- data.frame(num_grades, letter_grades)
-# Guess!
+# Guess the attributes for `grades`
 ```
 
 #### Subsetting data frames with `[ , ]` with indices
@@ -137,6 +125,3 @@ summary(df)
 summary(df[, 1])
 summary(df$block3)
 ```
-
-How would you get the sum of all blocks with "early" treatment?
-- hint: break up the steps and work backwards.

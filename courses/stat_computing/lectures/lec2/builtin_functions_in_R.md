@@ -62,12 +62,11 @@ rnorm(2)
   To draw data from a uniform distribution
   - `runif(10)`
   - `runif(10, min=0, max=100)`
-- `rnorm()`
-  - `rnorm(10)`
-  - `rnorm(10, mean=100, sd=13)`
 - `rexp()`
+  To draw data from an exponential distribution
   - `rexp(10)`
-  - `rexp(10, rate=0.01)`
+  - `rexp(10, rate=0.1)`
+
 
 #### Back to demonstrating the Law of Large Numbers
 
