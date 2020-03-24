@@ -53,17 +53,17 @@ I reserve the right to change the ordering and the content for the course throug
 |2020-03-17|Spring Recess No Class|||
 |2020-03-19|Spring Recess No Class|||
 |2020-03-24|Class cancelled given nation lockdown and moving situations|||
-|2020-03-26|[Reading in different types of data](https://us.edstem.org/courses/181/lessons/870/slides/3962) |||
+|2020-03-26|[Reading in different types of data](https://us.edstem.org/courses/181/lessons/870/slides/3962) and [lec-vimeo](https://vimeo.com/399962856) or [lec-youku]()|||
 |2020-03-31|Review session||[Homework 5](homeworks/hw5.md)|
 |2020-04-02|Midterm 2|||
-|2020-04-07|[Basic text manipulation - dates](https://us.edstem.org/courses/181/lessons/872/slides/3972)|||
-|2020-04-09|[Regular expression](https://us.edstem.org/courses/181/lessons/872/slides/3977)|||
-|2020-04-14|[Debugging](https://us.edstem.org/courses/181/lessons/873/slides/4012)||Homework 6|
-|2020-04-16|[Scraping](https://us.edstem.org/courses/181/lessons/871/edit/slides/3970) vs calling [APIs](https://us.edstem.org/courses/181/lessons/871/edit/slides/4013)|||
-|2020-04-21|Introduction to Version Control and Git|||
-|2020-04-23|Entering tidyverse||Homework 7|
-|2020-04-28|Data Visualization ggplot()|[Online Tutorials](http://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html)||
-|2020-04-30|Putting things together and review||Homework 8|
+|2020-04-07|[Basic text manipulation - dates](https://us.edstem.org/courses/181/lessons/872/slides/3972)|Text 11||
+|2020-04-09|[Regular expression](https://us.edstem.org/courses/181/lessons/872/slides/3977)|Text 11||
+|2020-04-14|[Debugging](https://us.edstem.org/courses/181/lessons/873/slides/4012)|Text 13||
+|2020-04-16|[Scraping](https://us.edstem.org/courses/181/lessons/871/edit/slides/3970) vs calling [APIs](https://us.edstem.org/courses/181/lessons/871/edit/slides/4013)|Many online blogs teach this, I would read them after listening to these lectures|Homework 6|
+|2020-04-21|[Introduction to Version Control and Git](https://us.edstem.org/courses/181/lessons/881/slides/4073)|[Change code on GitHub directly](https://guides.github.com/activities/hello-world/)||
+|2020-04-23|[Simulations and permutations](https://us.edstem.org/courses/181/lessons/746/edit/slides/4083)|||
+|2020-04-28|[Entering tidyverse with Data Visualization ggplot() and `%>%`](https://us.edstem.org/courses/181/lessons/882/slides/4088)|[Online Tutorials](http://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html)|Homework 7|
+|2020-04-30|Putting things together and review|||
 |[TBD](https://ssol.columbia.edu/cgi-bin/ssol/8qDDYeMUzcpWYvwaP3d6Sh/?p_r_id=8qDDYeMUzcpWYvwaP3d6Sh&p_t_id=1&tran%5B1%5D_tran_name=scel&tran%5B1%5D_term_id=20201&tran%5B1%5D_act=Update+View)||Final Exam|You!|
 
 
