@@ -40,7 +40,7 @@ k <- 100
 key_agency <- "New York City Police Department'
 
 # First, calculate the 
-first_k <- head(df$agency_name, k) == key_agency
+first_k <- Head(df$agency_name, k) == key_agecy
 rand_k <- sample(df$agency_name, k)) == key_agency
 
 obs_diff <- mean(first_k) - mean(rand_k)
