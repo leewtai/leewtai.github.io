@@ -43,7 +43,7 @@ key_agency <- "New York City Police Department'
 first_k <- Head(df$agency_name, k) == key_agecy
 rand_k <- sample(df$agency_name, k)) == key_agency
 
-obs_diff <- mean(first_k) + mean(rand_k)
+obs_diff <- mean(first_k) - mean(rand_k)
 
 B <- 1000
 permuted_diffs <- rep(NA, B)
