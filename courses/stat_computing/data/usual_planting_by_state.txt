@@ -1,0 +1,53 @@
+Corn for Grain Usual Planting and Harvesting Dates - States
+------------------------------------------------------------------------------------------
+                :   2009    :     Usual planting dates     :    Usual harvesting dates    
+      State     : Harvested :-------------------------------------------------------------
+                :   acres   : Begin : Most active  :  End  : Begin : Most active  :  End  
+------------------------------------------------------------------------------------------
+                :1,000 acres                                                              
+                :                                                                         
+Alabama ........:     250    Mar 15 Mar 25 - Apr 25 May 18  Aug 2  Aug 11 - Sep 20 Oct 15 
+Arizona ........:      20    Mar 10 Apr 1 - May 15  Jun 1   Sep 1  Oct 1 - Nov 1   Dec 1  
+Arkansas .......:     410    Mar 26 Apr 1 - Apr 26  May 9   Aug 16 Aug 23 - Sep 23 Oct 6  
+California .....:     160    Mar 15 Apr 1 - Jul 1   Jul 15  Sep 1  Oct 1 - Nov 1   Nov 15 
+Colorado .......:     990    Apr 19 Apr 28 - May 20 May 29  Sep 28 Oct 8 - Nov 13  Nov 22 
+Delaware .......:     163    Apr 12 Apr 30 - May 16 May 28  Sep 10 Sep 20 - Oct 15 Nov 5  
+Florida ........:      37    Mar 1  Mar 15 - Apr 25 May 5   Jul 15 Aug 1 - Sept 10 Oct 1  
+Georgia ........:     370    Mar 14 Mar 22 - Apr 21 May 4   Aug 6  Aug 16 - Sep 22 Oct 7  
+Idaho ..........:      80    Apr 21 May 5 - May 26  Jun 9   Sep 29 Oct 20 - Nov 10 Nov 24 
+Illinois .......:  11,800    Apr 14 Apr 21 - May 23 Jun 5   Sep 14 Sep 23 - Nov 5  Nov 20 
+                :                                                                         
+Indiana ........:   5,460    Apr 20 May 1 - Jun 1   Jun 10  Sep 15 Oct 1 - Nov 10  Nov 25 
+Iowa ...........:  13,400    Apr 19 Apr 25 - May 18 May 26  Sep 21 Oct 5 - Nov 9   Nov 21 
+Kansas .........:   3,860    Apr 5  Apr 15 - May 15 May 25  Sep 1  Sep 10 - Oct 25 Nov 10 
+Kentucky .......:   1,150    Apr 6  Apr 14 - May 24 Jun 8   Sep 1  Sep 9 - Oct 24  Nov 10 
+Louisiana ......:     610    Mar 13 Mar 19 - Apr 8  Apr 16  Jul 31 Aug 9 - Sep 5   Sep 12 
+Maryland .......:     425    Apr 20 Apr 30 - May 20 Jun 7   Sep 9  Sep 22 - Oct 22 Nov 17 
+Michigan .......:   2,090    Apr 21 May 1 - May 27  Jun 6   Sep 5  Oct 10 - Nov 25 Dec 10 
+Minnesota ......:   7,150    Apr 22 Apr 26 - May 19 May 29  Sep 27 Oct 8 - Nov 8   Nov 23 
+Mississippi ....:     695    Mar 17 Mar 24 - Apr 27 May 4   Aug 11 Aug 23 - Sep 23 Oct 7  
+Missouri .......:   2,920    Apr 3  Apr 11 - May 27 Jun 12  Aug 29 Sep 8 - Nov 3   Dec 22 
+                :                                                                         
+Montana ........:      26    Apr 26 May 4 - May 28  Jun 4   Oct 4  Oct 25 - Dec 3  Dec 8  
+Nebraska .......:   8,850    Apr 19 Apr 27 - May 15 May 21  Sep 18 Oct 4 - Nov 10  Nov 20 
+New Jersey .....:      70    Apr 15 May 1 - May 20  Jun 15  Sep 25 Oct 10 - Nov 1  Nov 15 
+New Mexico .....:      50    Apr 15 Apr 20 - May 10 May 20  Sep 25 Oct 1 - Oct 30  Nov 20 
+New York .......:     595    Apr 20 May 4 - Jun 13  Jun 20  Oct 7  Oct 14 - Nov 14 Nov 25 
+North Carolina .:     800    Apr 1  Apr 10 - Apr 25 May 15  Aug 25 Sep 10 - Oct 10 Nov 1  
+North Dakota ...:   1,740    Apr 26 May 2 - May 28  Jun 4   Sep 28 Oct 8 - Nov 19  Dec 6  
+Ohio ...........:   3,140    Apr 18 Apr 24 - May 24 May 30  Sep 27 Oct 11 - Nov 20 Dec 1  
+Oklahoma .......:     320    Mar 21 Apr 2 - May 8   May 17  Aug 20 Aug 29 - Oct 9  Oct 20 
+Oregon .........:      32    Mar 25 Apr 25 - Jun 5  Jun 15  Oct 10 Oct 20 - Nov 20 Dec 5  
+                :                                                                         
+Pennsylvania ...:     920    Apr 30 May 10 - May 25 Jun 15  Sep 25 Oct 15 - Nov 20 Dec 10 
+South Carolina .:     320    Mar 10 Mar 20 - Apr 20 May 15  Jul 25 Aug 20 - Sep 25 Oct 10 
+South Dakota ...:   4,680    Apr 26 May 2 - May 27  Jun 10  Sep 24 Oct 6 - Nov 16  Dec 3  
+Tennessee ......:     590    Apr 1  Apr 5 - May 10  May 25  Aug 25 Sep 1 - Oct 10  Oct 30 
+Texas ..........:   1,960    Mar 1  Mar 8 - May 7   May 17  Jul 18 Aug 1 - Oct 11  Nov 8  
+Utah ...........:      17    Apr 15 Apr 30 - May 20 Jun 5   Sep 25 Oct 10 - Oct 30 Dec 10 
+Virginia .......:     330    Apr 5  Apr 11 - May 20 May 29  Aug 31 Sep 6 - Oct 28  Nov 9  
+Washington .....:     105    Apr 10 Apr 20 - May 20 Jun 1   Sep 25 Oct 5 - Nov 15  Nov 25 
+West Virginia ..:      30    Apr 20 May 1 - Jun 5   Jun 20  Sep 15 Sep 30 - Nov 20 Dec 1  
+Wisconsin ......:   2,930    Apr 26 May 2 - May 27  Jun 4   Oct 2  Oct 14 - Nov 17 Nov 28 
+Wyoming ........:      45    Apr 24 May 3 - May 21  Jun 6   Oct 5  Oct 18 - Nov 24 Dec 10 
+------------------------------------------------------------------------------------------
