@@ -84,7 +84,7 @@ The above description is all for context and nothing needs to be reported for th
   - Please treat missing values as 0 when calculating this total (side comment: think about how would you recommend to handle this in real life?)
   - Hints/Warnings/Clarifications:
     - Please first examine the data you have, the data you want, then think backwards.
-    - To get all files with a particular naming pattern in your current directory, hint: `list(pattern='tmax')`
+    - To get all files with a particular naming pattern in your current directory, hint: `list.files(pattern='tmax')`
     - To help with subsetting repetitive names: `paste('hello', 0:3, sep="")` OR recall `grepl('dflag', c('dflag1', 'dflag2', 'value3'))`
     - "total" means to add up the precipitation over different days.
     - To grab the first `m` characters starting at the x'th index in a character value, `substring('hello', 1, 4)`
