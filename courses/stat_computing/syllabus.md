@@ -57,7 +57,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2020-03-31|Review session||[Homework 5](homeworks/hw5.md)|
 |2020-04-02|Midterm 2|||
 |2020-04-07|[Basic text manipulation - dates](https://us.edstem.org/courses/181/lessons/872/slides/3972) and [lec-vimeo](https://vimeo.com/400405775) or [lec-優酷](https://v.youku.com/v_show/id_XNDYwMzM2ODkwMA==.html)|Text 11||
-|2020-04-09|[Regular expression](https://us.edstem.org/courses/181/lessons/872/slides/3977) and [lec-vimeo](https://vimeo.com/400420922) or lec-優酷|Text 11||
+|2020-04-09|[Regular expression](https://us.edstem.org/courses/181/lessons/872/slides/3977) and [lec-vimeo](https://vimeo.com/400420922) or [lec-優酷](https://v.youku.com/v_show/id_XNDYwMzM4MjA0MA==.html)|Text 11||
 |2020-04-14|[Debugging](https://us.edstem.org/courses/181/lessons/873/slides/4012)|Text 13||
 |2020-04-16|[Scraping](https://us.edstem.org/courses/181/lessons/871/edit/slides/3970) vs calling [APIs](https://us.edstem.org/courses/181/lessons/871/edit/slides/4013)|Many online blogs teach this, I would read them after listening to these lectures|Homework 6|
 |2020-04-21|[Introduction to Version Control and Git](https://us.edstem.org/courses/181/lessons/881/slides/4073)|[Change code on GitHub directly](https://guides.github.com/activities/hello-world/)||
