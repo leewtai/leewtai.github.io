@@ -76,7 +76,7 @@ The above description is all for context and nothing needs to be reported for th
   different stations, with the exception that the first column should record the "year"
   information. Different rows should represent different years. Please make sure the `colnames()`
   of the data frame are either "year" or the name of the station.
-  You should keep all data records, i.e. if an old station has data in the 1890 but no other station does, the final data frame should have a column for 1890. There should not be other pieces data in this data frame. For grading, please report
+  You should keep all data records, i.e. if an old station has data in the 1890 but no other station does, the final data frame should have a row for 1890. There should not be other pieces data in this data frame. For grading, please report
   - **the dimensions** of your final data frame
   - **the range of the years** covered in your data frame (range = max - min)
   - **the number of missing values** in your data frame
