@@ -2188,10 +2188,10 @@ If you look at the documentation for `apply()`, you'll see something like `apply
 
 Below are 2 different visualizations for how `apply()` works:
 Applying a function across the data in the rows
-[!apply on the rows](edu_images/apply_row.png)
+![apply on the rows](edu_images/apply_row.png)
 
 Applying a function across the data in the columns
-[!apply on the columns](edu_images/apply_column.png)
+![apply on the columns](edu_images/apply_column.png)
 
 - Notice how the `MARGIN` controls whether the columns or rows are passed to the function.
 - The visualization suggests that the output should be a `list`, there is some extra logic
@@ -2252,7 +2252,7 @@ If you look at the documentation for `tapply()`, you'll see something like `tapp
     Since the chunk of data is the first argument, these arguments will be the second and on.
 
 Here's a way to visualize how `tapply()` works:
-[!tapply visual](edu_images/tapply_visual.png)
+![tapply visual](edu_images/tapply_visual.png)
 
 [Exercise](exercises/r_tapply.md)
 
