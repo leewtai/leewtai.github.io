@@ -2242,7 +2242,7 @@ trt_totals
 If you look at the documentation for `tapply()`, you'll see something like `tapply(X, INDEX, FUNCTION, ...)`
 - The data part
   - `X`: the data is a vector of length n
-  - `INDEX`: this is a vector of factors OR a list of factors. Each factor must be of length n (same as
+  - `INDEX`: this is a factor vector OR a list of factors. Each factor must be of length n (same as
     `X`) so the subsetting (as done in the for-loop) is possible.
 - The function part
   - `FUNCTION`: the function, e.g. `mean()`, `sd()` or a custom-defined function that will take in
