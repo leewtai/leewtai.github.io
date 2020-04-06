@@ -36,10 +36,10 @@ so you could use R or Python for this in the future.
 In the current version, I'll focus on **R programming** for now.
 
 ## Problem 1, How to simulate Law of Large Numbers?
-We will use the law of large numbers to motivate the following content
-in statistical computing.
+The law of large numbers is one of the corner stone concepts in intro statistics
+that explains why larger samples are better.
 
-The law of large numbers says that sample averages based on a larger
+Specifically, the law of large numbers says that sample averages based on a larger
 sample size will have a smaller standard error than a sample average
 based on a smaller sample size. Standard error here means the expected
 error of the sample average as an estimate for the population average.
@@ -177,7 +177,7 @@ We've introduced calculator-like functions before like `log()` and `sin()`
 but functions can be more complex:
 - The inputs can be more complex than a single number (e.g. a matrix!)
 - They can take in multiple inputs
-- Functions can have defaults, i.e. if you do not specify a significance level,
+- Functions can have defaults, e.g. if you do not specify a significance level,
   we often default to 5%.
 - Outputs can be more complex than a single number as well
 
@@ -317,8 +317,10 @@ coin_tosses
 - **Function name**: `sample`
 - **Inputs/arguments**: all inputs are separated by `,` within the `()`. These inputs to the function `sample`
   often have names to help you understand their purpose.
-  - The first 2 values are passed in "by order" where the third value is passed in "by name". The function has a default order of how inputs are entered which is why the first 2 inputs do not need to be given a name explicitly. To know the order or the names, you would **need** to read the documentation for the function by running the code `?sample` in R.
 - **How inputs are passed to the function**: this is done via the `()` and the different inputs are separated by `,`.
+  - The first 2 values are passed in "by order" where the third value is passed in "by name" (they can all be passed in by name or order).
+    The function has a default order of how inputs are entered which is why the first 2 inputs do not need to be given a name explicitly.
+    To know the order or the names, you would **need** to read the documentation for the function by running the code `?sample` in R.
 - The **consequence and/or output** of the function:
   - In the example above, an output is generated and assigned into `coin_tosses`, by examining `coin_tosses`, you'll see that the output is a numeric vector of 0 and 1 values.
   - Some functions do not produce "output" but have a consequence on the environment. For example, deleting a variable, changing your working directory (we will explain this more later), etc. 
@@ -2112,10 +2114,82 @@ What did we learn?
 
 
 ## Problem 4 quickly summarizing data
-Notes to self, Fisher -> apply, aggregate, 
+Besides visualizing the data, we often want to summarize the data
+across different dimensions as well.
+
+To demonstrate this, we will re-introduce the classic [grain harvest data by Fisher](data/fisher_1927_grain.csv).
+This dataset contains the information
+from a single year of harvest under different fertilizer treatments: amount,
+timing, and type of fertilizer.
+
+What's unique about this experiment is that Fisher also grouped the different
+treatment plots into blocks on the field such that the different fertility
+levels from different parts of the field would be controlled between treatments.
 
 
-farming progress -> text manipulation, debug, mapply()
+#### Exploring the dataset
+```r
+grain <- read.csv("fisher_1927_grian.csv")
+
+dim(grain)
+
+grain
+```
+What to notice?
+- For each block, there are 4 control plots and 8 treatment plots, i.e. 12 plots per block
+- The different treatment names are:
+  - `top_dressing`: fertilizer amount, ranging from 0, 1, to 2.
+  - `fertilizer_type`: main fertilizer chemical, sulphate or muriate
+  - `timing`: the timing of applying the fertilizer, early or late
+- The control plots have 0 fertilizer which is why their other treatments are blank.
+- There are 8 different blocks.
+
+#### Calculate summary statistics along different dimensions using apply()
+
+To compare the different blocks, we could calculate the total yields
+for each block. First try doing this with a for-loop:
+```
+block_columns <- paste0('block', 1:8)
+block_totals <- rep(NA, length(block_columns))
+for(block in seq_along(block_columns)){
+    block_totals[i] <- sum(grain[, block])
+}
+names(block_totals) <- block_columns
+block_totals
+```
+We used subsetting by character values to grab the different columns
+from the data frame then changed the name of the vector to align with
+the different columns.
+
+Turns out we can do this in one line using `apply()`
+```r
+block_totals <- apply(grain[, block_columns], 2, sum)
+block_totals
+```
+We can also get the different row totals in one line.
+```r
+treat_totals <- apply(grain[, block_columns], 1, sum)
+treat_totals
+```
+
+#### Elements of apply()
+If you look at the documentation for `apply()`, you'll see something like `apply(X, MARGIN, FUNCTION, ...)`
+- The data part
+  - `X`: the main data that is often "rectangular" like a matrix or data frame.
+  - `MARGIN`: the dimension(s) to preserve (as opposed to being aggregated by the function)
+    or the dimension you are passing into the function as a "chunk" e.g. 1 corresponds to rows
+    and 2 corresponds to columns
+- The function part
+  - `FUNCTION`: the function, e.g. `mean()`, `sd()` or a custom-defined function.
+  - `...`: not literally typing in `...` into `apply()` but this represents **arbitrary** number of arguments
+    that will be passed to the `FUNCTION` by name or order, e.g. `size` and `replace` in `sample()`.
+
+Below are 2 different visualizations for how `apply()` works:
+Applying a function across the data in the rows
+[!apply on the rows](edu_images/apply_row.png)
+
+Applying a function across the data in the columns
+[!apply on the columns](edu_images/apply_column.png)
 
 
 #### Identifying the presence of key words with grepl()
