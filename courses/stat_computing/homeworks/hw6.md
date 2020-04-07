@@ -13,6 +13,7 @@ After creating the data frame, write it out to a .csv file named "USH00011084_pr
 For this question, show all the code. You do not need to upload the final dataset.
 
 ## Q1 More practice
+- Using the data frame above from Q0, calculate the mean, median, 1st, and 3rd quantile for each month. Make sure you use `apply()` in your solution and show the values.
 - Use `apply()` to calculate the yearly total precipitation then report the top 3 years with the most precipitation.
 - Please plot the yearly total precipitation against the year, label the axes, mark the
   year with the largest amount of precipitation using `abline(v=MAX_YEAR)` and use `text()` to
