@@ -58,12 +58,12 @@ I reserve the right to change the ordering and the content for the course throug
 |2020-04-02|Midterm 2|||
 |2020-04-07|[Basic text manipulation - dates](https://us.edstem.org/courses/181/lessons/872/slides/3972) and [lec-vimeo](https://vimeo.com/400405775) or [lec-優酷](https://v.youku.com/v_show/id_XNDYwMzM2ODkwMA==.html)|Text 11||
 |2020-04-09|[Regular expression](https://us.edstem.org/courses/181/lessons/872/slides/3977) and [lec-vimeo](https://vimeo.com/400420922) or [lec-優酷](https://v.youku.com/v_show/id_XNDYwMzM4MjA0MA==.html)|Text 11||
-|2020-04-14|[Debugging](https://us.edstem.org/courses/181/lessons/873/slides/4012) with Vimeo lectures TBA [優酷 lectures](https://v.youku.com/v_show/id_XNDYyMTU3MTE2OA==.html)|Text 13||
+|2020-04-14|[Debugging](https://us.edstem.org/courses/181/lessons/873/slides/4012) with [Vimeo lectures](https://vimeo.com/407632826) and [優酷 lectures](https://v.youku.com/v_show/id_XNDYyMTU3MTE2OA==.html)|Text 13||
 |2020-04-16|[Scraping](https://us.edstem.org/courses/181/lessons/871/edit/slides/3970) with [vimeo lectures](https://vimeo.com/404714829) and [優酷 lecture](https://v.youku.com/v_show/id_XNDYyMTU3MDg0MA==.html) vs calling [APIs](https://us.edstem.org/courses/181/lessons/871/edit/slides/4013) with [vimeo lecture](https://vimeo.com/404715597) and [優酷 lecture](https://v.youku.com/v_show/id_XNDYyMTU3MDQ1Ng==.html)|Many online blogs teach this, I would read them after listening to these lectures|[Homework 6](homeworks/hw6.md)|
 |2020-04-21|[Simulations and permutations](https://us.edstem.org/courses/181/lessons/746/edit/slides/4083)|||
 |2020-04-23|[Introduction to Version Control and Git](https://us.edstem.org/courses/181/lessons/881/slides/4073)|[Change code on GitHub directly](https://guides.github.com/activities/hello-world/)||
 |2020-04-28|[Entering tidyverse with Data Visualization ggplot() and `%>%`](https://us.edstem.org/courses/181/lessons/882/slides/4088)|[Online Tutorials](http://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html)||
-|2020-04-30|Putting things together and review||[Homework 7](homeworks/hw7.md)|
+|2020-04-30|What we don't know||[Homework 7](homeworks/hw7.md)|
 |[TBD](https://ssol.columbia.edu/cgi-bin/ssol/8qDDYeMUzcpWYvwaP3d6Sh/?p_r_id=8qDDYeMUzcpWYvwaP3d6Sh&p_t_id=1&tran%5B1%5D_tran_name=scel&tran%5B1%5D_term_id=20201&tran%5B1%5D_act=Update+View)||Final Exam|You!|
 
 
