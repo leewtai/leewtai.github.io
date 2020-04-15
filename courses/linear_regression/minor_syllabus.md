@@ -61,7 +61,7 @@ Owen Ward: ogw2103
   |2020-04-23|Wrong models in linear regression + instrumental variables|||
   |2020-04-28|Weighted Least squares||Homework 7|
   |2020-04-30|What we don't know|||
-  |[TBD](https://ssol.columbia.edu/cgi-bin/ssol/8qDDYeMUzcpWYvwaP3d6Sh/?p_r_id=8qDDYeMUzcpWYvwaP3d6Sh&p_t_id=1&tran%5B1%5D_tran_name=scel&tran%5B1%5D_term_id=20201&tran%5B1%5D_act=Update+View)||Final Exam|You!|
+  |2020-05-08|||Final Exam|
 
 
 ### Logistics
