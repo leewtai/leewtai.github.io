@@ -23,10 +23,14 @@ For this question, show all the code. You do not need to upload the final datase
 ## Q2 Dates and text manipulation
 You'll need the course material from 4/7/2020 to be able to handle some of these problems.
 
+[NYC 311](https://portal.311.nyc.gov/) is the number for most government services in NYC. Most of its data is
+available on [NYC OpenData](https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9)
+but we only have the 2018 data here.
+
 Please work with the file named `nyc311_2018.csv` (under Canvas/Files/lectures/data) for this problem:
 - Please use the date information to produce the weekday information (Monday/Tuesday/.../Sunday) for each record.
   - hint: `strftime` and `strptime`
-- What is the percentage of weekday vs weekend 311 records in 2018 (using the previous information)?
+- What is the percentage of weekday vs weekend, NYC 311 records in 2018 (using the previous information)?
 - What is the most common complaint type in 2018? (hint: `table()` can count factors)
 - For the most common complaint type, what is its total occurrence in each **month** in 2018? Please use `tapply()`
 - Randomly sample 5000 records from the data then plot the record's on a longitude/latitude map (you do not need
