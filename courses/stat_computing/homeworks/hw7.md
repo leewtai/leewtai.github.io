@@ -25,12 +25,12 @@ For those who cannot access NYTimes, please see the special note in the `()` for
   - We want the 21st to 30th result from NYTimes (hint: Pagination)
   - The query should be `college`
   - Your API key should not be visible in your homework submission. Create a separate
-    .R file that assigns your API key to a variable, then `source()` in that
+    .R file that assigns your API key to a variable (e.g. `cred<-"7Hkwoghiq"`), then `source()` in that
     file as done in the recorded lecture.
   HINT: `list('quotes'= "can allow", "weird-names"="be", names='.')`
 - Please create a **file name** with the format of: `'nytimes_YYYYMMDD.json'` where `YYYYMMDD` should
   be the year, month, and day of the day you ran your code. Please use `strftime()`
-  and `Sys.time()` in your code to produce `"YYYYMMDD"`. The output is simply a character string.
+  and `Sys.time()` in your code to produce `"YYYYMMDD"`. The final answer is simply a length 1 character string.
 - Please write the NYTimes output from the API into a JSON file using the file name above
   (please just write the code since we are not checking output) hint: `write_json()` from `jsonlite`
 
@@ -39,7 +39,7 @@ On Canvas, you'll find a zipped file titled `indeed_job_descriptions.zip`, this 
 for the first midterm (mostly). Ultimately, we want to know the number of job descriptions that have python vs R listed.
 
 - Please read in one file and create a character vector for all of the job descriptions, i.e. the vector should have
-  the same length as number of job descriptions.
+  the same length as the number of job descriptions.
 - Please split each job description such that each job description is now a character vector with length equally
   to its word count rather than one single character value as before.
   - Please answer what is the appropriate data type that can hold multiple job descriptions after we do this transformation?
@@ -58,7 +58,7 @@ for the first midterm (mostly). Ultimately, we want to know the number of job de
   a job description and each column is still a word.
 - Are some job descriptions repeated across the data? Yes/No, please show the code that demonstrates this. You can assume that
   if the word counts are identical across all words, they are the same job description.
-- Please report the number of job description that mention 'r' and the number of job descriptions that report 'python'
+- Please report the number of job description that mention 'r' and the number of job descriptions that mention 'python'
 
 
 ## Q2 Debugging
@@ -66,21 +66,21 @@ The goal of this question is to debug the following code a fake student wrote fo
 You should hand in the corrected code!
 
 Before you start, you should know:
-- There are a few operations and concepts that are slightly foreign to you, this is slightly intentional, please read the context
-  but I strongly encourage you to ask "what should I expect at this stage?"
+- There are a few operations and concepts that are slightly foreign to you, this is intentional because we often debug
+  functions we may not completely understand, but I strongly encourage you to ask "what should I expect at this stage?"
 - The bugs may or may not create an error message.
 - The final `p_value` should be 0
-- It is okay if you want to rewrite all the code :)
+- Some bugs may required you to rewrite parts of the code rather than fixing simple syntax errors
 - What is a "permutation test"? This will be covered on 4/21's lecture
 
 #### Context for the code
 We wanted to understand if the business licenses expire at the same rate between "Sightseeing Guide" vs "Ticket Seller"?
 
-The assignment goes as this:
+The assignment to the student was:
 - Please use the [Legally Operating Business dataset from NYC OpenData](https://data.cityofnewyork.us/Business/Legally-Operating-Businesses/w7w3-xahh)
   dataset to answer this question, please get the data and read it into your R console.
 - Please filter out the data such that only businesses in the sightseeing guide or ticket seller industries are included.
-  Warning, ticket seller business is a different industry from ticket seller.
+  Warning, "ticket seller business" is a different industry from "ticket seller".
 - Please calculate the number of days between the expiration date and the creation date of the license, note that these values should be non-negative values.
 - Please calculate the difference in average between the two industries for their license duration.
 - Please perform a permutation test to see if the two industries have drastically different license durations.
