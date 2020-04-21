@@ -11,6 +11,7 @@ interactive programming langauges (R + Python).
 with Python or R that is managed by Anaconda. 
 
 ## Concepts
-[Standard Error](se/README.md)
+- [Summarizing data](summ/README.md)
+- [Standard Error](se/README.md)
 
 
