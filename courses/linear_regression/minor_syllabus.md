@@ -58,8 +58,8 @@ Owen Ward: ogw2103
   |2020-04-14|[DAGs: Changing significance when adding/deleting features](https://us.edstem.org/courses/182/lessons/912/slides/4193) with [vimeo link](https://vimeo.com/403836156)||Homework 6|
   |2020-04-16|[Variable selection day 1](https://us.edstem.org/courses/182/lessons/1060/slides/5022), no video|||
   |2020-04-21|[Variable selection day 2](https://us.edstem.org/courses/182/lessons/1060/slides/5031), no video|||
-  |2020-04-23|Wrong models in linear regression + instrumental variables|||
-  |2020-04-28|Weighted Least squares||Homework 7|
+  |2020-04-23|[Wrong models in linear regression + instrumental variables](https://us.edstem.org/courses/182/lessons/1110/slides/5285), no video|||
+  |2020-04-28|[Weighted Least squares](https://us.edstem.org/courses/182/lessons/1112/slides/5309)||Homework 7|
   |2020-04-30|What we don't know|||
   |2020-05-08|||Final Exam|
 
