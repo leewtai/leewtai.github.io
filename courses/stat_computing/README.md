@@ -2290,13 +2290,130 @@ block_trt_totals
   than a sequential manner like a for-loop. Understanding these functions will help you understand how
   big data methods (map/reduce) behave in the future.
 
-## Problem 5 Text Manipulation
-- readLines
-- substr
-- grepl
-- regular expression
+## Problem 5 Analyzing Text Data
+This chapter will focus on programmatically identifying key words in job descriptions.
+Job descriptions often introduce the company, the role they're hiring
+for, then follow up with basic and preferred qualifications. As students,
+it would be nice to understand what qualifications are common across different
+employers.
 
-#### Identifying the presence of key words with grepl()
+To understand and analyze text, we need to learn how to read, parse,
+search through text data.
+
+- readLines
+- strsplit
+- substr
+- regular expression
+- ...
+
+#### Recognizing patterns in text data
+For our first example, we'll try to work with birthdays of UFC fighters
+in [raw_fighter_details.csv on Kaggle](https://www.kaggle.com/rajeevw/ufcdata).
+
+```r
+fighters <- read.csv("YOUR_PATH/raw_fighter_details.csv",
+                     stringsAsFactors = FALSE)
+head(fighters$DOB)
+# [1] ""             ""             ""            
+# [4] ""             ""             "Nov 12, 1974"
+# [7] "Mar 18, 1989" "Nov 14, 1992" "Aug 26, 1986"
+#[10] ""             "Aug 05, 1989"
+```
+What to notice?
+- Some birthdays are missing
+- When the birthdays are not missing, the first few records suggest a format:
+  - the first 3 characters correspond to the month
+  - the 5th to 6th character correspond to the day (notice the 11th record used
+    `05` instead of `5` to indicate the day)
+  - the 9th to 12th character correspond to the year
+- We have not seen the other records so the format may not hold
+
+This format suggests that we can could subset different characters to obtain the
+different pieces of information.
+
+#### Getting a substring
+When the data follows a strict pattern as we have seen, it's possible
+to extract the birth month by subsetting specific indices in the character string.
+
+To get the months, we'll write a function that can be applied to each record.
+This means that the function needs to handle the case when the date is missing.
+To capture the empty string case, i.e. `""`, and potentially other cases, we'll
+check if the string has 12 characters before subsetting.
+- In the event that there are not 12 characters, we will return the original string so we can
+  analyze these cases later.
+
+```r
+grab_month <- function(date_str){
+    if(nchar(date_str) != 12){
+        return(date_str)
+    }
+    month <- substr(date_str, 1, 3)
+    return(month)
+}
+months <- sapply(fighters$DOB, grab_month)
+table(months)
+# months
+#     Apr Aug Dec Feb Jan Jul Jun Mar May Nov Oct Sep 
+# 740 199 267 184 197 180 262 202 216 225 199 226 216
+```
+What to notice?
+- The only exception to the months were empty strings in the data
+- Another way to write the function would have been to do
+  ```r
+  grab_month <- function(date_str){
+      if(nchar(date_str) != 12){
+        out <- date_str
+      } else {
+        out <- substr(date_str, 1, 3)
+      }
+      return(out)
+  }
+  ```
+  from a readability standpoint, there are more lines, more indentation,
+  and the variable names are less clear in this way.
+
+[Exercise](exercises/r_substring.md)
+
+#### Reading in the data as character strings
+Recall the [Fisher dataset](data/fisher_1927_grain.csv) that 
+`read.csv()` nicely parsed into a data frame. We can also read the data
+in as character strings to see the format of the data using `readLines()`
+
+Please run the following code and compare it against the data frame version.
+```r
+grain_csv <- read.csv('fisher_1927_grain.csv')
+grain <- readLines('fisher_1927_grain.csv')
+class(grain)
+length(grain)
+head(grain)
+head(grain_csv)
+```
+What to notice?
+- Each line in the data corresponds to a different row
+- The different column values are separated from one another using the comma `,`
+  - Each line therefore will have the same number of `,`'s
+
+#### Separating strings with a symbol
+`.csv` stands for **c**omma **s**eparated **v**alues, we could use the function
+`strsplit()` to separate the different values.
+
+`strplsit()` is slightly more complicated so it's best to start with a demo.
+```r
+demo_str <- c("2020/04/01", "2019/12/11")
+strsplit(demo_str, split="/")
+strsplit(demo_str[1], split="/")
+```
+- The output from `strsplit()` is a list, even if there was only one character input.
+- After splitting, the symbol used was erased.
+- Each value can be split into multiple character values and these do not need to 
+  have the same length.
+- Each element in the list is a character vector
+
+[Exercise with the Fisher dataset](exercises/r_parse_data.md)
+
+#### Parsing strings with more complicated patterns 
+NOT FINISHED BELOW
+
 A common operation is to check for the presence of a key word
 within a piece of text.
 ```r
