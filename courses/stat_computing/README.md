@@ -1019,7 +1019,7 @@ an existing file like [fisher_1927_grain.csv](data/fisher_1927_grain.csv) that
 contains the data from 1927 harvests with different treatments.
 
 Download the [fisher_1927_grain.csv](data/fisher_1927_grain.csv) file.
-The function to read in this data is `read.csv()`
+The function to read in this type of data is `read.csv()`
 ```r
 df <- read.csv("~/Downloads/fisher_1927_grain.csv")
 ```
@@ -2298,18 +2298,34 @@ it would be nice to understand what qualifications are common across different
 employers.
 
 To understand and analyze text, we need to learn how to read, parse,
-search through text data.
-
-- readLines
-- strsplit
-- substr
-- regular expression
+search through text data. Specifically:
+- How to read in files in raw text form with `readLines()`
+- How to parse text in a specific format with `strsplit()`
+- How to extract subsections of text using their position with `substr()`
+- How to parse text in complex formats with regular expression
 - ...
+
+#### Terminology string, text, and character
+- A character is a single letter, number, or symbol (e.g. space `" "`, underscore `"_"`,
+semicolon `";"`, etc) that is stored as a character value. 
+- A string is a collection of 0 or more characters, stored as a character value. A
+  length 0 string is often called the empty string, `""`
+
+Both characters and strings will be stored as character values in R.
+```r
+empty_string <- ""
+demo_string <- "random string!"
+nchar(empty_string)
+nchar(demo_string)
+class(empty_string)
+class(demo_string)
+```
 
 #### Recognizing patterns in text data
 For our first example, we'll try to work with birthdays of UFC fighters
 in [raw_fighter_details.csv on Kaggle](https://www.kaggle.com/rajeevw/ufcdata).
 
+The data is still in a csv format so we can leverage the old functions we learned.
 ```r
 fighters <- read.csv("YOUR_PATH/raw_fighter_details.csv",
                      stringsAsFactors = FALSE)
@@ -2320,27 +2336,30 @@ head(fighters$DOB)
 #[10] ""             "Aug 05, 1989"
 ```
 What to notice?
-- Some birthdays are missing
+- Some birthdays are recorded as empty strings
 - When the birthdays are not missing, the first few records suggest a format:
-  - the first 3 characters correspond to the month
+  - the first 3 characters correspond to the month in abbreviated letters, the
+    first being capitalized and the others lowercased.
   - the 5th to 6th character correspond to the day (notice the 11th record used
     `05` instead of `5` to indicate the day)
   - the 9th to 12th character correspond to the year
-- We have not seen the other records so the format may not hold
+- We have not seen the other records so the format may not hold, e.g. we could see
+  `"12 18, 1983"` in other records.
 
-This format suggests that we can could subset different characters to obtain the
+This format suggests that we could subset different characters to obtain the
 different pieces of information.
 
-#### Getting a substring
+#### Getting a substring, subsections of a string
 When the data follows a strict pattern as we have seen, it's possible
-to extract the birth month by subsetting specific indices in the character string.
+to extract the birth month by subsetting specific indices in the character string
+(indices are like locations on the string).
 
 To get the months, we'll write a function that can be applied to each record.
 This means that the function needs to handle the case when the date is missing.
-To capture the empty string case, i.e. `""`, and potentially other cases, we'll
-check if the string has 12 characters before subsetting.
-- In the event that there are not 12 characters, we will return the original string so we can
-  analyze these cases later.
+To capture the empty string case and potentially other cases, we'll
+check if the string has 12 characters before subsetting. Specifically, in the event that
+there are not 12 characters, we will return the original string so we can 
+analyze these cases later.
 
 ```r
 grab_month <- function(date_str){
@@ -2358,6 +2377,9 @@ table(months)
 ```
 What to notice?
 - The only exception to the months were empty strings in the data
+- We used `sapply()` to apply the function on each record. Given
+  the simple output (each length 1 and a character value),
+  the output from `sapply()` is likely a vector.
 - Another way to write the function would have been to do
   ```r
   grab_month <- function(date_str){
@@ -2385,37 +2407,125 @@ grain_csv <- read.csv('fisher_1927_grain.csv')
 grain <- readLines('fisher_1927_grain.csv')
 class(grain)
 length(grain)
-head(grain)
-head(grain_csv)
+head(grain, 2)
+head(grain_csv, 2)
 ```
 What to notice?
-- Each line in the data corresponds to a different row
-- The different column values are separated from one another using the comma `,`
+- Each line in the raw data corresponds to a different row
+- The different column values in each row are separated from one another using the comma `,`
   - Each line therefore will have the same number of `,`'s
+  - Notice that the commas do not exist when we used `read.csv()`, because
+    these are not part of the data but simply used to delineate the data.
 
-#### Separating strings with a symbol
-`.csv` stands for **c**omma **s**eparated **v**alues, we could use the function
-`strsplit()` to separate the different values.
+[Exercise](exercises/r_readlines.md)
 
-`strplsit()` is slightly more complicated so it's best to start with a demo.
+#### Why should I bother with `readLines()` given `read.csv()` exists?
+- Turns out that the file extension `.csv` does not guarantee that the data is formatted
+  properly. Here is an example [CSV file from the World Bank](data/world_bank_total_population.csv)
+  that is not properly formatted. How to read it?
+  - First use `readLines()` and notice the first `K` rows are not in the CSV format.
+  - Turns out there's an argument in `read.csv()` that can skip the first few rows
+    before reading in the data. Read the documentation to find out!
+- Having the ability to read in arbitrarily formatted data as text can be very powerful
+  once we learn how to manipulate text. When a file cannot be read properly, you can
+  always fall back on readLines() if the file is encoded as text.
+
+
+#### Separating strings based on a special symbol
+`.csv` stands for **c**omma **s**eparated **v**alues, i.e. commas are dedicated to 
+separate one value from another.
+
+To split character strings by a particular symbol, we could use the function
+`strsplit()` to parse the data.
+
+The bahvior of `strplsit()` is slightly more complicated so it's best to start with a demo.
 ```r
 demo_str <- c("2020/04/01", "2019/12/11")
 strsplit(demo_str, split="/")
 strsplit(demo_str[1], split="/")
 ```
-- The output from `strsplit()` is a list, even if there was only one character input.
-- After splitting, the symbol used was erased.
-- Each value can be split into multiple character values and these do not need to 
-  have the same length.
+What to notice:
 - Each element in the list is a character vector
+- The output from `strsplit()` is a list, even if there was only one character input.
+  - The reason list is a reasonable data type for the output is because each value
+    can be split into character vectors with different lengths.
+- After splitting, the symbol used was erased.
 
 [Exercise with the Fisher dataset](exercises/r_parse_data.md)
 
 #### Parsing strings with more complicated patterns 
-NOT FINISHED BELOW
+Notice how `strsplit()` depended on the data to be formatted in a certain fashion.
+Natural text, however, is rarely formatted in such a uniform fashion.
 
-A common operation is to check for the presence of a key word
-within a piece of text.
+Imagine trying to extract each word from the following sentence from
+a product manager job scription.
+```r
+demo <- "Experience with Google Analytics and Google Optimize\nKnowledge of project management tools (JIRA, Trello, Asana)\n"
+strsplit(demo, split=" ")
+```
+Notice how we normally would not consider "(" and "," as part of the word.
+This means we need a more flexible way to manipulate text programmatically,
+this is where regular expression comes in.
+
+#### Regular expression: specifying complex text patterns
+Regular expression is a common syntax for specifying complex text patterns
+for programs.
+
+The general syntax for the pattern is to specify
+1. The type of character
+2. Immediately followed by the frequency for the character
+
+These patterns are then used as an inputs to various functions. 
+The first common operation is the substitute function, `sub()`, that
+can replace the specified patterns with a specified output. For example:
+```r
+demo <- "x = 1"
+sub("=", "<-", demo)
+```
+The code replaced `=` with `<-` for the character assigned in the variable `demo`.
+
+#### Specifying the frequency in regular expression
+For the following example, we will use the demo string `demo <- 'Roy is really rrrrreally worried'`
+with the `r` as the character to be replaced.
+
+Here are a few common frequencies, you should TYPE out each example to see the impact
+
+|Frequency|Regular Expression|Example|
+|---|---|---|
+|Exactly once|``|`sub("r", "_", demo)`|
+|Exactly 2 times (notice 2<br>can be replaced with any integer)|`{2}`|`sub("r{2}", "_", demo)`|
+|Exactly 2 to 4 times (notice 2 and<br>4 can be replaced with any integer)|`{2,4}`|`sub("r{2,4}", "_", demo)`|
+|Zero or one occurrence|`?`|`sub("r?", "_", demo)`|
+|One or more occurrence|`+`|`sub("r+", "_", demo)`|
+|Zero or more occurrence|`*`|`sub("r*", "_", demo)`|
+
+[Exercise](exercises/r_frequency_reg_expression.md)
+
+#### Specifying the character in regular expression
+For the following example, we will use the demo string with a diverse
+set of characters `demo <- 'wtl_2109@COLUMBIA.EDU'`
+
+|Character|Regular Expression|Example|
+|---|---|---|
+|a word as a character|`(edu|education)`|`sub("(EDU|EDUCATION)", "?", demo)`|
+|Any character between t, 0, OR 1|`(t|0|1)` or `[t01]`|`sub("(t|0|1)", "?", demo)`<br>`sub("[t01]", "?", demo)`|
+|Any digit between 0 to 9|`\d` or `[0-9]` or `[5498732160]`|`sub("\d", "?", demo)`<br>`sub("[0-9]", "?", demo)`|
+|Any lowercased alphabet|`[a-z]`|`sub("[a-z]", "?", demo)`|
+|Any capital alphabet|`[A-Z]`|`sub("[A-Z]", "?", demo)`|
+|alphanumeric or the underscore "_"|`\w` or `[a-zA-Z0-9_]`|`sub("\w", "?", demo)`|
+|Any character|`.`|`sub(".", "?", demo)`|
+|NOT lower case alphabets|`[^a-z]`|`sub("[^a-z]", "?", demo)`|
+
+What to notice?
+- Any character placed inside `[]` would be treated as a possible character for matching
+- `[^ ]` is the only "negation" type of pattern
+- Common characters have abbreviations that often start with `\`, e.g. `\w` or `\d`
+
+[Exercise TBM](exercises/r_character_reg_expression.md)
+
+#### Characters and frequency
+Exercise + gsub()
+
 ```r
 grepl("taboo", c("Taboo is a game", "where saying the forbidden words is taboo."))
 ```
@@ -2425,6 +2535,10 @@ What to notice?
   within the character vector (2nd input). Notice how it is case sensitive!
 - The output is the same length as the character vector you passed in,
   each being TRUE/FALSE.
+
+## Problem 6: Getting data
+
+## Problem 7 Permutation tests and other
 
 
 {% include lib/mathjax.html %}
