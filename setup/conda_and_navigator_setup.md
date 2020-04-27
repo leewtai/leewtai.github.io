@@ -27,6 +27,7 @@ There are two methods to do this depending on if you're comfortable with the com
     ![Anaconda Navigator Environment Tab](images/anaconda_nav_environments.png)
 5. Create an environment called `text-mine` (or whatever you prefer) and use the dropdown menu to run under Python version 3.7, then choose `Create` (yes, even if you want R in the end).
     ![Anaconda Navigator Creating New Environments](images/anaconda_nav_create_env.png)
+6. Please continue to the section on [installing packages using Anaconda Navigator](#installing-packages-using-Anaconda-Navigator)
 
 #### Command line interface with Anaconda via conda
 
@@ -44,6 +45,7 @@ There are two methods to do this depending on if you're comfortable with the com
     ![Conda activate changes prompt](images/conda_activate_switch.png)
 
     It's possible that you have an older version of `conda`, then you should type in `source activate text-mine` instead.
+5. Please continue to the section on [installing packages using conda](#installing-packages-using-conda)
 
 
 ## Installing Jupyter or R as packages
@@ -64,9 +66,12 @@ A program'ss true value is in its large community of developers and users. To le
     ![Jupyter Initial Launch Screen](images/jupyter_initial_launch.png)
 7. Click down your file path to where you want your work stored, then click on `New` on the far right to launch a `Python 3` or `R` session.
 8. You should be able to confirm if the installation succeeded by repeating this little example below in your Jupyter Notebook.
-    - type `1 + 1` into one of the "cells"
+    - type `1 + 1` into one of the "cells", you should see the solution appear
     - Use "Shift Enter" or "Command Enter" to run the code
         - Or you could use the "Run" button above the cells.
+9. What happens if `1+1` didn't work?
+    - Instead of going to the `Home` tab in step 5, stay in the `Environments` tab.
+    - Click on the "Play" button in the `text-mine` tab. Choose `Python 3` or `R` then repeat the tests in step 7 and 8.
 
 
 #### Installing packages using conda
