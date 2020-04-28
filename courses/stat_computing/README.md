@@ -1,26 +1,16 @@
-# Statistical Computing for non-programmers
+# Learning R through Examples and Errors (for Non-programmers)
 
-Draft [syllabus](syllabus.md) for the class
+#### What do you mean by teaching R via examples and errors?
+The biggest challenge and annoyance for many non-programmers who want to learn R is:
+- The overwhelming amount of details that create a steep learning curve yet seem useless for early programming
+- The shallow amount of details when learning via copy/pasting code because you don't have the confidence how things would change in actual practice
 
-#### What is statistical computing?
-If you are reading this, I probably do not need to convince you about the
-importance of statistics, data, and coding. However, I believe
-that statistics is best learned by constantly translating problems
-between abstract concepts, mathematical formalism, and programming.
-An example is like "health of a nation" is a concept, infant mortality
-per 1000 births is one way to formalize a measure for a nation's health,
-where automating this report would require us to think about practical
-data collection (we will not touch the complicated topics of sampling, measurement, and compliance),
-graphics, and reproducability.
+This is written to hopefully strike a balance for people who simultaneously feel both sides of the problem.
+To achieve this, we will introduce the programming concepts while trying to execute some data analysis. We will also introduce
+examples and errors that will help correct your misconceptions of the code. We will constantly ask you to **predict/guess**
+what would happen under a different scenario to deepen your understanding of basic R programming.
 
-To gain a better understanding of programming, we will cover the main
-concepts behind statistical computing that
-- focuses on data wrangling and simulations
-- less on data structures and algorithmic efficiency
-
-For example, we will introduce random numeric vectors relatively early on to reinforce
-concepts like the law of large numbers but we will not differentiate between
-integers, longs, vs doubles.
+Overall, we will **focus** on data wrangling and simulations but will **not focus** on data structures and algorithms efficiencies (e.g. sorting, recursion).
 
 
 #### My assumptions
@@ -32,8 +22,6 @@ My assumption is that you have been exposed to
 #### Setting up
 I encourage you to set up [Jupyter Notebooks on your computer](../../setup/conda_and_navigator_setup.md)
 so you could use R or Python for this in the future.
-
-In the current version, I'll focus on **R programming** for now.
 
 ## Problem 1, How to simulate Law of Large Numbers?
 The law of large numbers is one of the corner stone concepts in intro statistics
@@ -251,34 +239,7 @@ properties limit how different functions can interact with them.
 
 Before continuing below, first define a variable called `dice <- c(1, 3, 5, 2, 4, 6)`
 
-- The number of elements within a vector is called its **length**
-  - Try running the code: `length(dice)`
-- The type of the elements within a vector is the vector's **type** (implication
-  of this statement is that elements within a vector must all share the same type).
-  - `class(dice)`
-- You can subset different elements within the vector using `[]` (we will cover the idea of subsetting later)
-  - `dice[3]` grabs the 3rd element within the vector `dice`
-  - `dice[c(2, 3)]` grabs the 2nd and 3rd element within the vector, `dice`
-- You can change elements within a vector
-  - ```r
-    dice[1] <- 6
-    print(dice)
-    ```
-[Exercises](exercises/r_vector_properties.md)
-
-#### Biggest confusion in R
-The most confusing thing about R is that a single value (e.g. a single number) is a vector of length 1.
-```r
-num_vec <- 1.96
-num_vec1 <- c(1.96)
-num_vec == num_vec1
-class(num_vec) == class(num_vec1)
-print(num_vec[1])
-print(num_vec1[1])
-```
-
-If you come from a classic programming background, `num_vec` is a single number (scalar),
-where `num_vec1` should be a vector with single element, the element being a scalar. 
+- The number of elements within a vector is called its **length** - Try running the code: `length(dice)` - The type of the elements within a vector is the vector's **type** (implication of this statement is that elements within a vector must all share the same type).  - `class(dice)` - You can subset different elements within the vector using `[]` (we will cover the idea of subsetting later) - `dice[3]` grabs the 3rd element within the vector `dice` - `dice[c(2, 3)]` grabs the 2nd and 3rd element within the vector, `dice` - You can change elements within a vector - ```r dice[1] <- 6 print(dice) ``` [Exercises](exercises/r_vector_properties.md) #### Biggest confusion in R The most confusing thing about R is that a single value (e.g. a single number) is a vector of length 1.  ```r num_vec <- 1.96 num_vec1 <- c(1.96) num_vec == num_vec1 class(num_vec) == class(num_vec1) print(num_vec[1]) print(num_vec1[1]) ``` If you come from a classic programming background, `num_vec` is a single number (scalar), where `num_vec1` should be a vector with single element, the element being a scalar. 
 
 The analogy is similar to an individual (`num_vec`) vs a team with only one member (`num_vec1`).
 These are 2 conceptually different things.
@@ -2519,26 +2480,61 @@ set of characters `demo <- 'wtl_2109@COLUMBIA.EDU'`
 What to notice?
 - Any character placed inside `[]` would be treated as a possible character for matching
 - `[^ ]` is the only "negation" type of pattern
-- Common characters have abbreviations that often start with `\`, e.g. `\w` or `\d`
+- Common character patterns have abbreviations that often start with `\`, e.g. `\w` or `\d`
 
 [Exercise TBM](exercises/r_character_reg_expression.md)
 
-#### Characters and frequency
-Exercise + gsub()
+#### Combining characters and frequencies to form patterns
+Returning to our original problem of parsing a sentence in the job description.
+```r
+demo <- "Experience with Google Analytics and Google Optimize\nKnowledge of project management tools (JIRA, Trello, Asana)\n"
+strsplit(demo, split=" ")
+```
+A simple solution is to substitute every occurrence of one or more (frequency) non-letters (characters) into a single space.
+Then separate the string by the space symbol.
+```r
+demo_subbed <- sub("[^a-zA-Z]+", " ", demo)
+demo_subbed == demo
+```
+The output is likely identical to demo because the first non-letter symbol is a single space character, which was replaced with a space.
+The key we're misssing is that we wanted this substitution to happen for "every occurrence".
+To do this, we should use the function `gsub()` instead.
+```r
+demo_subbed <- gsub("[^a-zA-Z]+", " ", demo)
+strsplit(demo_subbed, split=" ")
+``r
 
+[Exercise TBM](exercises/r_reg_expression.md)
+
+#### Other functions with regular expression
+Besides substitution, there are a few other important functions that rely on regular expression.
+- Is the pattern in the string or not? (Outcome TRUE/FALSE)
+- Identify the first character to ending characrter if thring is mattc
 ```r
 grepl("taboo", c("Taboo is a game", "where saying the forbidden words is taboo."))
 ```
-What to notice?
-- `grepl()` is a function we will elaborate more in the future. But here
-  it simply looks for the word "taboo" (1st input) within the different character values
+  simply looks for the word "taboo" (1st input) within the different character values
   within the character vector (2nd input). Notice how it is case sensitive!
 - The output is the same length as the character vector you passed in,
   each being TRUE/FALSE.
 
-## Problem 6: Getting data
+#### Regular expression in practice
+One thing to know about regular expression is that it is a very heavy trial and error process.
 
-## Problem 7 Permutation tests and other
+Most software systems are designed such that "free text" is changed to drop-down menus so the input
+is more predictable. Problems that require regular expression are
+likely natural text which has many edge cases that rarely can be 100% captured by regular
+expression.
+
+The best way to learn is to keep trying out different patterns.
+
+
+## Problem 6: Getting data
+- Calling APIs
+- Scraping data
+  - html
+- 
+
 
 
 {% include lib/mathjax.html %}
