@@ -52,7 +52,7 @@ for the first midterm (mostly). Ultimately, we want to know the number of job de
   - Hints but not required:
     - `table()` can count
     - `as.data.frame()` can convert objects into data frames
-    - `rbind.all()` from the the package `plyr` can combine different data frames by column names when some columns are missing
+    - `rbind.fill()` from the the package `plyr` can combine different data frames by column names when some columns are missing
     - you might want to convert the counts into a list to preserve the names.
 - Please repeat the processes above to create a single data frame that contains the word count across all files. Each row is still
   a job description and each column is still a word.
