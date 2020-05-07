@@ -2,22 +2,26 @@
 
 #### What do you mean by teaching R via examples and errors?
 The biggest challenge and annoyance for many non-programmers who want to learn R is:
-- The overwhelming amount of details that create a steep learning curve yet seem useless for early programming
-- The shallow amount of details when learning via copy/pasting code because you don't have the confidence how things would change in actual practice
+- The overwhelming amount of details that create a steep learning curve yet seems
+  useless for early programming
+- The shallow amount of details when learning via copy/pasting code because you
+  don't have the confidence how things would change in practice
 
-This is written to hopefully strike a balance for people who simultaneously feel both sides of the problem.
-To achieve this, we will introduce the programming concepts while trying to execute some data analysis. We will also introduce
-examples and errors that will help correct your misconceptions of the code. We will constantly ask you to **predict/guess**
+This is written to hopefully strike a balance for people who feel both problems.
+To achieve this, we will introduce the programming concepts while performing some
+data analysis. We will also introduce examples and errors that will help correct
+your misconceptions of the code. We will constantly ask you to predict/guess
 what would happen under a different scenario to deepen your understanding of basic R programming.
 
-Overall, we will **focus** on data wrangling and simulations but will **not focus** on data structures and algorithms efficiencies (e.g. sorting, recursion).
+Overall, we will **focus** on data wrangling and simulations (e.g. joins, for-loops) but
+will **not focus** on data structures and algorithms efficiencies (e.g. sorting, recursion).
 
 
 #### My assumptions
 My assumption is that you have been exposed to
 - basic statistical concepts like the average, sample standard deviation (vs population variance),
   and histograms.
-- calculators and Excel (Google Spreadsheets)
+- calculators and Excel
 
 #### Setting up
 I encourage you to set up [Jupyter Notebooks on your computer](../../setup/conda_and_navigator_setup.md)
@@ -2446,7 +2450,7 @@ sub("=", "<-", demo)
 The code replaced `=` with `<-` for the character assigned in the variable `demo`.
 
 #### Specifying the frequency in regular expression
-For the following example, we will use the demo string `demo <- 'Roy is really rrrrreally worried'`
+For the following example, we will use the demo string `demo <- ''`
 with the `r` as the character to be replaced.
 
 Here are a few common frequencies, you should TYPE out each example to see the impact
@@ -2474,15 +2478,17 @@ set of characters `demo <- 'wtl_2109@COLUMBIA.EDU'`
 |Any lowercased alphabet|`[a-z]`|`sub("[a-z]", "?", demo)`|
 |Any capital alphabet|`[A-Z]`|`sub("[A-Z]", "?", demo)`|
 |alphanumeric or the underscore "_"|`\w` or `[a-zA-Z0-9_]`|`sub("\w", "?", demo)`|
-|Any character|`.`|`sub(".", "?", demo)`|
+|Any character (wild card)|`.`|`sub(".", "?", demo)`|
 |NOT lower case alphabets|`[^a-z]`|`sub("[^a-z]", "?", demo)`|
 
 What to notice?
 - Any character placed inside `[]` would be treated as a possible character for matching
-- `[^ ]` is the only "negation" type of pattern
+- `[^ ]` is the only "negation" type of pattern, i.e. anything character except those specified
+  within the brackets will be matched.
 - Common character patterns have abbreviations that often start with `\`, e.g. `\w` or `\d`
 
-[Exercise TBM](exercises/r_character_reg_expression.md)
+[Exercise](exercises/r_character_reg_expression.md)
+
 
 #### Combining characters and frequencies to form patterns
 Returning to our original problem of parsing a sentence in the job description.
@@ -2502,39 +2508,168 @@ To do this, we should use the function `gsub()` instead.
 ```r
 demo_subbed <- gsub("[^a-zA-Z]+", " ", demo)
 strsplit(demo_subbed, split=" ")
-``r
+```
+It turns out that you can enter regular expression into `strsplit()` directly for the `split` argument.
+```r
+strsplit(demo_subbed, split="[^a-zA-Z]+")
+```
 
-[Exercise TBM](exercises/r_reg_expression.md)
+[Exercise](exercises/r_reg_expression.md)
+
+#### Getting a sub-pattern within multiple patterns
+We can also combine multiple patterns into a single pattern. Imagine trying to get the website names
+from the following demo:
+```r
+demo <- c("www.google.com", "www.r-project.org", "www.linkedin.com", "xkcd.com")
+proper_demo <- paste0('https://', demo)
+```
+As humans, we recognize the "www" and the different endings (.org and .com) as not part of the name.
+
+To specify the patterns we're seeing, you most likely will come up with something like
+```r
+pattern <- "https://(www\\.)?[^\\.]+\\.(com|org)"
+sub(pattern, "caught ya!", proper_demo)
+```
+What to notice:
+- Since `www.` was optional, we used `?` to say its appearance is optional.
+- To specify a literal period, we had to type `\\.` otherwise it would be confused with the wild card symbol.
+- Since the website names can contain weird symbols, e.g. `-`, we know the only character people would avoid is
+  likely the period, so the website name was anything BUT the period.
+- Notice how we used `()` to specify different sub-patterns in the overall pattern. Try removing the `()`
+  and see which websites will not be captured.
+- For website endings, we chose to limit ourselves to the finite endings that we know (you could add .gov, .io, etc)
+  instead of matching arbitrary endings. This is generally good practice to avoid mistakes.
+
+The above example, however, did not extract the website name. To do so, there's another
+specific idea in regular expression substitution that you should know.
+```r
+pattern <- "https://(www\\.)?([^\\.]+)\\.(com|org)"
+sub(pattern, "\\1 AND \\2 AND \\3", proper_demo)
+sub(pattern, "\\2", proper_demo)
+sub(pattern, "\\1SOMETHING.\\3", proper_demo)
+```
+What to notice:
+- Each sub-pattern, enclosed by `()`, corresponds to an index, i.e. the first pattern can be referred
+  with `\\1`, the second can be referred as `\\2`, etc. Again, the `\\` is being used to separate from
+  a literal `1` in this case.
+- This can be useful to obtain different 
+
+[Exercise](exercises/r_reg_exp_sub_pattern.md)
 
 #### Other functions with regular expression
 Besides substitution, there are a few other important functions that rely on regular expression.
 - Is the pattern in the string or not? (Outcome TRUE/FALSE)
-- Identify the first character to ending characrter if thring is mattc
-```r
-grepl("taboo", c("Taboo is a game", "where saying the forbidden words is taboo."))
-```
-  simply looks for the word "taboo" (1st input) within the different character values
-  within the character vector (2nd input). Notice how it is case sensitive!
-- The output is the same length as the character vector you passed in,
-  each being TRUE/FALSE.
+  ```r
+  demo <- c("state", "statistics", "stat101", "no game", "probability")
+  grepl("stat", demo)
+  ```
+  - Notice the output `matches` is the same length as the character vector you passed in,
+- Identify the first character to ending characrter of the pattern in the string
+  ```r
+  demo <- c("state capital", "statistics textbook", "stat101", "no game", "probability")
+  matches <- regexpr("stat[a-z]+", demo)
+  attributes(matches)
+  match_lens <- attr(matches, 'match.length')
+  substr(demo, matches, matches + match_lens)
+  ```
+  - Notice how `regexpr()` returned data that had "attributes" that could be extracted
+    using the `attr()` function. To find the list of attributes you can use `attributes()`
+    This gets into a topic called objective oriented programming which we will not cover.
+    You should consider the output from `regexpr()` to have multiple values associated with it,
+    but instead of storing the output in a list with multiple values, it has the main output
+    and associated attributes.
+  - We're using `substr()` in a vecrtorized fashion where each string is subsetted using
+    a different start and ending position.
 
 #### Regular expression in practice
 One thing to know about regular expression is that it is a very heavy trial and error process.
+You should always double check your results and you should always Google for a solution since
+someone else has likely encountered the same question.
 
 Most software systems are designed such that "free text" is changed to drop-down menus so the input
 is more predictable. Problems that require regular expression are
 likely natural text which has many edge cases that rarely can be 100% captured by regular
 expression.
 
-The best way to learn is to keep trying out different patterns.
+The best way to learn is to keep trying :)
 
 
 ## Problem 6: Getting data
-- Calling APIs
-- Scraping data
-  - html
-- 
+So far all the problems assumed that the data came from an existing file. But 
+data can come directly from the internet without ever saving to a file.
+In fact, this is the most common way how commercial venues exchange data.
 
+In practice, there are 2 main ways to obtain data:
+- Scrpaing data from a website
+  - This is not recommended for reasons we will explain soon
+- Calling the company's API (application programming interface)
+  - This is the recommended route where agencies will provide some clear guidelines
+    and filtering abilities.
+
+#### Scraping a website
+Most people are familiar with websites displaying information to them via their browser.
+To extract the information directly off the webpage is the act of scraping.
+We will only cover the most basic case where we parse the text information from the HTML information.
+
+For an example, we're going to obtain all the [faculty's names from Columbia's Statistics department](http://stat.columbia.edu/department-directory/faculty-and-lecturers/).
+![Columbia Statistics Faculty Names](edu_images/columbia_stat_faculty_name_demo.png)
+
+Specifically, we will try to get the bolded name like "Wayne T. Lee" and not the
+"Lee, Wayne T." that is in an awkward ordering.
+
+#### Using the inspector tool
+As of 2020, most browsers have an inspector tool:
+![browser inspector tools](edu_images/browser_inspector.png)
+
+The Safari "Develop" tab to show up by default, please Google how to get it to surface.
+
+The inspector tool allows us to see what part of the code correspond to what part of the webpage.
+Try moving the curosr around different parts under "inspector", you should see different
+parts of the webpage being highlighted.
+![cursor inspector highlights](edu_images/inspector_cursor_highlight_page.png)
+
+At this point, we normally want to click into the different `<div>` tags (in Firefox, there are 
+dropdown arrows next to the `<div>` tags that hide the details within the tag) until we see only the
+text of interest in highlighted. These tags similar to the comma in a CSV file where
+they format the data so the browser knows how to display the content.
+![div tag with name](edu_images/div_tags_html.png)
+
+The information from the navigation will inform us how to write the code soon.
+
+#### A quick note about HTML format
+In a loose sense, HTML is a data format for webpages (look up XML for the
+more proper data format).
+
+Here are a few quick facts you need to know
+- Most values are enclosed by tags, here's an example using the `<p>` tag: `<p>Here is a paragraph</p>`
+  - Notice how we need a closing tag like `</p>` 
+- HTML in general is hierarchical like nested lists because the webpage has different sections and
+  sub-sections.
+- The tags also have attributes 
+
+#### Calling the webpage using R with `httr`
+#### Parsing the webpage using `xml2`
+
+#### From the special classes in httr and xml2 to our native R data types
+#### The "Network" under Inspector and why scraping is discouraged
+
+#### APIs
+
+#### Elements in an API call
+#### Using httr to call the APIs
+#### Options in parsing the data again
+
+## Problem 7: Some basic statistical computation
+- Statistical computing
+  - Calculating complicated probabilities
+  - Permutation tests
+  - Estimating random variables
+
+
+## What we didn't cover
+- Data bases
+- Algorithms
+- Computational complexity
 
 
 {% include lib/mathjax.html %}
