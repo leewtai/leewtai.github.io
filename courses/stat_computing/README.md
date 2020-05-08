@@ -2643,12 +2643,48 @@ more proper data format).
 Here are a few quick facts you need to know
 - Most values are enclosed by tags, here's an example using the `<p>` tag: `<p>Here is a paragraph</p>`
   - Notice how we need a closing tag like `</p>` 
+  - In Columbia example, you'll see a lot of `<a>` tags for hyperlinks
+- Different tags have different purposes, for more information see [here](https://www.w3schools.com/tags/ref_byfunc.asp).
 - HTML in general is hierarchical like nested lists because the webpage has different sections and
   sub-sections.
-- The tags also have attributes 
+- The tags also have attributes, notice the `name` in our Columbia example in
+  `<a name="anchor-36">` is an attribute with a value set to `"anchor-36"`
 
 #### Calling the webpage using R with `httr`
+The HTML in the inspector tool can be obtained by using the `GET()` function
+in the library `httr`.
+```r
+library(httr)
+url <- "http://stat.columbia.edu/department-directory/faculty-and-lecturers/"
+web_response <- GET(url=url)
+class(web_response)
+names(web_response)
+web_response$url
+web_response$date
+web_response$status_code
+```
+What to notice?
+- We used the URL for the website and passed it to the function `GET()`
+- The class of the output from `GET()` is not our usual data types.
+  We will explore this later.
+- Various information associated with the call is attached to the output
+  - A `status_code` of 200 means the call was overall "successful", other codes
+    are ways to inform you of the type of error that was made.
+- If you peek at `web_response$content`, notice that it's in a weird code (binary)    
+
+To get the same text you saw in the inspector tool, you need to use `content()`
+to help convert the binary data into text.
+```r
+web_content <- content(web_response, as='text')
+class(web_content)
+substr(web_content, 1, 100)
+length(web_content)
+nchar(web_content)
+```
+
 #### Parsing the webpage using `xml2`
+The converted text is extremely long despite being one single string. Its
+format is HTML which is a looser be parsed by XML
 
 #### From the special classes in httr and xml2 to our native R data types
 #### The "Network" under Inspector and why scraping is discouraged
@@ -2667,10 +2703,11 @@ Here are a few quick facts you need to know
 
 
 ## What we didn't cover
-- Data bases
-- Algorithms
-- Computational complexity
-
+- How to "think backwards"
+- Everything CS
+  - Databases
+  - Algorithms
+  - Computational complexity
 
 {% include lib/mathjax.html %}
 
