@@ -6,9 +6,11 @@ import pandas as pd
 import requests
 
 cred = json.load(open('../credentials.json', 'r'))
-params = {'$limit': 50000,
-          'fiscal_year': 2019,
-          '$offset': 0}
+params = {'fiscal_year': 2019,
+          'agency_name': 'POLICE DEPARTMENT',
+          '$limit': 50000,
+          '$offset': 0,
+          '$where': 'agency_start_date between "2019-01-01" and "2019-01-31"'}
 # 2019 is about 100MB
 for i in range(100):
     params.update({'$offset': i * params['$limit']})
@@ -28,4 +30,4 @@ dfs = []
 file_names = glob('data/*')
 dfs = [pd.read_csv(file_name) for file_name in file_names]
 df = pd.concat(dfs)
-df.to_csv('nyc_payroll_2019.csv')
+df.to_csv('nyc_payroll_201901.csv')
