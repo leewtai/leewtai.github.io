@@ -8,31 +8,21 @@ There are many reasons why I think this can make the world a better place :)
 
 
 ## Teaching
-Many friends have commented on the desire to learn statistics better yet also showed a lot of
-frustration in the typical statistical curriculum. The desire is often a result of being
-surprised by data at work where the frustration is often from the disconnect between the classic
-statistics curriculum and these surprises. Resolving this conflict is my initial goal in statistics
-education.
 
-
-#### Concept Inventory
-If there's one lesson in data science, it's about creating meaningful feedback loops to guide
-you towards the desired end-goal. For statistics education, I believe this feedback can be
-achieved by developing a statistics concept inventory. We need to know if changes
-result in measurable improved understanding for the students.
-
-A [concept inventory](https://en.wikipedia.org/wiki/Concept_inventory) is a collection of
-multiple-choice questions to assess students' working knowledge of a specific set of concepts.
-They should have representative coverage of the material, should not focus on derivations, and
-the distractors should be developed from common misconceptions. 
+#### Concepts
+There are three statistical concepts that I would like to teach:
+- Data and non-data problems
+- Coming up with "What else"?
+- What data can change my opinion?
 
 I'm slowly compiling certain concepts overtime:
 - [Intro Stat Concepts](stat_concept_inv/README.md)
 
-#### Courses
+#### Courses and Experiments
 The following courses will hopefully be constructed from a collection of concepts above.
 - [Applied Statistical Computing](courses/stat_computing/README.md)
 - [Linear Regression](courses/linear_regression/README.md)
+- [Going virtual with recordings (in-progress)](courses/going_virtual.md)
 - Applied statistical methods beyond 
 
 
