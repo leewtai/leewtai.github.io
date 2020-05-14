@@ -1,3 +1,6 @@
+*.Rhistory
+*.prcp
+*.txt
 *.ipynb
 *.json
 *.csv
