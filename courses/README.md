@@ -14,7 +14,7 @@ for statistics.
 
 ## Expectations for different degrees
 Here's a list of my personal belief what people with different degrees should be able to do:
-- A student with a minor in statistics should be able to understand a problem, e.g. if the data is not homoskedastic, what could go wrong?
+- A student with a minor in statistics should be able to recognize problems, e.g. if the data is not homoskedastic, what could go wrong?
 - A student with a major in statistics should be able to think of how to fix the problem, e.g. transform the data or using weighted least squares could address issues with heteroskedasticity.
 - A student with a masters should be able to read papers and execute state of the art methods
 - A phd student should be able to discover new methods for unsolved problems
