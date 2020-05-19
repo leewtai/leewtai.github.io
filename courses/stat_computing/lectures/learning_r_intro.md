@@ -36,12 +36,13 @@ so you could learn R, Python, or Julia in the future.
   - Subsetting data
   - Plotting
 - [Problem 3, Data wrangling](learning_r_data_wrangle.md)
+  - JOINs between data tables
   - Wrangling with hierarchical (nested) data into rectangular formats
 - [Problem 4, Summarizing segments of data quickly](learning_r_summarize.md)
-  - Vectorized functions and alternatives to loops
+  - Vectorized functions and alternatives to loops like `apply()` and `tapply()`
 - [Problem 5, Working with text data](learning_r_text_manipulation.md)
   - Specifying patterns for computers (regular expression)
-  - Cleaning data
+  - Handling dates
 - [Problem 6, Scraping and calling APIs](learning_r_scraping_and_api.md)
   - Getting data from the internet programmatically
 - [Problem 7, Validating math using simulations](learning_r_validating_prob_simulations.md)
@@ -49,12 +50,12 @@ so you could learn R, Python, or Julia in the future.
 - TODO: add lesson that incorporates scope / debugging
 
 #### What we won't cover
-What we haven't covered that you'll learn in other computing courses:
+What we won't cover that you should learn in other computing courses:
 - Data structure which is much deeper than the data types we've been discussing
-- Algorithms like recursion and sorting which will deepen your knowledge of computational complexity
+- Algorithms, recursion, sorting which will deepen your knowledge of computational complexity
 - Structuring code or a data pipeline
 - Working backwards from a list of specifications. 
-- How to wrangle/analyze big data, i.e. where data can exist across multiple machines and files beyond just your computer.
+- How to wrangle/analyze big data, i.e. where data is stored across multiple machines beyond just your computer.
 - ... many many more
 
 {% include lib/mathjax.html %}
