@@ -7,6 +7,9 @@ Finally, to manage the dependencies between Jupyter, Python, R, and the various 
 If our setup has potential conflicts, Anaconda will save us before it's too late!
 
 ![conda dependency conflict demo](images/conda_dep_conflict_demo.png)
+<img src="images/conda_dep_conflict_demo.png" width='70'>
+<img src="images/conda_dep_conflict_demo.png" width='110'>
+<img src="./images/conda_dep_conflict_demo.png" width='70'>
 
 Overall, installing `conda` will automatically install `Python` so there are only 2 steps:
 - [Install Anaconda](#install-anaconda)
