@@ -9,6 +9,9 @@ My basic tips on teaching online:
 - Students should share their faces in breakout rooms
 - The instructor(s) need to go around to different breakout rooms to check-in on people's status
 - I encourage live questions through the "chat" capabilities.
+- I have quizzes/surveys between lectures to make sure students are keeping up. If they do not
+  respond between classes, they lose the credit. My goals here are to encourage them to keep up
+  with the lecture rather than to assses their knowledge so I'm okay if they discuss with peers.
 
 ## Tools for recording lectures
 Here is my open source setup:
