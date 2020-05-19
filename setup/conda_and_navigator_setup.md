@@ -6,7 +6,7 @@ Finally, to manage the dependencies between Jupyter, Python, R, and the various 
 
 If our setup has potential conflicts, Anaconda will save us before it's too late!
 
-![conda dependency conflict demo](images/conda_dep_conflict_demo.png)
+<img src="images/conda_dep_conflict_demo.png" alt="conda dependency conflict demo" width='600'>
 
 Overall, installing `conda` will automatically install `Python` so there are only 2 steps:
 - [Install Anaconda](#install-anaconda)
@@ -21,10 +21,10 @@ There are two methods to do this depending on if you're comfortable with the com
 #### Anaconda GUI via Anaconda Navigator
 1. Please get [Anaconda Navigator](https://docs.anaconda.com/anaconda/navigator/) which is a nice GUI
 2. Launch Anaconda Navigator
-    ![Anaconda Navigator Home Screen](images/anaconda_nav_home.png)
+    <img src="images/anaconda_nav_home.png" alt="Anaconda Navigator Home Screen" width='300'>
 3. Go to `Environments` on the left tab
 4. Click on `Create` at the bottom to create a separate environment so the materials here will not conflict with your other work
-    ![Anaconda Navigator Environment Tab](images/anaconda_nav_environments.png)
+    <img src="images/anaconda_nav_environments.png" alt="Anaconda Navigator Environment Tab" height='600'>
 5. Create an environment called `text-mine` (or whatever you prefer) and use the dropdown menu to run under Python version 3.7, then choose `Create` (yes, even if you want R in the end).
     ![Anaconda Navigator Creating New Environments](images/anaconda_nav_create_env.png)
 6. Please continue to the section on [installing packages using Anaconda Navigator](#installing-packages-using-Anaconda-Navigator)
