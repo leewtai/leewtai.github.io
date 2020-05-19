@@ -27,25 +27,26 @@ I encourage you to set up [Jupyter Notebooks on your computer](../../../setup/co
 so you could learn R, Python, or Julia in the future.
 
 #### Problems
-- [Problem 1, How to simulate Law of Large Numbers?](lectures/learning_r_lln.md)
+- [Problem 1, How to simulate Law of Large Numbers?](learning_r_lln.md)
   - Variables
   - Functions, arguments, default values
   - For-loops
-- [Problem 2, How to visualize data?](lectures/learning_r_data_viz.md)
+- [Problem 2, How to visualize data?](learning_r_data_viz.md)
   - Data types beyond numeric values
   - Subsetting data
   - Plotting
-- [Problem 3, Data wrangling](lectures/learning_r_data_wrangle.md)
+- [Problem 3, Data wrangling](learning_r_data_wrangle.md)
   - Wrangling with hierarchical (nested) data into rectangular formats
-- [Problem 4, Summarizing segments of data quickly](lectures/learning_r_summarize.md)
+- [Problem 4, Summarizing segments of data quickly](learning_r_summarize.md)
   - Vectorized functions and alternatives to loops
-- [Problem 5, Working with text data](lectures/learning_r_text_manipulation.md)
+- [Problem 5, Working with text data](learning_r_text_manipulation.md)
   - Specifying patterns for computers (regular expression)
   - Cleaning data
-- [Problem 6, Scraping and calling APIs](lectures/learning_r_scraping_and_api.md)
+- [Problem 6, Scraping and calling APIs](learning_r_scraping_and_api.md)
   - Getting data from the internet programmatically
-- [Problem 7, Validating math using simulations](lectures/learning_r_validating_prob_simulations.md)
+- [Problem 7, Validating math using simulations](learning_r_validating_prob_simulations.md)
   - Hypothesis testing beyond the t-test: permutation tests
+- TODO: add lesson that incorporates scope / debugging
 
 #### What we won't cover
 What we haven't covered that you'll learn in other computing courses:
@@ -55,7 +56,6 @@ What we haven't covered that you'll learn in other computing courses:
 - Working backwards from a list of specifications. 
 - How to wrangle/analyze big data, i.e. where data can exist across multiple machines and files beyond just your computer.
 - ... many many more
-
 
 {% include lib/mathjax.html %}
 
