@@ -21,12 +21,12 @@ There are two methods to do this depending on if you're comfortable with the com
 #### Anaconda GUI via Anaconda Navigator
 1. Please get [Anaconda Navigator](https://docs.anaconda.com/anaconda/navigator/) which is a nice GUI
 2. Launch Anaconda Navigator
-    <img src="images/anaconda_nav_home.png" alt="Anaconda Navigator Home Screen" width='300'>
+    <img src="images/anaconda_nav_home.png" alt="Anaconda Navigator Home Screen" width='400'>
 3. Go to `Environments` on the left tab
 4. Click on `Create` at the bottom to create a separate environment so the materials here will not conflict with your other work
     <img src="images/anaconda_nav_environments.png" alt="Anaconda Navigator Environment Tab" height='600'>
 5. Create an environment called `text-mine` (or whatever you prefer) and use the dropdown menu to run under Python version 3.7, then choose `Create` (yes, even if you want R in the end).
-    ![Anaconda Navigator Creating New Environments](images/anaconda_nav_create_env.png)
+    <img src="images/anaconda_nav_create_env.png" alt="Anaconda Navigator Creating New Environments" width='400'>
 6. Please continue to the section on [installing packages using Anaconda Navigator](#installing-packages-using-Anaconda-Navigator)
 
 #### Command line interface with Anaconda via conda
@@ -35,16 +35,15 @@ There are two methods to do this depending on if you're comfortable with the com
 2. Launch your command line interface for Anaconda:
     - on Windows, this is called "Anaconda Command Prompt"
     - on OSX, this is called "Terminal"
-    ![different command line prompts](images/diff_command_line_prompts.png)
+    <img src="images/diff_command_line_prompts.png" alt="different command line prompts" width='600'>
 3. Type in the following to create an environment called `text-mine` under Python version 3.7 (yes, even if you want R in the end!)
 
     `conda create -n text-mine python=3.7`
 
     You will likely be asked to confirm with the packages it'll install. Type in `y` then enter to accept.
-4. Type in `conda activate text-mine` and notice how your command prompt changes to `text-mine`
-    ![Conda activate changes prompt](images/conda_activate_switch.png)
-
-    It's possible that you have an older version of `conda`, then you should type in `source activate text-mine` instead.
+4. Type in `conda activate text-mine` and notice how your command prompt changes to `text-mine`. It's possible
+   that you have an older version of `conda`, then you should type in `source activate text-mine` instead.
+      <img src="images/conda_activate_switch.png" alt="Conda activate changes prompt" width='400'>
 5. Please continue to the section on [installing packages using conda](#installing-packages-using-conda)
 
 
