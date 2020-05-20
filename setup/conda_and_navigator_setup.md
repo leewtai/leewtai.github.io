@@ -52,17 +52,17 @@ A program'ss true value is in its large community of developers and users. To le
 
 #### Installing packages using Anaconda Navigator
 1. Go back to the `Environment` tab on the far left and make sure your desired environment is selected (in this document that's `text-mine`).
-    ![install packages for anaconda navigator](images/anaconda_nav_packages.png)
+    <img src="images/anaconda_nav_packages.png" alt="install packages for anaconda navigator" height='400'>
 2. Use the dropdown menu shown above to examine the packages not installed.
 3. Use the search box to find `jupyter`. IF you want R, you should look for `r-base`, `r-essentials`, and `r-irkernel` as well. If you are working in Python, you should look for `pandas`, `matplotlib`, `numpy`, and `statsmodels`.
-    ![choosing packages in anaconda navigator](images/anaconda_nav_choosing_packages.png)
+    <img src="images/anaconda_nav_choosing_packages.png" alt="choosing packages in anaconda navigator" width='600'>
 
     I would make sure all packages you want are selected before moving to the next step. Once the ![download icon](images/download_icon.png) appears, you can safely search for the next package. Notice the number of packages selected are indicated at the right bottom of the Navigator Window.
 4. (This will take awhile)  Click on `Apply` on the right bottom and wait for the packages to be installed. Click on `Apply` once more to confirm the packages you wanted.
 5. To confirm it all worked, go back to the `Home` tab, make sure you use the dropdown menu behind "Applications on" to `text-mine` (or whatever you called the new environment)
-    ![Selecting new environments](images/anaconda_nav_custom_home.png)
+    <img src="images/anaconda_nav_custom_home.png" alt="Selecting new environments" width='600'>
 6. Select `Launch` under Jupyter. This should launch a few things but ultimately on your default browser, you'll see a jupyter session.
-    ![Jupyter Initial Launch Screen](images/jupyter_initial_launch.png)
+    <img src="images/jupyter_initial_launch.png" alt="Jupyter Initial Launch Screen" height='400'>
 7. Click down your file path to where you want your work stored, then click on `New` on the far right to launch a `Python 3` or `R` session.
 8. You should be able to confirm if the installation succeeded by repeating this little example below in your Jupyter Notebook.
     - type `1 + 1` into one of the "cells", you should see the solution appear
@@ -80,15 +80,15 @@ A program'ss true value is in its large community of developers and users. To le
     ```
     conda install jupyter numpy matplotlib pandas statsmodels
     ```
-    ![conda commands](images/conda_install_nltk_packages.png)
+    <img src="images/conda_install_nltk_packages.png" alt="conda commands" width='600'>
     - If you want `R` then you should **insetad** type in:
     ```
     conda install jupyter r-base r-essentials r-irkernel
     ```
 3. To confirm it all worked, navigate to your desired working directory, then type in `jupyter notebook` to launch your jupyter session. This should launch a few things but ultimately on your default browser, you'll see a jupyter session.
-    ![Jupyter Initial Launch Screen](images/jupyter_initial_launch.png)
+    <img src="images/jupyter_initial_launch.png" alt="Jupyter Initial Launch Screen" height='400'>
 4. Click on `New` on the far right to launch a `Python 3` or `R` session. Now you have a functioning Jupyter notebook session
-    ![initial Jupyter Session](images/initial_jupyter_session.png)
+    <img src="images/initial_jupyter_session.png" alt="initial Jupyter Session" width='500'>
 5. You should be able to confirm if the installation succeeded by repeating this little example below in your Jupyter Notebook
     - type `1 + 1` into one of the "cells"
     - Use "Shift Enter" or "Command Enter" to run the code
