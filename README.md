@@ -8,6 +8,12 @@ There are many reasons why I think this can make the world a better place :)
 
 
 ## Teaching
+#### Courses and Experiments
+The following courses will hopefully be constructed from a collection of concepts above.
+- [Applied Statistical Computing](courses/stat_computing/README.md)
+- [Linear Regression](courses/linear_regression/README.md)
+- [Going virtual with recordings (in-progress)](courses/going_virtual.md)
+- Applied statistical methods beyond linear regression
 
 #### Concepts
 There are three statistical concepts that I would like to teach:
@@ -18,15 +24,15 @@ There are three statistical concepts that I would like to teach:
 I'm slowly compiling certain concepts overtime:
 - [Intro Stat Concepts](stat_concept_inv/README.md)
 
-#### Courses and Experiments
-The following courses will hopefully be constructed from a collection of concepts above.
-- [Applied Statistical Computing](courses/stat_computing/README.md)
-- [Linear Regression](courses/linear_regression/README.md)
-- [Going virtual with recordings (in-progress)](courses/going_virtual.md)
-- Applied statistical methods beyond 
+## Applied Research Ideas With Students
+- An App to tie problems and concepts together to help
+  make problems
+- Anything agriculture tech!
+- Supply chain optimization with spatial statistics
+- Finding experts within a field
+- Dance + tech
 
-
-### Thoughts & Writing
+## Thoughts & Writing
 I have several thoughts around statistics, data science, dance, and life if you care to read about them:
 - [Dance Lessons for Data Scientists](https://towardsdatascience.com/dance-lessons-for-data-scientists-27510ba3257a)
 - [3 Statistical Concepts to Save the World](https://medium.com/@leewtai/3-statistical-concepts-to-save-the-world-d8cdf0534f35)
