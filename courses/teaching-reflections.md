@@ -102,3 +102,4 @@ The notes are organized by semester for now.
 - Academic honesty issues were not noticeable, maybe because P/F only.
 - Some students asked more questions online, some just stopped showing up to class.
 - Responding to multi-day exams is tiring (Victor recommended letting people ask questions up front)
+- Might try to teach students to reproduce each other's reports
