@@ -83,11 +83,14 @@ The notes are organized by semester for now.
 - First breakout room was a fail (no one spoke!)
 - Gave up on quizzes midway due to COVID, should have continued
 - Final projects from regression was below expectation, need to add more real examples
+- Ed avoids some issues for students (it's too good for an intro class).
 
 #### What went well?
 - Lots of students who didn't know programming learned R 
 - Lots of exposure to different datasets
 - Discussions in lecture time seemed better
+- Ed does avoid a lot of package dependency issues for students
+- I think it's the right choice to focus on data wrangling than algorithms
 
 #### Reflection
 - We should restrict the type of R functions allowed on some exams, students have a lot of copy/paste
