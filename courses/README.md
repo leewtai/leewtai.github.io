@@ -23,3 +23,10 @@ Here's a list of my personal belief what people with different degrees should be
 ## Self reflection on teaching
 Here are some [self-reflections from teaching](teaching-reflections.md) semester to semester.
 The goal is to give you a sense that teaching isn't easy and I'm very open to feedback.
+
+
+## Ideas for future courses:
+- Spatial statistics
+- Data mining as a deep dive exercise, contrast with causal inference
+- Data science class?
+- Data science for social workers or dancers

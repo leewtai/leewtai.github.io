@@ -103,3 +103,5 @@ The notes are organized by semester for now.
 - Some students asked more questions online, some just stopped showing up to class.
 - Responding to multi-day exams is tiring (Victor recommended letting people ask questions up front)
 - Might try to teach students to reproduce each other's reports
+- Undergraduates need time to ramp up expectations for research (...not sure how yet)
+- MA students really want to try a lot of different models in research
