@@ -12,6 +12,7 @@ There are many reasons why I think this can make the world a better place :)
 The following courses will hopefully be constructed from a collection of concepts above.
 - [Applied Statistical Computing](courses/stat_computing/README.md)
 - [Linear Regression](courses/linear_regression/README.md)
+- [Applied Statistical Methods](courses/applied_methods/README.md)
 - [Going virtual with recordings (in-progress)](courses/going_virtual.md)
 - Applied statistical methods beyond linear regression
 
