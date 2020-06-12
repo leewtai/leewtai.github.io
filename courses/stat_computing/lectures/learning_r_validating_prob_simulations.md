@@ -30,12 +30,13 @@ We want to measure the fraction of 4 coin tosses that have 2 heads exactly.
   ```
 This immediately implies we need to define what `outcome` should be.
 Outcome should be a container where each element contains the event of interest.
-The event is just the number of heads out of 4 coin tosses, something we can do by:
+The event is just the number of heads out of 4 coin tosses, something we can code up as:
 ```r
 coin <- c('head', 'tail')
 tosses <- sample(coin, 4, replace=TRUE)
 num_heads <- sum(tosses == 'head')
 ```
+
 To link these two chunks of code, we know that `outcome` should contain the 
 different realizations from repeating this event. Given this is quite repetitive,
 hopefully you're thinking of using a for-loop to connect the pieces.
@@ -62,7 +63,7 @@ mean(outcome == 2)
 Exercise TBM
 
 #### Testing pay inequality
-There's a common belief that there's a payroll difference between men and women.
+There's a common belief that there's a pay-gap between men and women.
 Let's see if we can detect it in the [NYC Payroll Information](https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e)
 in 2019, for anyone who started in Jan 2019 under the Police Department.
 I've also inferred the gender based on the first name to create a [dataset here](../data/processed_nyc_payroll_201901.csv).
@@ -140,6 +141,12 @@ permutation_p_val
 ```
 We would then compare this value against our usual 5% significance level to see
 if we would reject our null hypothesis.
+
+Small reminder about hypothesis testing! Not rejecting, i.e. p-value greater than 5%
+does not prove the null hypothesis.
+The logic is similar to saying it's not sunny outside your window does
+not does imply it's raining in your neighborhood.
+
 
 #### Summary of permutation test 
 What we did was called a permutation test. Intuitively, we compared a statistic based
