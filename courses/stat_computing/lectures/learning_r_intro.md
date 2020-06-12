@@ -46,6 +46,7 @@ so you could learn R, Python, or Julia in the future.
   - Vectorized functions and alternatives to for-loops
   - group-by then aggregate
 - [Problem 5, Working with text data](learning_r_text_manipulation.md)
+  - reading in raw text
   - Specifying patterns for computers (regular expression)
   - date/time values
 - [Problem 6, Scraping and calling APIs](learning_r_scraping_and_api.md)
