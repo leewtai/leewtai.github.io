@@ -140,6 +140,22 @@ This is common when you want to calculate the number of friends who are within
 i.e. each row corresponds to a friendship (measured by Facebook status) and
 the 2 columns corresponding to 2 user IDs.
 
+#### Data frames are not efficient at storage
+Data does not need to be stored in a table format where there are columns and
+rows! In fact, it's quite efficient to do so so many internet companies never
+store raw data in this format.
+
+For example, imagine a supermarket's tracking your purchases. Your different
+visits would likely be tagged with the total amount you spent, the time of that visit,
+then the detail items information (like item name, brand, cost, units purchased, etc).
+Storing all this data in a table is not very efficient because you would have to repeat
+the summarized data (total amount and time of visit) for each detailed item.
+Try to draw this table out if you cannot picture this!
+
+While having different tables is a solution, consumers of this dataset would often
+appreciate a single source of data that has all of the information.
+This leads to the existance of hierarchical data types like lists.
+
 #### Most flexible data type - list()
 Back to the case where the data do not follow a rectangular format, data
 is often stored in a hierarchical format. In R, the most common format to 
@@ -167,7 +183,8 @@ length(dat)
 names(dat)
 ```
 
-I personally visualize a list like a sequence of packages with possible labels on them.
+I personally visualize a list like a sequence of packages with possible labels on them,
+where each package can be another sequence of packages.
 ![list as pacakges](../edu_images/list_as_packages.png)
 
 What to notice?
