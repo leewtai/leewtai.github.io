@@ -1,4 +1,4 @@
-# Problem 7: Simulating statistical phenomena
+# Simulating statistical phenomena
 The final problem is for us to see how our computational skills can allow us to
 use a more diverse set of statistical techniques.
 

@@ -1,4 +1,4 @@
-# Problem 2 - data visualization
+# Data visualization
 The next task we need to learn is how to plot the data. Data visualization
 is a powerful technique that often highlights useful patterns in the data.
 We will specifically try to plot the different trajectory of

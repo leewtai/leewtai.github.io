@@ -1,4 +1,4 @@
-# Problem 4 quickly summarizing data
+# Quickly summarizing data
 Besides visualizing the data, we often want to summarize the data
 across different dimensions as well.
 

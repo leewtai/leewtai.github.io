@@ -1,4 +1,4 @@
-# Problem 1, How to simulate Law of Large Numbers?
+# How to simulate Law of Large Numbers?
 
 #### Setting
 The law of large numbers (LLN) is one of the corner stone concepts in intro statistics

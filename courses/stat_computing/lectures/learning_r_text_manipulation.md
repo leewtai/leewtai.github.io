@@ -1,4 +1,4 @@
-# Problem 5 Analyzing Text Data
+# Analyzing Text Data
 This chapter will focus on programmatically identifying key words in job descriptions.
 Job descriptions often introduce the company, the role they're hiring
 for, then follow up with basic and preferred qualifications. As students,

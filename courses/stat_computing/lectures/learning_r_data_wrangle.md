@@ -1,4 +1,4 @@
-# Problem 3 - Data Wrangling
+# Data Wrangling
 Notice that a lot of our functions above rely on having the vectors
 having the same length and same element in different vectors corresponded
 to the same records.

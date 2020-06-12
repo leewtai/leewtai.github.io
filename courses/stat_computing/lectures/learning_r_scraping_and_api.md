@@ -1,4 +1,4 @@
-# Problem 6: Getting data
+# Getting data
 So far all the problems assumed that the data came from an existing file. But 
 data can come directly from the internet without ever saving to a file.
 In fact, this is the most common way how commercial venues exchange data.
