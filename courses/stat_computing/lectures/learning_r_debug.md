@@ -253,6 +253,14 @@ To visualize the topic of scope, the following may help:
 Exercise:
 - What should happen if we re-calculate `s2 <- calc_se(data2)` right before `test_stat` is define? What would be printed?
 
+#### Quick note on debugging and naming
+In general, it's not a bad practice to add `print()` statements at different parts
+of your code to make sure
+- the class of the variable is what you expect (e.g. character vs numeric vs boolean when subsetting)
+- the size of the data is what you expect (often people get 0 data when they expect lots of data)
+- the value of the data (sometimes it's `NA` without you realizing it)
 
+Notice that this potential confusion could be avoided if we named our variables better as well.
+Better naming can really decrease the number of bugs in your code!
 
 {% include lib/mathjax.html %}
