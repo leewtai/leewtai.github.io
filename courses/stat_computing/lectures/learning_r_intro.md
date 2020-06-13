@@ -35,7 +35,7 @@ so you could learn R, Python, or Julia in the future.
   - Random functions that create fake data
   - For-loops
 - [Problem 2, How to visualize data?](learning_r_data_viz.md)
-  - Data types beyond numeric values (character, enums/factors, booleans, data frames)
+  - Data types beyond numeric values (character, enums/factors, booleans, data frames, missing values)
   - Subsetting data
   - Plotting
 - [Problem 3, Issues with naming variables](learning_r_debug.md)
