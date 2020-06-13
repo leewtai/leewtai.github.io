@@ -38,24 +38,25 @@ so you could learn R, Python, or Julia in the future.
   - Data types beyond numeric values (character, enums/factors, booleans, data frames)
   - Subsetting data
   - Plotting
-- [Problem 3, Data wrangling](learning_r_data_wrangle.md)
+- [Problem 3, Issues with naming variables](learning_r_debug.md)
+  - Scope
+  - Using `print()` to understand the behavior of programs
+- [Problem 4, Data wrangling](learning_r_data_wrangle.md)
   - Lists
   - JOINs between data tables
   - Wrangling with hierarchical (nested) data into rectangular formats
-- [Problem 4, Summarizing segments of data quickly](learning_r_summarize.md)
+- [Problem 5, Summarizing segments of data quickly](learning_r_summarize.md)
   - Vectorized functions and alternatives to for-loops
   - group-by then aggregate
-- [Problem 5, Working with text data](learning_r_text_manipulation.md)
+- [Problem 6, Working with text data](learning_r_text_manipulation.md)
   - reading in raw text
   - Specifying patterns for computers (regular expression)
   - date/time values
-- [Problem 6, Scraping and calling APIs](learning_r_scraping_and_api.md)
+- [Problem 7, Scraping and calling APIs](learning_r_scraping_and_api.md)
   - Getting data from the internet programmatically
-- [Problem 7, Validating math using simulations](learning_r_validating_prob_simulations.md)
+- [Problem 8, Validating math using simulations](learning_r_validating_prob_simulations.md)
   - Hypothesis testing beyond the t-test: permutation tests
-  - random functions
-- [Problem 8, ](learning_r_debug.md)
-  - 
+  - Intro to statistical computing, beyond data analysis!
 
 #### What we won't cover
 What we won't cover that you should learn in other computing courses:
