@@ -8,26 +8,26 @@ and highlights the care required when people are performing data analyses. The l
 will explain why statistics is so critical in all applied sciences that use data.
 
 I will review some of these topics but I'm assuming:
-- You have some basic exposure to programming
-  - Plotted a scatter plot, ran a for-loop, create 
-- You have exposure to an introductory statistics class before
+- Some basic exposure to programming
+  - Plotted a scatter plot, ran a for-loop, are familiar with data analysis
+- Exposure to an introductory statistics class
   - Average, median, hypothesis testing, correlation, what is a random variables etc
 
 At the end of this you should feel comfortable to
-- Understand how regression is used in different problems, how to diagnose it,
-  and its various challenges.
-- Understand how estimation using observed data depends on assumptions from the data generation process
-- Understand the need to formalize a problem via mathematics, simulating the mathematics via programming,
-  and using the simulation to validate the mathematics.
-- Understand multiple-comparison as a challenge
+- Translate a general scientific problem into a concrete statistical question
+- Understand if regression is appropriate, how to diagnose the regression,
+  and the various challenges faced by regression.
+- Understand how estimation depends on assumptions from the data generation process
+- Understand the need to formalize a problem via mathematics and how to validate the mathematics via programming.
 
 
-#### Computer setting up
+### Computer setting up
+
 I encourage you to set up [Jupyter Notebooks on your computer](../../../setup/conda_and_navigator_setup.md)
-so you could learn R, Python, or Julia in the future.
+so you could repeat these in R or Python in the future. For Python users, you'll need `numpy` and `statsmodel`.
 
-#### Lessons
-- Using math to formalize an abstract concept
+### Topics
+- [Using math to formalize intuition](lectures/formalize_intuition.md)
   - regression as a candidate "best-fit" line
   - introducing the least squares objective function
   - re-learning the average as a special case of regression
