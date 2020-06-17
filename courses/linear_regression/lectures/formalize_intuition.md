@@ -108,7 +108,9 @@ like, the optimal value $$a^*$$ could be expressed as the point where the follow
 
 $$\sum_{j \in {j: j\leq a^*} (W_j - a)^2 = \sum_{j \in {j: j> a} (W_j - a^*)^2|$$
 
-To code this idea up, we could compute the squared distances then return whether the right and left values equal.
+In words, we are squaring both the negative errors and positive errors and ensuring that
+the error on both sides are the same. To code this idea up, we could compute the squared
+distances then return whether the right and left values equal.
 ```python
 import pandas as pd
 
@@ -130,10 +132,10 @@ left_equal_right(170, mlb.weights)
 
 The above code is not incorrect but notice that most of your attempts will return `False`.
 Hopefully you felt a slight irritation in the lack of information whether your current guess
-is too large or too small and whether you are close or far from the optimal choice.
+is close or far from the optimal choice.
 
 Mathematically, it turns out that the optimal $$a^*$$ that obtains the same left and right squared distances
-is equivalent to minimizing the total squared distances from both sides. In other words, 
+is equivalent to minimizing the total squared error from both sides of $$a$$. In other words, 
 for any other location, $$b$$:
 
 $$\sum_{j=1}^{n} (W_j - a^*)^2 <= \sum_{j=1}^{n} (W_j - b)^2$$
@@ -142,16 +144,13 @@ Another way to express this is
 
 $$a^* = \arg\min_b \sum_{j=1}^{n} (W_j - b)^2$$
 
-From your introduction statistics course, you might recall one of these expressions described as the "least squares"
-and that the mean (average) satisfies this property! In mathematical terms, define the mean as $$\bar{W} = \frac{1}{n}\sum_j W_j$$,
-then this satisfies the least square condition:
+From your introduction statistics course, you might recall that this means $$a^*$$ satisfies the "least squares"
+property! In other words, all possible location choices will result in a different squared error but $$a^*$$
+will have the smallest total squared error. Turns out $$a^*$$ is the mean of the weight values, i.e.
+$$\bar{W} = \frac{1}{n}\sum_j W_j$$.
 
-$$\sum_{j=1}^{n} (W_j - \bar{W})^2 <= \sum_{j=1}^{n} (W_j - b)^2$$
-
-for any other competing alternative value $$b$$. 
-
-It requires a little calculus to show that this is
-true but the key is to realize that the mean minimizes a certain objective. If we changed
+It requires a little calculus to show that $$a^* = \bar{W}$$
+but the key is to realize that the mean minimizes a certain objective. If we changed
 the objective, the mean may not be the optimal location anymore. Recall that we had choices
 when we were defining the concept of balancing, another popular objective is to replace the squaring
 operation with the absolute value operation:
@@ -197,17 +196,53 @@ plot.
  alt="Graph of Weight by Height with Avg Hori Line" width='600'>
 
 The average is an interesting choice because it satisfies the condition that
-it "balances the data" over the weight values. The correlation between the height
-and weight, however, makes it statement only true **over all values of height**.
+it "balances the data" over the weight values. At different values of the height,
+however, the balance is not preserved because shorter people tend to weigh less
+as well. In other words, the simple average is unsatisfactory because it balances
+the data **over all values of height** but not at most given height value.
+This implies that we would like the balancing property to hold over
+different segments of the x-axis. However, our problem also restricted us to use
+line which means we cannot have a perfect answer.
+
+With a similar arguments as the "best location" above, a similar candidate objective
+is the least square objective applied to arbitrary line:
+
+$$\arg\min_{(a, b)} \sum_{j=1}^{n} (W_j - (a + b * H_j))^2$$
+
+Here $$H_j$$ is the height of subject $$j$$, and $$(a, b)$$ are arbitrary intercept
+and slope values. Intuitively, $$a + b * H_j = \hat{W}_j$$ is the estimated weight 
+for subject $$j$$ (denoted as $$\hat{W}_j$$) derived from the height of subject $$j$$.
+The further $$\hat{W}_j$$ is from $$W_j$$, the larger the squared value, and the
+objective would grow as well. Thus the intercept and slope that results in the smallest
+objective should result in a line that "fits" the data. The line resulting from this
+particular intercept and slope is the regression line so you'll heard the regression
+line referred as the "least square line" in other texts. Below is the regression
+line from minimizing the objective:
+
+<img src="graphs/nhanes_height_weight_scatter_with_ols.png"
+ alt="Graph of Weight by Height with OLS" width='600'>
+
+Commpared to our expression before, we simply substituted the
+arbitrary location with an arbitrary line. This requires us to have the height
+data, $$H_j$$, available and search over the 2 parameters, $$a$$ and $$b$$.
+Before, we only needed the weight information and searched over 1 parameter.
+So from a data perspective, we need more data. From an optimization
+perspective, we have more parameters to consider and balance.
+
+What other objectives are sensible? We will explore some of these in the homework.
+
+Hopefully you've noticed that the average and the regression line can both be
+derived from minimizing the same squared error objective. The only difference
+is whether we restrict ourselves to an arbitrary point or arbitrary line.
+It is important to note that bad solutions are characterized as values
+that result in large errors with respect each $$W_j$$ value.
 
 
-
-Turns out 
-
-$$\arg\min_(a, b) \sum_{j=1}^{n} (Y_j - (a + b* X_j))^2$$
-
-
-A running theme will be the translation from 
+## Problems
+- What condition will make the regression squared objective equal to the average one?
+- Which of the following are valid objectives that would help find better values?
+- Wind turbine objective
+- Medical 
 
 ## Concepts
 - indices vs values
