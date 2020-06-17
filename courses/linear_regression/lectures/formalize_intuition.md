@@ -25,7 +25,8 @@ does "best fit" mean? We will explain this below.
 Below is a histogram of some people's weights. What would you say is the
 "typical" person's weight?
 
-![histogram of weight]()
+<img src="graphs/nhanes_weight_dist.png" alt="Histogram of weight" width='600'>
+
 To plot this data yourself, please find the data from [HERE]()
 
 Most people would eyeball this hisrogram and be able to point to roughly the same
@@ -38,6 +39,9 @@ they did not think much about it. But once you start asking about alternatives
 to their chosen answer, people will often start explaining their intuition. A
 common one for histograms is that they're trying to balance the points to
 the left and right of the chosen answer.
+
+<img src="graphs/nhanes_weight_dist_with_guesses_for_center.png"
+ alt="Histogram of weight with guesses" width='600'>
 
 How would we define "the points to the left"? Let's start with programming first:
 ```python
@@ -167,7 +171,8 @@ these formalisms also allow us to derive many other properties.
 Before we were summarizing the histogram with a mean, now what if we are trying to
 summarize a scatter plot?
 
-![graph of weight by height]()
+<img src="graphs/nhanes_height_weight_scatter.png"
+ alt="Graph of Weight by Height" width='600'>
 
 Imagine drawing a line through the scatter plot, many people would draw similar yet
 different lines through this point cloud. To capture each of these possible alternatives,
@@ -177,7 +182,6 @@ the intercept and $$b$$ represents the slope. Conceptually, this is equivalent t
 our arbitrary location, $$a$$ before in the histogram example.
 
 To summarize the data in the best fashion, we need to formalize an objective.
-
 
 
 
