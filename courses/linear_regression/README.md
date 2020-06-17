@@ -22,8 +22,7 @@ At the end of this you should feel comfortable to
 
 
 ### Computer setting up
-
-I encourage you to set up [Jupyter Notebooks on your computer](../../../setup/conda_and_navigator_setup.md)
+I encourage you to set up [Jupyter Notebooks on your computer](../../setup/conda_and_navigator_setup.md)
 so you could repeat these in R or Python in the future. For Python users, you'll need `numpy` and `statsmodel`.
 
 ### Topics
