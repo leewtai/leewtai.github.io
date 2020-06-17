@@ -31,8 +31,11 @@ To plot this data yourself, please find the data from [HERE]()
 
 Most people would eyeball this hisrogram and be able to point to roughly the same
 region but likely not same exact location. Ultimately, ten different people would
-have ten different answers, which one should we choose? This is why the mathematical
-formalism is necessary.
+have ten different answers, which one should we choose? Without a formal framework
+to choose a location, reproducing the same choice in other applications is near
+impossible which makes automation difficult, reproducing the same choice
+at a later time (same dataset) is also difficult which would cast doubt in
+the confidence in your original choice. This is why mathematical formalism is necessary.
 
 If you ask people how they arrived at their answer, the immediate answer is likely
 they did not think much about it. But once you start asking about alternatives
@@ -176,12 +179,26 @@ summarize a scatter plot?
 
 Imagine drawing a line through the scatter plot, many people would draw similar yet
 different lines through this point cloud. To capture each of these possible alternatives,
-we need a general yet formal expression for all the possible lines. If you recall
+we need a general expression for lines. If you recall
 from geometry, all lines can be written as $$Y = a + b * X$$ where $$a$$ represents
-the intercept and $$b$$ represents the slope. Conceptually, this is equivalent to
-our arbitrary location, $$a$$ before in the histogram example.
+the intercept ($$X=0 \Rightarrow Y=a$$) and $$b$$ represents the slope (if $$X$$ increases
+by $$\delta$$, then $$Y$$ will increase by $$b * \delta$$). This general expression,
+without committing to any particular value of $$a$$ and $$b$$, is equivalent to 
+our arbitrary location before in the histogram example.
 
-To summarize the data in the best fashion, we need to formalize an objective.
+Once we have a general expression that can capture all the different possible solutions,
+we now need to formalize an objective to unify all the different choices.
+A good starting place is to compare your intuitive answer with an obvious bad choice
+then start articulating formally the reason why your initial answer is better.
+In the graph below, we have plotted the average weight $$\bar{W}$$ on the scatter
+plot. 
+
+<img src="graphs/nhanes_height_weight_scatter_with_avg.png"
+ alt="Graph of Weight by Height with Avg Hori Line" width='600'>
+
+The average is an interesting choice because it satisfies the condition that
+it "balances the data" over the weight values. The correlation between the height
+and weight, however, makes it statement only true **over all values of height**.
 
 
 
