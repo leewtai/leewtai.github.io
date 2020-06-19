@@ -15,19 +15,20 @@ between domain expert with a quantitatively minded person. Here we will focus
 mostly on the quantitative side of topics.
 
 
-## How is this related to regresion?
+## How is this related to regression?
 One of the most familiar applications of regression is when people use the
 "best fit line" functionality in Excel or Google Spreadsheets. Behind the scenes,
 a regression calculation is being performed. But have you wondered what
 does "best fit" mean? We will explain this below.
 
-## Starting from the histograms and summary statistics
-Below is a histogram of some people's weights. What would you say is the
-"typical" person's weight?
+## Starting with histograms and summary statistics
+Below is a histogram of some people's weights over a wide range of ages.
+What would you say is the typical person's weight?
 
 <img src="graphs/nhanes_weight_dist.png" alt="Histogram of weight" width='600'>
 
-To plot this data yourself, please find the data from [HERE]()
+To plot this data yourself, please find the data from
+[HERE](../../../usecases_data/health_nutrition_survey/README.md)
 
 Most people would eyeball this hisrogram and be able to point to roughly the same
 region but likely not same exact location. Ultimately, ten different people would
@@ -106,7 +107,7 @@ A popular choice here is to balance the squared distances to the left to the squ
 distances to the right. To express this mathematically, this would look
 like, the optimal value $$a^*$$ could be expressed as the point where the following is true:
 
-$$\sum_{j \in {j: j\leq a^*} (W_j - a)^2 = \sum_{j \in {j: j> a} (W_j - a^*)^2|$$
+$$\sum_{j \in {j: j\leq a^*}} (W_j - a)^2 = \sum_{j \in {j: j> a}} (W_j - a^*)^2$$
 
 In words, we are squaring both the negative errors and positive errors and ensuring that
 the error on both sides are the same. To code this idea up, we could compute the squared
