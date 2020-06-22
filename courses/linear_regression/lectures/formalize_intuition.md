@@ -191,7 +191,7 @@ we now need to formalize an objective to unify all the different choices.
 A good starting place is to compare your intuitive answer with an obvious bad choice
 then start articulating formally the reason why your initial answer is better.
 In the graph below, we have plotted the average weight $$\bar{W}$$ on the scatter
-plot. 
+plot, i.e. the line $$W = \bar{W} + 0 * H$$.
 
 <img src="graphs/nhanes_height_weight_scatter_with_avg.png"
  alt="Graph of Weight by Height with Avg Hori Line" width='600'>
@@ -200,10 +200,10 @@ The average is an interesting choice because it satisfies the condition that
 it "balances the data" over the weight values. At different values of the height,
 however, the balance is not preserved because shorter people tend to weigh less
 as well. In other words, the simple average is unsatisfactory because it balances
-the data **over all values of height** but not at most given height value.
+the data **over all values of height** but not at most given height values.
 This implies that we would like the balancing property to hold over
 different segments of the x-axis. However, our problem also restricted us to use
-line which means we cannot have a perfect answer.
+line which means we cannot have a perfect answer (since the graph is curved).
 
 With a similar arguments as the "best location" above, a similar candidate objective
 is the least square objective applied to arbitrary line:
@@ -211,7 +211,7 @@ is the least square objective applied to arbitrary line:
 $$\arg\min_{(a, b)} \sum_{j=1}^{n} (W_j - (a + b * H_j))^2$$
 
 Here $$H_j$$ is the height of subject $$j$$, and $$(a, b)$$ are arbitrary intercept
-and slope values. Intuitively, $$a + b * H_j = \hat{W}_j$$ is the estimated weight 
+and slope values. Intuitively, $$a + b * H_j = \hat{W}_j$$ is the **estimated weight**
 for subject $$j$$ (denoted as $$\hat{W}_j$$) derived from the height of subject $$j$$.
 The further $$\hat{W}_j$$ is from $$W_j$$, the larger the squared value, and the
 objective would grow as well. Thus the intercept and slope that results in the smallest
@@ -232,12 +232,31 @@ perspective, we have more parameters to consider and balance.
 
 What other objectives are sensible? We will explore some of these in the homework.
 
-Hopefully you've noticed that the average and the regression line can both be
-derived from minimizing the same squared error objective. The only difference
-is whether we restrict ourselves to an arbitrary point or arbitrary line.
-It is important to note that bad solutions are characterized as values
-that result in large errors with respect each $$W_j$$ value.
+## Did you notice?
 
+#### The regression is an extension of the average
+The average and the regression line can both be
+derived as answers that minimize the same squared error objective.
+
+$$\arg\min_{\text{parameters}} \sum_j (W_j - \hat{W}_j(\text{\parameters}))^2$$
+
+The only difference
+is whether we restrict $$\hat{W}_j$$, our guess for $$W_j$$, to an arbitrary point or arbitrary line.
+By this argument, the average is a special case of the regression if we forced
+the intercept term to be 0.
+
+#### Errors were defined relative to the response/dependent/Y variable
+Bad solutions are characterized as those
+that result in large errors with respect each $$W_j$$. Difference between
+the line in the "X" direction do not contribute to the error or objective function.
+
+#### The line summarize the data poorly
+Notice that even though our data has a slight curvature in the scatter plot,
+this does not prevent us from finding a best-fit line. This is similar to
+summarizing an entire chapter with 2 sentences, you will not capture all the
+major pieces of information but you are still able to produce those
+sentences. A similar poor fit for the average is if we were to use it to summarize
+a bimodal distribution.
 
 ## Problems
 - What condition will make the regression squared objective equal to the average one?
@@ -249,5 +268,7 @@ that result in large errors with respect each $$W_j$$ value.
 - indices vs values
 - collection of values vs scalar values
 - formalism as mathematical equations
+- objective functions (least squares)
+- Wrong model for data
 
 {% include lib/mathjax.html %}
