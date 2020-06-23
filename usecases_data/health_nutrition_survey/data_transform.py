@@ -1,4 +1,6 @@
 import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 
 exam = pd.read_sas("body_measures_2015_2016.xpt")
@@ -23,3 +25,30 @@ demo.rename(columns=nhanes_demo_variable_map, inplace=True)
 df = demo.merge(exam, on=['id'], how='left')
 df.to_csv("nhanes_2015_2015_demo.csv")
 
+sns.distplot(df.weight_kg, kde=False)
+plt.title('Body Mass Dist in NHANES 2015-2016 (Unweighted)')
+plt.savefig('nhanes_2015_2016_weights_hist.png')
+plt.close()
+
+sns.scatterplot(x=df.height_cm, y=df.weight_kg, hue=df.gender2)
+plt.title('Body Mass by Height in NHANES 2015-2016 (Unweighted)')
+plt.xlabel('Height (cm)')
+plt.ylabel('Weight (kg)')
+plt.savefig('nhanes_2015_2016_weights_height_scatter.png')
+plt.close()
+
+
+age_cap = 18
+youth = df.loc[df.age_years < age_cap, :]
+sns.distplot(youth.weight_kg, kde=False)
+plt.title('Body Mass Dist of Minors in NHANES 2015-2016 (Unweighted)')
+plt.xlabel('Weight (kg)')
+plt.savefig('nhanes_2015_2016_minor_weight_dist.png')
+plt.close()
+
+sns.scatterplot(x=youth.height_cm, y=youth.weight_kg, hue=youth.gender2)
+plt.title('Body Mass by Height of Minors in NHANES 2015-2016 (Unweighted)')
+plt.xlabel('Height (cm)')
+plt.ylabel('Weight (kg)')
+plt.savefig('nhanes_2015_2016_minor_weights_height_scatter.png')
+plt.close()
