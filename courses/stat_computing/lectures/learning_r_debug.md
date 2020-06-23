@@ -243,7 +243,7 @@ the concept of "scope".
 #### A graphical view of scope
 To visualize the topic of scope, the following may help:
 
-![Scope visualized](../edu_images/R_scope.png)
+<img src="../edu_images/R_scope.png" alt="Scope visualized" width='800'>
 - Notice that during an assingment operation, the right hand side is evaluated first
   then the assignment happens.
 - Notice that the two different calls to `calc_se()` will be in different scopes. This
