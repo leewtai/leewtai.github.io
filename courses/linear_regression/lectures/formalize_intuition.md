@@ -51,12 +51,12 @@ How would we define "the points to the left"? Let's start with programming first
 ```python
 import pandas as pd
 
-mlb = pd.read_csv("mlb_height_weight.csv")
-mlb.head(3)
+nhanes = pd.read_csv("nhanes_2015_2015_demo.csv")
+nhanes.head(3)
 
 chosen_location <= 150
 
-left_of_choice = mlb.weight < chosen_location
+left_of_choice = nhanes.weight < chosen_location
 records_to_left = left_of_choices.index
 ```
 There are a few choices that we made above:
@@ -107,7 +107,7 @@ A popular choice here is to balance the squared distances to the left to the squ
 distances to the right. To express this mathematically, this would look
 like, the optimal value $$a^*$$ could be expressed as the point where the following is true:
 
-$$\sum_{j \in {j: j\leq a^*}} (W_j - a)^2 = \sum_{j \in {j: j> a}} (W_j - a^*)^2$$
+$$\sum_{j \in {j: j\leq a^*}} (W_j - a^*)^2 = \sum_{j \in {j: j> a^*}} (W_j - a^*)^2$$
 
 In words, we are squaring both the negative errors and positive errors and ensuring that
 the error on both sides are the same. To code this idea up, we could compute the squared
@@ -125,10 +125,10 @@ def left_equal_right(a, weights):
     return abs(diff) <= .Machine.double_precision
 
 
-mlb = pd.read_csv("mlb_height_weight.csv")
-left_equal_right(150, mlb.weights)
-left_equal_right(160, mlb.weights)
-left_equal_right(170, mlb.weights)
+nhanes = pd.read_csv("nhanes_2015_2015_demo.csv")
+left_equal_right(150, nhanes.weights)
+left_equal_right(160, nhanes.weights)
+left_equal_right(170, nhanes.weights)
 ```
 
 The above code is not incorrect but notice that most of your attempts will return `False`.
@@ -136,14 +136,14 @@ Hopefully you felt a slight irritation in the lack of information whether your c
 is close or far from the optimal choice.
 
 Mathematically, it turns out that the optimal $$a^*$$ that obtains the same left and right squared distances
-is equivalent to minimizing the total squared error from both sides of $$a$$. In other words, 
-for any other location, $$b$$:
+is equivalent to minimizing the total squared error from both sides. In other words, 
+for any other location, $$a$$:
 
-$$\sum_{j=1}^{n} (W_j - a^*)^2 <= \sum_{j=1}^{n} (W_j - b)^2$$
+$$\sum_{j=1}^{n} (W_j - a^*)^2 <= \sum_{j=1}^{n} (W_j - a)^2$$
 
 Another way to express this is
 
-$$a^* = \arg\min_b \sum_{j=1}^{n} (W_j - b)^2$$
+$$a^* = \arg\min_a \sum_{j=1}^{n} (W_j - a)^2$$
 
 From your introduction statistics course, you might recall that this means $$a^*$$ satisfies the "least squares"
 property! In other words, all possible location choices will result in a different squared error but $$a^*$$
@@ -156,7 +156,7 @@ the objective, the mean may not be the optimal location anymore. Recall that we 
 when we were defining the concept of balancing, another popular objective is to replace the squaring
 operation with the absolute value operation:
 
-$$a^* = \arg\min_b \sum_{j=1}^{n} |W_j - b|$$
+$$a^* = \arg\min_a \sum_{j=1}^{n} |W_j - a|$$
 
 An objective achieved by the median.
 
