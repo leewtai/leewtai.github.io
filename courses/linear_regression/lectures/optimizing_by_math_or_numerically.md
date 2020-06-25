@@ -244,3 +244,5 @@ function and some data.
 - Show second derivative is positive to show global optimum.
 - calculate the smallest distance between point and a given line. 
 - verify the formula
+
+{% include lib/mathjax.html %}
