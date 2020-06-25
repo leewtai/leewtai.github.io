@@ -30,7 +30,7 @@ so you could repeat these in R or Python in the future. For Python users, you'll
   - regression as a candidate "best-fit" line
   - introducing the least squares objective function
   - re-learning the average as a special case of regression
-- Solving for the best-fit line
+- [Solving for the best-fit line](lectures/optimizing_by_math_or_numerically.md)
   - numerical vs analytical solutions to regression
 - Tying statistics to programming by simulating results from introductory statistics
   - review on confidence interval
