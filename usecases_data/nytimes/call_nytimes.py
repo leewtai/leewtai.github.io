@@ -9,9 +9,14 @@ import requests
 logging.basicConfig(format="%(asctime)-15s %(message)s",
                     filename='call_nytimes.log',
                     level=logging.INFO)
+# Connecting requests error logs to logging
+logger = logging.getLogger('requests.packages.urllib3')
+fh = logging.FileHandler()
+logger.addHandler(fh, level=logging.DEBUG)
+
 cred = json.load(open('../credentials.json', 'r'))
 # NYTImes limits to 4000 calls a day
-cap = 3950
+cap = 3900
 calls_today = 0
 
 comments_url = 'https://api.nytimes.com/svc/community/v3/user-content/url.json'
@@ -57,26 +62,40 @@ def extract_comments(comments):
     return filtered_comments
 
 
-def call_comments(article_url, offset=0, api_key=cred['nytimes_api_key']):
+def call_comments(article_url, offset=0,
+                  api_key=cred['nytimes_api_key'], calls_today=0):
     params = {'api-key': api_key,
               'url': article_url,
               'offset': offset}
-    return requests.get(url=comments_url, params=params)
+    if calls_today > cap:
+        out = 'API call limit hit at {} calls'.format(
+                calls_today)
+        logging.warning(out)
+        return out
+
+    try:
+        time.sleep(6.1)
+        out = requests.get(url=comments_url, params=params)
+        out.raise_for_status()
+    except requests.exceptions.ConnectionError:
+        out = 'fail safe: connection error with url {}, and offset {}'.format(
+                article_url, offset)
+    except requests.exceptions.Timeout:
+        out = 'fail safe: timeout error with url {}, and offset {}'.format(
+                article_url, offset)
+    except requests.exceptions.HTTPError:
+        code = out.status_code
+        meta = 'API call failed, status {}, call number {}, id {}'.format(
+                code, calls_today, article_url)
+        out = meta + out.text
+
+    return out
 
 
 def bad_call(resp, calls_today):
-    status = False
-    if resp.status_code != 200:
-        logging.error(
-            'API call failed, status {}, call number {}, id {}'.format(
-                resp.status_code, calls_today, art_id)
-        )
-        logging.error(comment_resp.text)
-        status = True
+
     if calls_today > cap:
-        logging.warning('API call limit hit at {} calls'.format(
-                calls_today))
-        status = True
+                status = True
     return status
 
 
@@ -97,10 +116,15 @@ logging.info('Initial state: {} processed, {} with comments'.format(
 for i, art_id in enumerate(archs):
     if art_id in art_comments:
         continue
-    comment_resp = call_comments(archs[art_id]['web_url'])
+    comment_resp = call_comments(archs[art_id]['web_url'],
+                                 calls_today=calls_today)
     calls_today += 1
-    if bad_call(comment_resp, calls_today):
-        break
+    if isinstance(comment_resp, str):
+        if 'fail safe' in comment_resp:
+            break
+        else:
+            art_comments.update({art_id: comment_resp})
+            continue
     out = comment_resp.json().get('results')
     if not out or out['totalCommentsFound'] == 0:
         art_comments.update({art_id: '200 status but no comments found'})
@@ -111,9 +135,10 @@ for i, art_id in enumerate(archs):
     for offset in range(num_pages):
         if offset == 0:
             continue
-        comment_resp = call_comments(archs[art_id]['web_url'], offset=offset)
+        comment_resp = call_comments(archs[art_id]['web_url'], offset=offset,
+                                     calls_today=calls_today)
         calls_today += 1
-        if bad_call(comment_resp, calls_today):
+        if isinstance(comment_resp, str):
             break
         out = comment_resp.json().get('results')
         comments.extend(extract_comments(out['comments']))
@@ -123,7 +148,6 @@ for i, art_id in enumerate(archs):
     else:
         logging.info('likely hit cap, calls today {}'.format(calls_today))
         break
-    time.sleep(6.1)
 
 
 has_comment = sum(1 for aid in art_comments
