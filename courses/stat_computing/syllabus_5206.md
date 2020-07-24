@@ -52,11 +52,12 @@ During this special semester, we will have a flipped classroom format that combi
 - In-person 
   - Discussions during class time (twice a week)
     - For each class, we will break out into groups to work on problems that utilize the concepts covered by the online
-      videos. A class discussion will follow.
-    - You can participate online via breakout rooms for this
+      videos.
+    - Groups will be asked to present their solution
+    - You can participate online via breakout rooms for this but coordinating with your peers will be easier in-person.
   - Exams (twice a semester)
     - All exams will be in person by default 
-  - Cross interview (once a week starting the week of 11/16) during the optional discussion section
+  - Mock interviews with data analysis (once a week starting the week of 11/16) during the optional discussion section
     - This is a peer-evaluated data analysis mock interview. Each Friday, students will be assigned into random pairs to
       meet in person. One student will perform basic data analysis to a new dataset within 45 minute and present the results
       where the other student will be given rules and questions to conduct the interview. Debriefs will be discussed
