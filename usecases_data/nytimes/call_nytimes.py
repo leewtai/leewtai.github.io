@@ -6,17 +6,17 @@ from pathlib import Path
 import requests
 
 
+log_file = 'call_nytimes.log'
 logging.basicConfig(format="%(asctime)-15s %(message)s",
-                    filename='call_nytimes.log',
+                    filename=log_file,
                     level=logging.INFO)
 # Connecting requests error logs to logging
-logger = logging.getLogger('requests.packages.urllib3')
-fh = logging.FileHandler()
-logger.addHandler(fh, level=logging.DEBUG)
+logger = logging.getLogger('urllib3')
+logger.setLevel(logging.INFO)
 
 cred = json.load(open('../credentials.json', 'r'))
 # NYTImes limits to 4000 calls a day
-cap = 3900
+cap = 2000
 calls_today = 0
 
 comments_url = 'https://api.nytimes.com/svc/community/v3/user-content/url.json'
@@ -68,7 +68,7 @@ def call_comments(article_url, offset=0,
               'url': article_url,
               'offset': offset}
     if calls_today > cap:
-        out = 'API call limit hit at {} calls'.format(
+        out = 'fail safe: API call limit hit at {} calls'.format(
                 calls_today)
         logging.warning(out)
         return out
