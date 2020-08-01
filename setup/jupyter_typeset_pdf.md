@@ -36,6 +36,8 @@ Note that the other cells still default to code:
 
 ![Jupyter md with code](images/jupyter_md_math_with_code.png)
 
+For more details on formatting your Notebooks, please see [this super useful page](https://towardsdatascience.com/what-does-work-on-a-real-problem-mean-for-prospective-data-scientists-5c91329c2487).
 To export the file as a PDF, you can simply download it as a PDF
 
 ![Jupyter download PDF](images/jupyter_download_pdf.png)
+
