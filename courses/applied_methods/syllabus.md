@@ -77,7 +77,10 @@ If your final grade is in [93-100), you will earn at least an A, [90-93) will ea
 
 A+ will be rewarded only on exceptional cases. 
 
-#### - Projects (90%)
+#### - Homeworks (20%)
+  - Late homeworks will receipt 0 credit
+  - Your lowest homework grade will be dropped. If you missed Homework0 because you enrolled late, this prevents you from receiving 0.
+#### - Projects (70%)
   - Late projects will be penalized by 50% for each day it's late.
   - Projects should be submitted on Canvas
 #### - Participation (10%)
