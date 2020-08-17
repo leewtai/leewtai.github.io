@@ -31,7 +31,7 @@ TBD
 ### Timeline
 I reserve the right to change the ordering and the content for the course throughout the semester.
 
-|Date|Topic|Reading|Due|
+|Date|Topic|Follow-up|Before-Class|
 |---|---|---|---|
 |2020-09-08|[Introductions and expectations](https://docs.google.com/presentation/d/15cUnejYtpbJF0fm7oPUj1gW16BoGw4WKl59J5ktfnX0/edit?usp=sharing)|syllabus||
 |2020-09-10|[Revisiting data collection and common errors](https://docs.google.com/presentation/d/11m03-LRNIH53WvOVrVeXbk9NIzHw5DdnCKxgJayg50Q/edit?usp=sharing)|[Sampling: Design and Analysis](https://clio.columbia.edu/catalog/2402697) Chap 1-2.2||
