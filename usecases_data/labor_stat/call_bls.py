@@ -25,6 +25,6 @@ assert out.status_code == 200
 dat = out.json()
 assert len(dat['Results']['series']) == len(params['seriesid'])
 
-filename = 'unemployment_cpi_{}_{}.json'.format(
+filename = 'unemployment_cpi_unempl_{}_{}.json'.format(
     params['startyear'], params['endyear'])
 json.dump(dat, open(filename, 'w'))
