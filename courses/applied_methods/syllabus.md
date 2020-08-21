@@ -71,14 +71,16 @@ Lectures:
 Office Hours:
   TBD
 
+#### Computer Setup
+  - Please export all homeworks in PDF files following these [instructions](../../setup/math_and_code.md)
 
 ### Grading
-If your final grade is in [93-100), you will earn at least an A, [90-93) will earn you at least an A-, [87-90) will earn you at least a B+, etc. A grading curves may occur depending on the class performance but your grade will not be curved downwards. "At least" implies that there's a possibility to earn a grade higher than your actual percentage.
+If your final grade is in [93-100), you will earn at least an A, [90-93) will earn you at least an A-, [87-90) will earn you at least a B+, etc. A grading curve may be applied depending on the class performance but your grade will not be curved downwards. "At least" implies that there's a possibility to earn a grade higher than your actual percentage.
 
 A+ will be rewarded only on exceptional cases. 
 
 #### - Homeworks (20%)
-  - Late homeworks will receipt 0 credit
+  - Late homeworks will receive 0 credit
   - Your lowest homework grade will be dropped. If you missed Homework0 because you enrolled late, this prevents you from receiving 0.
 #### - Projects (70%)
   - Late projects will be penalized by 50% for each day it's late.
