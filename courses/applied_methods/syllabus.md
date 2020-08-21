@@ -1,20 +1,29 @@
 # Applied Statistical Methods
 UN3105 - Fall 2020
 
+This course is meant to give you a survey of various applied statistic methods. This can
+vary drastically depending on the instructor's background. We will be covering:
+- Sampling and data quality (how do you get the data relevant to your problem?)
+- Bayesian Statistics (how do we introduce prior knowledge into modeling?)
+- Kalman Filters + Kriging (how do we deal with temporally or spatially dependent data?)
+- Survival analysis (how do we deal with censored data?)
+- Causal inference (what else can quantify the impact besides randomized controlled trials?)
+- (if time allows) Sequential analysis (can we use the data sequentially without cheating?)
+
 ### Expectations
 #### - Learning outcomes
 - Students should be able to critique data-based studies
 - Students should be able to articulate the difference between their ideal dataset and feasible dataset
 - Students should be able to collect/wrangle/clean/transform their data
-- Students should be able to diagnose the model and understand its shortcoming
-- Students should be able to identify the classic models for different types of data
+- Students should be able to diagnose models and understand their strength/weaknesses
+- Students should be able to identify the classic models for certain types of data/problem
 - Students should be able to simulate/hypothesize alternative scenarios that can explain the same patterns in the data
 
 
 #### - Your Job
   - Come to class, bring your laptop, take chances!
   - Give feedback in office hours or e-mail, I don't want to waste your time.
-  - Avoid e-mailing if possible
+  - Avoid e-mailing if possible, share your thoughts on the discussion board instead
   - Participate and ask questions, this is not easy!
     - In class: forecast what should be done, compare with what is happening, then summarize the difference.
     - Canvas: describe what you observe, describe what you expect, communicate clearly.
@@ -67,7 +76,7 @@ I reserve the right to change the ordering and the content for the course throug
 
 ### Logistics
 Lectures:
-  [TuTh 11:40-12:55](https://vergil.registrar.columbia.edu/#/courses/applied%20statistical%20methods)
+  [TuTh 11:40-12:55 Eastern](https://vergil.registrar.columbia.edu/#/courses/applied%20statistical%20methods) on Zoom (links on Canvas)
 Office Hours:
   TBD
 
