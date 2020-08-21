@@ -1,6 +1,7 @@
 # Assasination Classroom
 
 <img src="assassinate_classroom.png" alt="Assassination Classroom" width='600'>
+Image sourced from Wikipedia.
 
 [Assassination classroom by Yusei Matsui](https://en.wikipedia.org/wiki/Assassination_Classroom) is the inspiration for the project! In this comic, a teacher is training students to assassinate himself. Why? Find out yourself :)
 
