@@ -35,7 +35,7 @@ I reserve the right to change the ordering and the content for the course throug
 |---|---|---|---|
 |2020-09-08|[Introductions and expectations](https://docs.google.com/presentation/d/15cUnejYtpbJF0fm7oPUj1gW16BoGw4WKl59J5ktfnX0/edit?usp=sharing)|syllabus||
 |2020-09-10|[Revisiting data collection and common errors](https://docs.google.com/presentation/d/11m03-LRNIH53WvOVrVeXbk9NIzHw5DdnCKxgJayg50Q/edit?usp=sharing)|[Sampling: Design and Analysis](https://clio.columbia.edu/catalog/2402697) Chap 1-2.2||
-|2020-09-15|Practice with [NHANES](https://wwwn.cdc.gov/nchs/nhanes/tutorials/module3.aspx) and Discussion on Paper||- Read [Modeling Ideology and Predicting Policy Change with Social Media](https://dl-acm-org.ezproxy.cul.columbia.edu/doi/10.1145/2702123.2702193) by Zhang and Counts<br>- Homework 0 due|
+|2020-09-15|Practice with [NHANES](https://wwwn.cdc.gov/nchs/nhanes/tutorials/module3.aspx) and Discussion on Paper||- Read [Modeling Ideology and Predicting Policy Change with Social Media](https://dl-acm-org.ezproxy.cul.columbia.edu/doi/10.1145/2702123.2702193) by Zhang and Counts<br>- [Homework 0](homeworks/hw0.md) due|
 |2020-09-17|[Introduction to Data Quality](https://docs.google.com/presentation/d/19IId2fnQ9dtqfA7uvwWDeIW4cHPjD-emYHY00yvI6bM/edit?usp=sharing)|||
 |2020-09-22|How to start a problem? discussion on reading||[The Silent Sex: Gender, Deliberation, and Institutions, Mendelberg and Karpowitz, Chapter 3](https://www-jstor-org.ezproxy.cul.columbia.edu/stable/j.ctt7zvffd)|
 |2020-09-24|Discussion on [EDA](https://docs.google.com/presentation/d/1MqQaUIA4Fkwsu7JlWTm1R7205OQtoQB5UrqMQjgU9cU/edit?usp=sharing) with focus on NYTimes Comments||Homework 1 - NYTimes EDA|
