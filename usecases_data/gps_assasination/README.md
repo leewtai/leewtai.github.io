@@ -1,26 +1,39 @@
-# GPS Battleship
+# Assasination Classroom
 
-[NYTimes wrote a special report about location data privacy](https://www.nytimes.com/interactive/2019/12/19/opinion/location-tracking-cell-phone.html). With only location data, individual identities
-could still be inferred and marketers could target you easily.
+<img src="assassinate_classroom.png" alt="Assassination Classroom" width='600'>
 
-To showcase this issue, your goal in this project is to use my 2 week location history
-then try to "assassinate" me in the 3rd week by estimating the time and location of my personal phone.
+[Assassination classroom by Yusei Matsui](https://en.wikipedia.org/wiki/Assassination_Classroom) is the inspiration for the project! In this comic, a teacher is training students to assassinate himself. Why? Find out yourself :)
+
+Similarly, your challenge is to use 2 weeks of my phone GPS data to "bomb" me on my usual path in the 3rd week. You'll have one attempt only!
+
+### Project deliverables
+At the end of the project, you need to submit:
+- A bomb plan, which is an algorithm that will produce:
+  - The day of the week
+  - The time of explosion (see rules below)
+  - The longitude and latitude of my location (see rules below).
+- Your code on GitHub. A classmate will be using your code to validate your attempts on the 3rd week. Make sure your code can run and has enough comments for someone to install the necessary dependencies.
+- A written report on how you solved the problem. This should be written for a classmate who is not enrolled in this course. This report should include
+  - An introduction
+  - A description of the data with visualizations
+  - A description of your final approach/model
+  - A description of your level of confidence, i.e. model validation
+  - A conclusion (at most one paragraph)
 
 
 ### Data
-Data is collected on my Android phone using the [GPSLogger](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger&hl=en_US) application which is free but not of high quality.
+Data is collected on my Android phone using the [GPSLogger](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger&hl=en_US) application which is free but lacking in precision.
 
 The data is available on Canvas under `TBD.zip`.
 
 The data is in a GEOJSON format which is similar to a JSON format. Here's some sample code to
-help load in the data:
+help load in the data. If you are unfamiliar with JSON data, just ask for help!
 
 ```r
 library(jsonlite)
 
 dat <- read_json('data/20200819132607.geojson')
-head(dat[['features']], 2)
-
+head(dat[['features']], 1)
 ```
 
 ```python
@@ -28,39 +41,43 @@ import json
 
 dat = json.load(open('data/20200819132607.geojson', 'r'))
 dat['features'][:2]
-# [{'type': 'Feature',
-#   'properties': {'time': '2020-08-19T19:26:13.000Z',
-#    'provider': 'gps',
-#    'time_long': 1597865173000,
-#    'accuracy': 15.008,
-#    'altitude': 1031.24609375,
-#    'bearing': 352.6,
-#    'speed': 0.94},
-#   'geometry': {'type': 'Point', 'coordinates': [-113.99907373, 46.88842983]}},
-#  {'type': 'Feature',
-#   'properties': {'time': '2020-08-19T19:26:11.540Z',
-#    'provider': 'network',
-#    'time_long': 1597865171540,
-#    'accuracy': 19.681,
-#    'altitude': 961.7999877929688},
-#   'geometry': {'type': 'Point', 'coordinates': [-113.9991175, 46.8882159]}}]
 ```
 
+A single record from the GPS looks like this
+```
+{"type": "Feature",
+ "properties": {"time": "2020-08-20T21:13:09.831Z",
+                "provider": "gps",
+                "time_long": 1597957989831,
+                "accuracy": 19.296001,
+                "altitude": 965.132568359375,
+                "bearing": 208.8,
+                "speed": 2.02},
+ "geometry": {"type": "Point",
+              "coordinates": [-114.00013904, 46.88713864]}
+}
+```
+If you plot the data over time across different days, you'll see my path:
+<img src="initial_gps_glimps.png" alt="sample path over days" width='600'>
+
+
 #### Special notes on the data
-- The distance unit is meters
+- The distances are in meters and times are in seconds
 - The timestamps did not capture the time zone correctly.
 - Each file is a different day
-- Data loss is common
-
+- Data loss is common with GPSLogger (it's free!)
+- The data was cleaned so you cannot actually infer my dwellings over summer :)
+- To get distances in meters from longitude and latitude data, you can
+  use the great circle distance or UTM projections (zone=12)
 
 ### Rules
+To succeed, your bomb must be placed within 5 meters and 10 seconds to my position in the 3rd week.
 
-A correct 
-In addition to the 2 week location data, you can place a bomb
+Since my summer schedule was irregular, my departure time each day varied wildly.
+To fix this issue, you'll also be given the timestamps when I start moving.
 
+For the 3rd week, GPSLogger values will be taken as "truth". If there is data
+loss, it will be treated as if I disappeared from the planet during those times, i.e.
+I cannot be bombed.
 
-### What you need to turn in
-(should include rubric)
-
-
-
+I look forward to your assassination attempts!
