@@ -46,7 +46,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2020-10-13|[Dependent Data - Time Series and Kalman Filters](https://docs.google.com/presentation/d/1LmREGERJCS5GzmmvR0WFLTxILFC_NBsyugsbCeHdptc/edit?usp=sharing)|[Chapter 1 on this dissertation](https://escholarship.org/uc/item/89f9z0tj)|Homework 2|
 |2020-10-15|Practice - Forecasting Temperature|||
 |2020-10-20|[Dependent Data - Spatial Statistics](https://docs.google.com/presentation/d/1p2niILw17C0aN4Jmn7LjJRb8qClX-_QLc58dBAkpZzY/edit?usp=sharing)|For manipulating spatial data in R: [rspatial.org](https://rspatial.org/)||
-|2020-10-22|Practice with Kriging|[Interpolation of Spatial Data: Some Theory for Kriging - Ch 1.2](https://clio.columbia.edu/catalog/11310671)||
+|2020-10-22|Practice with Kriging|[Interpolation of Spatial Data: Some Theory for Kriging - Ch 1.2](https://clio.columbia.edu/catalog/11310671)|Homework3|
 |2020-10-27|Discussion on spatial data privacy||[Twelve Million Phones, One Dataset, Zero Privacy](https://www.nytimes.com/interactive/2019/12/19/opinion/location-tracking-cell-phone.html)|
 |2020-10-29|[Survival data and the issue of censoring](https://docs.google.com/presentation/d/1Wdn8OYMl7D2r969LBHCRZU8zQN3APpXW3CBGtvPfiow/edit?usp=sharing)|[Survival analysis: models and applications Chapter 1](https://clio.columbia.edu/catalog/10052476?counter=2)||
 |2020-11-03|**NO CLASS - Election day**|||
@@ -54,10 +54,10 @@ I reserve the right to change the ordering and the content for the course throug
 |2020-11-10|Practice with survival analysis||Framingham nurses study|
 |2020-11-12|[Missing data](https://docs.google.com/presentation/d/1zAhlALXWzXGoXpDC3eLZ_2RJFwC0UdrRXTNxzhJfheY/edit?usp=sharing)||[The prevention and handling of the missing data](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3668100/)|
 |2020-11-17|Discussion - flaws in randomized control studies||[Randomization in the tropics revisited: a theme and eleven variations](https://scholar.princeton.edu/sites/default/files/deaton/files/deaton_randomization_revisited_v2_2019_01.pdf) <br> Statistical Models and Shoe Leather by David Freedman 1991|
-|2020-11-19|[Causal inference - AB testing in tech and traps](https://docs.google.com/presentation/d/1ovVGmmFS7C4kVYPFYt2RSatZEROM7dp_WaivB6n4XOA/edit?usp=sharing)|||
+|2020-11-19|[Causal inference - AB testing in tech and traps](https://docs.google.com/presentation/d/1ovVGmmFS7C4kVYPFYt2RSatZEROM7dp_WaivB6n4XOA/edit?usp=sharing)||Homework4|
 |2020-11-24|Causal Inference - matching algorithms||Modern Algorithms for Matching in Observational Studies by Paul Rosenbaum, 2020|
 |2020-11-26|**NO CLASS - Thanksgiving Holiday**|||
-|2020-12-01|Causal Inference - difference-in-differences||Joshua D. Angrist and Jörn-Steffen Pischke (2015). Mastering ’Metrics: The Path from Cause to Effect, chapter 5.|
+|2020-12-01|Causal Inference - difference-in-differences||Joshua D. Angrist and Jörn-Steffen Pischke (2015). Mastering ’Metrics: The Path from Cause to Effect, chapter 5. <br> Homework5|
 |2020-12-03|Critique||[Associati on  between  consumption of vegetables and COVID-19 mortality at a country level in Europe](https://www.medrxiv.org/content/10.1101/2020.07.17.20155846v1.full.pdf)|
 |2020-12-08|Critiques|||
 |2020-12-10|Critiques||Project 3 Due|
