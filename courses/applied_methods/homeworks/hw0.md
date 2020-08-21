@@ -6,6 +6,7 @@
 
 ### Format
 Please return a **PDf** file with your solutions on Canvas.
+I encourage you to use a Jupyter Notebook but RMarkdown from Rstudio is fine.
 
 ### Questions
 Please download the data `Canvas/Files/Data/unemployment_cpi_unempl_2000_2020.json`
@@ -32,7 +33,14 @@ Please read in the JSON data and export a CSV file with the following columns:
 - year
 - period: this should take on values between "1st Half" or "2nd Half"
 - unemployment: this should be an average percentage over the appropriate months
-- cpi: 
+- cpi: this shouldn't need much processing
+
+Hint: if you haven't seen a JSON file before, here's some sample code for R:
+```
+library(jsonlite)
+data <- read_json("MYFILE.json")
+class(data)
+```
 
 #### Q1 - Calculate the inflation
 Using your results from Q0, please calculate the inflation rate and add a column to your
@@ -45,16 +53,20 @@ Please plot the scatter plot between the inflation and unemployment rate with th
 axes labeled with units. Inflation should be on the y-axis.
 
 #### Q3 - Fit a regression and analyze the output
-Fit an OLS to the scatter plot in Q2 and examine the fitted slope between these variables.
+Fit an OLS to the scatter plot in Q2 and report the fitted slope and its p-value.
+Why is the slope relevant to our problem here (at most 3 sentences)?
 
 #### Q4 - Assumptions
-What assumptions were required for your interpretation in Q3 to make sense?
+Which assumptions were required for your p-value in Q3 to make sense?
 
-#### Q5 - Test whether the inflation is independent of the unemployment rate via unemploymne==
+#### Q5 - Test whether the inflation is independent of the unemployment rate via permutation test
+Please write the code for the following:
 - Calculate the correlation between the 2 variables and record this value.
 - Repeat the following 1000 times: shuffle the order of one of the variables, then recalculate the correlation.
 - Please plot the histogram of these recalculated correlations against the original correlation.
 - Please comment on what you can infer from the histogram
 
-#### Q6
+#### Q6 (not graded)
 - Please setup your Zoom account so your headshot photo will be displayed even when your camera is off.
+
+{% include lib/mathjax.html %}
