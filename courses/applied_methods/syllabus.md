@@ -26,7 +26,7 @@ Instructor:
 Wayne Tai Lee (wtl2109)
 
 Teaching Assistant(s):
-TBD
+Navid Ardeshir (na2844)
 
 ### Timeline
 I reserve the right to change the ordering and the content for the course throughout the semester.
@@ -69,7 +69,8 @@ I reserve the right to change the ordering and the content for the course throug
 Lectures:
   [TuTh 11:40-12:55](https://vergil.registrar.columbia.edu/#/courses/applied%20statistical%20methods)
 Office Hours:
-  TBD
+  No office hours for TA, use discussion board for questions
+  Instructor office hours TBD
 
 #### Computer Setup
   - Please export all homeworks in PDF files following these [instructions](../../setup/math_and_code.md)
