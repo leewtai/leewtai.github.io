@@ -27,9 +27,9 @@ Both platforms leverage the syntax for [Markdown](https://commonmark.org/help/) 
   ```
   - Notice how the `\bar{}` modifies the `Y` by adding a bar on top of it.
   - `\frac{}{}` behaves like a function with 2 inputs, the first for the numerator and the second for the denominator.
-- To type out distributional assumptions like $$\binom{y_1}{y_2} \sim MVN\left( \binom{\mu_1}{\mu_2}, \begin{bamtrix} \sigma_1^2 & \sigma_{1, 2}\\ \sigma_{2, 1} & \sigma_2^2 \end{bmatrix} \right)$$
+- To type out distributional assumptions like $$\binom{y_1}{y_2} \sim MVN\left( \binom{\mu_1}{\mu_2}, \begin{bmatrix} \sigma_1^2 & \sigma_{1, 2}\\ \sigma_{2, 1} & \sigma_2^2 \end{bmatrix} \right)$$
   ```
-  $$\binom{y_1}{y_2} \sim MVN\left( \binom{\mu_1}{\mu_2}, \begin{bamtrix} \sigma_1^2 & \sigma_{1, 2}\\ \sigma_{2, 1} & \sigma_2^2 \end{bmatrix} \right)$$
+  $$\binom{y_1}{y_2} \sim MVN\left( \binom{\mu_1}{\mu_2}, \begin{bmatrix} \sigma_1^2 & \sigma_{1, 2}\\ \sigma_{2, 1} & \sigma_2^2 \end{bmatrix} \right)$$
   ```
   - I encourage you to break this code a bit to see what each function does, e.g. remove `\left` and `\right` and see its impact.
   - I'm hacking the `\binom{}{}` function to create a matrix-like value without typing out the syntax for the matrix
@@ -59,10 +59,12 @@ Both platforms leverage the syntax for [Markdown](https://commonmark.org/help/) 
       - third bullet
   ```
 - To insert tables
+
   |column 1| data | notes|
   |--------|------|------|
   |columbia|2|US news|
   |harvard|1|US news|
+
   ```
   |column 1| data | notes|
   |--------|------|------|
