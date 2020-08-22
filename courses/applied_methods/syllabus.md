@@ -81,9 +81,10 @@ Office Hours:
   No office hours for TA, use discussion board for questions
   Instructor office hours TBD
 
-#### Computer Setup
-  - Please export all homeworks in PDF files following these [instructions](../../setup/math_and_code.md)
-  - I encourage you to setup your computing environment through [Anaconda and Jupyter Notebooks](https://leewtai.github.io/setup/conda_and_navigator_setup.html)
+### Computer Setup
+  - I encourage you to setup your computing environment through [Anaconda and Jupyter Notebooks](../../setup/conda_and_navigator_setup.md) since we'll be using Jupyter Notebooks in class.
+    - Here's how you typeset [math and code in Jupyter Notebooks](../../setup/jupyter_typeset_pdf.md)
+    - The common commands for math and code are [here](../../setup/math_and_code.md)
 
 ### Grading
 If your final grade is in [93-100), you will earn at least an A, [90-93) will earn you at least an A-, [87-90) will earn you at least a B+, etc. A grading curve may be applied depending on the class performance but your grade will not be curved downwards. "At least" implies that there's a possibility to earn a grade higher than your actual percentage.
