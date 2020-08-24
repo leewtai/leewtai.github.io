@@ -1,12 +1,13 @@
-from time import time
+import json
 from itertools import chain
 
 import matplotlib.pyplot as plt
 import numpy as np
 import yaml
 import statsmodels.api as sm
-from scipy.optimize import approx_fprime, minimize
+from scipy.optimize import minimize
 from scipy.integrate import simps
+from scipy import interpolate
 
 
 with open("x.yaml", "r") as file:
@@ -16,38 +17,31 @@ with open("y.yaml", "r") as file:
     y = yaml.load(file)
 
 
-def poly_design_matrix(x, deg):
-    powers = list(range(deg + 1))
-    x_arr = np.array(x).reshape(-1, 1)
-    x_poly = np.power(x_arr, powers)
-
-    return x_poly
-
-
 # This should be replaced with the Zeta function fits
 funs = {}
 delta_funs = {}
-poly_deg = 3
 for irrep in x:
-    x_mat = poly_design_matrix(x[irrep], poly_deg)
-    ols_est = sm.OLS(y[irrep], x_mat).fit()
+    x_arr = np.array(x[irrep])
+    y_arr = np.array(y[irrep])
+    x_ord = np.argsort(x_arr)
+    tck = interpolate.splrep(x=x_arr[x_ord], y=y_arr[x_ord], s=0)
 
     # It's important to define the defaults to force an evaluation in Python
     # Otherwise lazy evaluation will later only use the last set of parameters
-    def fun_temp(x, coeff=ols_est.params):
-        return(poly_design_matrix(x, poly_deg).dot(coeff))
+    def fun_temp(x, spline_rep=tck):
+        return(interpolate.splev(x, spline_rep, der=0))
     funs.update({irrep: fun_temp})
 
     # Skip the first parameter since the intercept dr
-    def nabla_fun_temp(x, fun_temp=fun_temp, tol=1e-8):
-        return approx_fprime(x, fun_temp, tol)
+    def nabla_fun_temp(x, spline_rep=tck):
+        return interpolate.splev(x, spline_rep, der=1)
 
     delta_funs.update({irrep: nabla_fun_temp})
 
 
 # To calcualte the covariance necessary for the weighted line,
 # we need to calculate the position of (x, y) along the curve
-def calc_len(x0, x1, delta_fun, tol=1e-4):
+def calc_len(x0, x1, delta_fun, tol=1e-5):
     ''' The formula of the arc len along a differentiable line is
     \int_a^b \sqrt{1 + f'(x)^2} dx
     '''
@@ -57,7 +51,7 @@ def calc_len(x0, x1, delta_fun, tol=1e-4):
         x1 = x_temp
     steps = int(np.ceil((x1 - x0) / tol))
     xs = np.linspace(x0, x1, steps)
-    dfx = np.concatenate([delta_fun(xii) for xii in xs])
+    dfx = np.stack([delta_fun(xii) for xii in xs])
     ys = np.sqrt(1 + np.power(dfx, 2))
 
     return simps(ys, xs)
@@ -91,11 +85,6 @@ len_mat = np.stack([dist_to_avg[i] for i in x])
 len_cov = np.cov(len_mat)
 len_prec = np.linalg.inv(len_cov)
 
-len_cov = np.empty((len(y), len(y)))
-for i in range(len(y)):
-    for j in range(len(y)):
-        np.sum(dist_to_avg[i] * dist_to_avg[j])
-
 
 def intersect(x, fun1, lin_fun2, xtol=1e-8):
     opt = minimize(lambda z: np.power(fun1(z) - lin_fun2(z), 2),
@@ -105,7 +94,7 @@ def intersect(x, fun1, lin_fun2, xtol=1e-8):
     return opt.x
 
 
-def obj(par, eval_locs, funs, points=[]):
+def obj(par, eval_locs, funs, len_prec=len_prec):
     def lin_fun(x):
         return par[0] + x * par[1]
 
@@ -127,22 +116,31 @@ y_avgs = [np.mean(y[i]) for i in irreps]
 
 ols_start = sm.OLS(np.array(y_avgs), sm.add_constant(np.array(x_avgs))).fit()
 # Trial run
-obj(ols_start.params, x_avgs, ordered_funs)
+opt = obj(ols_start.params, x_avgs, ordered_funs)
 
-a = time()
-opt = minimize(obj, ols_start.params,
-               args=(x_avgs, ordered_funs),
-               method='Nelder-Mead', options={"xatol": 1e-8})
-time() - a
+coeffs_bs = []
+for i in range(len(x[irrep])):
+    x_avgs = [x[irrep][i] for irrep in irreps]
+    y_avgs = [y[irrep][i] for irrep in irreps]
+    ols_start = sm.OLS(np.array(y_avgs),
+                       sm.add_constant(np.array(x_avgs))).fit()
+    opt = minimize(obj, ols_start.params,
+                   args=(x_avgs, ordered_funs),
+                   method='Nelder-Mead', options={"xatol": 1e-8})
+    coeffs_bs.append({'opt_x': opt.x.tolist(),
+                      'success': opt.success,
+                      'opt_fun': opt.fun})
 
+json.dump(coeffs_bs, open('coeffs_bs.json', 'w'))
 x_vals = list(chain.from_iterable(x.values()))
 y_vals = list(chain.from_iterable(y.values()))
 xs = np.linspace(np.min(x_vals), np.max(x_vals), 100)
+x_mat = sm.add_constant(xs)
+for i in coeffs_bs:
+    plt.plot(xs, x_mat.dot(np.array(coeffs_bs[i]['opt_x'])), color='blue')
 for i in x:
     plt.scatter(x[i], y[i], color='black')
 
-x_mat = poly_design_matrix(xs, 1)
-plt.plot(xs, x_mat.dot(opt.x), color='blue')
 plt.plot(xs, x_mat.dot(ols_start.params), color='green')
 plt.ylim(np.percentile(y_vals, [0.1, 99.9]))
 plt.scatter(x_avgs, y_avgs, color='red')
