@@ -81,6 +81,8 @@ for i in y:
     plt.close()
 
 
+x_df = np.stack([x[irrep] for irrep in x])
+x_cov = np.cov(x_df)
 len_mat = np.stack([dist_to_avg[i] for i in x])
 len_cov = np.cov(len_mat)
 len_prec = np.linalg.inv(len_cov)
@@ -94,15 +96,22 @@ def intersect(x, fun1, lin_fun2, xtol=1e-8):
     return opt.x
 
 
-def obj(par, eval_locs, funs, len_prec=len_prec):
+def obj(par, eval_locs, funs, delta_funs, len_prec=None):
     def lin_fun(x):
         return par[0] + x * par[1]
 
     dists = []
-    for xi, fi in zip(eval_locs, funs):
+    dervs = []
+    for xi, fi, dfdxi in zip(eval_locs, funs, delta_funs):
+        # For each irrep, where does the line intersect the curve
         new_x = intersect(xi, fi, lin_fun)
-        dists.append(calc_len(new_x[0], xi, fi))
+        dists.append(calc_len(new_x[0], xi, dfdxi))
+        dervs.append(dfdxi(new_x[0]))
 
+    grad = np.diag(dervs)
+    if len_prec is None:
+        len_cov = grad.T.dot(x_cov).grad
+        len_prec = np.linalg.inv(len_cov)
     dist_vec = np.stack(dists).reshape(-1, 1)
     weighted_dist = dist_vec.T.dot(len_prec).dot(dist_vec)
 
