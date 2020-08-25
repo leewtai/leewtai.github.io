@@ -72,9 +72,6 @@ If you plot the data over time across different days, you should see some patter
 - To get distances in meters from longitude and latitude data, you can
   use the [great circle distance](https://www.rdocumentation.org/packages/fields/versions/10.3/topics/rdist.earth)
   or [UTM projections (zone=12)](https://pypi.org/project/utm/)
-- Since my summer schedule was irregular, my departure time each day varied wildly.
-  You'll be given the timestamps locations when I start moving each day.
-
 
 ### Rules
 To succeed, your bomb must be placed within 5 meters and 10 seconds to my position in the 3rd week.
@@ -83,7 +80,11 @@ For the 3rd week, GPSLogger values will be taken as "truth". If there is data
 loss, it will be treated as if I disappeared from the planet during those times, i.e.
 I cannot be bombed.
 
-I can only be bombed in transit. If I am stationary for over 2 minutes, you should consider
-that I am sheltered and safe.
+There are 2 exceptions: I can only be bombed in transit and you cannot bomb me in the first 5 minutes of
+transit. If I am stationary for over 2 minutes, you should consider
+that I am sheltered and safe. On the otherhand, since my summer schedule was irregular,
+my departure time each day varied wildly.
+You'll be given the timestamps and locations when I start moving each day (to and fro). Given this, you cannot bomb me in the
+first 5 minutes of my travel.
 
 I look forward to your assassination attempts!
