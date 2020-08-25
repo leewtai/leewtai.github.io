@@ -38,10 +38,8 @@ for irrep in x:
         return(interpolate.splev(x, spline_rep, der=0))
     funs.update({irrep: fun_temp})
 
-    # Skip the first parameter since the intercept dr
     def nabla_fun_temp(x, spline_rep=tck):
         return interpolate.splev(x, spline_rep, der=1)
-
     delta_funs.update({irrep: nabla_fun_temp})
 
 
@@ -91,6 +89,8 @@ for i in y:
 
 
 logging.info('Compute inverse covariance matrix')
+x_df = np.stack([x[irrep] for irrep in x])
+x_cov = np.cov(x_df)
 len_mat = np.stack([dist_to_avg[i] for i in x])
 len_cov = np.cov(len_mat)
 len_prec = np.linalg.inv(len_cov)
@@ -104,14 +104,17 @@ def intersect(x, fun1, lin_fun2, xtol=1e-8):
     return opt.x
 
 
-def obj(par, eval_locs, funs, len_prec=len_prec):
+def obj(par, eval_locs, funs, delta_funs, len_prec):
     def lin_fun(x):
         return par[0] + x * par[1]
 
     dists = []
-    for xi, fi in zip(eval_locs, funs):
+    dervs = []
+    for xi, fi, dfdxi in zip(eval_locs, funs, delta_funs):
+        # For each irrep, where does the line intersect the curve
         new_x = intersect(xi, fi, lin_fun)
-        dists.append(calc_len(new_x[0], xi, fi))
+        dists.append(calc_len(new_x[0], xi, dfdxi))
+        dervs.append(dfdxi(new_x[0]))
 
     dist_vec = np.stack(dists).reshape(-1, 1)
     weighted_dist = dist_vec.T.dot(len_prec).dot(dist_vec)
@@ -121,6 +124,7 @@ def obj(par, eval_locs, funs, len_prec=len_prec):
 
 irreps = [i for i in x]
 ordered_funs = [funs[i] for i in irreps]
+ordered_delta_funs = [delta_funs[i] for i in irreps]
 x_avgs = [np.mean(x[i]) for i in irreps]
 y_avgs = [np.mean(y[i]) for i in irreps]
 
@@ -130,15 +134,19 @@ opt = obj(ols_start.params, x_avgs, ordered_funs)
 
 logging.info('Optimizing per bootstrap average')
 coeffs_bs = []
-for i in range(len(x[irrep])):
+for i in range(10):  # range(len(x[irrep])):
     if i % 100 == 0:
         logging.info('bootstrap {}'.format(i))
     x_avgs = [x[irrep][i] for irrep in irreps]
     y_avgs = [y[irrep][i] for irrep in irreps]
     ols_start_bs = sm.OLS(np.array(y_avgs),
                           sm.add_constant(np.array(x_avgs))).fit()
+    grad = np.diag([dfdxi(xi)
+                    for xi, dfdxi in zip(x_avgs, ordered_delta_funs)])
+    len_cov = grad.T.dot(x_cov).dot(grad)
+    len_prec = np.linalg.inv(len_cov)
     opt = minimize(obj, ols_start_bs.params,
-                   args=(x_avgs, ordered_funs),
+                   args=(x_avgs, ordered_funs, ordered_delta_funs, len_prec),
                    method='Nelder-Mead', options={"xatol": 1e-8})
     coeffs_bs.append({'opt_x': opt.x.tolist(),
                       'success': opt.success,
