@@ -89,11 +89,10 @@ for i in y:
 
 
 logging.info('Compute inverse covariance matrix')
-x_df = np.stack([x[irrep] for irrep in x])
-x_cov = np.cov(x_df)
-len_mat = np.stack([dist_to_avg[i] for i in x])
-len_cov = np.cov(len_mat)
-len_prec = np.linalg.inv(len_cov)
+# If you empirically derive it from the "Y"
+# len_mat = np.stack([dist_to_avg[i] for i in x])
+# len_cov = np.cov(len_mat)
+# len_prec = np.linalg.inv(len_cov)
 
 
 def intersect(x, fun1, lin_fun2, xtol=1e-8):
@@ -122,29 +121,38 @@ def obj(par, eval_locs, funs, delta_funs, len_prec):
     return weighted_dist
 
 
+def get_len_prec(x_vals, delta_funs, x_cov):
+    grad = np.diag([dfdxi(xi)
+                    for xi, dfdxi in zip(x_vals, delta_funs)])
+    len_cov = grad.T.dot(x_cov).dot(grad)
+    len_prec = np.linalg.inv(len_cov)
+    return len_prec
+
+
 irreps = [i for i in x]
+x_df = np.stack([x[irrep] for irrep in irreps])
+x_cov = np.cov(x_df)
 ordered_funs = [funs[i] for i in irreps]
 ordered_delta_funs = [delta_funs[i] for i in irreps]
 x_avgs = [np.mean(x[i]) for i in irreps]
+# calculate y_avgs for initial values from OLS
 y_avgs = [np.mean(y[i]) for i in irreps]
 
+len_prec = get_len_prec(x_avgs, ordered_delta_funs, x_cov)
 ols_start = sm.OLS(np.array(y_avgs), sm.add_constant(np.array(x_avgs))).fit()
 # Trial run
-opt = obj(ols_start.params, x_avgs, ordered_funs)
+opt = obj(ols_start.params, x_avgs, ordered_funs, ordered_delta_funs, len_prec)
 
 logging.info('Optimizing per bootstrap average')
 coeffs_bs = []
-for i in range(10):  # range(len(x[irrep])):
+for i in range(len(x[irrep])):
     if i % 100 == 0:
         logging.info('bootstrap {}'.format(i))
     x_avgs = [x[irrep][i] for irrep in irreps]
     y_avgs = [y[irrep][i] for irrep in irreps]
     ols_start_bs = sm.OLS(np.array(y_avgs),
                           sm.add_constant(np.array(x_avgs))).fit()
-    grad = np.diag([dfdxi(xi)
-                    for xi, dfdxi in zip(x_avgs, ordered_delta_funs)])
-    len_cov = grad.T.dot(x_cov).dot(grad)
-    len_prec = np.linalg.inv(len_cov)
+    len_prec = get_len_prec(x_avgs, ordered_delta_funs, x_cov)
     opt = minimize(obj, ols_start_bs.params,
                    args=(x_avgs, ordered_funs, ordered_delta_funs, len_prec),
                    method='Nelder-Mead', options={"xatol": 1e-8})
