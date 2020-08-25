@@ -1,3 +1,4 @@
+import logging
 import json
 from itertools import chain
 
@@ -10,6 +11,10 @@ from scipy.integrate import simps
 from scipy import interpolate
 
 
+log_file = 'opt_xy.log'
+logging.basicConfig(format="%(asctime)-15s %(message)s",
+                    filename=log_file,
+                    level=logging.INFO)
 with open("x.yaml", "r") as file:
     x = yaml.load(file)
 
@@ -18,6 +23,7 @@ with open("y.yaml", "r") as file:
 
 
 # This should be replaced with the Zeta function fits
+logging.info('fitting splines between y and x')
 funs = {}
 delta_funs = {}
 for irrep in x:
@@ -43,7 +49,7 @@ for irrep in x:
 # we need to calculate the position of (x, y) along the curve
 def calc_len(x0, x1, delta_fun, tol=1e-5):
     ''' The formula of the arc len along a differentiable line is
-    \int_a^b \sqrt{1 + f'(x)^2} dx
+        \int_a^b \sqrt{1 + f'(x)^2} dx
     '''
     if x0 > x1:
         x_temp = x0
@@ -57,14 +63,17 @@ def calc_len(x0, x1, delta_fun, tol=1e-5):
     return simps(ys, xs)
 
 
+logging.info('computing distance along curve for each irrep')
 dist_to_avg = {}
 for irrep in x:
+    logging.info('irrep {}'.format(irrep))
     x_avg = np.mean(x[irrep])
     dist_to_avg.update({
         irrep: [calc_len(xi, x_avg, delta_funs[irrep]) for xi in x[irrep]]
         })
 
 
+logging.info('plotting to see distance comparison')
 for i in y:
     fig, axes = plt.subplots(1, 2)
     axes[0].scatter(x[i], y[i])
@@ -81,6 +90,7 @@ for i in y:
     plt.close()
 
 
+logging.info('Compute inverse covariance matrix')
 len_mat = np.stack([dist_to_avg[i] for i in x])
 len_cov = np.cov(len_mat)
 len_prec = np.linalg.inv(len_cov)
@@ -118,31 +128,35 @@ ols_start = sm.OLS(np.array(y_avgs), sm.add_constant(np.array(x_avgs))).fit()
 # Trial run
 opt = obj(ols_start.params, x_avgs, ordered_funs)
 
+logging.info('Optimizing per bootstrap average')
 coeffs_bs = []
 for i in range(len(x[irrep])):
+    if i % 100 == 0:
+        logging.info('bootstrap {}'.format(i))
     x_avgs = [x[irrep][i] for irrep in irreps]
     y_avgs = [y[irrep][i] for irrep in irreps]
-    ols_start = sm.OLS(np.array(y_avgs),
-                       sm.add_constant(np.array(x_avgs))).fit()
-    opt = minimize(obj, ols_start.params,
+    ols_start_bs = sm.OLS(np.array(y_avgs),
+                          sm.add_constant(np.array(x_avgs))).fit()
+    opt = minimize(obj, ols_start_bs.params,
                    args=(x_avgs, ordered_funs),
                    method='Nelder-Mead', options={"xatol": 1e-8})
     coeffs_bs.append({'opt_x': opt.x.tolist(),
                       'success': opt.success,
                       'opt_fun': opt.fun})
 
+logging.info('Storing optimal values')
 json.dump(coeffs_bs, open('coeffs_bs.json', 'w'))
 x_vals = list(chain.from_iterable(x.values()))
 y_vals = list(chain.from_iterable(y.values()))
 xs = np.linspace(np.min(x_vals), np.max(x_vals), 100)
 x_mat = sm.add_constant(xs)
-for i in coeffs_bs:
-    plt.plot(xs, x_mat.dot(np.array(coeffs_bs[i]['opt_x'])), color='blue')
+for opt_i in coeffs_bs:
+    plt.plot(xs, x_mat.dot(np.array(opt_i['opt_x'])), color='blue')
 for i in x:
     plt.scatter(x[i], y[i], color='black')
 
 plt.plot(xs, x_mat.dot(ols_start.params), color='green')
 plt.ylim(np.percentile(y_vals, [0.1, 99.9]))
 plt.scatter(x_avgs, y_avgs, color='red')
-plt.savefig('len_weighted_best_fit.png')
+plt.savefig('fix_w_len_weighted_best_fit.png')
 plt.close()
