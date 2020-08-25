@@ -1,20 +1,20 @@
 # Assasination Classroom
 
-<img src="assassinate_classroom.png" alt="Assassination Classroom" width='600'>
+<img src="assassinate_classroom.png" alt="Assassination Classroom" width='300'>
 Image sourced from Wikipedia.
 
 [Assassination classroom by Yusei Matsui](https://en.wikipedia.org/wiki/Assassination_Classroom) is the inspiration for the project! In this comic, a teacher is training students to assassinate himself. Why? Find out yourself :)
 
-Similarly, your challenge is to use 2 weeks of my phone GPS data to "bomb" me on my usual path in the 3rd week. You'll have one attempt only!
+Similarly, your challenge is to use 2 weeks of my phone GPS data to "bomb" me on my usual path in the 3rd week. You'll have 2 attempts!
 
 ### Project deliverables
 At the end of the project, you need to submit:
-- A bomb plan, which is an algorithm that will produce:
+- A bomb plan, which is an algorithm that takes in the initial location and timestamp of my travel and will predict:
   - The day of the week
   - The time of explosion (see rules below)
   - The longitude and latitude of my location (see rules below).
 - Your code on GitHub. A classmate will be using your code to validate your attempts on the 3rd week. Make sure your code can run and has enough comments for someone to install the necessary dependencies.
-- A written report on how you solved the problem. This should be written for a classmate who is not enrolled in this course. This report should include
+- A written report on how you solved the problem. This should be written for a classmate who is not enrolled in this course. This report (2-5 pages, not including graphs) should include:
   - An introduction
   - A description of the data with visualizations
   - A description of your final approach/model
@@ -28,7 +28,8 @@ Data is collected on my Android phone using the [GPSLogger](https://play.google.
 The data is available on Canvas under `TBD.zip`.
 
 The data is in a GEOJSON format which is similar to a JSON format. Here's some sample code to
-help load in the data. If you are unfamiliar with JSON data, just ask for help!
+help load in the data. If you are unfamiliar with JSON data, just ask for help! They are like
+nested named lists in R or dictionaries in Python.
 
 ```r
 library(jsonlite)
@@ -58,27 +59,31 @@ A single record from the GPS looks like this
               "coordinates": [-114.00013904, 46.88713864]}
 }
 ```
-If you plot the data over time across different days, you'll see my path:
-<img src="initial_gps_glimps.png" alt="sample path over days" width='600'>
+If you plot the data over time across different days, you should see some patterns:
+<img src="initial_gps_glimps.png" alt="sample path over days" width='400'>
 
 
 #### Special notes on the data
 - The distances are in meters and times are in seconds
 - The timestamps did not capture the time zone correctly.
 - Each file is a different day
-- Data loss is common with GPSLogger (it's free!)
-- The data was cleaned so you cannot actually infer my dwellings over summer :)
+- Data loss is common with GPSLogger
+- The data was cleaned (we will discuss this topic in class)
 - To get distances in meters from longitude and latitude data, you can
-  use the great circle distance or UTM projections (zone=12)
+  use the [great circle distance](https://www.rdocumentation.org/packages/fields/versions/10.3/topics/rdist.earth)
+  or [UTM projections (zone=12)](https://pypi.org/project/utm/)
+- Since my summer schedule was irregular, my departure time each day varied wildly.
+  You'll be given the timestamps locations when I start moving each day.
+
 
 ### Rules
 To succeed, your bomb must be placed within 5 meters and 10 seconds to my position in the 3rd week.
 
-Since my summer schedule was irregular, my departure time each day varied wildly.
-To fix this issue, you'll also be given the timestamps when I start moving.
-
 For the 3rd week, GPSLogger values will be taken as "truth". If there is data
 loss, it will be treated as if I disappeared from the planet during those times, i.e.
 I cannot be bombed.
+
+I can only be bombed in transit. If I am stationary for over 2 minutes, you should consider
+that I am sheltered and safe.
 
 I look forward to your assassination attempts!
