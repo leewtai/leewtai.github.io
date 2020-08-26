@@ -193,6 +193,7 @@ for irrep in y:
     plt.scatter(x[irrep], y[irrep], color="black", s=0.5)
 plt.plot(xs, uncertainty_bounds[0, :], color="red")
 plt.plot(xs, uncertainty_bounds[1, :], color="red")
-plt.ylim(np.percentile(y_vals, [0.3, 99.7]))
+plt.ylim([-1, 3])
+# plt.ylim(np.percentile(y_vals, [0.3, 99.7]))
 plt.savefig('fit_with_ptwise_68conf.png')
 plt.close()
