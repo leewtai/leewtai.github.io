@@ -36,15 +36,19 @@ and the columns each contain:
 - the update time
 - the approved time
 - whether the article was selected by the editors
-- the number of words in the comment
+- the number of words in the comment (splitting the comment by spaces is sufficient)
 - the number of unique words in the comment
+- the rank of the update time (e.g. the first comment would have rank 1, second would have rank 2, etc)
 
 #### Question 4
 Join the data frame in Question 3 with the information from the archive related to
-- The author's first name
-- The author's last name
+- The first ranking author's first name
+- The first ranking author's last name
 - The "news desk" of the article
 - The published date of the article
+
+Please make a choice on dealing with missing values.
+
 
 #### Question 5
 If our population of interest was all the news articles from NYTimes in March 2020.
