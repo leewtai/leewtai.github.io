@@ -14,7 +14,7 @@ with various NYTimes articles. In this homework, you'll learn how to
 obtain this data yourself.
 
 #### Question 0
-Please [create an account with NYTimes for API keys](https://developer.nytimes.com/get-started).
+To query data from NYTimes, please [create an account for API keys](https://developer.nytimes.com/get-started).
 Using these keys, please obtain the [archive file in NYTimes published in March 2020](https://developer.nytimes.com/docs/archive-product/1/overview) and report the following:
 - How many articles are there
 - For each record, which fields store the author's first and last name?
