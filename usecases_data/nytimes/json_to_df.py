@@ -42,9 +42,11 @@ comments_df = pd.DataFrame(comment_bag)
 rank_dfs = []
 for grp, index in comments_df.groupby('uri').groups.items():
     sub_df = comments_df.loc[index]
+    tot_comms = sub_df.shape[0]
     ranks = np.argsort(sub_df.update_date) + 1
     rank_dfs.append(pd.DataFrame(
-        {'uri': grp, 'rank': ranks, 'update_date': sub_df.update_date}))
+        {'uri': grp, 'tot_comms': tot_comms,
+         'rank': ranks, 'update_date': sub_df.update_date}))
 
 rank_df = pd.concat(rank_dfs)
 
