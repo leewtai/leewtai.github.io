@@ -175,6 +175,8 @@ logging.info('Number of failed optimizations is {}'.format(num_failed))
 logging.info('Storing optimal values')
 json.dump(coeffs_bs, open('coeffs_bs.json', 'w'))
 
+# If you want to re-plot and you already have data
+coeffs_bs = json.load(open('coeffs_bs.json', 'r'))
 logging.info('Plotting uncertainty bounds')
 x_vals = list(chain.from_iterable(x.values()))
 y_vals = list(chain.from_iterable(y.values()))
@@ -191,6 +193,6 @@ for irrep in y:
     plt.scatter(x[irrep], y[irrep], color="black", s=0.5)
 plt.plot(xs, uncertainty_bounds[0, :], color="red")
 plt.plot(xs, uncertainty_bounds[1, :], color="red")
-plt.ylim(np.percentile(y_vals, [0.1, 99.9]))
+plt.ylim(np.percentile(y_vals, [0.3, 99.7]))
 plt.savefig('fit_with_ptwise_68conf.png')
 plt.close()
