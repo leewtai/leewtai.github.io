@@ -7,11 +7,13 @@ import utm
 
 files = glob('data/*.geojson')
 my_loc = json.load(open('my_house.geojson', 'r'))
+dest_lonlat = [-113.98506224, 46.85883062]
 my_lonlat = my_loc['features'][0]['geometry']['coordinates']
+shelter_lonlats = [my_lonlat, dest_lonlat]
 zone = 12
-my_utm = utm.from_latlon(my_lonlat[1], my_lonlat[0],
-                         force_zone_number=zone)
-
+shelter_utms = [
+    utm.from_latlon(lonlat[1], lonlat[0], force_zone_number=zone)
+    for lonlat in shelter_lonlats]
 
 dist_thresh = 100
 for f in files:
@@ -23,8 +25,13 @@ for f in files:
         record_lonlat = record['geometry']['coordinates']
         record_utm = utm.from_latlon(record_lonlat[1], record_lonlat[0],
                                      zone)
-        utm_diff = np.array([record_utm[i] - my_utm[i] for i in range(2)])
-        if np.sqrt(np.sum(np.power(utm_diff, 2))) <= dist_thresh:
+        utm_diffs = [
+            np.array([record_utm[i] - shelter_utm[i] for i in range(2)])
+            for shelter_utm in shelter_utms]
+        dists_to_shelter_m = np.array([
+            np.sqrt(np.sum(np.power(utm_diff, 2)))
+            for utm_diff in utm_diffs])
+        if any(dists_to_shelter_m <= dist_thresh):
             # print('time is {}'.format(record['properties']['time_long']))
             continue
         collection.append(record)
@@ -41,7 +48,8 @@ for f in files[:3]:
     plt.scatter(lons, lats)
 
 
-# plt.scatter(my_lonlat[0], my_lonlat[1], color='black')
+plt.scatter(my_lonlat[0], my_lonlat[1], color='black')
+plt.scatter(dest_lonlat[0], dest_lonlat[1], color='black')
 plt.title('GPS Path to School')
 plt.ylabel('latitude')
 plt.xlabel('longitude')
