@@ -1,6 +1,6 @@
 ## README
 
-![self photo](images/wayne.jpg)
+<img src='images/wayne.jpg' alt='portrait photo' width='300'>
 
 I'm Wayne, a statistician with a huge passion in statistics education and modern dance.
 I've worked as a professional data scientist in agriculture, social networks, and aerospace.
