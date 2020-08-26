@@ -98,11 +98,12 @@ A+ will be rewarded only on exceptional cases.
   - Late projects will be penalized by 50% for each day it's late.
   - Projects should be submitted on Canvas
 #### - Participation (10%)
-  - Instead of attendance, in class activities is how we'll grade this.
+  - Instead of attendance, in class activities, recorded through Canvas, is how we'll grade this.
+  - To pass the class, you must have at least 50% here.
 
 ### Prerequisites
-  - Exposure to foundational statistics and probability: conditional expectation,
-  - Course in computing with data
+  - Exposure to foundational statistics and probability
+  - Course in computing that manipulated data
   - Linear regression
 
 ### Textbooks / Supplies
