@@ -30,6 +30,7 @@ for irrep in x:
     x_arr = np.array(x[irrep])
     y_arr = np.array(y[irrep])
     x_ord = np.argsort(x_arr)
+    # The s parameter here may need to be tuned if the data changes
     tck = interpolate.splrep(x=x_arr[x_ord], y=y_arr[x_ord], s=1e-3)
 
     # It's important to define the defaults to force an evaluation in Python
@@ -71,11 +72,18 @@ for irrep in x:
         })
 
 
+# If the graphs here look bad, tune the s parameter when fitting splines
+# smaller s = less smoothing = more volatile curve behavior between data
+# points. Given how smooth your functions are, I think you can deal with
+# larger s values.
+
 logging.info('plotting to see distance comparison')
 for i in y:
     fig, axes = plt.subplots(1, 2)
     axes[0].scatter(x[i], y[i])
-    axes[0].scatter(x[i], funs[i](x[i]), color='black', s=0.2)
+    xs = np.linspace(np.min(x[i]), np.max(x[i]), 2000)
+    ys = funs[i](xs)
+    axes[0].plot(xs, ys, color='black')
     axes[0].set_xlabel('x')
     axes[0].set_ylabel('y')
     axes[1].scatter(x[i], dist_to_avg[i], s=0.2)
@@ -85,8 +93,9 @@ for i in y:
     plt.close()
 
 
-logging.info('Compute inverse covariance matrix')
-# If you empirically derive it from the "Y"
+# logging.info('Compute inverse covariance matrix')
+# If you empirically derive it from the "Y", this is less desirable
+# because it's then fixed for all possible x values
 # len_mat = np.stack([dist_to_avg[i] for i in x])
 # len_cov = np.cov(len_mat)
 # len_prec = np.linalg.inv(len_cov)
@@ -105,12 +114,11 @@ def obj(par, eval_locs, funs, delta_funs, len_prec):
         return par[0] + x * par[1]
 
     dists = []
-    dervs = []
     for xi, fi, dfdxi in zip(eval_locs, funs, delta_funs):
         # For each irrep, where does the line intersect the curve
-        new_x = intersect(xi, fi, lin_fun)
-        dists.append(calc_len(new_x[0], xi, dfdxi))
-        dervs.append(dfdxi(new_x[0]))
+        # the xi is used as a starting value to find the intersection
+        intersect_x = intersect(xi, fi, lin_fun)
+        dists.append(calc_len(intersect_x[0], xi, dfdxi))
 
     dist_vec = np.stack(dists).reshape(-1, 1)
     weighted_dist = dist_vec.T.dot(len_prec).dot(dist_vec)
@@ -126,6 +134,7 @@ def get_len_prec(x_vals, delta_funs, x_cov):
     return len_prec
 
 
+# Making sure all the values are ordered by `irreps`
 irreps = [i for i in x]
 x_df = np.stack([x[irrep] for irrep in irreps])
 x_cov = np.cov(x_df)
@@ -161,19 +170,27 @@ for i in range(len(x[irrep])):
     except:
         coeffs_bs.append('failed at boot index {}'.format(i))
 
+num_failed = np.sum(isinstance(coeff, str) for coeff in coeffs_bs)
+logging.info('Number of failed optimizations is {}'.format(num_failed))
 logging.info('Storing optimal values')
 json.dump(coeffs_bs, open('coeffs_bs.json', 'w'))
+
+logging.info('Plotting uncertainty bounds')
 x_vals = list(chain.from_iterable(x.values()))
 y_vals = list(chain.from_iterable(y.values()))
 xs = np.linspace(np.min(x_vals), np.max(x_vals), 100)
-x_mat = sm.add_constant(xs)
-for opt_i in coeffs_bs:
-    plt.plot(xs, x_mat.dot(np.array(opt_i['opt_x'])), color='blue')
-for i in x:
-    plt.scatter(x[i], y[i], color='black')
+ys_pred = np.stack([
+    coeff['opt_x'][0] + coeff['opt_x'][1] * xs for coeff in coeffs_bs
+    if coeff['success']])
+uncertainty_bounds = np.apply_along_axis(
+    lambda z: np.percentile(z, [16, 84]),
+    0, ys_pred)
 
-plt.plot(xs, x_mat.dot(ols_start.params), color='green')
+# Plot the bananas
+for irrep in y:
+    plt.scatter(x[irrep], y[irrep], color="black", s=0.5)
+plt.plot(xs, uncertainty_bounds[0, :], color="red")
+plt.plot(xs, uncertainty_bounds[1, :], color="red")
 plt.ylim(np.percentile(y_vals, [0.1, 99.9]))
-plt.scatter(x_avgs, y_avgs, color='red')
-plt.savefig('fix_w_len_weighted_best_fit.png')
+plt.savefig('fit_with_ptwise_68conf.png')
 plt.close()
