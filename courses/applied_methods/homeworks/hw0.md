@@ -6,7 +6,6 @@
 
 ### Format
 Please return a **PDf** file with your solutions on Canvas.
-I encourage you to use a Jupyter Notebook but RMarkdown from Rstudio is fine.
 
 ### Questions
 Please download the data `Canvas/Files/Data/unemployment_cpi_unempl_2000_2020.json`
