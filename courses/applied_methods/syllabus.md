@@ -47,10 +47,10 @@ I reserve the right to change the ordering and the content for the course throug
 |2020-09-15|Practice with [NHANES](https://wwwn.cdc.gov/nchs/nhanes/tutorials/module3.aspx) and Discussion on Paper||- Read [Modeling Ideology and Predicting Policy Change with Social Media](https://dl-acm-org.ezproxy.cul.columbia.edu/doi/10.1145/2702123.2702193) by Zhang and Counts<br>- [Homework 0](homeworks/hw0.md) due|
 |2020-09-17|[Introduction to Data Quality](https://docs.google.com/presentation/d/19IId2fnQ9dtqfA7uvwWDeIW4cHPjD-emYHY00yvI6bM/edit?usp=sharing)|||
 |2020-09-22|How to start a problem? discussion on reading||[The Silent Sex: Gender, Deliberation, and Institutions, Mendelberg and Karpowitz, Chapter 3](https://www-jstor-org.ezproxy.cul.columbia.edu/stable/j.ctt7zvffd)|
-|2020-09-24|Discussion on [EDA](https://docs.google.com/presentation/d/1MqQaUIA4Fkwsu7JlWTm1R7205OQtoQB5UrqMQjgU9cU/edit?usp=sharing) with focus on NYTimes Comments||Homework 1 - NYTimes EDA|
+|2020-09-24|Discussion on [EDA](https://docs.google.com/presentation/d/1MqQaUIA4Fkwsu7JlWTm1R7205OQtoQB5UrqMQjgU9cU/edit?usp=sharing) with focus on NYTimes Comments||[Homework 1 - NYTimes EDA](homeworks/hw1.md)|
 |2020-09-29|[Regression Refresher with R](https://docs.google.com/presentation/d/1FPe7kA40qkHUSP2ZJeU1CdofNsYZplD8V4RkS4tGu7Y/edit?usp=sharing)|A Modern Approach to Regression with R||
 |2020-10-01|Regression with NYTimes based on Reading||Exploring characteristics of online news comments and commenters with machine learning approaches by Lee and Ryu|
-|2020-10-06|[Crash course in Bayesian Statistics](https://docs.google.com/presentation/d/1xHXP7YkbhTw_aHWJS4CKhQwOE1sFZPKL1FvnJxhSpWk/edit?usp=sharing)|Doing Bayesian Data Analysis by John Kruschke|Project 1 Due|
+|2020-10-06|[Crash course in Bayesian Statistics](https://docs.google.com/presentation/d/1xHXP7YkbhTw_aHWJS4CKhQwOE1sFZPKL1FvnJxhSpWk/edit?usp=sharing)|Doing Bayesian Data Analysis by John Kruschke|[Project 1](homeworks/proj1.md) Due|
 |2020-10-08|[Contrasting Bayesian Methods with Classical Methods](https://docs.google.com/presentation/d/14r8G-DP_P_m6aqcml_EFMFb2De2BKVYs9nIPCDDadio/edit?usp=sharing)|||
 |2020-10-13|[Dependent Data - Time Series and Kalman Filters](https://docs.google.com/presentation/d/1LmREGERJCS5GzmmvR0WFLTxILFC_NBsyugsbCeHdptc/edit?usp=sharing)|[Chapter 1 on this dissertation](https://escholarship.org/uc/item/89f9z0tj)|Homework 2|
 |2020-10-15|Practice - Forecasting Temperature|||
@@ -69,7 +69,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2020-12-01|Causal Inference - difference-in-differences||Joshua D. Angrist and Jörn-Steffen Pischke (2015). Mastering ’Metrics: The Path from Cause to Effect, chapter 5. <br> Homework5|
 |2020-12-03|Critique||[Associati on  between  consumption of vegetables and COVID-19 mortality at a country level in Europe](https://www.medrxiv.org/content/10.1101/2020.07.17.20155846v1.full.pdf)|
 |2020-12-08|Critiques|||
-|2020-12-10|Critiques||Project 3 Due|
+|2020-12-10|Critiques||[Project 3](homeworks/proj3.md) Due|
 |TBD|Measure understanding|Final Exam|You!|
 
 
