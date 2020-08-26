@@ -30,7 +30,7 @@ for irrep in x:
     x_arr = np.array(x[irrep])
     y_arr = np.array(y[irrep])
     x_ord = np.argsort(x_arr)
-    tck = interpolate.splrep(x=x_arr[x_ord], y=y_arr[x_ord], s=0)
+    tck = interpolate.splrep(x=x_arr[x_ord], y=y_arr[x_ord], s=1e-3)
 
     # It's important to define the defaults to force an evaluation in Python
     # Otherwise lazy evaluation will later only use the last set of parameters
@@ -153,12 +153,16 @@ for i in range(len(x[irrep])):
     ols_start_bs = sm.OLS(np.array(y_avgs),
                           sm.add_constant(np.array(x_avgs))).fit()
     len_prec = get_len_prec(x_avgs, ordered_delta_funs, x_cov)
-    opt = minimize(obj, ols_start_bs.params,
-                   args=(x_avgs, ordered_funs, ordered_delta_funs, len_prec),
-                   method='Nelder-Mead', options={"xatol": 1e-8})
-    coeffs_bs.append({'opt_x': opt.x.tolist(),
-                      'success': opt.success,
-                      'opt_fun': opt.fun})
+    try:
+        opt = minimize(obj, ols_start_bs.params,
+                       args=(x_avgs, ordered_funs,
+                             ordered_delta_funs, len_prec),
+                       method='Nelder-Mead', options={"xatol": 1e-8})
+        coeffs_bs.append({'opt_x': opt.x.tolist(),
+                          'success': opt.success,
+                          'opt_fun': opt.fun})
+    except:
+        coeffs_bs.append('failed at boot index {}'.format(i))
 
 logging.info('Storing optimal values')
 json.dump(coeffs_bs, open('coeffs_bs.json', 'w'))
