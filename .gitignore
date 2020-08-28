@@ -10,3 +10,5 @@
 *.log
 *.zip
 *.png
+*.yaml
+*.pkl
