@@ -52,7 +52,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2020-10-01|Regression with NYTimes based on Reading||Exploring characteristics of online news comments and commenters with machine learning approaches by Lee and Ryu|
 |2020-10-06|[Crash course in Bayesian Statistics](https://docs.google.com/presentation/d/1xHXP7YkbhTw_aHWJS4CKhQwOE1sFZPKL1FvnJxhSpWk/edit?usp=sharing)|Doing Bayesian Data Analysis by John Kruschke|[Project 1](homeworks/proj1.md) Due|
 |2020-10-08|[Contrasting Bayesian Methods with Classical Methods](https://docs.google.com/presentation/d/14r8G-DP_P_m6aqcml_EFMFb2De2BKVYs9nIPCDDadio/edit?usp=sharing)|||
-|2020-10-13|[Dependent Data - Time Series and Kalman Filters](https://docs.google.com/presentation/d/1LmREGERJCS5GzmmvR0WFLTxILFC_NBsyugsbCeHdptc/edit?usp=sharing)|[Chapter 1 on this dissertation](https://escholarship.org/uc/item/89f9z0tj)|Homework 2|
+|2020-10-13|[Dependent Data - Time Series and Kalman Filters](https://docs.google.com/presentation/d/1LmREGERJCS5GzmmvR0WFLTxILFC_NBsyugsbCeHdptc/edit?usp=sharing)|[Chapter 1 on this dissertation](https://escholarship.org/uc/item/89f9z0tj)|[Homework 2](homeworks/hw2.md)|
 |2020-10-15|Practice - Forecasting Temperature|||
 |2020-10-20|[Dependent Data - Spatial Statistics](https://docs.google.com/presentation/d/1p2niILw17C0aN4Jmn7LjJRb8qClX-_QLc58dBAkpZzY/edit?usp=sharing)|For manipulating spatial data in R: [rspatial.org](https://rspatial.org/)||
 |2020-10-22|Practice with Kriging|[Interpolation of Spatial Data: Some Theory for Kriging - Ch 1.2](https://clio.columbia.edu/catalog/11310671)|Homework3|
