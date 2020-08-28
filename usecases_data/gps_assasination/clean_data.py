@@ -6,6 +6,8 @@ import utm
 
 
 files = glob('data/*.geojson')
+
+# These are "shelter" locations that will be removed from the data.
 my_loc = json.load(open('my_house.geojson', 'r'))
 dest_lonlat = [-113.98506224, 46.85883062]
 my_lonlat = my_loc['features'][0]['geometry']['coordinates']
