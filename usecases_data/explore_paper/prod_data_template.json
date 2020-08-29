@@ -1,0 +1,13 @@
+{'product_id': -1,
+ 'file': {'type': '',
+          'name': ''},
+ 'product_spec': {
+     'name': '',
+     'type': '',
+     'producer_ids': [],
+     'published_time': '',
+     'creator_ids': [],
+     'version': 0
+     },
+ 'dependency_ids': [],
+ 'contribution_ids': []}
