@@ -47,9 +47,9 @@ Please explain your answer.
 #### Question 4
 Which of our usual regression conditions are satisfied in our simulation above?
 - linearity $$Y = X\beta + \epsilon$$
-- errors have 0 conditional expectation $$E(\epsilon|X) = 0$$
+- errors have 0 conditional expectation $$E(\epsilon\|X) = 0$$
 - errors are independent
-- errors have a constant conditional variance $$Var(\epsilon|X) = \sigma^2$$
+- errors have a constant conditional variance $$Var(\epsilon\|X) = \sigma^2$$
 - errors follow a normal distribution
 
 {% include lib/mathjax.html %}
