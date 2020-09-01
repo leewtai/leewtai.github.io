@@ -13,6 +13,7 @@ for each resource?
 #### Approximate Bayesian Computation
 Besides avoiding the likelihood calculation, ABC is more intuitive to scientists.
 Can ABC methods be more robust/correct when the model is incorrect?
+- Use ABC for amazon review problem: one product with 10 reviews but 5 stars, one product with 100 reviews but 4.5 stars, which one is better?
 
 #### Bayesian Optimization Numerical issue
 We know that the joint predictive distribution can be expressed as the product
@@ -39,3 +40,9 @@ farmer's data is often much noisier. It's not obvious how to connect the
 #### WLS in non-linear cases producing bias?
 see physics-fun/ for the details. trouble looking weighted least seems to
 cause a negative bias.
+
+#### Are there usecases for an algorithm that gets "bored"?
+Recommendation algorithms dwell on repeated recommendations.
+
+#### Can we train a linear model without using all the data?
+Sufficient statistic, differential privacy?
