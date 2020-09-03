@@ -7,6 +7,7 @@ import requests
 from bs4 import BeautifulSoup
 from py2neo import Graph
 
+import cypher_queries
 
 logging.basicConfig(format="%(asctime)-15s %(message)s",
                     filename='query_google_scholar.log',
@@ -52,35 +53,6 @@ def get_paper_id(cited_by_str):
     return re.sub('.*cites=([0-9]+)', '\\1', cited_by_str)
 
 
-paper_creation_query = """
-MERGE (p:Paper {{title: '{title}',
-                 source: 'google_scholar'}})
-"""
-producer_creation_query = """
-MERGE (p:Producer {{name: '{name}'}})
-"""
-authored_creation_query = """
-MATCH (a:Author {{google_scholar_id: '{gs_id}'}})
-MATCH (p:Paper {{title: '{title}'}})
-MERGE (a)-[:AUTHORED {{year: {pub_year}}}]->(p)
-"""
-# Assumes if older references will be concatenated by Google
-gs_paper_id_update_query = """
-MATCH (p:Paper {{title: '{title}'}})
-SET p.google_scholar_paper_id = '{gs_id}'
-"""
-published_paper_creation_query = """
-MATCH (j:Producer {{name: '{name}'}})
-MATCH (p:Paper {{title: '{title}'}})
-MERGE (j)-[:PUBLISHED {{year: {pub_year}}}]->(p)
-"""
-published_author_creation_query = """
-MATCH (j:Producer {{name: '{name}'}})
-MATCH (a:Author {{google_scholar_id: '{gs_id}'}})
-MERGE (j)-[:PUBLISHED {{year: {pub_year}}}]->(a)
-"""
-
-
 def log_db_size(graph):
     producer_count = graph.run("""
         MATCH (prod:Producer)
@@ -119,25 +91,27 @@ for auth in auths:
         paper = entry.contents[0]
         title, _, journal_str = (meta.text for meta in paper.contents)
         pub_year = entry.contents[-1].text
-        graph.run(paper_creation_query.format(title=title, pub_year=pub_year))
+        graph.run(cypher_queries.paper_creation_query.format(
+            title=title, source='google_scholar'))
         journal = parse_journal(journal_str)
-        graph.run(producer_creation_query.format(name=journal.lower()))
+        graph.run(cypher_queries.producer_creation_query.format(
+            name=journal.lower()))
         # Authors are sourced from the database so should exist already
-        graph.run(authored_creation_query.format(
+        graph.run(cypher_queries.authored_creation_query_by_gs.format(
             gs_id=gs_id, year=pub_year, title=title, pub_year=pub_year))
-        graph.run(published_paper_creation_query.format(
+        graph.run(cypher_queries.published_paper_creation_query.format(
             name=journal, title=title, pub_year=pub_year))
-        graph.run(published_paper_creation_query.format(
+        graph.run(cypher_queries.published_paper_creation_query.format(
             name=journal, title=title, pub_year=pub_year))
-        graph.run(published_author_creation_query.format(
+        graph.run(cypher_queries.published_author_creation_query.format(
             name=journal, gs_id=gs_id, pub_year=pub_year))
 
         cited_by = entry.contents[1].contents
         cited_by_href = cited_by[0].get('href')
         if cited_by_href:
             paper_id = get_paper_id(cited_by_href)
-            graph.run(gs_paper_id_update_query.format(gs_id=paper_id,
-                                                      title=title))
+            graph.run(cypher_queries.gs_paper_id_update_query.format(
+                gs_id=paper_id, title=title))
 
 logging.info('ending google scholar query')
 log_db_size(graph)
