@@ -16,7 +16,6 @@ There are 3 node types: `Author`, `Producer`, `Paper`
   {name: ''})
 (:Paper
   {title: '',
-   published_year: INT,
    file_name: '',
    source: '',
    google_scholar_paper_id: ''})
