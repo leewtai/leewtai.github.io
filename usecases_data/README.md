@@ -8,12 +8,13 @@ This folder stores all the different projects and ideas
 #### Model for Liebig's Barrel
 In agriculture, the belief is that the shortest resource will dictate
 the growth of the crop. Is there a way to recover the cause or threshold
-for each resource?
+for each resource using statistical learning?
 
 #### Approximate Bayesian Computation
 Besides avoiding the likelihood calculation, ABC is more intuitive to scientists.
 Can ABC methods be more robust/correct when the model is incorrect?
 - Use ABC for amazon review problem: one product with 10 reviews but 5 stars, one product with 100 reviews but 4.5 stars, which one is better?
+    - Conjugate priors are not intuitive.
 
 #### Bayesian Optimization Numerical issue
 We know that the joint predictive distribution can be expressed as the product
@@ -38,11 +39,14 @@ farmer's data is often much noisier. It's not obvious how to connect the
 2 different sets of data together.
 
 #### WLS in non-linear cases producing bias?
-see physics-fun/ for the details. trouble looking weighted least seems to
-cause a negative bias.
+see physics-fun/ for the details. Weighted least squares can produce very biased
+predictions if the data is highly non-linear and non-Gaussian, why is this
+given regression can be phrased as a weighted average.
 
 #### Are there usecases for an algorithm that gets "bored"?
-Recommendation algorithms dwell on repeated recommendations.
+Recommendation algorithms dwell on repeated recommendations and can discourage
+users to continue their subscription. Is there a way to modify the objective function
+such that algorithms will constantly adapt? Do we need to model boredom?
 
 #### Can we train a linear model without using all the data?
-Sufficient statistic, differential privacy?
+Sufficient statistic, differential privacy, ...
