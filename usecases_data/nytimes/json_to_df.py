@@ -31,8 +31,8 @@ for uri in comments:
             'uri': uri,
             'num_rec': comm.get('recommendations'),
             'display_name': comm.get('userDisplayName'),
-            'update_date': comm.get('updateDate'),
-            'approve_date': comm.get('approveDate'),
+            'update_date': int(comm.get('updateDate')),
+            'approve_date': int(comm.get('approveDate')),
             'editorsSelection': comm.get('editorsSelection'),
             'word_count': len(words),
             'uniq_word_count': len(set(words))})
@@ -43,10 +43,13 @@ rank_dfs = []
 for grp, index in comments_df.groupby('uri').groups.items():
     sub_df = comments_df.loc[index]
     tot_comms = sub_df.shape[0]
+    earliest = sub_df.update_date.min()
+    time_gap = sub_df.update_date - earliest
     ranks = np.argsort(sub_df.update_date) + 1
     rank_dfs.append(pd.DataFrame(
         {'uri': grp, 'tot_comms': tot_comms,
-         'rank': ranks, 'update_date': sub_df.update_date}))
+         'rank': ranks, 'update_date': sub_df.update_date,
+         'time_gap': time_gap}))
 
 rank_df = pd.concat(rank_dfs)
 
