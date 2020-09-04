@@ -50,3 +50,9 @@ such that algorithms will constantly adapt? Do we need to model boredom?
 
 #### Can we train a linear model without using all the data?
 Sufficient statistic, differential privacy, ...
+
+#### Data science with dance
+Can we detect emotion from people's movement?
+
+#### Can we create a mapping between problems and concepts automatically?
+
