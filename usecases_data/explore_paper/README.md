@@ -23,9 +23,9 @@ There are 3 node types: `Author`, `Producer`, `Paper`
 
 There are 4 different types of relationships: `REFERENCED`, `CITED_BY`, `AUTHORED`, `PUBLISHED` 
 ```
-(:Paper)-[:REFERENCED]->(:Paper)
-(:Paper)-[:CITED_BY]->(:Paper)
-(:Author)-[:AUTHORED {year: }]->(:Paper)
-(:Producer)-[:PUBLISHED]->(:Paper)
-(:Producer)-[:PUBLISHED]->(:Author)
+(:Paper)-[:REFERENCED {year: INT}]->(:Paper)
+(:Paper)-[:CITED_BY {year: INT}]->(:Paper)
+(:Author)-[:AUTHORED {year: INT}]->(:Paper)
+(:Producer)-[:PUBLISHED {year: INT}]->(:Paper)
+(:Producer)-[:PUBLISHED {year: INT}]->(:Author)
 ```
