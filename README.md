@@ -1,6 +1,6 @@
 ## README
 
-<img src='images/wayne.jpg' alt='portrait photo' width='100'>
+<img src='images/wayne.jpg' alt='portrait photo' width='150'>
 
 I'm Wayne, a statistician with a huge passion in statistics education and modern dance.
 I've worked as a professional data scientist in agriculture, social networks, and aerospace.
@@ -25,14 +25,13 @@ There are three statistical concepts that I would like to teach to the world:
 I'm slowly compiling a statistics concept inventory overtime:
 - [Intro Stat Concepts](stat_concept_inv/README.md)
 
-## Applied Research Ideas With Students
-- An App to tie problems and concepts together to help
-  make problems
-- Anything agriculture tech!
-- Supply chain optimization with spatial statistics
-- Finding experts within a field
-- Dance + tech
-- Practical scalable education
+#### Applied Research Interest
+I'm always open to collaborations related to applied statistics, statistics education, or data science
+aimed to better the world.
+
+If you are an undergraduate/MA student who wants to do research, I encourage you to bring your own
+topic but I also have a [list of ideas](./usecases_data).
+
 
 ### Thoughts & Writing
 I have several thoughts around statistics, data science, dance, and life if you care to read about them:
@@ -47,12 +46,15 @@ that you could be my manager or instructor in the future.
 
 Above all, I value curiosity, empathy, and integrity because I believe these qualities
 lead to a creative, respectful, and robust future.  I am not an easy manager/instructor
-because I have high expectations/hopes for you. If I give you any feedback, you should know what
-evidence I'm basing those judgements on. If I am wasting your time, let me know.
-Please know that it is my job to help you articulate problems that you might be struggling to articulate.
+because I will have high expectations/hopes for you. If I give you any feedback, you should demand what
+evidence I'm basing those judgements on. If I am wasting your time, let me know and I
+will change. Please know that it is my job to help you articulate problems that you might
+be struggling to articulate so you shouldn't worry if you're not sure what is bother you profesionally.
 
-You should know what you're giving up to be on my team or in my class/team. I will help you find
-and assess new opportunities if you decide to stay. The most important skill you should
-aquire is a solid foundation and network that allows you to learn, investigate, and make mistakes and
+You should know what you're giving up to be on my team or in my class/team. I view your future growth
+as part of my responsibility, even outside the institution we work in. I've helped most of my reports
+seek and assess new opportunities. The most important skill you should
+aquire is a solid foundation and support network that allows you to learn, explore, and make mistakes.
 I will always be your ally in this aspect.
 
+In exchange, I want you to reciprocate and pass on this management philosophy or develop your own.
