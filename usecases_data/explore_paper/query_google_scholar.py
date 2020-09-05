@@ -7,7 +7,7 @@ import requests
 from bs4 import BeautifulSoup
 from py2neo import Graph
 
-import cypher_queries
+import cypher_queries as cq
 
 logging.basicConfig(format="%(asctime)-15s %(message)s",
                     filename='query_google_scholar.log',
@@ -89,28 +89,28 @@ for auth in auths:
         citation = entry.find_all('td', 'gsc_a_t')[0]
         citation_content = [cont.text for cont in citation.contents]
         paper = entry.contents[0]
+        # Authors are ignored because they are shortened
         title, _, journal_str = (meta.text for meta in paper.contents)
         pub_year = entry.contents[-1].text
-        graph.run(cypher_queries.paper_creation_query.format(
-            title=title, source='google_scholar'))
+        cq.merge_paper(title=title)
         journal = parse_journal(journal_str)
-        graph.run(cypher_queries.producer_creation_query.format(
+        graph.run(cq.producer_creation_query.format(
             name=journal.lower()))
         # Authors are sourced from the database so should exist already
-        graph.run(cypher_queries.authored_creation_query_by_gs.format(
+        graph.run(cq.authored_creation_query_by_gs.format(
             gs_id=gs_id, year=pub_year, title=title, pub_year=pub_year))
-        graph.run(cypher_queries.published_paper_creation_query.format(
+        graph.run(cq.published_paper_creation_query.format(
             name=journal, title=title, pub_year=pub_year))
-        graph.run(cypher_queries.published_paper_creation_query.format(
+        graph.run(cq.published_paper_creation_query.format(
             name=journal, title=title, pub_year=pub_year))
-        graph.run(cypher_queries.published_author_creation_query.format(
+        graph.run(cq.published_author_creation_query.format(
             name=journal, gs_id=gs_id, pub_year=pub_year))
 
         cited_by = entry.contents[1].contents
         cited_by_href = cited_by[0].get('href')
         if cited_by_href:
             paper_id = get_paper_id(cited_by_href)
-            graph.run(cypher_queries.gs_paper_id_update_query.format(
+            graph.run(cq.gs_paper_id_update_query.format(
                 gs_id=paper_id, title=title))
 
 logging.info('ending google scholar query')
