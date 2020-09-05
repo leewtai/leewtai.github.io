@@ -1,4 +1,5 @@
 import logging
+import re
 import time
 
 
@@ -7,6 +8,8 @@ def cln_title(title):
 
 
 def parse_name(family_name, given_name='', middle_name=''):
+    if not re.findall('[A-Za-z]', family_name):
+        return
     family_name = family_name.strip()
     given_name = given_name.strip()
     middle_name = middle_name.strip()
@@ -27,8 +30,10 @@ def parse_name(family_name, given_name='', middle_name=''):
 
 
 def match_family_name(graph, family_name, given_name='', middle_name=''):
-    family_name, given_name, middle_name = parse_name(
-            family_name, given_name, middle_name)
+    parse_out = parse_name(family_name, given_name, middle_name)
+    if not parse_out:
+        return
+    family_name, given_name, middle_name = parse_out
 
     assert len(given_name) > 0 and len(family_name) > 1
 
@@ -52,9 +57,10 @@ def match_family_name(graph, family_name, given_name='', middle_name=''):
 
 def merge_author(graph, family_name, given_name='',
                  middle_name='', google_scholar_id=''):
-    (results, full_name_match, family_name,
-     given_name, middle_name) = match_family_name(
-             graph, family_name, given_name, middle_name)
+    matches = match_family_name(graph, family_name, given_name, middle_name)
+    if not matches:
+        return
+    results, full_name_match, family_name, given_name, middle_name = matches
 
     if not results:
         logging.info('no matches')
@@ -97,9 +103,11 @@ def merge_author(graph, family_name, given_name='',
         logging.info('Existing full name match exists for {} {}'
                      ', not updating'.format(given_name, family_name))
     else:
-        logging.warning('No match but not creating author {} {},'
-                        'please check the logic'.format(
+        logging.warning('No match but not creating author {} {}'.format(
                             given_name, family_name))
+        [logging.warning('Detected {} {} instead'.format(
+            result['given_name'], result['family_name']))
+         for result in results]
     if google_scholar_id:
         graph.run("""
         MATCH (a:Author {{family_name: '{family_name}',
@@ -113,6 +121,8 @@ def merge_author(graph, family_name, given_name='',
 def match_best_author(graph, family_name, given_name, middle_name=''):
     match_results = match_family_name(
         graph, family_name, given_name, middle_name)
+    if not match_results:
+        return
     if match_results[1]:
         return (match_results[1][0]['family_name'],
                 match_results[1][0]['given_name'],
@@ -130,8 +140,10 @@ def match_best_author(graph, family_name, given_name, middle_name=''):
 def match_best_author_query(graph, gs_id='', family_name='',
                             given_name='', middle_name=''):
     if family_name or given_name:
-        (family_name, given_name, middle_name) = match_best_author(
-                 graph, family_name, given_name, middle_name)
+        names = match_best_author(graph, family_name, given_name, middle_name)
+        if not names:
+            return ""
+        family_name, given_name, middle_name = names
         match_query = """
         MATCH (a:Author {{given_name: '{given_name}',
                           family_name: '{family_name}',
@@ -183,6 +195,8 @@ def merge_authored(graph, title, gs_id='', family_name='',
     title = cln_title(title)
     match_query = match_best_author_query(graph, gs_id, family_name,
                                           given_name, middle_name)
+    if not match_query:
+        return
     graph.run(match_query
               + " MATCH (p:Paper {{title: '{title}'}})".format(title=title)
               + " MERGE (a)-[:AUTHORED {{year: {pub_year}}}]->(p)".format(
@@ -205,6 +219,8 @@ def merge_published_author(graph, name, gs_id='', family_name='',
     name = cln_title(name)
     match_query = match_best_author_query(graph, gs_id, family_name,
                                           given_name, middle_name)
+    if not match_query:
+        return
 
     graph.run("MATCH (j:Producer {{name: '{name}'}})".format(name=name)
               + match_query
