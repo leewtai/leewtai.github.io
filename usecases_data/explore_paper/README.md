@@ -10,6 +10,7 @@ There are 3 node types: `Author`, `Producer`, `Paper`
 (:Author
   {given_name: '',
    family_name: '',
+   middle_name: '',
    google_scholar_id: '',
    last_update: date()}
 )
@@ -19,7 +20,8 @@ There are 3 node types: `Author`, `Producer`, `Paper`
   {title: '',
    content: '',
    file_name: '',
-   google_scholar_paper_id: ''})
+   google_scholar_paper_id: '',
+   last_update: date()})
 ```
 
 There are 4 different types of relationships: `REFERENCED`, `CITED_BY`, `AUTHORED`, `PUBLISHED` 
