@@ -90,6 +90,7 @@ for auth in auths:
         paper = entry.contents[0]
         # Authors are ignored because they are shortened
         title, author_str, journal_str = (meta.text for meta in paper.contents)
+        title = cq.cln_property(title)
         authors = author_str.split(', ')
         [cq.merge_author(graph, family_name=author) for author in authors]
         pub_year = entry.contents[-1].text

@@ -3,6 +3,15 @@ import re
 import time
 
 
+def cln_property(text):
+    text = re.sub('"', '\'\'', text)
+    text = re.sub('\\\\', '\\\\\\\\', text)
+    if re.findall('\\$[\\._A-Za-z]+', text):
+        logging.warning('ignoring text {}'.format(text))
+        text = ''
+    return text
+
+
 def cln_title(title):
     return title.strip().capitalize()
 

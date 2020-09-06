@@ -46,7 +46,7 @@ def process_biblio(graph, biblstruct, current_paper_title, cite_count,
     author_names = [grab_names(author) for author in authors]
     [cq.merge_author(graph, **a) for a in author_names if a]
 
-    ref_title = biblstruct.title.text
+    ref_title = cq.cln_property(biblstruct.title.text)
     logging.info('adding citation from {} to {}'.format(
         current_paper_title, ref_title))
     cq.merge_paper(graph, title=ref_title)
@@ -55,7 +55,7 @@ def process_biblio(graph, biblstruct, current_paper_title, cite_count,
     if source.date and source.date.get('when'):
         year = re.findall('[0-9]{4}', source.date.get('when'))[0]
     elif source.date and source.date.text:
-        year = source.date.text
+        year = re.findall('[0-9]{4}', source.date.text)[0]
     else:
         year = 0
         logging.warning('Cannot find published year for {}'.format(ref_title))
@@ -64,10 +64,11 @@ def process_biblio(graph, biblstruct, current_paper_title, cite_count,
 
     producer = source.title
     if producer:
-        cq.merge_producer(graph, name=producer.text)
+        prod_name = cq.cln_property(producer.text)
+        cq.merge_producer(graph, name=prod_name)
         cq.merge_published(graph, title=ref_title,
-                           name=producer.text, year=year)
-        [cq.merge_published_author(graph, name=producer.text, year=year, **a)
+                           name=prod_name, year=year)
+        [cq.merge_published_author(graph, name=prod_name, year=year, **a)
          for a in author_names if a]
 
     [cq.merge_authored(graph, title=ref_title, year=year, **a)
@@ -77,18 +78,10 @@ def process_biblio(graph, biblstruct, current_paper_title, cite_count,
                         ref_count=ref_count)
 
 
-def cln_text(text):
-    text = re.sub('"', '\'\'', text)
-    if re.findall('\\$[\\._A-Za-z]+', text):
-        logging.warning('ignoring text {}'.format(text))
-        text = ''
-    return text
-
-
 # Running the Grobid service (depends on JVM8, gradle, grobid)
 # https://grobid.readthedocs.io/en/latest/Grobid-service/
 grobid_url = 'http://localhost:8070/api/processFulltextDocument'
-for i, pdf_file in enumerate(pdf_files[:4]):
+for i, pdf_file in enumerate(pdf_files):
     fp = Path(pdf_file)
     files = {'input': fp.open('rb'),
              'consolidateCitations': 1}
@@ -108,13 +101,13 @@ for i, pdf_file in enumerate(pdf_files[:4]):
         pub_year = max(mentioned_years)
     authors = header.findChildren('author')
     author_names = [grab_names(author) for author in authors]
-    title = header.find('title').text
+    title = cq.cln_property(header.find('title').text)
 
     # Create the authors
     [cq.merge_author(graph, **a) for a in author_names if a]
     # Create paper
-    abstract = cln_text(header.find('abstract').text)
-    paragraph_text = '\n'.join([cln_text(pi.text.strip())
+    abstract = cq.cln_property(header.find('abstract').text)
+    paragraph_text = '\n'.join([cq.cln_property(pi.text.strip())
                                 for pi in soup.find_all('p')])
     title_words = title.strip().split(' ')
     new_file_name = '{lead_auth_family_name}_{year}_{title}'.format(
