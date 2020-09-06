@@ -110,7 +110,7 @@ for auth in auths:
         cited_by_href = cited_by[0].get('href')
         if cited_by_href:
             paper_id = get_paper_id(cited_by_href)
-            cq.merge_paper(graph, title, google_scholar_id=gs_id)
+            cq.merge_paper(graph, title, google_scholar_paper_id=gs_id)
 
 logging.info('ending google scholar query')
 log_db_size(graph)

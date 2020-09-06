@@ -26,8 +26,9 @@ There are 3 node types: `Author`, `Producer`, `Paper`
 
 There are 4 different types of relationships: `REFERENCED`, `CITED_BY`, `AUTHORED`, `PUBLISHED` 
 ```
-(:Paper)-[:REFERENCED {year: INT}]->(:Paper)
+(:Paper)-[:REFERENCED {year: INT, ref_count: INT}]->(:Paper)  
 (:Author)-[:AUTHORED {year: INT}]->(:Paper)
 (:Producer)-[:PUBLISHED {year: INT}]->(:Paper)
 (:Producer)-[:PUBLISHED {year: INT}]->(:Author)
 ```
+- Default ref count is 1 for `[:REFERENCED]`, but the more one paper mentions the other paper, the more this value will be.
