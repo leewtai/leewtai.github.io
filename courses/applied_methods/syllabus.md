@@ -2,13 +2,16 @@
 UN3105 - Fall 2020
 
 This course is meant to give you a survey of various applied statistic methods. This can
-vary drastically depending on the instructor's background. We will be covering:
-- Sampling and data quality (how do you get the data relevant to your problem?)
-- Bayesian Statistics (how do we introduce prior knowledge into modeling?)
-- Kalman Filters + Kriging (how do we deal with temporally or spatially dependent data?)
-- Survival analysis (how do we deal with censored data?)
-- Causal inference (what else can quantify the impact besides randomized controlled trials?)
-- (if time allows) Sequential analysis (can we use the data sequentially without cheating?)
+vary drastically depending on the instructor's background.
+
+|Topic|What Problems Does It Solve?|
+|---|---|
+|Sampling and data quality |How do you get the data relevant to your problem?|
+|Bayesian Statistics|How do we introduce prior knowledge into modeling?|
+|Kalman Filters + Kriging |How do we deal with temporally or spatially dependent data?|
+|Survival analysis |How do we deal with censored data?|
+|Causal inference|What else can quantify the impact besides randomized controlled trials?|
+|(if time allows) Sequential analysis|Can we use the data sequentially without cheating?|
 
 ### Expectations
 #### - Learning outcomes
@@ -23,10 +26,10 @@ vary drastically depending on the instructor's background. We will be covering:
 #### - Your Job
   - Come to class, bring your laptop, take chances!
   - Give feedback in office hours or e-mail, I don't want to waste your time.
-  - Avoid e-mailing if possible, share your thoughts on the discussion board instead
+  - Avoid e-mailing if possible, share your thoughts on the discussion board instead.
   - Participate and ask questions, this is not easy!
     - In class: forecast what should be done, compare with what is happening, then summarize the difference.
-    - Canvas: describe what you observe, describe what you expect, communicate clearly.
+    - Canvas: describe what you observe then describe what you expect.
     - To each other: summarize the conversation to ensure you're listening and think constructively before criticizing.
   - Academic honesty: https://www.cs.columbia.edu/education/honesty/
 
@@ -73,13 +76,12 @@ I reserve the right to change the ordering and the content for the course throug
 |TBD|Measure understanding|Final Exam|You!|
 
 
-
 ### Logistics
 Lectures:
   [TuTh 11:40-12:55 Eastern](https://vergil.registrar.columbia.edu/#/courses/applied%20statistical%20methods) on Zoom (links on Canvas)
 Office Hours:
   No office hours for TA, use discussion board for questions
-  Instructor office hours TBD
+  Instructor office hours by appointment only
 
 ### Computer Setup
   - I encourage you to setup your computing environment through [Anaconda and Jupyter Notebooks](../../setup/conda_and_navigator_setup.md) since we'll be using Jupyter Notebooks in class.
@@ -108,4 +110,4 @@ A+ will be rewarded only on exceptional cases.
   - Linear regression
 
 ### Textbooks / Supplies
-No textbook but papers will be shared with the class for reading.
+No textbook but references are available on the syllabus.
