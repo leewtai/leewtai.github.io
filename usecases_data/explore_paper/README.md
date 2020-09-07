@@ -7,7 +7,7 @@ and understand how to approach a professor when wanting to do research.
 # Requirements:
 - A running neo4j instance
 - A running Grobid service if you want to parse PDF files
-- `conda create -n explore python=3.7 ipykernel requests bs4 py2neo`
+- `conda create -n explore python=3.7 ipykernel requests bs4 py2neo lxml`
 
 # Data model for graph
 There are 3 node types: `Author`, `Producer`, `Paper`

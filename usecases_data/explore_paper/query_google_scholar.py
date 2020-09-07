@@ -98,7 +98,9 @@ for auth in auths:
         journal = parse_journal(journal_str)
         cq.merge_producer(graph, journal)
         # Authors are sourced from the database so should exist already
-        cq.merge_authored(graph, title=title, gs_id=gs_id, year=pub_year)
+        # Google sometimes returns papers not authored by the person
+        # e.g. John Cunningham and Topological autoencoders,
+        # so we do not create a relationship using the google_scholar_id
         [cq.merge_authored(graph, title=title, family_name=author)
          for author in authors]
         cq.merge_published(graph, journal, title, year=pub_year)
