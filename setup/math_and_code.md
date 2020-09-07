@@ -40,10 +40,11 @@ Both platforms leverage the syntax for [Markdown](https://commonmark.org/help/) 
 ## Markdown cheatsheet
 - Example, this page is written using Markdown.
 - For different headers, you can prefix your line with different number of `#` signs, the fewer `#`, the larger the header. To type out the following:
-    # Hello
-    ## Beautiful
-    ### World
+    - # Hello
+    - ## Beautiful
+    - ### World
     You can type in:
+
     ```
     # Hello
     ## Beautiful
@@ -53,6 +54,7 @@ Both platforms leverage the syntax for [Markdown](https://commonmark.org/help/) 
   - This is the first bullet
     - second bullet
       - third bullet
+
   ```
   - This is the first bullet
     - second bullet
