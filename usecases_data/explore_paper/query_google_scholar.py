@@ -20,10 +20,9 @@ auth_citation_url = 'https://scholar.google.com/citations'
 # TODO source this from faculty page -> google scholar
 # author_id = '88cU_4UAAAAJ'
 # graph.run("""
-# MATCH (auth:Author {given_name: 'John', family_name: 'Cunningham'})
-# SET auth.google_scholar_id = '%s'
+# CREATE (auth:Author {given_name: 'John', family_name: 'Cunningham',
+#                      middle_name: 'P', google_scholar_id: '%s'})
 # """ % author_id)
-
 
 cql_out = graph.run("""
 MATCH (auth:Author)
@@ -90,28 +89,31 @@ for auth in auths:
         citation_content = [cont.text for cont in citation.contents]
         paper = entry.contents[0]
         # Authors are ignored because they are shortened
-        title, _, journal_str = (meta.text for meta in paper.contents)
+        title, author_str, journal_str = (meta.text for meta in paper.contents)
+        title = cq.cln_property(title)
+        authors = author_str.split(', ')
+        [cq.merge_author(graph, family_name=author) for author in authors]
         pub_year = entry.contents[-1].text
-        cq.merge_paper(title=title)
+        cq.merge_paper(graph, title=title)
         journal = parse_journal(journal_str)
-        graph.run(cq.producer_creation_query.format(
-            name=journal.lower()))
+        cq.merge_producer(graph, journal)
         # Authors are sourced from the database so should exist already
-        graph.run(cq.authored_creation_query_by_gs.format(
-            gs_id=gs_id, year=pub_year, title=title, pub_year=pub_year))
-        graph.run(cq.published_paper_creation_query.format(
-            name=journal, title=title, pub_year=pub_year))
-        graph.run(cq.published_paper_creation_query.format(
-            name=journal, title=title, pub_year=pub_year))
-        graph.run(cq.published_author_creation_query.format(
-            name=journal, gs_id=gs_id, pub_year=pub_year))
+        # Google sometimes returns papers not authored by the person
+        # e.g. John Cunningham and Topological autoencoders,
+        # so we do not create a relationship using the google_scholar_id
+        [cq.merge_authored(graph, title=title, family_name=author)
+         for author in authors]
+        cq.merge_published(graph, journal, title, year=pub_year)
+        cq.merge_published_author(graph, name=journal,
+                                  gs_id=gs_id, year=pub_year)
+        [cq.merge_published_author(graph, name=journal, family_name=author)
+         for author in authors]
 
         cited_by = entry.contents[1].contents
         cited_by_href = cited_by[0].get('href')
         if cited_by_href:
             paper_id = get_paper_id(cited_by_href)
-            graph.run(cq.gs_paper_id_update_query.format(
-                gs_id=paper_id, title=title))
+            cq.merge_paper(graph, title, google_scholar_paper_id=gs_id)
 
 logging.info('ending google scholar query')
 log_db_size(graph)
