@@ -13,6 +13,7 @@ to go outdoors to finish this project.
 ### Deliverables
 - A report that should include:
   - A sampling methodology which defines your population, sampling frame, and unit of measurement.
+    - What are the stages of in your sampling methodology? Your proposed method must be feasible if you had a year to do this.
     - Normally, you would set a desired-accuracy for your project, then use the variance formulas for various sampling strategies to then determine the number of samples you should collect. Since this topic course does not dive into the variance calculations, you will not need to describe this step but you should know that we are skipping this intentionally.
   - A measurement procedures should define what constitutes as "wearing a mask" and "in public".
   - A description of the possible disagreements between your population and sampling frame and how this would impact your final conclusions.
@@ -23,6 +24,6 @@ to go outdoors to finish this project.
   - You are expected to collect data at least once (one session should produce multiple samples). Please spend between 1-2 hours at most for this session. You should make sure you collect data from a place that will encounter people.
   - Beyond the variable of interest, "mask or not?", you should also collect other pieces of information to help you validate your sample quality.
   - Your measurement procedure should be non-intrusive, i.e. you should not interact with people to obtain your data.
-  - Metadata like day and duration of sampling.
+  - Metadata like day, location, and duration of sampling.
 - A selfie of you at the location of sampling :)
   <img src="selfie_demo.png" alt="selfie at University of Montana" width='600'>
