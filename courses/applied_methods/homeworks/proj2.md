@@ -1,6 +1,6 @@
 # Project 2: Working with spatial/temporal datasets and combining it with 3rd party data 
 
-This project is built on top of a machine learning project [assassination classroom](../../../usecases_data/gps_assassination)
+This project is built on top of a machine learning project [assassination classroom](../../../usecases_data/gps_assasination)
 
 **In addition** to the requirements listed on the original project page, your second project needs
 to also answer the following questions:
