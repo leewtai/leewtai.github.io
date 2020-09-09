@@ -43,15 +43,15 @@ for f in files:
     json.dump(datum, open('cln_{}'.format(f), 'w'))
 
 
-for f in files[:3]:
+for f in files[5:8]:
     collection = json.load(open('cln_{}'.format(f), 'r'))['features']
     lons = [i['geometry']['coordinates'][0] for i in collection]
     lats = [i['geometry']['coordinates'][1] for i in collection]
     plt.scatter(lons, lats)
 
 
-plt.scatter(my_lonlat[0], my_lonlat[1], color='black')
-plt.scatter(dest_lonlat[0], dest_lonlat[1], color='black')
+# plt.scatter(my_lonlat[0], my_lonlat[1], color='black')
+# plt.scatter(dest_lonlat[0], dest_lonlat[1], color='black')
 plt.title('GPS Path to School')
 plt.ylabel('latitude')
 plt.xlabel('longitude')

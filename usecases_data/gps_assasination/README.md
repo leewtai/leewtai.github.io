@@ -25,7 +25,7 @@ At the end of the project, you need to submit:
 ### Data
 Data is collected on my Android phone using the [GPSLogger](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger&hl=en_US) application which is free but lacking in precision.
 
-The data is available on Canvas under `TBD.zip`.
+The data is available on Canvas under `gps.zip`.
 
 The data is in a GEOJSON format which is similar to a JSON format. Here's some sample code to
 help load in the data. If you are unfamiliar with JSON data, just ask for help! They are like
