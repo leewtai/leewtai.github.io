@@ -1,5 +1,6 @@
 import logging
 import json
+import pickle
 from itertools import chain
 
 import matplotlib.pyplot as plt
@@ -11,10 +12,24 @@ from scipy.integrate import simps
 from scipy import interpolate
 
 
+# Taking in bootstrap samples of qcotd vs ??
+# this calculates the weighted least square based on the
+# distance along the "curves", weighted by the covariance
+# derived by the delta method (covariance of X is propagated
+# using the gradient along the curve).
+# The curves are approximated using splines.
+# If the data changes, you may need to tune the spline parameter
+# "s". Look at the graphs produced to assess this need.
+
 log_file = 'opt_xy.log'
 logging.basicConfig(format="%(asctime)-15s %(message)s",
                     filename=log_file,
                     level=logging.INFO)
+
+# The data are dictionaries, the key is the "irrep" (16 here)
+# and the values are the bootstrap values (1000 values). The order between
+# x and y are assumed to be consistent.
+
 with open("x.yaml", "r") as file:
     x = yaml.load(file)
 
@@ -69,7 +84,7 @@ for irrep in x:
     x_avg = np.mean(x[irrep])
     dist_to_avg.update({
         irrep: [calc_len(xi, x_avg, delta_funs[irrep]) for xi in x[irrep]]
-        })
+    })
 
 
 # If the graphs here look bad, tune the s parameter when fitting splines
