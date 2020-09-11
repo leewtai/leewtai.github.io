@@ -1,11 +1,9 @@
 import logging
 import json
-import pickle
 from itertools import chain
 
 import matplotlib.pyplot as plt
 import numpy as np
-import yaml
 import statsmodels.api as sm
 from scipy.optimize import minimize
 from scipy.integrate import simps
@@ -29,13 +27,9 @@ logging.basicConfig(format="%(asctime)-15s %(message)s",
 # The data are dictionaries, the key is the "irrep" (16 here)
 # and the values are the bootstrap values (1000 values). The order between
 # x and y are assumed to be consistent.
-
-with open("x.yaml", "r") as file:
-    x = yaml.load(file)
-
-with open("y.yaml", "r") as file:
-    y = yaml.load(file)
-
+xy = json.load(open('qcotd2xy.json', 'r'))
+x = xy['x']
+y = xy['y']
 
 # This should be replaced with the Zeta function fits
 logging.info('fitting splines between y and x')
