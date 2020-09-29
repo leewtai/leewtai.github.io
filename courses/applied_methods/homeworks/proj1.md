@@ -10,6 +10,10 @@ that no data collection process is perfect. The key is the ability to identify t
 and propose solutions rather than executing a perfect sampling. However, you will need
 to go outdoors to finish this project.
 
+You should write this report treating your peers as your target audience. 
+Your description on the measurement process, however, should be written as if targeting a high school
+student. There is no page limit.
+
 ### Deliverables
 - A report that should include:
   - A sampling methodology which defines your population, sampling frame, and unit of measurement.
