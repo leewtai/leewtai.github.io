@@ -58,7 +58,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2020-10-13|[Dependent Data - Time Series and Kalman Filters](https://docs.google.com/presentation/d/1LmREGERJCS5GzmmvR0WFLTxILFC_NBsyugsbCeHdptc/edit?usp=sharing)|[Chapter 1 on this dissertation](https://escholarship.org/uc/item/89f9z0tj)|[Homework 2](homeworks/hw2.md)|
 |2020-10-15|Practice - Forecasting Temperature|||
 |2020-10-20|[Dependent Data - Spatial Statistics](https://docs.google.com/presentation/d/1p2niILw17C0aN4Jmn7LjJRb8qClX-_QLc58dBAkpZzY/edit?usp=sharing)|For manipulating spatial data in R: [rspatial.org](https://rspatial.org/)||
-|2020-10-22|Practice with Kriging|[Interpolation of Spatial Data: Some Theory for Kriging - Ch 1.2](https://clio.columbia.edu/catalog/11310671)|Homework3|
+|2020-10-22|Practice with Kriging|[Interpolation of Spatial Data: Some Theory for Kriging - Ch 1.2](https://clio.columbia.edu/catalog/11310671)|[Homework3](homeworks/hw3.md)|
 |2020-10-27|Discussion on spatial data privacy||[Twelve Million Phones, One Dataset, Zero Privacy](https://www.nytimes.com/interactive/2019/12/19/opinion/location-tracking-cell-phone.html)|
 |2020-10-29|[Survival data and the issue of censoring](https://docs.google.com/presentation/d/1Wdn8OYMl7D2r969LBHCRZU8zQN3APpXW3CBGtvPfiow/edit?usp=sharing)|[Survival analysis: models and applications Chapter 1](https://clio.columbia.edu/catalog/10052476?counter=2)||
 |2020-11-03|**NO CLASS - Election day**|||
