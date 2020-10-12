@@ -1,5 +1,5 @@
 import pandas as pd
-import seaborn as sns
+#import seaborn as sns
 import matplotlib.pyplot as plt
 
 
@@ -12,10 +12,20 @@ nhanes_exam_variable_map = {
 
 nhanes_demo_variable_map = {
     "SEQN": "id",
-    "WTINT2YR": "interview_weights",
-    "WTMEC2YR": "exam_weights",
+    # "WTINT2YR": "interview_weights",
+    # "WTMEC2YR": "exam_weights",
     "RIDAGEYR": "age_years",
+    "DMDYRSUS": "length_in_us",
+    "DMDEDUC3": "education_if_minor",
+    "DMDEDUC2": "education_if_adult",
+    "RIDEXPRG": "pregnancy_status",
     "RIAGENDR": "gender2",  # 1 = male, 2 = female
+    "DMDHHSIZ": "household_size",
+    "DMDFMSIZ": "family_size",
+    "DMDHREDU": "household_head_edu",
+    "DMDHRMAR": "household_head_marital_status",
+    "INDHHIN2": "household_income",
+    "INDFMIN2": "family_income",
     "RIDRETH1": "reported_ethn"}
 exam = exam[nhanes_exam_variable_map.keys()]
 exam.rename(columns=nhanes_exam_variable_map, inplace=True)
