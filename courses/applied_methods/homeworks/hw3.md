@@ -102,3 +102,6 @@ utm_coords <- coordinates(utm_df)
 - Please write down the main question for your final project with at most one paragraph.
 - Please articulate the population of interest or the ideal dataset for your problem.
 - Please describe where you might get data for your final project (this can be a simple link).
+
+
+{% include lib/mathjax.html %}
