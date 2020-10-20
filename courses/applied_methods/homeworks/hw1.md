@@ -46,6 +46,7 @@ Join the data frame in Question 3 with the information from the archive related 
 - The first ranking author's last name
 - The "news desk" of the article
 - The published date of the article
+- The total number of comments per article
 
 Please make a choice on dealing with missing values.
 
