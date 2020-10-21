@@ -109,14 +109,14 @@ for i, pdf_file in enumerate(pdf_files):
         pub_year = int(re.sub('.*((19|20)[0-9]{2}).*', '\\1', year_tag.text))
     else:
         # Take the latest referenced date as the date of publication
-        mentioned_years = [int(re.findall('(19|20)[0-9]{2}', d['when'])[0])
-                           for d in soup.find_all('date') if d.get('when')]
+        mentioned_years = [int(re.findall('[0-9]{4}', d['when'])[0])
+                for d in soup.find_all('date')[:36] if d.get('when')]
         pub_year = max(mentioned_years) if mentioned_years else 0
     authors = header.findChildren('author')
     author_names = [grab_names(author) for author in authors]
     title = cq.cln_property(header.find('title').text)
     if not title or not pub_year or not author_names:
-        docs['fail'].writelines('\n{}'.format(pdf_file))
+        docs['fail'].writelines('\n{}'.format(fp.name))
         logging.warning('skipping {} missing title'.format(fp.name))
         continue
 
@@ -129,8 +129,9 @@ for i, pdf_file in enumerate(pdf_files):
     if "BAD_INPUT_DATA" in paragraph_text:
         paragraph_text = ''
     # Avoids short words in title for renaming the file
-    title_words = [re.sub('[^A-Za-z-]', '', w)
-                   for w in title.strip().split(' ') if len(w) > 2]
+    title_words = [w
+                   for w in re.sub('[^A-Za-z-]', ' ', title.strip()).split(' ')
+                   if len(w) > 2]
     new_file_name = '{lead_auth_family_name}_{year}_{title}'.format(
         lead_auth_family_name=author_names[0]['family_name'],
         year=pub_year, title='_'.join([title_words[0], title_words[-1]]))
