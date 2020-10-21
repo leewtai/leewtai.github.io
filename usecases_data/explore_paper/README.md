@@ -26,6 +26,18 @@ This project is meant to help students navigate the research space
 and understand how to approach a professor when wanting to do research.
 
 
+## Methodology Sketch:
+- Within the department, collect the professors' recent research papers (2019 and on).
+  - This list is available from the Professor's website or on Google Scholar
+- From each paper, obtain a PDF copy of the file and extract
+  - Co-authors
+  - Text
+  - Citations made and the authors of those papers
+- Baseline model:
+  - Each citation is basically a topic
+  - Use shared references to establish the correlation between papers
+  - Weighted references as importance
+
 ## Requirements:
 - A running neo4j instance
 - A running Grobid service if you want to parse PDF files
