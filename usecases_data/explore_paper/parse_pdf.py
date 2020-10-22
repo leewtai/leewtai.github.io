@@ -54,7 +54,7 @@ def process_biblio(graph, biblstruct, current_paper_title, cite_count,
     source = biblstruct.monogr
     if source.date and source.date.get('when'):
         year = re.findall('[0-9]{4}', source.date.get('when'))[0]
-    elif source.date and source.date.text:
+    elif source.date and source.date.text and source.date.text != 'null':
         year = re.findall('[0-9]{4}', source.date.text)[0]
     else:
         year = 0
@@ -78,10 +78,21 @@ def process_biblio(graph, biblstruct, current_paper_title, cite_count,
                         ref_count=ref_count)
 
 
+doc_paths = {'fail': Path('failed_grobid_parsed_pdf.txt'),
+             'success': Path('grobid_parsed_pdf.txt')}
+processed = []
+for doc in doc_paths:
+    if not doc_paths[doc].exists():
+        doc_paths[doc].touch()
+    processed.extend([fn for fn in doc_paths[doc].open('r').readlines()])
+docs = {doc: doc_paths[doc].open('a') for doc in doc_paths}
 # Running the Grobid service (depends on JVM8, gradle, grobid)
 # https://grobid.readthedocs.io/en/latest/Grobid-service/
 grobid_url = 'http://localhost:8070/api/processFulltextDocument'
 for i, pdf_file in enumerate(pdf_files):
+    if pdf_file in processed:
+        logging.info('processed in past runs, skipping {}'.format(pdf_file))
+        continue
     fp = Path(pdf_file)
     files = {'input': fp.open('rb'),
              'consolidateCitations': 1}
@@ -91,17 +102,23 @@ for i, pdf_file in enumerate(pdf_files):
 
     soup = BeautifulSoup(out.text, 'lxml')
     header = soup.teiheader
+    # FYI, BeautifulSoup will lower case all the tags
+    biblio = soup.find_all('biblstruct')
     year_tag = header.find('date')
     if year_tag.text:
-        pub_year = int(re.sub('.*([0-9]{4})', '\\1', year_tag.text))
+        pub_year = int(re.sub('.*((19|20)[0-9]{2}).*', '\\1', year_tag.text))
     else:
         # Take the latest referenced date as the date of publication
         mentioned_years = [int(re.findall('[0-9]{4}', d['when'])[0])
-                           for d in soup.find_all('date') if d.get('when')]
-        pub_year = max(mentioned_years)
+                for d in soup.find_all('date')[:36] if d.get('when')]
+        pub_year = max(mentioned_years) if mentioned_years else 0
     authors = header.findChildren('author')
     author_names = [grab_names(author) for author in authors]
     title = cq.cln_property(header.find('title').text)
+    if not title or not pub_year or not author_names:
+        docs['fail'].writelines('\n{}'.format(fp.name))
+        logging.warning('skipping {} missing title'.format(fp.name))
+        continue
 
     # Create the authors
     [cq.merge_author(graph, **a) for a in author_names if a]
@@ -109,7 +126,12 @@ for i, pdf_file in enumerate(pdf_files):
     abstract = cq.cln_property(header.find('abstract').text)
     paragraph_text = '\n'.join([cq.cln_property(pi.text.strip())
                                 for pi in soup.find_all('p')])
-    title_words = title.strip().split(' ')
+    if "BAD_INPUT_DATA" in paragraph_text:
+        paragraph_text = ''
+    # Avoids short words in title for renaming the file
+    title_words = [w
+                   for w in re.sub('[^A-Za-z-]', ' ', title.strip()).split(' ')
+                   if len(w) > 2]
     new_file_name = '{lead_auth_family_name}_{year}_{title}'.format(
         lead_auth_family_name=author_names[0]['family_name'],
         year=pub_year, title='_'.join([title_words[0], title_words[-1]]))
@@ -130,8 +152,11 @@ for i, pdf_file in enumerate(pdf_files):
 
     citations = soup.find_all('ref', type='bibr')
     cite_count = Counter([citation.get('target') for citation in citations])
-    # FYI, BeautifulSoup will lower case all the tags
-    biblio = soup.find_all('biblstruct')
     # first biblio is the paper itself
     [process_biblio(graph, biblstruct, title, cite_count, pub_year)
-     for biblstruct in biblio]
+     for biblstruct in biblio[1:]]
+    docs['success'].writelines('\n{}'.format(fp.name))
+
+
+for doc in docs:
+    docs[doc].close()
