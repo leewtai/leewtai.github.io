@@ -16,23 +16,30 @@ graph = Graph('localhost', password=neo4j_cred['password'])
 # Pull paper based on author
 author = {'given_name': 'John', 'family_name': 'Cunningham',
           'middle_name': 'P'}
-papers = graph.run((
+citations = graph.run((
     "MATCH (:Author {{given_name: '{given_name}',"
     "                 family_name: '{family_name}',"
     "                 middle_name: '{middle_name}'}})"
     "-[a:AUTHORED]->(p:Paper)-[r:REFERENCED]->(p2:Paper)"
     " RETURN id(p) AS auth_id, p.title AS auth_title,"
-    "        id(p2) AS ref_id, p2.title AS ref_title").format(
+    "        id(p2) AS ref_id, p2.title AS ref_title"
+    "        p2.ref_count AS ref_count").format(
         **author)).data()
 
 # Is there internal referencing?
-auth_ids = {p['auth_id'] for p in papers}
-ref_ids = {p['ref_id'] for p in papers}
+auth_ids = {p['auth_id'] for p in citations}
+ref_ids = {p['ref_id'] for p in citations}
 # Overlaps are from self-referencing, grobid's first reference is
 # the original article
 len(auth_ids) + len(ref_ids) == len(auth_ids.union(ref_ids))
+ref_ids = ref_ids.difference(auth_ids)
 
-ref_count = Counter([p['ref_title'] for p in papers])
+citation_df = np.empty((len(auth_ids), len(ref_ids)))
+for citation in range(len(citations)):
+    citation_df[auth_ids == citation['auth_id'],
+                ref_ids == citation['ref_id']] = citation['ref_count']
+
+
 paper_edges = [(p['auth_id'], p['ref_id']) for i, p in enumerate(papers)
                if (ref_count[p['ref_title']] > 3
                    and p['auth_id'] != p['ref_id'])]
