@@ -13,17 +13,21 @@ logging.basicConfig(format="%(asctime)-15s %(message)s",
 neo4j_cred = json.load(open('neo4j_login.json', 'r'))
 graph = Graph('localhost', password=neo4j_cred['password'])
 
+# User would start with an author then want to see their
+# Publications then citation dependence
+
 # Pull paper based on author
-author = {'given_name': 'John', 'family_name': 'Cunningham',
-          'middle_name': 'P'}
+target_author = {'given_name': 'John', 'family_name': 'Cunningham',
+                 'middle_name': 'P'}
 papers = graph.run((
     "MATCH (:Author {{given_name: '{given_name}',"
     "                 family_name: '{family_name}',"
     "                 middle_name: '{middle_name}'}})"
     "-[a:AUTHORED]->(p:Paper)-[r:REFERENCED]->(p2:Paper)"
     " RETURN id(p) AS auth_id, p.title AS auth_title,"
-    "        id(p2) AS ref_id, p2.title AS ref_title").format(
-        **author)).data()
+    "        id(p2) AS ref_id, p2.title AS ref_title,"
+    "        r.ref_count AS ref_count").format(
+        **target_author)).data()
 
 # Is there internal referencing?
 auth_ids = {p['auth_id'] for p in papers}
@@ -31,6 +35,10 @@ ref_ids = {p['ref_id'] for p in papers}
 # Overlaps are from self-referencing, grobid's first reference is
 # the original article
 len(auth_ids) + len(ref_ids) == len(auth_ids.union(ref_ids))
+ref_ids = ref_ids.difference(auth_ids)
+len(auth_ids) + len(ref_ids) == len(auth_ids.union(ref_ids))
+
+
 
 ref_count = Counter([p['ref_title'] for p in papers])
 paper_edges = [(p['auth_id'], p['ref_id']) for i, p in enumerate(papers)
