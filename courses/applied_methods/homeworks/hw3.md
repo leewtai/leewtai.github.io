@@ -40,12 +40,12 @@ $$\theta_t = G_t \theta_{t-1} + w_t$$
 For this assignment, you should treat $$Y_t$$ as your noisy measured position at time $$t$$ where $$\theta_t$$
 is your true position **and** speed at time $$t$$, i.e. $\theta_t$ would be a 4 dimension vector with your
 2 dimension true position information along with your 2 dimensional velocity. This description already imposes
-restrictions on what $$F_t$$ and $$G_t$$ can be. Let $$Y_t=\begin{bmatrix} X_t \\ Y_t \end{bmatrix}$$ be a 2 by 1 vector
-with the noisy X and Y position data. If $$\theta_t = \begin{bmatrix} \mu_{x, t} \\ \mu_{y, t} \\ \nu_{x, t} \\ \nu_{y, t}\end{bmatrix}$$
+restrictions on what $$F_t$$ and $$G_t$$ can be. Let $$Y_t=\begin{bmatrix} X_t \\ Z_t \end{bmatrix}$$ be a 2 by 1 vector
+with the noisy position data in 2 dimensions. If $$\theta_t = \begin{bmatrix} \mu_{x, t} \\ \mu_{z, t} \\ \nu_{x, t} \\ \nu_{z, t}\end{bmatrix}$$
 is a 4 by 1 vector with the true position and velocity.
 - Please write out the matrix for $$F_t$$, hint: what is the relationship between the "truth" and a noisy measurement of it?
 - What is the dimension of $$G_t$$, i.e. how many rows and columns does this matrix have?
-- $$V = Cov(v_t)$$, if we assume the noise between your noisy X and Y position are independent, what does this imply about the matrix $$V$$.
+- $$V = Cov(v_t)$$, if we assume the noise between the 2 dimensions in your noisy position are independent, what does this imply about the matrix $$V$$.
 - We are ignoring the impact of "acceleration" in our current setup. Please articulate intuitively how you would introduce acceleration into this model.
   - Between $$\theta_t$$, $$v_t$$, $$w_t$$, and $$Y_t$$, which term(s) would "capture" the error from ignoring effects from acceleration? For example, when we ignore
     a regressor in regression that are not confounders, the $$\epsilon$$ term captures the effect of these missed values.
@@ -95,7 +95,7 @@ utm_coords <- coordinates(utm_df)
   ```
 - Please plot the first 100 positions from the noisy measurements, the Kalman filter `dlm_filter_mod`, and the Kalman Smoother `dlm_smooth_mod`
   on the same graph then **comment on their difference** (this should create 300 points).
-- Please use the output from `dlm_smooth_mod` to extract the speed (speed = $$\sqrt{velocity_x^2 + velocity_y^2}$$) across the records.
+- Please use the output from `dlm_smooth_mod` to extract the speed (speed = $$\sqrt{velocity_x^2 + velocity_z^2}$$) across the records.
 - Please examin the speed distribution across the different data collection sessions, what can you infer from this comparison?
 
 #### Question 3: Final Project Check-in
