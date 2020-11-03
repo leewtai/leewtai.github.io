@@ -56,4 +56,15 @@ Can we detect emotion from people's movement?
 
 #### Can we create a mapping between problems and concepts automatically?
 
+#### Quantum computing configuration using ML?
+
+#### Analyzing restaurant photos + menus
+
+#### Poverty metric
+This is currently done by performing PCA on "assets owned".
+This method isn't necessarily robust and is calibrated against consumption.
+
+#### Help students find professors to work with
+Explore the citation graphs on professor's recent publications for students to see.
+
 {% include lib/mathjax.html %}
