@@ -67,4 +67,11 @@ This method isn't necessarily robust and is calibrated against consumption.
 #### Help students find professors to work with
 Explore the citation graphs on professor's recent publications for students to see.
 
+#### Multi-armed bandit vs A/B testing
+Tech companies often start off with A/B testing then start to wonder
+about replacing it with the multi-armed bandit.
+The problem is these methods are doing 2 different things: one is effect estimation
+and the other is optimization.
+
+
 {% include lib/mathjax.html %}
