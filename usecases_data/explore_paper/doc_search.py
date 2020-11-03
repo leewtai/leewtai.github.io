@@ -61,24 +61,37 @@ np.min(citation_cnt)
 np.max(citation_cnt)  # 4
 
 max_cit_cnt = np.apply_along_axis(np.max, 1, citation_df)
-std_cit_cnt = np.apply_along_axis(lambda x: x / max_cit_cnt, 0, citation_df)
-norm_cit_cnt = np.apply_along_axis(lambda x: (x - np.mean(x)) / np.std(x), 0, std_cit_cnt)
-# norm_cit_cnt = np.apply_along_axis(lambda x: x / citation_act, 0, citation_df)
+# 2 things could impact the citation frequency, the length of the
+# article, the importance of the citation, and the base-citation
+# rate of the authors.
+std_cit_cnt = np.apply_along_axis(
+    lambda x: (np.log(x+1)-np.log(max_cit_cnt+1)) / np.log(max_cit_cnt+1) + 1,
+    0, citation_df)
+np.apply_along_axis(np.max, 1, std_cit_cnt)
+np.apply_along_axis(np.min, 1, std_cit_cnt)
 
-popular_ind = np.where(citation_cnt == 4)
+
+std_sum = np.apply_along_axis(np.sum, 0, std_cit_cnt)
+popular_ind = np.where(std_sum > 1.4)
+# popular_ind = np.where(citation_cnt == 4)
 popular_refs = np.array(ref_ids)[popular_ind]
 {(c['ref_id'], c['ref_title'])
  for c in citations if c['ref_id'] in popular_refs.tolist()}
 
-# The correlation is quite high
+# There is some correlation between the references
 citation_df[:, popular_ind]
 
+##### TODO: Just use popular_ind after discounting for correlation?
+
+
+
 # Normalizing by total reference count helps a lot
-# u, s, vh = np.linalg.svd(citation_df)
-u, s, vh = np.linalg.svd(norm_cit_cnt)
+X = std_cit_cnt
+u, s, vh = np.linalg.svd(X)
 eigen_vals = np.power(s, 2)
 plt.scatter([i for i in range(u.shape[0])],
             np.cumsum(eigen_vals) / np.sum(eigen_vals))
+plt.show()
 
 tot_cols = 4
 fig, axes = plt.subplots(3, tot_cols)
@@ -91,14 +104,18 @@ for i in range(3 * tot_cols):
 plt.savefig('citation_mat_first_eigen_val.png')
 plt.close()
 
-trans_df = norm_cit_cnt @ vh[:len(auth_ids), :].T
+# Look how the papers breakdown per-citation component
+trans_df = X @ vh[:len(auth_ids), :].T
 fig, axes = plt.subplots(1, 2)
-axes[0, 0].imshow(trans_df)
-axes[0, 1].set_title('trans citation')
-axes[0, 1].imshow(np.abs(trans_df))
-axes[0, 1].set_title('abs trans citation')
+axes[0].imshow(trans_df)
+axes[0].set_title('trans citation')
+axes[1].imshow(np.abs(trans_df))
+axes[1].set_title('abs trans citation')
 plt.savefig('trans_citation.png')
 plt.close()
+
+# Looking at
+np.apply_along_axis(np.mean, 0, np.abs(trans_df))
 
 # paper_edges = [(p['auth_id'], p['ref_id']) for i, p in enumerate(papers)
 #                if (ref_count[p['ref_title']] > 3
