@@ -15,6 +15,10 @@ Besides avoiding the likelihood calculation, ABC is more intuitive to scientists
 Can ABC methods be more robust/correct when the model is incorrect?
 - Use ABC for amazon review problem: one product with 10 reviews but 5 stars, one product with 100 reviews but 4.5 stars, which one is better?
     - Conjugate priors are not intuitive.
+- Approximate Frequetist Computation?
+    - Is replacing the likelihood in MLE with summary statistics just a peusdo-likelihood? What should we expect?
+    - Should we teach confidence intervals as "candidate intervals" instead?
+
 
 #### Bayesian Optimization Numerical issue
 We know that the joint predictive distribution can be expressed as the product
