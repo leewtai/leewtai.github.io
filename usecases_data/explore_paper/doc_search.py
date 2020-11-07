@@ -103,15 +103,39 @@ plt.savefig('citation_mat_first_eigen_val.png')
 plt.close()
 
 
-for i in range(vh.shape[0]):
-    thresh = 0.2
-    popular_ind = np.where(np.abs(vh[i, :]) > thresh)
-    popular_refs = np.array(ref_ids)[popular_ind]
-    logging.info('eigen vector {} top articles'.format(i))
-    _ = [logging.info(c['ref_title'])
-         for c in citations
-         if c['ref_id'] in popular_refs.tolist()]
+# Add in fake values to then see its impact
+n_sim = 1000
+vh_sims = []
+for i in range(n_sim):
+    X_sim = X
+    p = X.shape[1]
+    n = X.shape[0]
+    rand_ind = np.random.choice(p, 1, replace=False)[0]
+    X_sim[:, rand_ind] = np.random.permutation(X_sim[:, rand_ind])
 
+    _, _, vh_sim = np.linalg.svd(X_sim)
+    vh_sims.append(vh_sim[:n, rand_ind].reshape((-1, 1)))
+
+vh_array = np.concatenate(vh_sims, axis=1)
+thresholds = np.apply_along_axis(lambda x: np.percentile(np.abs(x), 99), 1, vh_array)
+j = 10
+popular_ind = np.where(np.abs(vh[j, :]) >= thresholds[j])
+popular_refs = np.array(ref_ids)[popular_ind]
+popular_articles = {c['ref_title'] for c in citations if c['ref_id'] in popular_refs.tolist()}
+_ = [logging.info(art) for art in popular_articles]
+
+tot_cols = 4
+fig, axes = plt.subplots(3, tot_cols)
+for i in range(3 * tot_cols):
+    col_ind = i % tot_cols
+    row_ind = int(np.floor(i / tot_cols))
+    axes[row_ind, col_ind].scatter([i for i in range(len(ref_ids))],
+                                   vh[i, :])
+    axes[row_ind, col_ind].set_title('loadings for EigVec{}'.format(i))
+    axes[row_ind, col_ind].plot([0, p], [thresholds[i], thresholds[i]])
+    axes[row_ind, col_ind].plot([0, p], [-thresholds[i], -thresholds[i]])
+plt.savefig('citation_mat_first_eigen_val_perm_thresh.png')
+plt.close()
 
 
 
