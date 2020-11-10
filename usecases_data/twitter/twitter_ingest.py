@@ -33,8 +33,8 @@ headers = {
     'Authorization': 'Bearer ' + auth_response.json()['access_token']
 }
 # These are the parameters to customize my query
-dates = ['%02d' % i for i in range(3, 9)]
-twitter_handles = ['realDonalTrump', 'JoeBiden', 'BarackObama']
+dates = ['%02d' % i for i in range(4, 10)]
+twitter_handles = ['realDonaldTrump', 'JoeBiden', 'BarackObama']
 out = []
 for twitter_handle, date in product(twitter_handles, dates):
     params = {
@@ -43,29 +43,7 @@ for twitter_handle, date in product(twitter_handles, dates):
         'end_time': '2020-11-{}T23:59:59Z'.format(date),
         'expansions': 'author_id',
         'user.fields': 'name,entities,id,username,verified',
-        'max_results': 10,
-        'tweet.fields': 'author_id,created_at,entities,public_metrics',
-    }
-
-    response = requests.get(url=SEARCH_URL,
-                            params=params,
-                            headers=headers)
-    assert response.status_code == 200
-    if not response.json()['meta']['result_count']:
-        continue
-    out.extend(response.json()['data'])
-    sleep(10)
-
-
-keywords = ['election', 'democrat', 'republican', 'count']
-for keyword, date in product(keywords, dates):
-    params = {
-        'query': '{}'.format(keyword),
-        'start_time': '2020-11-{}T00:00:01Z'.format(date),
-        'end_time': '2020-11-{}T23:59:59Z'.format(date),
-        'expansions': 'author_id',
-        'user.fields': 'name,entities,id,username,verified',
-        'max_results': 10,
+        'max_results': 100,
         'tweet.fields': 'author_id,created_at,entities,public_metrics',
     }
 
