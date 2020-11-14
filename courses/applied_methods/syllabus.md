@@ -67,7 +67,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2020-11-12|Simulations with survival analysis|[Vignette on R package survival](https://cran.r-project.org/web/packages/survival/vignettes/survival.pdf), [Vignette on time dependent survival analysis](https://cran.r-project.org/web/packages/survival/vignettes/timedep.pdf), and [Survival analysis: models and applications Chapter 2.1.1 + 2.1.2 + 5.1](https://clio.columbia.edu/catalog/10052476?counter=2)|[Project 2 Due](homeworks/proj2.md)|
 |2020-11-17|Practice with survival analysis|Framingham nurses study||
 |2020-11-19|[Missing data](https://docs.google.com/presentation/d/1zAhlALXWzXGoXpDC3eLZ_2RJFwC0UdrRXTNxzhJfheY/edit?usp=sharing)||[The prevention and handling of the missing data](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3668100/)|
-|2020-11-24|Discussion - flaws in randomized control studies||[Randomization in the tropics revisited: a theme and eleven variations](https://scholar.princeton.edu/sites/default/files/deaton/files/deaton_randomization_revisited_v2_2019_01.pdf) <br> Homework4|
+|2020-11-24|Discussion - flaws in randomized control studies||[Randomization in the tropics revisited: a theme and eleven variations](https://scholar.princeton.edu/sites/default/files/deaton/files/deaton_randomization_revisited_v2_2019_01.pdf) <br> [Homework4](homeworks/hw4.md)|
 |2020-11-26|**NO CLASS - Thanksgiving Holiday**|||
 |2020-12-01|[Causal inference - AB testing in tech and traps](https://docs.google.com/presentation/d/1ovVGmmFS7C4kVYPFYt2RSatZEROM7dp_WaivB6n4XOA/edit?usp=sharing)|||
 |2020-12-03|Causal Inference - matching algorithms||Modern Algorithms for Matching in Observational Studies by Paul Rosenbaum, 2020 <br> Homework5|
