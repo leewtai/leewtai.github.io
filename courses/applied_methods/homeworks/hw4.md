@@ -53,7 +53,7 @@ y <- mean_fun(locations) + corr_noise
 
 # VISUALIZATION CODE GOES HERE
 
-# Part 2
+# Part 2-4
 inner_square <- (locations[, 1] > 0.1
                  & locations[, 2] > 0.1
                  & locations[, 1] < 0.9
