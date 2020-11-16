@@ -31,6 +31,7 @@ to NYC vs SF weather).
   are comparable. In other words, since we calculated 100 different averages, we should also train 100 different kriging models as well.
   For this class, please ignore any error messages related to the grid searches for lambda has hit the endpoints.
 - Please comment on the difference you observe between the weighted average and the kriging methods.
+
 ```r
 # Part 1
 set.seed(100)
