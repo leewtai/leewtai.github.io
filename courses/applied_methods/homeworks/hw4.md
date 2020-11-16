@@ -39,7 +39,7 @@ library(RColorBrewer)
 sigma2 <- pi
 rho = 10
 
-n_samps <- 50
+n_samps <- 100
 even_pts <- seq(0, 1, length.out=n_samps)
 neighbor_dist <- 1 / n_samps
 locations <- expand.grid(even_pts, even_pts)
