@@ -17,45 +17,24 @@ Here's a list of my personal belief what people with different degrees should be
 - A PhD student should be able to discover new methods for unsolved problems
 
 
-#### [Statistical Computing](stat_computing/README.md)
-Statistical computing focuses on data manipulation, simulation, and data visualization.
-The goal is to develop the necessary skills for you to verify the various statistical
-concepts you've learned and will learn in the future.
-
-- 2102 Applied Statistical Computing
-  - This class is designed for sophomores in college who will not major in Statistics.
-    It assumes you have no experience in computing but one class in introductory statistics.
-- 4206/5206 Statistical Computing and Introduction to Data Science
-  - This class is designed for people who already have some mastery in Statistics.
-    It not only introduces computational concepts through statistical applications but
-    also introduces a few data science ideas by asking students to think about the
-    outcome
-
-#### [Linearity Regression](linear_regression/README.md)
-Linear regression is the most foundational tool in machine learning and
-multivariate statistics. It demonstrates the simplest "model" that connects
-problems to data and the challenges faced by fancier models.
-
-- 2103 Applied Linear Regression
-  - This course is designed for people who are less mathematical but have
-    a computational background.
-- 4205/5205 Linear Regression
-  - This course is designed for people who want both a deep mathematical
-    and computational study of regression.
-
-
-#### [Applied Statistics](applied_methods/README.md)
-There is no class that can teach you all the "applied statistical methods" out there.
-This is a topics course that introduces methods that tackle data collection to dealing
-with dependent data, to censored datasets, to finally topics on some causal inference.
-
-- 3105 Applied Statistical Methods
-
-#### [Pre-Research Seminar](../pre_research/README.md)
-This seminar is meant to give students who are interested in statistical research some basic
-experience and skills before pursuing research with research faculty (possibly non-Statistics
-faculty). The goal is for you to identify a professor and initiate research towards the end
-of the semester.
+#### Courses Taught
+- [Statistical Computing](stat_computing/README.md)
+  - Statistical computing focuses on data manipulation, simulation, and data visualization.
+    The goal is to develop the necessary skills for you to verify the various statistical
+    concepts you've learned and will learn in the future.
+- [Linearity Regression](linear_regression/README.md)
+  - Linear regression is the most foundational tool in machine learning and
+    multivariate statistics. It demonstrates the simplest "model" that connects
+    problems to data and the challenges faced by fancier models.
+- [Applied Statistics](applied_methods/README.md)
+  - There is no class that can teach you all the "applied statistical methods" out there.
+    This is a topics course that introduces methods that tackle data collection to dealing
+    with dependent data, to censored datasets, to finally topics on some causal inference.
+- [Pre-Research Seminar](../pre_research/README.md)
+  - This seminar is meant to give students who are interested in statistical research some basic
+    experience and skills before pursuing research with research faculty (possibly non-Statistics
+    faculty). The goal is for you to identify a professor and initiate research towards the end
+    of the semester.
 
 #### Ideas for future courses:
 - Spatial statistics
