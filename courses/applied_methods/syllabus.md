@@ -64,14 +64,14 @@ I reserve the right to change the ordering and the content for the course throug
 |2020-11-03|**NO CLASS - Election day**|||
 |2020-11-05|Discussion on spatial data privacy||[Twelve Million Phones, One Dataset, Zero Privacy](https://www.nytimes.com/interactive/2019/12/19/opinion/location-tracking-cell-phone.html)|
 |2020-11-10|[Survival data and the issue of censoring](https://docs.google.com/presentation/d/1Wdn8OYMl7D2r969LBHCRZU8zQN3APpXW3CBGtvPfiow/edit?usp=sharing)|[Survival analysis: models and applications Chapter 1](https://clio.columbia.edu/catalog/10052476?counter=2)||
-|2020-11-12|Simulations with survival analysis|[Vignette on R package survival](https://cran.r-project.org/web/packages/survival/vignettes/survival.pdf), [Vignette on time dependent survival analysis](https://cran.r-project.org/web/packages/survival/vignettes/timedep.pdf), and [Survival analysis: models and applications Chapter 2.1.1 + 2.1.2 + 5.1](https://clio.columbia.edu/catalog/10052476?counter=2)|[Project 2 Due](homeworks/proj2.md)|
-|2020-11-17|Practice with survival analysis|Framingham nurses study||
-|2020-11-19|[Missing data](https://docs.google.com/presentation/d/1zAhlALXWzXGoXpDC3eLZ_2RJFwC0UdrRXTNxzhJfheY/edit?usp=sharing)||[The prevention and handling of the missing data](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3668100/)|
-|2020-11-24|Discussion - flaws in randomized control studies||[Randomization in the tropics revisited: a theme and eleven variations](https://scholar.princeton.edu/sites/default/files/deaton/files/deaton_randomization_revisited_v2_2019_01.pdf) <br> [Homework4](homeworks/hw4.md)|
+|2020-11-12|Simulating challenges from censored data|[Vignette on R package survival](https://cran.r-project.org/web/packages/survival/vignettes/survival.pdf), [Vignette on time dependent survival analysis](https://cran.r-project.org/web/packages/survival/vignettes/timedep.pdf), and [Survival analysis: models and applications Chapter 2.1.1 + 2.1.2 + 5.1](https://clio.columbia.edu/catalog/10052476?counter=2)|[Project 2 Due](homeworks/proj2.md)|
+|2020-11-17|[Survival curves and the Kaplan-Meier Estimator](https://docs.google.com/presentation/d/1Wdn8OYMl7D2r969LBHCRZU8zQN3APpXW3CBGtvPfiow/edit?usp=sharing)|||
+|2020-11-19|Practice with survival analysis |Framingham Heart Study (Study description on Canvas)||
+|2020-11-24|[Missing data](https://docs.google.com/presentation/d/1zAhlALXWzXGoXpDC3eLZ_2RJFwC0UdrRXTNxzhJfheY/edit?usp=sharing)||- [The prevention and handling of the missing data](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3668100/) <br> - [Homework4](homeworks/hw4.md)|
 |2020-11-26|**NO CLASS - Thanksgiving Holiday**|||
-|2020-12-01|[Causal inference - AB testing in tech and traps](https://docs.google.com/presentation/d/1ovVGmmFS7C4kVYPFYt2RSatZEROM7dp_WaivB6n4XOA/edit?usp=sharing)|||
-|2020-12-03|Causal Inference - matching algorithms||Modern Algorithms for Matching in Observational Studies by Paul Rosenbaum, 2020 <br> Homework5|
-|2020-12-08|Causal Inference - difference-in-differences||Joshua D. Angrist and Jörn-Steffen Pischke (2015). Mastering ’Metrics: The Path from Cause to Effect, chapter 5.|
+|2020-12-01|Discussion - flaws in randomized control studies||[Randomization in the tropics revisited: a theme and eleven variations](https://scholar.princeton.edu/sites/default/files/deaton/files/deaton_randomization_revisited_v2_2019_01.pdf)|
+|2020-12-03|[Causal inference - AB testing in tech and traps](https://docs.google.com/presentation/d/1ovVGmmFS7C4kVYPFYt2RSatZEROM7dp_WaivB6n4XOA/edit?usp=sharing)||[Homework5](homeworks/hw5.md)|
+|2020-12-08|Causal Inference - matching algorithms, difference-in-differences||- Joshua D. Angrist and Jörn-Steffen Pischke (2015). Mastering ’Metrics: The Path from Cause to Effect, chapter 5. <br> - Modern Algorithms for Matching in Observational Studies by Paul Rosenbaum, 2020|
 |2020-12-10|Wrap-up||[Project 3](homeworks/proj3.md) Due|
 |TBD|Measure understanding|Final Exam|You!|
 
