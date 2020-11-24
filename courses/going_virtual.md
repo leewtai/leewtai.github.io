@@ -33,6 +33,6 @@ A lot more planning is necessary around the discussion
 - The section should be at most 2 problems that can be broken into different steps.
 - The problems should be somewhat open-ended that requires some exploration from the students.
 - I would try to "start" the problem with the entire class before going into breakout rooms.
-- TAs and instructors should switch breakout rooms every 2 minutes so you don't end up working on the problem.
+- TAs and instructors should switch breakout rooms (3-4 students each) every 2 minutes so you don't end up working on the problem.
 - I recommend asking people to show their faces in the breakout room but not in the main lecture
   in case people's slow internet become an issue.

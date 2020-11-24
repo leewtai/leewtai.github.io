@@ -61,6 +61,11 @@ np.min(citation_cnt)
 np.max(citation_cnt)  # 4
 
 max_cit_cnt = np.apply_along_axis(np.max, 1, citation_df)
+plt.hist(max_cit_cnt)
+plt.title('Dist of reference count of most popular article')
+plt.savefig('dist_ref_cnt_most_popular.png')
+plt.close()
+
 # 2 things could impact the citation frequency, the length of the
 # article, the importance of the citation, and the base-citation
 # rate of the authors. citations ~ Poisson(t * (p + p_i))
@@ -72,8 +77,9 @@ np.apply_along_axis(np.min, 1, std_cit_cnt)
 
 
 std_sum = np.apply_along_axis(np.sum, 0, std_cit_cnt)
+# popular_ind = np.where(citation_cnt == 4)
 popular_ind = np.where(std_sum > 1.3)
-popular_ind = np.where(citation_cnt > 3)
+# popular_ind = np.where(citation_cnt > 3)
 popular_refs = np.array(ref_ids)[popular_ind]
 {(c['ref_id'], c['ref_title'])
  for c in citations if c['ref_id'] in popular_refs.tolist()}
@@ -83,13 +89,14 @@ citation_df[:, popular_ind]
 
 # Normalizing by total reference count helps a lot
 # Normalizing by mean and std hurts given most citations are 0
-# X = np.apply_along_axis(lambda x: (x - np.mean(x)) / np.std(x), 0, std_cit_cnt)
+X = np.apply_along_axis(lambda x: (x - np.mean(x)) / np.std(x), 0, citation_df)
 X = std_cit_cnt
 u, s, vh = np.linalg.svd(X)
 eigen_vals = np.power(s, 2)
 plt.scatter([i for i in range(u.shape[0])],
             np.cumsum(eigen_vals) / np.sum(eigen_vals))
-plt.show()
+plt.savefig('max_std_pca_eigen_values.png')
+plt.close()
 
 tot_cols = 4
 fig, axes = plt.subplots(3, tot_cols)
@@ -98,8 +105,9 @@ for i in range(3 * tot_cols):
     row_ind = int(np.floor(i / tot_cols))
     axes[row_ind, col_ind].scatter([i for i in range(len(ref_ids))],
                                    vh[i, :])
-    axes[row_ind, col_ind].set_title('loadings for EigVec{}'.format(i))
-plt.savefig('citation_mat_first_eigen_val.png')
+    axes[row_ind, col_ind].set_title('EigVec{}'.format(i))
+    axes[row_ind, col_ind].plot([1, len(ref_ids)], [0, 0], color='black')
+plt.savefig('max_std_pca_citation_loading.png')
 plt.close()
 
 
@@ -118,11 +126,15 @@ for i in range(n_sim):
 
 vh_array = np.concatenate(vh_sims, axis=1)
 thresholds = np.apply_along_axis(lambda x: np.percentile(np.abs(x), 99), 1, vh_array)
-j = 10
-popular_ind = np.where(np.abs(vh[j, :]) >= thresholds[j])
-popular_refs = np.array(ref_ids)[popular_ind]
-popular_articles = {c['ref_title'] for c in citations if c['ref_id'] in popular_refs.tolist()}
-_ = [logging.info(art) for art in popular_articles]
+for j in range(vh_array.shape[0]):
+    popular_ind = np.where(np.abs(vh[j, :]) >= thresholds[j])
+    popular_refs = np.array(ref_ids)[popular_ind]
+    popular_articles = {
+        (str(vh[j, np.where(np.array(ref_ids) == c['ref_id'])][0][0]), c['ref_title'])
+        for c in citations if any(popular_refs == c['ref_id'])}
+    _ = [art[1] for art in popular_articles]
+    logging.info('EigenVector{}'.format(j))
+    _ = [logging.info(art) for art in popular_articles]
 
 tot_cols = 4
 fig, axes = plt.subplots(3, tot_cols)
@@ -132,8 +144,8 @@ for i in range(3 * tot_cols):
     axes[row_ind, col_ind].scatter([i for i in range(len(ref_ids))],
                                    vh[i, :])
     axes[row_ind, col_ind].set_title('loadings for EigVec{}'.format(i))
-    axes[row_ind, col_ind].plot([0, p], [thresholds[i], thresholds[i]])
-    axes[row_ind, col_ind].plot([0, p], [-thresholds[i], -thresholds[i]])
+    axes[row_ind, col_ind].plot([0, p], [thresholds[i], thresholds[i]], color="black")
+    axes[row_ind, col_ind].plot([0, p], [-thresholds[i], -thresholds[i]], color="black")
 plt.savefig('citation_mat_first_eigen_val_perm_thresh.png')
 plt.close()
 
