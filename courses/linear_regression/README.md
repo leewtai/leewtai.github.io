@@ -1,17 +1,17 @@
 # Linear Regression
 
 Linear regression is the first class where **data** meets **statistics** meets **programming**.
+It is often the first model that people use to mathematically define relationships between variables.
+It is also one of the foundational machine learning models as well. The algorithm is simple,
+matrix multiplication in one line of code, but knowing how to diagnose it for the different
+types of problems can be challenging.
 
-But more importantly, many confuse the concept of regression as a method of finding the best line
-with regression as a way data is generated. Why this differentiation matters goes beyond regression
-and highlights the care required when people are performing data analyses. The lessons here
-will explain why statistics is so critical in all applied sciences that use data.
 
-I will review some of these topics but I'm assuming:
+### Pre-requisites
 - Some basic exposure to programming
   - Plotted a scatter plot, ran a for-loop, are familiar with data analysis
 - Exposure to an introductory statistics class
-  - Average, median, hypothesis testing, correlation, what is a random variables etc
+  - Average, median, hypothesis testing, correlation, the difference between a random variables and its realization
 
 At the end of this you should feel comfortable to
 - Translate a general scientific problem into a concrete statistical question
@@ -20,12 +20,17 @@ At the end of this you should feel comfortable to
 - Understand how estimation depends on assumptions from the data generation process
 - Understand the need to formalize a problem via mathematics and how to validate the mathematics via programming.
 
-
 ### Computer setting up
 I encourage you to set up [Jupyter Notebooks on your computer](../../setup/conda_and_navigator_setup.md)
 so you could repeat these in R or Python in the future. For Python users, you'll need `numpy` and `statsmodel`.
 
-### Topics
+### Syllabi and Past Materials
+[syllabus for 2103 Applied Linear Regression](minor_syllabus.md)
+
+[syllabus for 4205/5205 Linear Regression](major_syllabus.md)
+
+
+### Topic Notes
 - [Using math to formalize intuition](lectures/formalize_intuition.md)
   - regression as a candidate "best-fit" line
   - introducing the least squares objective function
@@ -86,12 +91,6 @@ so you could repeat these in R or Python in the future. For Python users, you'll
 - PCA regression
 - Lasso/Ridge regression
 
-
-## Past materials
-I have some old materials online:
-[syllabus for concentration](minor_syllabus.md)
-
-[syllabus for major](major_syllabus.md)
 
 
 
