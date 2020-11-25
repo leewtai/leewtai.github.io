@@ -25,14 +25,14 @@ There are two methods to do this depending on if you're comfortable with the com
 3. Go to `Environments` on the left tab
 4. Click on `Create` at the bottom to create a separate environment so the materials here will not conflict with your other work
     <img src="images/anaconda_nav_environments.png" alt="Anaconda Navigator Environment Tab" height='600'>
-5. Create an environment called `text-mine` (or whatever you prefer) and use the dropdown menu to run under Python version 3.7, then choose `Create` (yes, even if you want R in the end).
+5. Create an environment called `text-mine` (or whatever you prefer) and use the dropdown menu to run under **Python version 3.7**, then choose `Create` (yes, even if you want R in the end).
     <img src="images/anaconda_nav_create_env.png" alt="Anaconda Navigator Creating New Environments" width='400'>
 6. Please continue to the section on [installing packages using Anaconda Navigator](#installing-packages-using-Anaconda-Navigator)
 
 #### Command line interface with Anaconda via conda
 
-1. Please follow [these instructions to install conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/)
-2. Launch your command line interface for Anaconda:
+1. Please follow [these instructions to install miniconda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/)
+2. Launch your command line interface for miniconda:
     - on Windows, this is called "Anaconda Command Prompt"
     - on OSX, this is called "Terminal"
     <img src="images/diff_command_line_prompts.png" alt="different command line prompts" width='600'>
@@ -47,7 +47,7 @@ There are two methods to do this depending on if you're comfortable with the com
 5. Please continue to the section on [installing packages using conda](#installing-packages-using-conda)
 
 
-## Installing Jupyter or R as packages
+## Installing Jupyter or R as packages under Conda
 A program'ss true value is in its large community of developers and users. To leverage their work, we often will depend on packages outside of the default Python installation. Similar to before, we'll cover the instructions both using [Anaconda Navigator](#installing-packages-using-anaconda-navigator) and the [command line](#Installing-packages-using-conda).
 
 #### Installing packages using Anaconda Navigator
