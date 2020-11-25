@@ -1,5 +1,7 @@
-# Applied Linear Regression Model
-UN2103 - Spring 2020
+# UN2103 - Applied Linear Regression Model
+
+This class is designed for students without a linear algebra background who will
+need to understand linear regression and its underlying properties.
 
 ### Expectations
 #### - Learning outcomes
@@ -24,7 +26,7 @@ Instructor:
 Wayne Tai Lee: wtl2109
 
 Teaching Assistant:
-Owen Ward: ogw2103
+TBD
 
 ### Timeline
   I reserve the right to change the ordering and the content for the course throughout the semester.
@@ -74,7 +76,7 @@ Office Hours:
 
 
 ### Grading
-If your final grade is in [93-97), you will earn at least an A, [90-93) will earn at least an A-, [87-90) will earn at least a B+, etc. A grading curves may occur depending on the class performance but will not curve downwards. I may not give out A+
+If your final grade is in \[93-97), you will earn at least an A, \[90-93) will earn at least an A-, \[87-90) will earn at least a B+, etc. A grading curves may occur depending on the class performance but will not curve downwards. I may not give out A+
 
 #### - Homeworks (10%)
   - Late homeworks will receive 0 credit

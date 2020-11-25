@@ -6,8 +6,15 @@ It is also one of the foundational machine learning models as well. The algorith
 matrix multiplication in one line of code, but knowing how to diagnose it for the different
 types of problems can be challenging.
 
+### Syllabi and Materials
 
-### Pre-requisites
+Syllabi:
+- [2103 Applied Linear Regression](minor_syllabus.md)
+- [4205/5205 Linear Regression](major_syllabus.md)
+
+
+### Topic Notes
+#### Pre-requisites
 - Some basic exposure to programming
   - Plotted a scatter plot, ran a for-loop, are familiar with data analysis
 - Exposure to an introductory statistics class
@@ -23,11 +30,6 @@ At the end of this you should feel comfortable to
 ### Computer setting up
 I encourage you to set up [Jupyter Notebooks on your computer](../../setup/conda_and_navigator_setup.md)
 so you could repeat these in R or Python in the future. For Python users, you'll need `numpy` and `statsmodel`.
-
-### Syllabi and Past Materials
-[syllabus for 2103 Applied Linear Regression](minor_syllabus.md)
-
-[syllabus for 4205/5205 Linear Regression](major_syllabus.md)
 
 
 ### Topic Notes
