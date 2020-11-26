@@ -51,4 +51,4 @@ Some specifications:
 
 Side comment: Why do you think this is?
 
-\end{document}
+{% include lib/mathjax.html %}
