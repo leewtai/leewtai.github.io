@@ -53,15 +53,15 @@ TBD
   |2020-03-19|Spring Recess No Class|||
   |2020-03-24|Class cancelled due to COVID|||
   |2020-03-26|[Cross Validation](https://us.edstem.org/courses/182/lessons/734/slides/3362) and [lecture](https://vimeo.com/398680410)|||
-  |2020-03-31|Review session||Homework 5|
+  |2020-03-31|Review session||[Homework 5](homeworks/hw5_adding_features.md)|
   |2020-04-02|Midterm 2|||
   |2020-04-07|[Interactions, polynomials, and categorical variables for X](https://us.edstem.org/courses/182/lessons/865/slides/3953):<br>- [part1 on categorical X](https://vimeo.com/403745129)<br>- [part2 on polynomials](https://vimeo.com/403753144)<br>- [part3 on interactions](https://vimeo.com/403773071)|||
   |2020-04-09|[Logistic regression](https://us.edstem.org/courses/182/lessons/906/slides/4169) with [vimeo link](https://vimeo.com/403816949)|Text 4.1||
-  |2020-04-14|[DAGs: Changing significance when adding/deleting features](https://us.edstem.org/courses/182/lessons/912/slides/4193) with [vimeo link](https://vimeo.com/403836156)||Homework 6|
+  |2020-04-14|[DAGs: Changing significance when adding/deleting features](https://us.edstem.org/courses/182/lessons/912/slides/4193) with [vimeo link](https://vimeo.com/403836156)||[Homework 6](homeworks/hw6_challenges.md)|
   |2020-04-16|[Variable selection day 1](https://us.edstem.org/courses/182/lessons/1060/slides/5022), no video|||
   |2020-04-21|[Variable selection day 2](https://us.edstem.org/courses/182/lessons/1060/slides/5031), no video|||
   |2020-04-23|[Wrong models in linear regression + instrumental variables](https://us.edstem.org/courses/182/lessons/1110/slides/5285), no video|||
-  |2020-04-28|[Weighted Least squares](https://us.edstem.org/courses/182/lessons/1112/slides/5309), no video||Homework 7|
+  |2020-04-28|[Weighted Least squares](https://us.edstem.org/courses/182/lessons/1112/slides/5309), no video||[Homework 7](homeworks/hw7_extended_topics.md)|
   |2020-04-30|What we don't know|||
   |2020-05-08|||Final Exam|
 
