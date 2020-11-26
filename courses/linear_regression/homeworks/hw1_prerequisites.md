@@ -1,8 +1,7 @@
 # Homework 1: Prerequisite
 
-### Goals
-- Homework 1 is meant to give you a concrete understanding of the prerequisites for this class. If you find these challenging, you should reach out to the TA to brush up on these topics.
-- Please upload your solution to Canvas.
+#### Goals
+Homework 1 is meant to give you a concrete understanding of the prerequisites for this class. If you find these challenging, you should reach out to the TA to brush up on these topics.
 
 #### Q1 - Loading data and applying functions
 Please calculate the following statistics for the noise complaints from the dataset `graffiti_vs_noise_by_zip_2018.csv` on Canvas. You do not need to submit your code but please round the answer to the 5th decimal.
@@ -35,3 +34,5 @@ Let $Y = f(X)$ where $X$ is a random variable with $SD(X)>0$, please mathematica
 - Pretending that we do not know the parameters used to generate the data, we want to test the idea whether the expectation of X is the same as the expectation of Y.
   - What is your null hypothesis?
   - Please write the code that would calculate the p-value from a 2 sample t-test that does not assume the variances are identical. Remember to report your p-value.
+
+{% include lib/mathjax.html %}
