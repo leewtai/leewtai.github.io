@@ -63,7 +63,7 @@ TBD
   |2020-04-23|[Wrong models in linear regression + instrumental variables](https://us.edstem.org/courses/182/lessons/1110/slides/5285), no video|||
   |2020-04-28|[Weighted Least squares](https://us.edstem.org/courses/182/lessons/1112/slides/5309), no video||[Homework 7](homeworks/hw7_extended_topics.md)|
   |2020-04-30|What we don't know|||
-  |2020-05-08|||Final Exam|
+  |2020-05-08|||[Final Project](homeworks/final_proj.md)|
 
 
 ### Logistics
