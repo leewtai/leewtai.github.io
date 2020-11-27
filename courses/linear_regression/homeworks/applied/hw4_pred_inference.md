@@ -25,7 +25,7 @@ What value does numerical verification provide then? Please answer as if you're 
 
 #### Q4 - confidence intervals from different bootstraps
 Use the file `hw4_scatter.csv` on Canvas, please reproduce the following plot:
-<img src="images/hw4_conf_inter_boot.png" alt="conf_inter_boot" width='600'>
+<img src="../images/hw4_conf_inter_boot.png" alt="conf_inter_boot" width='600'>
 
 #### Q5 - intuition practice
 - Continuing from Q4, If we used `predict.lm(..., interval="confidence")`, would its results align better with the classic bootstrap or bootstrapping the residuals?

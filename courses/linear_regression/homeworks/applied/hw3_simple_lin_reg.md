@@ -76,6 +76,6 @@ For each of the following residual plots, please comment on which of the stateme
 - is $$Var(\epsilon_i|X)=\sigma^2$$?
 - is the residual plot possible from fitting a regression line? (hint: if you are stuck, try to simulate data that will have residual plots as shown then fit a regression to it)
 
-<img src="images/wrong_right_residuals.png" alt="bad residuals" width='600'>
+<img src="../images/wrong_right_residuals.png" alt="bad residuals" width='600'>
 
 {% include lib/mathjax.html %}
