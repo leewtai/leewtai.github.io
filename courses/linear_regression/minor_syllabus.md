@@ -35,35 +35,35 @@ TBD
   |---|---|---|---|
   |2020-01-21|[Introduction, expectations, and transitions oh my!](https://drive.google.com/open?id=12GIwf8KVtYc7KN7C6eVC8c3R41LiQNtQlVBHTNv4HmA)|||
   |2020-01-23|[Reviewing Hypothesis Testing with R Simulations](https://drive.google.com/open?id=1zBjQ9G508s4PBlmMWR2_fofictjvj3Achw30BBCVmnc)|Any R Tutorial Videos on For-Loop, e.g. [R Tutorial Videos](https://www.stat.berkeley.edu/share/rvideos/R_Videos/R_Videos.html)|Make sure R is installed and running|
-  |2020-01-28|[Deriving simple linear regression](https://docs.google.com/presentation/d/15m8XkAKZaDA4lsTJxvTaHekrFPXFVv22qZ6j5MDrBrg/edit?usp=sharing)|Text 2.1.1|[Homework 1](homeworks/hw1_prerequisites.md)|
+  |2020-01-28|[Deriving simple linear regression](https://docs.google.com/presentation/d/15m8XkAKZaDA4lsTJxvTaHekrFPXFVv22qZ6j5MDrBrg/edit?usp=sharing)|Text 2.1.1|[Homework 1](homeworks/applied/hw1_prerequisites.md)|
   |2020-01-30|[Linking regression coefficients to the data generation process](https://docs.google.com/presentation/d/1NalZQ2EWSt3Z7ojP0iPOt902VyJfRrP-MsEyc8qXoE0/edit?usp=sharing)|Text 2.7.1||
   |2020-02-04|[Linking math to simulations](https://docs.google.com/presentation/d/1-TaFO-3j1-een-w3pjExEbKQXdrJqV6ZI-AOZc9ZQHM/edit?usp=sharing)|Text 2.7.3||
   |2020-02-06|[Properties of the regression coefficients](https://us.edstem.org/courses/182/lessons/670/slides/2979)|Text 2.7.2 + 2.7.3||
-  |2020-02-11|[Properties of the regression coefficients](https://us.edstem.org/courses/182/lessons/670/slides/2979)|Text 2.7.2 + 2.7.3|[Homework 2](homeworks/hw2_optimization.md)|
+  |2020-02-11|[Properties of the regression coefficients](https://us.edstem.org/courses/182/lessons/670/slides/2979)|Text 2.7.2 + 2.7.3|[Homework 2](homeworks/applied/hw2_optimization.md)|
   |2020-02-13|[Diagnostics of SLR](https://docs.google.com/presentation/d/1_ydaxURpK2F-YkuGXKHxYF9rJ4bRAi6B9ftnyh_LXrM/edit?usp=sharing)|Text 3.1||
   |2020-02-18|Midterm 1|||
   |2020-02-20|[Bootstrapping](https://us.edstem.org/courses/182/lessons/724/slides/3287)|[Stanford Notes](http://statweb.stanford.edu/~tibs/sta305files/FoxOnBootingRegInR.pdf)||
   |2020-02-25|[Inferring the true line](https://us.edstem.org/courses/182/lessons/688/slides/3343)|Text 2.3||
   |2020-02-27|[Predicting new data points](https://us.edstem.org/courses/182/lessons/688/slides/3357)|Text 2.4||
-  |2020-03-03|[Linear algebra view of linear regression](https://us.edstem.org/courses/182/lessons/765/slides/3496)|Text 5.2|[Homework 3](homeworks/hw3_simple_lin_reg.md)|
+  |2020-03-03|[Linear algebra view of linear regression](https://us.edstem.org/courses/182/lessons/765/slides/3496)|Text 5.2|[Homework 3](homeworks/applied/hw3_simple_lin_reg.md)|
   |2020-03-05|[Simultaneous inference on coefficients](https://us.edstem.org/courses/182/lessons/767/edit/slides/3504)|||
   |2020-03-10|Class suspended due to coronavirus|||
-  |2020-03-12|[Issues with multiple variables](https://us.edstem.org/courses/182/lessons/770/slides/3524) and [lecture - can bad features hurt](https://vimeo.com/398651931) and [lecture - collinearity](https://vimeo.com/398652055)||[Homework 4](homeworks/hw4_pred_inference.md)|
+  |2020-03-12|[Issues with multiple variables](https://us.edstem.org/courses/182/lessons/770/slides/3524) and [lecture - can bad features hurt](https://vimeo.com/398651931) and [lecture - collinearity](https://vimeo.com/398652055)||[Homework 4](homeworks/applied/hw4_pred_inference.md)|
   |2020-03-17|Spring Recess No Class|||
   |2020-03-19|Spring Recess No Class|||
   |2020-03-24|Class cancelled due to COVID|||
   |2020-03-26|[Cross Validation](https://us.edstem.org/courses/182/lessons/734/slides/3362) and [lecture](https://vimeo.com/398680410)|||
-  |2020-03-31|Review session||[Homework 5](homeworks/hw5_adding_features.md)|
+  |2020-03-31|Review session||[Homework 5](homeworks/applied/hw5_adding_features.md)|
   |2020-04-02|Midterm 2|||
   |2020-04-07|[Interactions, polynomials, and categorical variables for X](https://us.edstem.org/courses/182/lessons/865/slides/3953):<br>- [part1 on categorical X](https://vimeo.com/403745129)<br>- [part2 on polynomials](https://vimeo.com/403753144)<br>- [part3 on interactions](https://vimeo.com/403773071)|||
   |2020-04-09|[Logistic regression](https://us.edstem.org/courses/182/lessons/906/slides/4169) with [vimeo link](https://vimeo.com/403816949)|Text 4.1||
-  |2020-04-14|[DAGs: Changing significance when adding/deleting features](https://us.edstem.org/courses/182/lessons/912/slides/4193) with [vimeo link](https://vimeo.com/403836156)||[Homework 6](homeworks/hw6_challenges.md)|
+  |2020-04-14|[DAGs: Changing significance when adding/deleting features](https://us.edstem.org/courses/182/lessons/912/slides/4193) with [vimeo link](https://vimeo.com/403836156)||[Homework 6](homeworks/applied/hw6_challenges.md)|
   |2020-04-16|[Variable selection day 1](https://us.edstem.org/courses/182/lessons/1060/slides/5022), no video|||
   |2020-04-21|[Variable selection day 2](https://us.edstem.org/courses/182/lessons/1060/slides/5031), no video|||
   |2020-04-23|[Wrong models in linear regression + instrumental variables](https://us.edstem.org/courses/182/lessons/1110/slides/5285), no video|||
-  |2020-04-28|[Weighted Least squares](https://us.edstem.org/courses/182/lessons/1112/slides/5309), no video||[Homework 7](homeworks/hw7_extended_topics.md)|
+  |2020-04-28|[Weighted Least squares](https://us.edstem.org/courses/182/lessons/1112/slides/5309), no video||[Homework 7](homeworks/applied/hw7_extended_topics.md)|
   |2020-04-30|What we don't know|||
-  |2020-05-08|||[Final Project](homeworks/final_proj.md)|
+  |2020-05-08|||[Final Project](homeworks/applied/final_proj.md)|
 
 
 ### Logistics
@@ -76,7 +76,7 @@ Office Hours:
 
 
 ### Grading
-If your final grade is in \[93-97), you will earn at least an A, \[90-93) will earn at least an A-, \[87-90) will earn at least a B+, etc. A grading curves may occur depending on the class performance but will not curve downwards. I may not give out A+
+If your final grade is in \[93-100], you will earn at least an A, \[90-93) will earn at least an A-, \[87-90) will earn at least a B+, etc. A grading curves may occur depending on the class performance but will not curve downwards. I may not give out A+
 
 #### - Homeworks (10%)
   - Late homeworks will receive 0 credit
