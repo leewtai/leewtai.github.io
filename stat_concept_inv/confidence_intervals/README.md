@@ -32,10 +32,15 @@ Imagine playing hide and seek with a real number, $$p$$ hidden on the unit inter
 For the most extreme case, imagine that out data $$X \sim Bernoulli(p)$$ has only $$n=1$$.
 What is a confidence interval in this case?
 
-This seemingly simple question is not obvious. A practical researcher might simply state $$[0, 1)$$ 
-if $$X = 0$$ and $$(0, 1]$$ if $$X = 1$$, noticing that one data point is not entirely uninformative.
-However, given the tolerance of a $$5$$% error rate, we should soon realize that the confidence
-interval could be tightened to $$[0, 0.95]$$ and $$[0.05, 1]$$ respectively. 
+This seemingly simple question is not obvious to most students (???). In introductory courses,
+we often construct confidence intervals using the Normal approximation to the binomial distribution
+when $$n$$ is large but rarely talk about the small sample scenario.
+
+A practical researcher might simply state $$[0, 1)$$ if $$X = 0$$ and $$(0, 1]$$ if $$X = 1$$,
+noticing that one data point is not entirely uninformative yet the data is small enough that
+we should not dwell on the precise confidence interval.
+However, given the tolerance of a $$\alpha$$% error rate, we should soon realize that the confidence
+interval could be tightened to $$[0, 1-\alpha]$$ and $$[\alpha, 1]$$ respectively.
 
 Common misunderstandings between confidence intervals and credible intervals.
 
