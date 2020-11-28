@@ -80,13 +80,8 @@ Calculate the theoretical mean squared error for $$\gamma \hat{\beta}_{OLS}$$. E
 Side note: you should know why this isn't very useful in practice because $$\beta$$ and $$\sigma^2$$ are unknown.
 
 #### Q14
-Let $$Y = X\beta + \epsilon$$ where $$\beta$$ is the 0 vector. Let $$\epsilon \sim N(0, 10)$$, $$n=1000$$ and create 99 random features all from a uniform random variable (between 0 and 1) and 1 constant feature for X. Let $$\hat{\beta}_{OLS}$$ be the usual regression estimate. Using the result above, with your simulated $$X$$ values, write the code AND report the smallest value for $$\gamma$$ before the MSE starts to increase again.
-
-Side note: this is intentionally similar to the simultaneous inference case.
-
-#### Q15
 To shrink a vector $$Z$$ to the origin (i.e. the vector of all 0s), we can multiple $$Z$$ by $$\gamma\in [0, 1)$$. However, we can also shrink $$Z$$ to arbitrary vector $$\mu$$ by calculating $$\gamma(Z-\mu) + \mu$$.
 
-Same as Q14, let $$Y = X\beta + \epsilon$$ where $$\beta$$ is the 0 vector. Let $$\epsilon \sim N(0, 10)$$, $$n=1000$$ and create 99 random features all from a uniform random variable (between 0 and 1) and 1 constant feature for X. Let $$\hat{\beta}_{OLS}$$ be the usual regression estimate. Shrink $$\hat{\beta}_{OLS}$$ towards $$\mu = 2$$, i.e. a vector containing 2's and with $$\gamma=0.99$$. Numerically approximate the MSE over 100 simulations for the shrink estimator and the OLS estimator. Report which estimator would you prefer if you're optimizing for MSE for estimating $$\beta$$.
+Let $$Y = X\beta + \epsilon$$ where $$\beta$$ is the 0 vector. Let $$\epsilon \sim N(0, 10)$$, $$n=1000$$, and create 99 random features all from a uniform random variable (between 0 and 1) and 1 constant feature for X. Let $$\hat{\beta}_{OLS}$$ be the usual regression estimate. Shrink $$\hat{\beta}_{OLS}$$ towards $$\mu = 2$$, i.e. a constant vector containing only 2's and with $$\gamma=0.99$$. Numerically approximate the MSE over 100 simulations for the shrink estimator and the OLS estimator. Report which estimator would you prefer if you're optimizing for MSE for estimating $$\beta$$.
 
 {% include lib/mathjax.html %}
