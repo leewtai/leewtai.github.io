@@ -1,9 +1,9 @@
 # Applied Statistical Methods
 
-Applied Statistical Methods in Columbia's statistics concentration is meant for
-students who have completed the linear regression and statistical computing
-course. It is meant to give you a survey and practice of statistical methods
-beyond the linear regression course.
+This is a placeholder page for a survey course on different applied statistical
+topics. A survey course is not meant to give you a deep understanding into any
+of the topics but to present the challenges that gave rise to the method and
+
 
 ## My assumption
 You should know about
