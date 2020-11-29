@@ -3,8 +3,8 @@
 The final project in this class is open-ended with a few requirements. Key deliverables are
 - A 5-15 page **written report** that contains the information below.
 - A **30min oral defense** regarding this written report with the instructor during finals week.
-- An abstract written about a peer's final project
-- A code review for your peer's code
+- An abstract written about a peer's final project, your final project can be summarized by multiple people.
+- (optional) A code review for your peer's code
 
 ### Written report
 - The project must identify a question that data can possibly falsify or support (10 pts)
