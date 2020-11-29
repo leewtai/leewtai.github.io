@@ -1,14 +1,15 @@
 # UN2103 - Applied Linear Regression Model
 
-This class is designed for students without a linear algebra background who will
-need to understand linear regression and its underlying properties.
+This class introduces linear regression as a foundational tool for
+prediction and inference with an emphasis on simulations and challenges
+faced in application.
 
 ### Expectations
 #### - Learning outcomes
 - Transition from learning via imitation to working backwards from the question
-- Understand when to use linear regression for prediction or inference
-- Be able to articulate counter examples for linear regression to fail
-- Be able to simulate and confirm the mathematical derivations
+- Understand when to use linear regression for prediction vs inference
+- Be able to articulate counter examples for linear regression to "fail"
+- Be able to simulate and confirm basic mathematical results for regression
 
 #### - Your Job
   - Come to class, bring your laptop, take chances!
@@ -35,7 +36,7 @@ TBD
   |---|---|---|---|
   |2020-01-21|[Introduction, expectations, and transitions oh my!](https://drive.google.com/open?id=12GIwf8KVtYc7KN7C6eVC8c3R41LiQNtQlVBHTNv4HmA)|||
   |2020-01-23|[Reviewing Hypothesis Testing with R Simulations](https://drive.google.com/open?id=1zBjQ9G508s4PBlmMWR2_fofictjvj3Achw30BBCVmnc)|Any R Tutorial Videos on For-Loop, e.g. [R Tutorial Videos](https://www.stat.berkeley.edu/share/rvideos/R_Videos/R_Videos.html)|Make sure R is installed and running|
-  |2020-01-28|[Deriving simple linear regression](https://docs.google.com/presentation/d/15m8XkAKZaDA4lsTJxvTaHekrFPXFVv22qZ6j5MDrBrg/edit?usp=sharing)|Text 2.1.1|Homework 1 (postponed due to mistake)|
+  |2020-01-28|[Deriving simple linear regression](https://docs.google.com/presentation/d/15m8XkAKZaDA4lsTJxvTaHekrFPXFVv22qZ6j5MDrBrg/edit?usp=sharing)|Text 2.1.1|Homework 1|
   |2020-01-30|[Linking regression coefficients to the data generation process](https://docs.google.com/presentation/d/1NalZQ2EWSt3Z7ojP0iPOt902VyJfRrP-MsEyc8qXoE0/edit?usp=sharing)|Text 2.7.1||
   |2020-02-04|[Linking math to simulations](https://docs.google.com/presentation/d/1-TaFO-3j1-een-w3pjExEbKQXdrJqV6ZI-AOZc9ZQHM/edit?usp=sharing)|Text 2.7.3||
   |2020-02-06|[Properties of the regression coefficients](https://us.edstem.org/courses/182/lessons/670/slides/2979)|Text 2.7.2 + 2.7.3||
@@ -76,7 +77,7 @@ Office Hours:
 
 
 ### Grading
-If your final grade is in \[93-97), you will earn at least an A, \[90-93) will earn at least an A-, \[87-90) will earn at least a B+, etc. A grading curves may occur depending on the class performance but will not curve downwards. I may not give out A+
+If your final grade is in \[93-100\], you will earn at least an A, \[90-93) will earn at least an A-, \[87-90) will earn at least a B+, etc. A grading curves may occur depending on the class performance but will not curve downwards. I may not give out A+
 
 #### - Homeworks (10%)
   - Late homeworks will receive 0 credit
@@ -86,7 +87,7 @@ If your final grade is in \[93-97), you will earn at least an A, \[90-93) will e
   - Please export all homeworks in PDF files following these [instructions](../../setup/math_and_code.md)
 #### - Exams (85%)
   - Midterms (15% for midterm 1 and 30% for Midterm 2)
-  - Final (40%)
+  - Final Exam or Project (40%)
 #### - Participation (5%)
   - This will be based on in-class online activities
 
