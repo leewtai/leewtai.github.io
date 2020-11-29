@@ -13,19 +13,11 @@ Syllabi:
 - [4205/5205 Linear Regression](major_syllabus.md)
 
 
-### Topic Notes
 #### Pre-requisites
 - Some basic exposure to programming
   - Plotted a scatter plot, ran a for-loop, are familiar with data analysis
 - Exposure to an introductory statistics class
   - Average, median, hypothesis testing, correlation, the difference between a random variables and its realization
-
-At the end of this you should feel comfortable to
-- Translate a general scientific problem into a concrete statistical question
-- Understand if regression is appropriate, how to diagnose the regression,
-  and the various challenges faced by regression.
-- Understand how estimation depends on assumptions from the data generation process
-- Understand the need to formalize a problem via mathematics and how to validate the mathematics via programming.
 
 ### Computer setting up
 I encourage you to set up [Jupyter Notebooks on your computer](../../setup/conda_and_navigator_setup.md)
