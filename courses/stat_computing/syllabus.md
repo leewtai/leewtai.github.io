@@ -77,7 +77,7 @@ Office Hours:
   - Wayne: Th 1-3pm 715 Watson Hall + Wed 9-11am 601 Watson Hall
 
 ### Grading
-If your final grade is in [93-97), you will earn at least an A, [90-93) will earn at least an A-, [87-90) will earn at least a B+, etc. A grading curves may occur depending on the class performance but I will not curve downwards. I may not give out A+ in this class.
+If your final grade is in [93-100], you will earn at least an A, [90-93) will earn at least an A-, [87-90) will earn at least a B+, etc. A grading curves may occur depending on the class performance but I will not curve downwards. I may not give out A+ in this class.
 
 #### - Homeworks (15%)
 - Late homeworks will receive 0 credit
@@ -99,16 +99,10 @@ In order to receive disability-related academic accommodations for this course, 
 
 Refer to the appropriate website for information regarding deadlines, disability documentation requirements, and [drop-in hours](https://health.columbia.edu/getting-care/drop-offices/disability-services-drop-hours)(Columbia)/[intake session]() (Barnard).
 
- 
-
 For this course, students are not required to have testing forms or accommodation letters signed by faculty. However, students must do the following:
-
-·         The Instructor section of the form has already been completed and does not need to be signed by the professor.
-
-·         The student must complete the Student section of the form and submit the form to Disability Services.
-
-·         Master forms are available in the Disability Services office or online: https://health.columbia.edu/services/testing-accommodations
-
+  - The Instructor section of the form has already been completed and does not need to be signed by the professor.
+  - The student must complete the Student section of the form and submit the form to Disability Services.
+  - Master forms are available in the Disability Services office or online: https://health.columbia.edu/services/testing-accommodations
 
 ### Prerequisites
 - An introductory statistics class
