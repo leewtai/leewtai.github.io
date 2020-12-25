@@ -1,4 +1,4 @@
-#import yaml
+import yaml
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sn
@@ -36,7 +36,7 @@ plt.text(x_cross + 0.001, y_cross - 0.05, r'$(X_{i,\hat{\beta}}^*, X_{i, \hat{\b
 plt.text(xii + 0.001, params[0] + params[1] * xii - 0.05, r'$(X_{i,j}, X_{i,j} \hat{\beta})$')
 plt.legend([], [], frameon=False)
 plt.ylim([np.min(yi), np.max(yi)])
-plt.xlabel(r'$q^2_{cm}/m^2_{\pi}$')
+plt.xlabel(r'$q^2/m^2_{\pi}$')
 plt.ylabel(r'$q\cot\delta/m_{\pi}$')
 plt.savefig('demo_plot.png')
 plt.close()
