@@ -2,9 +2,9 @@
 
 #### Q1
 Define a random vector with 3 random variables:
-- $$X \sim Normal(0, 10)$$
-- $$Y \sim Exp(\lambda = 0.1)$$
-- $$Z = Y + 2 * X + \epsilon$$, where $$\epsilon \sim Unif[-5, 5]$$
+- A normal: $$X \sim Normal(0, 10)$$
+- An exponential, $$Y \sim Exp(\lambda = 0.1)$$
+- Then $$Z = Y + 2 * X + \epsilon$$, where $$\epsilon \sim Unif[-5, 5]$$
 
 Please assume that $$X$$, $$Y$$, and $$\epsilon$$ are all independent from one another.
 
@@ -13,7 +13,7 @@ Please calculate the theoretical values of $$Cov\left(\begin{bmatrix} X\\ Y \\ Z
 #### Q2, numerically approximating covariances
 Please test out 2 sample sizes, 100 and 10000 to numerically approximate the 3 by 3 covariance matrix from **Q1** via simulation.
 
-You should use the sample covariance to approximate the theoretical covariance matrix, i.e. $$\hat{\Sigma}_n \approx \Sigma$$.  $$\hat{\Sigma}_n$$ is the sample covariance based on sample size $$n$$.
+You should use the sample covariance to approximate the theoretical covariance matrix, i.e. $$\hat{\Sigma}_n \approx \Sigma$$.  Where $$\hat{\Sigma}_n$$ is the sample covariance based on sample size $$n$$.
 
 Create 200 simulations for each sample size to approximate the covariance matrix above (i.e. you would have 200 covariance estimates for each sample size).
 If the theoretical covariance matrix is $$\Sigma$$ and the estimate is $$\hat{\Sigma}$$, define the error as $$\| \Sigma - \hat{\Sigma} \|_2 = \|D\|_2 = \sqrt{\sum_{i=1}^{3} \sum_{j=1}^{3} D_{i,j}^2)}$$. This is called the Frobenius norm for the matrix $$D$$. 
@@ -22,7 +22,7 @@ Please report the 2.5 to 97.5 percentile values of the Frobenius norm, across th
 #### Q3, a common abuse of the word "sample size"
 In this question, the word "sample size" is used in 2 different ways that is common and confusing.
 
-In the regression setting, we often describe $$Y = X\beta + \epsilon$$, where $$Cov(\epsilon|X) = \sigma^2 I$$ as a $$n \times n$$ matrix. This $$\sigma^2I$$ is the theoretical covariance.
+In the regression setting, we often describe $$Y = X\beta + \epsilon$$, where $$Cov(\epsilon \mid X) = \sigma^2 \mathbb{I}$$ as a $$n \times n$$ matrix. This $$\sigma^2\mathbb{I}$$ is the theoretical covariance.
 
 In the case where $$n=20$$, i.e. the sample size of the regression is 20, please write the code that would numerically approximate the covariance matrix $$\sigma^2 I$$ using the sample size with the smaller error from Q2 by simulating different $$\epsilon$$ vectors.
 Please set $$\sigma^2=4$$. I'm intentionally not prescribing the distribution of $$\epsilon$$, choose your favorite distribution. :)
