@@ -2,6 +2,7 @@
 
 #### Q1 - linear algebra practice
 With the usual regression assumptions:
+
 $$\begin{itemize}
   \item Y=X\beta + \epsilon
   \item E(\epsilon|X) = 0_{n \times 1}
@@ -11,6 +12,7 @@ $$\begin{itemize}
 \end{itemize}$$
 
 Then please show
+
 $$\begin{itemize}
   \item E(\hat{Y}_{new}| X, X_{new}) = X_{new}\beta
   \item Cov(\hat{Y}_{new}| X, X_{new}) = \sigma^2 X_{new} (X^TX)^{-1}X_{new}^T
@@ -19,6 +21,7 @@ $$\begin{itemize}
 
 #### Q2 - generating your own examples
 Please numerically verify the formulas based on matrices match our previous formulas for SLR (e.g. those given on the midterm) for the following quantities (hint: we've shown that `summary.lm()` agrees with our formulas before). You are expected to generate your own $$n$$, $$\beta$$, $$\epsilon$$ etc.
+
 $$\begin{itemize}
 \item \hat{SE}(\hat{\beta}_i|X)
 \item \hat{SE}(\hat{Y}|X)
