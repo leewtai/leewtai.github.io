@@ -27,7 +27,7 @@ Find the optimal intercept and slope values using your data and objective functi
 True/False: Does the line from your fit in **Q5** pass through the point `(mean(X), mean(Y))`?
 
 #### Q7
-True/False: the total length calculated between your data points and your fitted line will always be smaller or equal than the total length between the data points and the true line (i.e. using $$\beta_0$$, $$\beta_1=-2$$) from the original simulation.
+True/False: the total length calculated between your data points and your fitted line will always be smaller or equal than the total length between the data points and the true line (i.e. using $$\beta_0=10$$, $$\beta_1=-2$$) from the original simulation.
 
 #### Q8
 Please simulate the generation of Y values 1000 times without changing the value of the `X`, $$\beta_0$$, or $$\beta_1$$. Plot the two histogram of the fitted values $$\hat{a}$$ and $$\hat{b}$$. Please mark in the plots where the true value of $$\beta_0$$ and $$\beta_1$$ are. For this problem, you only need to submit a graph with 2 histograms, no code is necessary.
