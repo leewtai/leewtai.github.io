@@ -32,15 +32,13 @@ Let there be 20 samples. Let $$X1 \sim Bernoulli(0.3)$$, let $$X2 \sim Unif[-10,
 Please examine the eigen values for the matrix $$X^TX$$ with the following definitions of $$X$$ and report whether $$(X^TX)^{-1}$$ exists.
 
 Note, the notation below indicates combining the vectors by columns
-$$\begin{itemiZE}
-  \item X = \begin{bmatrix} X0 : X1 : X2 : X3 : X4 : X5 \end{bmatrix}
-  \item X = \begin{bmatrix} X1 : X2: X3: X4: X5 \end{bmatrix}
-  \item X = \begin{bmatrix} X1: X2: X3: X5 \end{bmatrix}
-  \item X = \begin{bmatrix} X0: X2: X3: X4: X5 \end{bmatrix}
-  \item X = \begin{bmatrix} X2: X3: X4: X5 \end{bmatrix}
-  \item X = \begin{bmatrix} X0: X1: X2: X3: X4 \end{bmatrix}
-  \item X = \begin{bmatrix} X0: X1: X5 \end{bmatrix}
-\end{itemize}$$
+  - Case 1: $$X = \begin{bmatrix} X0 : X1 : X2 : X3 : X4 : X5 \end{bmatrix}$$
+  - Case 2: $$X = \begin{bmatrix} X1 : X2: X3: X4: X5 \end{bmatrix}$$
+  - Case 3: $$X = \begin{bmatrix} X1: X2: X3: X5 \end{bmatrix}$$
+  - Case 4: $$X = \begin{bmatrix} X0: X2: X3: X4: X5 \end{bmatrix}$$
+  - Case 5: $$X = \begin{bmatrix} X2: X3: X4: X5 \end{bmatrix}$$
+  - Case 6: $$X = \begin{bmatrix} X0: X1: X2: X3: X4 \end{bmatrix}$$
+  - Case 7: $$X = \begin{bmatrix} X0: X1: X5 \end{bmatrix}$$
 
 ### Simultaneous inference
 #### Q5
