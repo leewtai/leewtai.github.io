@@ -60,7 +60,7 @@ For this problem, assume you only have access to the aggregate data.
 
 Side note: if you were to create a prediction interval based on the aggregate data, you would need $$\bar{X}_{new}$$ AND its corresponding group size (notice how WLS assumes the weights are known). When you apply these intervals to individuals, this is how ecological correlation mistakes are made. 
 
-Instead of creating an interval for $$\bar{Y}_{new}$$, let's create an interval for $$Y_{new}|\{X_{new}, \bar{X}\}$$ by computing an interval that uses $$Var(Y_{new} - X_{new}\hat{\beta}_{wls}|\bar{X}, X_{new})$$, estimates $$\hat{\sigma}^2$$ under our WLS setting, and centers $$X_{new}\hat{\beta}_{wls}$$. Please create a plot that compares this interval to the interval implied by your code from Q10.
+Instead of creating an interval for $$\bar{Y}_{new}$$, let's create an interval for $$Y_{new}\mid\{X_{new}, \bar{X}\}$$ by computing an interval that uses $$Var(Y_{new} - X_{new}\hat{\beta}_{wls}\mid\bar{X}, X_{new})$$, estimates $$\hat{\sigma}^2$$ under our WLS setting, and centers $$X_{new}\hat{\beta}_{wls}$$. Please create a plot that compares this interval to the interval implied by your code from Q10.
 
 Side note: you should think about what's specific about this set up is allowing us to do this? Is this calculation true for all WLS settings?
 
