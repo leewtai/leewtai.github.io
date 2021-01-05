@@ -39,15 +39,15 @@ y <- 0.1 + 1.2 * x + rnorm(n, sd=0.4)
 ```
 
 We want to understand how the "SE" from the bootstrap method compares to the ideal case where we can simulate from the true distribution.
-- Calculate $$SE(\hat{\beta}_1|X)$$ using the true $$\sigma^2$$ and the formula given in class
-- Estimate $$SE(\hat{\beta}_1|X)$$ using $$\hat{SE}(\hat{\beta}_1|X)$$ by estimating $$\sigma^2$$ with $$\hat{\sigma}^2=\frac{1}{n-2}\sum_i e_i^2$$ (you can use built-in functionalities in R if you know what to do)
-- Estimate $$SE(\hat{\beta}_1|X)$$ by simulating from the true data generation and fitting `B=1000` different $$\hat{\beta}_{(1,j)}$$ (the $$j$$ index just indicate different the estimates from different simulations). Please do not overwrite your original data from above. Please do this 2 ways:
-  - Calculate this using $$\sqrt{\frac{1}{B} \sum[(\hat{\beta}_{(1,j)} - \beta_1]^2} \approx \sqrt{E([\hat{\beta}_{(1,j)} - \beta_1]^2|X)}$$ 
+- Calculate $$SE(\hat{\beta}_1\mid X)$$ using the true $$\sigma^2$$ and the formula given in class
+- Estimate $$SE(\hat{\beta}_1\mid X)$$ using $$\hat{SE}(\hat{\beta}_1\mid X)$$ by estimating $$\sigma^2$$ with $$\hat{\sigma}^2=\frac{1}{n-2}\sum_i e_i^2$$ (you can use built-in functionalities in R if you know what to do)
+- Estimate $$SE(\hat{\beta}_1\mid X)$$ by simulating from the true data generation and fitting `B=1000` different $$\hat{\beta}_{(1,j)}$$ (the $$j$$ index just indicate different the estimates from different simulations). Please do not overwrite your original data from above. Please do this 2 ways:
+  - Calculate this using $$\sqrt{\frac{1}{B} \sum[(\hat{\beta}_{(1,j)} - \beta_1]^2} \approx \sqrt{E([\hat{\beta}_{(1,j)} - \beta_1]^2\mid X)}$$ 
   - Calculate this by simply using `sd()` in R over the simulated coefficients.
-- Estimate $$SE(\hat{\beta}_1|X)$$ by simulating bootstrap samples from our original sample and fitting `B=1000` different $$\hat{\beta}_{(1, j)}^{boot}$$. 
+- Estimate $$SE(\hat{\beta}_1\mid X)$$ by simulating bootstrap samples from our original sample and fitting `B=1000` different $$\hat{\beta}_{(1, j)}^{boot}$$. 
   - Calculate this using $$\sqrt{\frac{1}{B} \sum[(\hat{\beta}_{(1,j)}^{boot} - \hat{\beta}_1]^2}$$, $$\hat{\beta}_1$$ is the estimated slope from the regression trained on the original data.
   - Calculate this by simply using `sd()` in R over the bootstrapped coefficients.
-- Please calculate the "percent error" for each of these estimates above. Percent error is often calculated as $$\frac{|new-base|}{base}$$. Please determine what's the most sensible "base" value in this problem.
+- Please calculate the "percent error" for each of these estimates above. Percent error is often calculated as $$\frac{\lvert new-base\rvert}{base}$$. Please determine what's the most sensible "base" value in this problem.
 
 #### Q5 - violating the regression assumption
 Please generate data as below (notice the slight change from Q4)
@@ -59,21 +59,21 @@ y <- 0.1 + 1.2 * x + rnorm(n, sd=x)
 ```
 
 - Please report the SE from `summary.lm()` but also comment on why the R output from `summary.lm()` may not be appropriate. 
-- Estimate $$SE(\hat{\beta}_1|X)$$ by simulating from the true data generation and fitting `B=1000` different $$\hat{\beta}_{(1,j)}$$ (the $$j$$ index just indicate different the estimates from different simulations). Please do not overwrite your original data from above. Please do this 2 ways:
-  - Calculate this using $$\sqrt{\frac{1}{B} \sum[(\hat{\beta}_{(1,j)} - \beta_1]^2} \approx \sqrt{E([\hat{\beta}_{(1,j)} - \beta_1]^2|X)}$$. 
+- Estimate $$SE(\hat{\beta}_1\mid X)$$ by simulating from the true data generation and fitting `B=1000` different $$\hat{\beta}_{(1,j)}$$ (the $$j$$ index just indicate different the estimates from different simulations). Please do not overwrite your original data from above. Please do this 2 ways:
+  - Calculate this using $$\sqrt{\frac{1}{B} \sum[(\hat{\beta}_{(1,j)} - \beta_1]^2} \approx \sqrt{E([\hat{\beta}_{(1,j)} - \beta_1]^2\mid X)}$$. 
   - Calculate this by simply using `sd()` in R over the simulated coefficients.
-- Estimate $$SE(\hat{\beta}_1|X)$$ by simulating bootstrap samples from our original sample and fitting `B=1000` different $$\hat{\beta}_{(1, j)}^{boot}$$. 
+- Estimate $$SE(\hat{\beta}_1\mid X)$$ by simulating bootstrap samples from our original sample and fitting `B=1000` different $$\hat{\beta}_{(1, j)}^{boot}$$. 
   - Calculate this using $$\sqrt{\frac{1}{B} \sum[(\hat{\beta}_{(1,j)}^{boot} - \hat{\beta}_1]^2}$$
   - Calculate this by simply using `sd()` in R over the bootstrapped coefficients.
-- Please calculate the "percent error" for each of these estimates above. Percent error is often calculated as $$\frac{|new-base|}{base}$$. Please determine what's the most sensible "base" value in this problem.
+- Please calculate the "percent error" for each of these estimates above. Percent error is often calculated as $$\frac{\lvert new-base\rvert }{base}$$. Please determine what's the most sensible "base" value in this problem.
 
 
 #### Q6 - Evaluating residual plots
 For each of the following residual plots, please comment on which of the statements are likely true and explain with at most 2 sentences. Please assume the residuals are from fitting a "linear line that may not be the regression line" to the data (e.g. no curves were used to obtain residuals) and there is only one independent variable $$x$$.
 - is the relationship between $$x$$ and $$y$$ linear?
-- is $$E(\epsilon_i|X)=0, \forall i$$?
-- is $$E(e_i|X)=0, \forall i$$?
-- is $$Var(\epsilon_i|X)=\sigma^2$$?
+- is $$E(\epsilon_i\mid X)=0, \forall i$$?
+- is $$E(e_i\mid X)=0, \forall i$$?
+- is $$Var(\epsilon_i\mid X)=\sigma^2$$?
 - is the residual plot possible from fitting a regression line? (hint: if you are stuck, try to simulate data that will have residual plots as shown then fit a regression to it)
 
 <img src="../images/wrong_right_residuals.png" alt="bad residuals" width='600'>
