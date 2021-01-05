@@ -71,15 +71,15 @@ v = 2 - 3 * u + np.random.normal(scale=2, size=n)
 ```
 
 Please simulate `5000` different datasets and use your function from Q4 to create 2 histograms:
-- A histogram of the 5000 different $$\tilde{a}$$ values across the 5000 datasets with a vertical line marking the value $2$.
-- A histogram of the 5000 different $$\tilde{b}$$ values across the 5000 datasets with a vertical line marking the value $-3$.
+- A histogram of the 5000 different $$\tilde{a}$$ values across the 5000 datasets with a vertical line marking the value $$2$$.
+- A histogram of the 5000 different $$\tilde{b}$$ values across the 5000 datasets with a vertical line marking the value $$-3$$.
 
 
 #### Q6 - Visualizing unbiasedness
-In Q5, the value `2` and `-3` are respectively the true intercept ($$a_{true}$$) and true slope ($$b_{true}$$) that generates the data. Given any dataset, our current method could use $$\tilde{a}$$ and $$\tilde{b}$$ to estimate $a_{true}$ and $b_{true}$ respectively. Using your results from Q5, please answer whether you believe $E(\tilde{a}) = a_{true}$ AND $E(\tilde{b}) = b_{true}$, i.e. unbiased, your answer should be a single Yes/No with a short explanation.
+In Q5, the value `2` and `-3` are respectively the true intercept ($$a_{true}$$) and true slope ($$b_{true}$$) that generates the data. Given any dataset, our current method could use $$\tilde{a}$$ and $$\tilde{b}$$ to estimate $$a_{true}$$ and $$b_{true}$$ respectively. Using your results from Q5, please answer whether you believe $$E(\tilde{a}) = a_{true}$$ AND $$E(\tilde{b}) = b_{true}$$, i.e. unbiased, your answer should be a single Yes/No with a short explanation.
 
 #### Q7 - Different objectives lead to different solutions
-Recall that regression minimizes the total squared residual instead of the total shortest Euclidean distance. Let's name the coefficients from the regression $\hat{a}$ and $\hat{b}$ respectively. You can get the regression coefficients using `lm(v ~ u)$coefficients` in R. For Python users, 
+Recall that regression minimizes the total squared residual instead of the total shortest Euclidean distance. Let's name the coefficients from the regression $$\hat{a}$$ and $$\hat{b}$$ respectively. You can get the regression coefficients using `lm(v ~ u)$coefficients` in R. For Python users, 
 
 ```python
 import statsmodels.api as sm
@@ -93,10 +93,10 @@ Please plot the scatter plot using the data `hw2_q2.csv` with `u` on the x-axis 
 Hint: `abline(a = 0, b=1)` plots a line with intercept=0 and slope=1 on a plot.
 
 #### Q8 - Comparing methods
-Please repeat Q5 but use the regression coefficients $\hat{a}$ and $\hat{b}$ instead of $\tilde{a}$ and $\tilde{b}$.
+Please repeat Q5 but use the regression coefficients $$\hat{a}$$ and $$\hat{b}$$ instead of $$\tilde{a}$$ and $$\tilde{b}$$.
 
 #### Q9 - Making a decision
-Comparing your plots from Q5 vs Q8, if you want to estimate $a_{true}$ and $b_{true}$, do you prefer $\hat{a}$ and $\hat{b}$ or $\tilde{a}$ and $\tilde{b}$? Please give a short explanation.
+Comparing your plots from Q5 vs Q8, if you want to estimate $$a_{true}$$ and $$b_{true}$$, do you prefer $$\hat{a}$$ and $$\hat{b}$$ or $$\tilde{a}$$ and $$\tilde{b}$$? Please give a short explanation.
 
 
 {% include lib/mathjax.html %}
