@@ -2,22 +2,27 @@
 
 #### Q1 - linear algebra practice
 With the usual regression assumptions:
-- $$Y=X\beta + \epsilon$$
-- $$E(\epsilon|X) = 0_{n \times 1}$$
-- $$Cov(\epsilon|X) = \sigma^2 I$$
-where
-- $$X$$ be $$n\times p$$, $$X_{new}$$ be $$m \times p$$
-- $$Y$$ is $$n\times 1$$ then $$Y_{new}$$ is $$m \times 1$$
-Then please show
-- $$E(\hat{Y}_{new}|X, X_{new}) = X_{new}\beta$$
-- $$Cov(\hat{Y}_{new}|X, X_{new}) = \sigma^2 X_{new} (X^TX)^{-1}X_{new}^T$$
-- $$Cov(Y_{new} - \hat{Y}_{new}|X, X_{new}) = \sigma^2 (I_{m\times m} + X_{new} (X^TX)^{-1}X_{new}^T)$$
+$$\begin{itemize}
+  \item Y=X\beta + \epsilon
+  \item E(\epsilon|X) = 0_{n \times 1}
+  \item Cov(\epsilon|X) = \sigma^2 I
+  \item X \text{ be } n\times p, X_{new} \text{ be } m \times p
+  \item Y \text{ is } n\times 1 \text{ then } Y_{new} \text{ is } m \times 1
+\end{itemize}$$
 
+Then please show
+$$\begin{itemize}
+  \item E(\hat{Y}_{new}| X, X_{new}) = X_{new}\beta
+  \item Cov(\hat{Y}_{new}| X, X_{new}) = \sigma^2 X_{new} (X^TX)^{-1}X_{new}^T
+  \item Cov(Y_{new} - \hat{Y}_{new}| X, X_{new}) = \sigma^2 (I_{m\times m} + X_{new} (X^TX)^{-1}X_{new}^T)
+\end{itemize}$$
 
 #### Q2 - generating your own examples
 Please numerically verify the formulas based on matrices match our previous formulas for SLR (e.g. those given on the midterm) for the following quantities (hint: we've shown that `summary.lm()` agrees with our formulas before). You are expected to generate your own $$n$$, $$\beta$$, $$\epsilon$$ etc.
-- $$\hat{SE}(\hat{\beta}_i|X)$$
-- $$\hat{SE}(\hat{Y}|X)$$
+$$\begin{itemize}
+\item \hat{SE}(\hat{\beta}_i|X)
+\item \hat{SE}(\hat{Y}|X)
+\end{itemize}$$
 
 #### Q3 - pro/con of numerical verification
 Continuing from Q2, numerical verifications in general do not "prove" that the matrix formulas are correct.
