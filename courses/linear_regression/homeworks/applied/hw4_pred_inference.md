@@ -11,9 +11,9 @@ With the usual regression assumptions:
 
 Then please show
 
-  - Unbiased prediction: $$E(\hat{Y}_{new}| X, X_{new}) = X_{new}\beta$$
-  - Closed form variance for regression line at new locations: $$Cov(\hat{Y}_{new}| X, X_{new}) = \sigma^2 X_{new} (X^TX)^{-1}X_{new}^T$$
-  - Closed form variance for prediction error: $$Cov(Y_{new} - \hat{Y}_{new}| X, X_{new}) = \sigma^2 (I_{m\times m} + X_{new} (X^TX)^{-1}X_{new}^T)$$
+  - Unbiased prediction: $$E(\hat{Y}_{new}\mid X, X_{new}) = X_{new}\beta$$
+  - Closed form variance for regression line at new locations: $$Cov(\hat{Y}_{new}\mid X, X_{new}) = \sigma^2 X_{new} (X^TX)^{-1}X_{new}^T$$
+  - Closed form variance for prediction error: $$Cov(Y_{new} - \hat{Y}_{new}\mid X, X_{new}) = \sigma^2 (I_{m\times m} + X_{new} (X^TX)^{-1}X_{new}^T)$$
 
 #### Q2 - generating your own examples
 Please numerically verify the formulas based on matrices match our previous formulas for SLR (e.g. those given on the midterm) for the following quantities (hint: we've shown that `summary.lm()` agrees with our formulas before). You are expected to generate your own $$n$$, $$\beta$$, $$\epsilon$$ etc.
