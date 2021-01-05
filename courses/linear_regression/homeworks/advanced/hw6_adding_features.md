@@ -22,7 +22,7 @@ Please report the 2.5 to 97.5 percentile values of the Frobenius norm, across th
 #### Q3, a common abuse of the word "sample size"
 In this question, the word "sample size" is used in 2 different ways that is common and confusing.
 
-In the regression setting, we often describe $$Y = X\beta + \epsilon$$, where $$Cov(\epsilon \mid X) = \sigma^2 \mathbb{I}$$ as a $$n \times n$$ matrix. This $$\sigma^2\mathbb{I}$$ is the theoretical covariance.
+In the regression setting, we often describe $$Y = X\beta + \epsilon$$, where $$Cov(\epsilon \mid X) = \sigma^2 I$$ as a $$n \times n$$ matrix. This $$\sigma^2 I$$ is the theoretical covariance.
 
 In the case where $$n=20$$, i.e. the sample size of the regression is 20, please write the code that would numerically approximate the covariance matrix $$\sigma^2 I$$ using the sample size with the smaller error from Q2 by simulating different $$\epsilon$$ vectors.
 Please set $$\sigma^2=4$$. I'm intentionally not prescribing the distribution of $$\epsilon$$, choose your favorite distribution. :)
@@ -32,13 +32,15 @@ Let there be 20 samples. Let $$X1 \sim Bernoulli(0.3)$$, let $$X2 \sim Unif[-10,
 Please examine the eigen values for the matrix $$X^TX$$ with the following definitions of $$X$$ and report whether $$(X^TX)^{-1}$$ exists.
 
 Note, the notation below indicates combining the vectors by columns
-- $$X = \begin{bmatrix} X0 : X1 : X2 : X3 : X4 : X5 \end{bmatrix}$$
-- $$X = \begin{bmatrix} X1 : X2: X3: X4: X5 \end{bmatrix}$$ 
-- $$X = \begin{bmatrix} X1: X2: X3: X5 \end{bmatrix}$$ 
-- $$X = \begin{bmatrix} X0: X2: X3: X4: X5 \end{bmatrix}$$
-- $$X = \begin{bmatrix} X2: X3: X4: X5 \end{bmatrix}$$
-- $$X = \begin{bmatrix} X0: X1: X2: X3: X4 \end{bmatrix}$$
-- $$X = \begin{bmatrix} X0: X1: X5 \end{bmatrix}$$
+$$\begin{itemiZE}
+  \item X = \begin{bmatrix} X0 : X1 : X2 : X3 : X4 : X5 \end{bmatrix}
+  \item X = \begin{bmatrix} X1 : X2: X3: X4: X5 \end{bmatrix}
+  \item X = \begin{bmatrix} X1: X2: X3: X5 \end{bmatrix}
+  \item X = \begin{bmatrix} X0: X2: X3: X4: X5 \end{bmatrix}
+  \item X = \begin{bmatrix} X2: X3: X4: X5 \end{bmatrix}
+  \item X = \begin{bmatrix} X0: X1: X2: X3: X4 \end{bmatrix}
+  \item X = \begin{bmatrix} X0: X1: X5 \end{bmatrix}
+\end{itemize}$$
 
 ### Simultaneous inference
 #### Q5
