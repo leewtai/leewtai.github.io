@@ -1,8 +1,8 @@
-Homework 6: More challenges with Multivariate Regression
+# Homework 6: More challenges with Multivariate Regression
 
 #### Q0 - Collinearity and Cross validation
 On Canvas, there's a file named `processed_payroll_2019_first_5000.csv` that was originally from 
-https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e
+[NYCOpen Data](https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e)
 
 We will explore the behavior of regression with collinearity through this example.
 Our main variable of interest is the total pay for each individual and we will learn its relationship with
@@ -11,7 +11,7 @@ all the other features.
 ### Q1 - explore the data
 - Please keep only the records that correspond to people who are "ACTIVE" on July 31, 2019.
 - Calculate the total pay as the sum of the gross pay, overtime (ot) pay, and other pay.
-- Between the total pay, the $$\log(total\ pay + 1)$$, and $$\sqrt(total\ pay)$$, which one follows the Normal distribution the most? Please show the evidence that supports your claim.
+- Between the total pay, the $$\log(total\ pay + 1)$$, and $$\sqrt{total\ pay}$$, which one follows the Normal distribution the most? Please show the evidence that supports your claim.
 - How many agencies are in our data? (We only grabbed the first 50000 records from NYC OpenData)
 - How many boroughs of NYC are in the dataset?
 - How many genders (derived from the first name) are in the dataset?
