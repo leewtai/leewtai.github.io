@@ -38,7 +38,7 @@ What would be considered the response variable here?
 #### Q8
 Please fit a SLR to the spring data under the linear model below and report the fitted coefficients.
 
-$$y_i = a + b * x_i + epsilon_i$$
+$$y_i = a + b * x_i + \epsilon_i$$
 
 #### Q9
 What is your best estimate (best in terms of sum of squared error) for the length of the spring when the weight is 9 kg? Please include the units.
