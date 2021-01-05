@@ -51,7 +51,7 @@ Hint/Side note: can you identify the difference between the significance in Q5 v
 #### Q6
 Obesity is an important factor for health. However, "obesity stigma" can also make people suffering from obesity to be less likely to do routine checkups. This can lead to issues where preventable diseases are not caught in the early stages and lead to more health complications. Please draw out the DAG that explains the relationship between health, obesity, obesity stigma, and checkups. For now, since the problem does not specify obesity stigma's direct impact on health, assume there is no direct link between these. 
 
-Side note: If you're interested in a summary paper from NIH: \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4381543/}.
+Side note: If you're interested in a [summary paper from NIH](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4381543/).
 
 Side note: If we did not "model" the impact from stigma on checkups, would the coefficients for obesity on health be overestimated or underestimated? (you should be able to simulate this!)
 
@@ -64,6 +64,8 @@ Now fit a regression of $$Y$$ on $$X$$ directly (without the transformation of $
  
 hint: to use samples to empirically construct an interval, you need a sufficient sample size.
 
-side note: There are several key notes I hope you notice: 1) the wrong model can do reasonably at certain regions of the data. 2) if you didn't know the true data generation process, see how this method lets you know how your model is deficient.
+side note: There are several key notes I hope you notice:
+  1. the wrong model can do reasonably at certain regions of the data.
+  2. if you didn't know the true data generation process, see how this method lets you know how your model is deficient.
 
 {% include lib/mathjax.html %}
