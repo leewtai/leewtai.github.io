@@ -33,13 +33,13 @@ I reserve the right to change the ordering and the content for the course throug
 
 |Date|Topic|Reference|Due|
 |---|---|---|---|
-|2021-01-12|- [Statistical computing](lectures/lec1/lec1.md) and Intro Stat Review|||
+|2021-01-12|- [Why statistical computing](lectures/lec1/lec1.md), logistics, and Intro Stat Review|||
 |2021-01-14|- Motivating example: [recreating Fisher's results](lectures/lec1/fisher_in_R.md)|- read.csv() Text 10.2.1<br>- filtering Text 3.2.4<br>- For-loops Text 7.1.1<br>- vectors Text 2.1.1, 2.4.2<br>- boolean operations Text 7.2<br>- writing functions 1.3|Get [R](https://cran.rstudio.com/) installed, then [R studio](https://rstudio.com/products/rstudio/download/) installed|
 |2021-01-19|- [Fisher's continued](lectures/lec1/fisher_in_R.md)<br>- [Data types](lectures/lec1/functions_and_data.md)|Same as previous class + Text 1.4.1,1.4.2||
 |2021-01-21|- [vectors in R](lectures/lec1/vectors_in_R.md)<br>- [Random functions](lectures/lec2/builtin_functions_in_R.md)<br>|Text 2.* + Text 5.* |[Homework 1](homeworks/hw1.md)|
 |2021-01-26|- [Random functions](lecture/lec2/builtin_functions_in_R.md)|7.3, 7.4, 7.5, 7.6||
 |2021-01-28|- [Writing functions in R](lectures/lec2/writing_functions_in_R.md)|Text 1.3||
-|2021-02-02|- [For loops](lectures/lec3/loops_in_R.md) <br>- [if/else](lectures/lec3/ifelse_in_R.md)|Text 7.1.1 + 7.1*|[Homework 2](homeworks/hw2.md)|
+|2021-02-02|- [For loops](lectures/learning_r_lln.md) <br>- [if/else](lectures/learning_r_data_wrangle.md)|Text 7.1.1 + 7.1*|[Homework 2](homeworks/hw2.md)|
 |2021-02-04|Review session|||
 |2021-02-09|Take-Home Midterm 1|||
 |2021-02-11|[Data visualization - baseR](https://us.edstem.org/courses/181/lessons/744/slides/3422)|Text 12||

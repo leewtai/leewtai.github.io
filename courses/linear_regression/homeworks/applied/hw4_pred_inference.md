@@ -2,22 +2,24 @@
 
 #### Q1 - linear algebra practice
 With the usual regression assumptions:
-- $$Y=X\beta + \epsilon$$
-- $$E(\epsilon|X) = 0_{n \times 1}$$
-- $$Cov(\epsilon|X) = \sigma^2 I$$
-where
-- $$X$$ be $$n\times p$$, $$X_{new}$$ be $$m \times p$$
-- $$Y$$ is $$n\times 1$$ then $$Y_{new}$$ is $$m \times 1$$
-Then please show
-- $$E(\hat{Y}_{new}|X, X_{new}) = X_{new}\beta$$
-- $$Cov(\hat{Y}_{new}|X, X_{new}) = \sigma^2 X_{new} (X^TX)^{-1}X_{new}^T$$
-- $$Cov(Y_{new} - \hat{Y}_{new}|X, X_{new}) = \sigma^2 (I_{m\times m} + X_{new} (X^TX)^{-1}X_{new}^T)$$
 
+  - Linearity: $$Y=X\beta + \epsilon$$
+  - Unbiased errors: $$E(\epsilon\mid X) = 0_{n \times 1}$$
+  - I.I.D. errors: $$Cov(\epsilon\mid X) = \sigma^2 I$$
+  - Let $$X$$ be $$n\times p$$, $$X_{new}$$ be $$m \times p$$
+  - $$Y$$ is $$n\times 1$$ then $$Y_{new}$$ is $$m \times 1$$
+
+Then please show
+
+  - Unbiased prediction: $$E(\hat{Y}_{new}\mid X, X_{new}) = X_{new}\beta$$
+  - Closed form variance for regression line at new locations: $$Cov(\hat{Y}_{new}\mid X, X_{new}) = \sigma^2 X_{new} (X^TX)^{-1}X_{new}^T$$
+  - Closed form variance for prediction error: $$Cov(Y_{new} - \hat{Y}_{new}\mid X, X_{new}) = \sigma^2 (I_{m\times m} + X_{new} (X^TX)^{-1}X_{new}^T)$$
 
 #### Q2 - generating your own examples
 Please numerically verify the formulas based on matrices match our previous formulas for SLR (e.g. those given on the midterm) for the following quantities (hint: we've shown that `summary.lm()` agrees with our formulas before). You are expected to generate your own $$n$$, $$\beta$$, $$\epsilon$$ etc.
-- $$\hat{SE}(\hat{\beta}_i|X)$$
-- $$\hat{SE}(\hat{Y}|X)$$
+
+- $$\hat{SE}(\hat{\beta}_i\mid X)$$
+- $$\hat{SE}(\hat{Y}\mid X)$$
 
 #### Q3 - pro/con of numerical verification
 Continuing from Q2, numerical verifications in general do not "prove" that the matrix formulas are correct.

@@ -17,7 +17,7 @@ Please create the residual plot with a horizontal line marking the 0 value on th
 Which assumption in our usual linear regression set up is violated?
 
 #### Q4
-If we did not violate our usual linear regression assumptions, please show that $$Cov(X_{new}\hat{\beta}|X, X_{new}) = \sigma^2 X_{nwe} (X^T X)^_{-1} X_{new}^T$$.
+If we did not violate our usual linear regression assumptions, please show that $$Cov(X_{new}\hat{\beta}|X, X_{new}) = \sigma^2 X_{new} (X^T X)^{-1} X_{new}^T$$.
 Hint, what is $$Cov(Y|X, X_{new})$$?
 
 #### Q5
@@ -84,8 +84,8 @@ for every $$i$$. Changing $$\alpha$$ would then lead to different precision and 
 You only need to calculate the precision and recall for one group for this assignment but you should think about
 benefits from calculating precision/recall over all groups.
 
-Please recall, precision = $\frac{\sum 1[Y=1 \cap \hat{Y} =1] }{\sum 1[\hat{Y}=1]}$ and 
-recall = $\frac{\sum 1[Y=1 \cap \hat{Y} =1] }{\sum 1[Y=1]}$ where $1[]$ is the indicator function.
+Please recall, precision = $$\frac{\sum 1[Y=1 \cap \hat{Y} =1] }{\sum 1[\hat{Y}=1]}$$ and 
+recall = $$\frac{\sum 1[Y=1 \cap \hat{Y} =1] }{\sum 1[Y=1]}$$ where $$1[]$$ is the indicator function.
 
 Warning, your graph will likely be different given the random assignments.
 

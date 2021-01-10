@@ -84,7 +84,7 @@ From Q1.2, you should have seen that $$model_{true}$$ performed worse than the o
 Side comment: why is $$model_{true}$$ doing worse? The answer is in the plot!
 
 #### Q1.3 - Inference
-For $$model_{xz}$$, we fitted a model $$Y = \beta_0 + \beta_x X + \beta_z Z + error$$. It seems reasonable to use the estimate $$\hat{\alpha}_y^{xz} = \frac{1}{\hat{\beta}_z}$ where $model_{true}$$ has a natural estimate from the regression model for $$\alpha_y$$.
+For $$model_{xz}$$, we fitted a model $$Y = \beta_0 + \beta_x X + \beta_z Z + error$$. It seems reasonable to use the estimate $$\hat{\alpha}_y^{xz} = \frac{1}{\hat{\beta}_z}$$ where $$model_{true}$$ has a natural estimate from the regression model for $$\alpha_y$$.
 
 Please use simulation to understand if we should use $$model_{xz}$$ or $$model_{true}$$ to estimate $$\alpha_y$$?
 - Please state which model is preferable

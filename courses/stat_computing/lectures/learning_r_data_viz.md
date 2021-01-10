@@ -180,12 +180,14 @@ For the `&` and `|` operation, it's especially important to understand:
 - The behavior with with different inputs:
   - For the "and" operation, you'll get TRUE only if all the inputs
     are TRUE, the outcome of `x&y` is:
+
     `x & y`  | `y=TRUE` | `y=FALSE`
     ---------|----------|----------
     `x=TRUE` |`TRUE`    | `FALSE`
     `x=FALSE`|`FALSE`   | `FALSE`
   - For the "or" operation, you'll get TRUE as long as one input is TRUE,
     the outcome of `x|y` is:
+
     `x | y`  | `y=TRUE` | `y=FALSE`
     ---------|----------|----------
     `x=TRUE` |`TRUE`    | `TRUE`

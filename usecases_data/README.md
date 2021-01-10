@@ -77,5 +77,6 @@ about replacing it with the multi-armed bandit.
 The problem is these methods are doing 2 different things: one is effect estimation
 and the other is optimization.
 
+#### Training on "what you won't like" instead of "what you will like"
 
 {% include lib/mathjax.html %}

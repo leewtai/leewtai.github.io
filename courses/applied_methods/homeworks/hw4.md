@@ -1,4 +1,4 @@
-# Homework3 - Preparing for your final project
+# Homework4 - Preparing for your final project
 
 ### Goals
 The purpose of this homework is to give you some time to work on your final project
