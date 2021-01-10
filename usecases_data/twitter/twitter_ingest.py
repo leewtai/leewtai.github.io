@@ -1,5 +1,6 @@
+import logging
+from datetime import datetime, timedelta
 from time import sleep
-from itertools import product
 from pathlib import Path
 
 import json
@@ -8,10 +9,16 @@ from urllib.parse import quote
 
 import requests
 
+log_file = 'twitter_ingest.log'
+logging.basicConfig(format="%(asctime)-15s %(message)s",
+                    filename=log_file,
+                    level=logging.INFO)
+
 cred_file = Path('../credentials.json')
 creds = json.load(cred_file.open('r'))
 twitter_api_key = creds['twitter_api_key']
 twitter_api_secret_key = creds['twitter_api_secret_key']
+OUTFILE = Path('3106_twitter.json')
 
 SEARCH_URL = 'https://api.twitter.com/2/tweets/search/recent'
 
@@ -33,28 +40,55 @@ headers = {
     'Authorization': 'Bearer ' + auth_response.json()['access_token']
 }
 # These are the parameters to customize my query
-dates = ['%02d' % i for i in range(4, 10)]
-twitter_handles = ['realDonaldTrump', 'JoeBiden', 'BarackObama']
-out = []
-for twitter_handle, date in product(twitter_handles, dates):
-    params = {
-        'query': 'from:{}'.format(twitter_handle),
-        'start_time': '2020-11-{}T00:00:01Z'.format(date),
-        'end_time': '2020-11-{}T23:59:59Z'.format(date),
-        'expansions': 'author_id',
-        'user.fields': 'name,entities,id,username,verified',
-        'max_results': 100,
-        'tweet.fields': 'author_id,created_at,entities,public_metrics',
-    }
+twitter_queries = ['inauguration', 'StopTheSteaI2020', 'WashingtonDC']
+if OUTFILE.exists():
+    out = json.load(OUTFILE.open('r'))
+    since_id = max(record['id'] for record in out)
+else:
+    out = []
+    since_id = ''
 
-    response = requests.get(url=SEARCH_URL,
-                            params=params,
-                            headers=headers)
-    assert response.status_code == 200
-    if not response.json()['meta']['result_count']:
-        continue
-    out.extend(response.json()['data'])
-    sleep(10)
+max_results = 100
+
+temp_out = []
+for tq in twitter_queries:
+    counter = 0
+    max_diff = 0
+    while counter < 50 and max_diff == 0:
+        params = {
+            'query': tq,
+            'since_id': since_id,
+            'user.fields': 'name,entities,id,username,verified',
+            'max_results': 100,
+            'tweet.fields': 'author_id,created_at,entities,public_metrics',
+        }
+        if not since_id:
+            params.pop('since_id')
+            start_time = datetime.utcnow() - timedelta(days=7, minutes=-1)
+            end_time = datetime.utcnow() - timedelta(days=6)
+            params.update({
+                'start_time': start_time.strftime('%Y-%m-%dT%H:%M:%SZ'),
+                'end_time': end_time.strftime('%Y-%m-%dT%H:%M:%SZ')})
+
+        response = requests.get(url=SEARCH_URL,
+                                params=params,
+                                headers=headers)
+        assert response.status_code == 200
+        if not response.json()['meta']['result_count']:
+            continue
+        results = response.json()['data']
+        max_diff = max_results - len(results)
+        if max_diff != 0:
+            logging.info('max results hit at {} for query {}'.format(
+                counter * params['max_results'] + len(results), tq))
+        counter += 1
+        if counter == 50:
+            logging.info('hit max iteration cap for query {}'.format(
+                tq))
+        temp_out.extend(results)
+        since_id = max(record['id'] for record in results)
+        sleep(0.1)
 
 
-json.dump(out, open('5206_twitter.json', 'w'))
+out.extend(temp_out)
+json.dump(out, OUTFILE.open('w'))
