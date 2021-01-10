@@ -43,50 +43,49 @@ headers = {
 twitter_queries = ['inauguration', 'StopTheSteaI2020', 'WashingtonDC']
 if OUTFILE.exists():
     out = json.load(OUTFILE.open('r'))
-    since_id = max(record['id'] for record in out)
 else:
     out = []
-    since_id = ''
-
-max_results = 100
 
 temp_out = []
+next_token = ''
 for tq in twitter_queries:
     counter = 0
-    max_diff = 0
-    while counter < 50 and max_diff == 0:
+    while counter < 50:
+        start_time = datetime.utcnow() - timedelta(days=7, minutes=-1)
+        end_time = datetime.utcnow() - timedelta(days=6)
+
         params = {
             'query': tq,
-            'since_id': since_id,
+            'start_time': start_time.strftime('%Y-%m-%dT%H:%M:%SZ'),
+            'end_time': end_time.strftime('%Y-%m-%dT%H:%M:%SZ'),
             'user.fields': 'name,entities,id,username,verified',
             'max_results': 100,
             'tweet.fields': 'author_id,created_at,entities,public_metrics',
         }
-        if not since_id:
-            params.pop('since_id')
-            start_time = datetime.utcnow() - timedelta(days=7, minutes=-1)
-            end_time = datetime.utcnow() - timedelta(days=6)
-            params.update({
-                'start_time': start_time.strftime('%Y-%m-%dT%H:%M:%SZ'),
-                'end_time': end_time.strftime('%Y-%m-%dT%H:%M:%SZ')})
+        if next_token:
+            params.update({'next_token': next_token})
 
         response = requests.get(url=SEARCH_URL,
                                 params=params,
                                 headers=headers)
         assert response.status_code == 200
-        if not response.json()['meta']['result_count']:
-            continue
         results = response.json()['data']
-        max_diff = max_results - len(results)
-        if max_diff != 0:
-            logging.info('max results hit at {} for query {}'.format(
+        meta = response.json()['meta']
+        if not meta['result_count']:
+            logging.info('no results seen after {} records with {}'.format(
                 counter * params['max_results'] + len(results), tq))
+            break
         counter += 1
+        temp_out.extend(results)
+        next_token = meta.get('next_token')
+        if not next_token:
+            logging.info('exhausted next tokens for query {}'.format(
+                tq))
+            break
         if counter == 50:
             logging.info('hit max iteration cap for query {}'.format(
                 tq))
-        temp_out.extend(results)
-        since_id = max(record['id'] for record in results)
+            break
         sleep(0.1)
 
 
