@@ -5,7 +5,7 @@ UN2102 - Spring 2021
 - Manipulate data with different structures
 - Explore data via visualization
 - Tackle familiar statistical concepts using simulations
-- Work backwards vs learning via imitation
+- Solving problems by working backwards and decomposing complex tasks
 - Write reproducible code
 - Debug code
 
@@ -14,7 +14,7 @@ UN2102 - Spring 2021
 - Come to class, bring your laptop, take chances!
   - Run through the code in lecture
   - Take notes that augment the lectures
-- Give feedback in office hours or e-mail, don't waste your time if you think a topic is not helpful
+- Give feedback, don't waste your time if you think a topic is not helpful
 - Participate and ask questions, this is not easy!
   - In class: forecast what should be done, compare with what is happening, then summarize the difference.
   - Online: describe what you observe, describe what you expect, communicate clearly.
@@ -26,43 +26,44 @@ Instructor:
 Wayne Tai Lee: wtl2109
 
 Teaching Assistant(s):
-- TBD
+- Andrew Davison: ad3395
+- Navid Ardeshir: na2844
 
 ### Timeline
 I reserve the right to change the ordering and the content for the course throughout the semester.
 
 |Date|Topic|Reference|Due|
 |---|---|---|---|
-|2021-01-12|- [Why statistical computing](lectures/lec1/lec1.md), logistics, and Intro Stat Review|||
-|2021-01-14|- Motivating example: [recreating Fisher's results](lectures/lec1/fisher_in_R.md)|- read.csv() Text 10.2.1<br>- filtering Text 3.2.4<br>- For-loops Text 7.1.1<br>- vectors Text 2.1.1, 2.4.2<br>- boolean operations Text 7.2<br>- writing functions 1.3|Get [R](https://cran.rstudio.com/) installed, then [R studio](https://rstudio.com/products/rstudio/download/) installed|
-|2021-01-19|- [Fisher's continued](lectures/lec1/fisher_in_R.md)<br>- [Data types](lectures/lec1/functions_and_data.md)|Same as previous class + Text 1.4.1,1.4.2||
-|2021-01-21|- [vectors in R](lectures/lec1/vectors_in_R.md)<br>- [Random functions](lectures/lec2/builtin_functions_in_R.md)<br>|Text 2.* + Text 5.* |[Homework 1](homeworks/hw1.md)|
-|2021-01-26|- [Random functions](lecture/lec2/builtin_functions_in_R.md)|7.3, 7.4, 7.5, 7.6||
-|2021-01-28|- [Writing functions in R](lectures/lec2/writing_functions_in_R.md)|Text 1.3||
-|2021-02-02|- [For loops](lectures/learning_r_lln.md) <br>- [if/else](lectures/learning_r_data_wrangle.md)|Text 7.1.1 + 7.1*|[Homework 2](homeworks/hw2.md)|
-|2021-02-04|Review session|||
-|2021-02-09|Take-Home Midterm 1|||
-|2021-02-11|[Data visualization - baseR](https://us.edstem.org/courses/181/lessons/744/slides/3422)|Text 12||
-|2021-02-16|[lists](https://us.edstem.org/courses/181/lessons/771/slides/3536)|Text 4||
-|2021-02-18|[Data frames](https://us.edstem.org/courses/181/lessons/773/slides/3551) and [JOINS](https://us.edstem.org/courses/181/lessons/778/slides/3567)|Text 5||
-|2021-02-23|[*apply functions and vectorized calculations](https://us.edstem.org/courses/181/lessons/783/slides/3601)||[Homework 3](homeworks/hw3.md)|
-|2021-02-25|[tapply, aggregate, and data wrangling](https://us.edstem.org/courses/181/lessons/802/slides/3701)|||
+|2021-01-12|- [Why statistical computing](https://docs.google.com/presentation/d/1RH8OgxPhIbMTQdqKTUUbjtg65LER0OM8PM6M6g1jYWg/edit?usp=sharing)|||
+|2021-01-14|- Variables, vectors, and functions on vectors|[Simulating LLN](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_lln.html)|Get [R](https://cran.rstudio.com/) installed, then [R studio](https://rstudio.com/products/rstudio/download/) installed|
+|2021-01-19|- For-loops|[Simulating LLN](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_lln.html)||
+|2021-01-21|- [Recreating Fisher's results](https://leewtai.github.io/courses/stat_computing/lectures/lec1/fisher_in_R.html)|[Past course notes on subsetting](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_data_viz.html)||
+|2021-01-26|- [Data frames and booleans](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_data_viz.html)||Homework 1 TBD|
+|2021-01-28|- [Writing functions in R](lectures/lec2/writing_functions_in_R.md)|[Scope](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_debug.html)||
+|2021-02-02|- [Data visualization - baseR](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_data_viz.html)|Text 7.1.1 + 7.1*||
+|2021-02-04|- [if/else](lectures/learning_r_data_wrangle.md)||Homework 2|
+|2021-02-09|Review session|||
+|2021-02-11|Take-Home Midterm 1|||
+|2021-02-16|[Joins](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_data_wrangle.html)|||
+|2021-02-18|[Lists](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_data_wrangle.html)|Text 5||
+|2021-02-23|[*apply functions and vectorized calculations](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_summarize.html)||Homework 3|
+|2021-02-25|More practice on data wrangling|||
 |2021-03-02|Spring Recess No Class|||
 |2021-03-04|Spring Recess No Class|||
-|2021-03-09|Data wrangling continued||[Homework 4](homeworks/hw4.md)|
-|2021-03-11|TBD|||
-|2021-03-16|TBD|||
+|2021-03-09|[Entering tidyverse with Data Visualization ggplot() and `%>%`](https://us.edstem.org/courses/181/lessons/882/slides/4088)<br> ggplot video on [Vimeo](https://vimeo.com/409003549) and [優酷](https://v.youku.com/v_show/id_XNDYzNjk0MDAzNg==.html) <br> `%>%` operator video on [Vimeo](https://vimeo.com/409003734) and [優酷](https://v.youku.com/v_show/id_XNDYzNjkzOTY5Mg==.html)|[Online Tutorials](http://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html)|Homework 4|
+|2021-03-11|[Working with text](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_text_manipulation.html)|||
+|2021-03-16|[Working with text continued](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_text_manipulation.html)|||
 |2021-03-18|[Reading in different types of data](https://us.edstem.org/courses/181/lessons/870/slides/3962) and [lec-vimeo](https://vimeo.com/399962856) or [lec-優酷](https://v.youku.com/v_show/id_XNDYwMTQ5ODUyOA==.html)|||
-|2021-03-23|Review session||[Homework 5](homeworks/hw5.md)|
+|2021-03-23|Review session||Homework 5|
 |2021-03-25|Take-Home Midterm 2|||
-|2021-03-30|[Basic text manipulation - dates](https://us.edstem.org/courses/181/lessons/872/slides/3972) and [lec-vimeo](https://vimeo.com/400405775) or [lec-優酷](https://v.youku.com/v_show/id_XNDYwMzM2ODkwMA==.html)|Text 11||
-|2021-04-01|[Regular expression](https://us.edstem.org/courses/181/lessons/872/slides/3977) and [lec-vimeo](https://vimeo.com/400420922) or [lec-優酷](https://v.youku.com/v_show/id_XNDYwMzM4MjA0MA==.html)|Text 11||
-|2021-04-06|[Debugging](https://us.edstem.org/courses/181/lessons/873/slides/4012) with [Vimeo lectures](https://vimeo.com/407632826) and [優酷 lectures](https://v.youku.com/v_show/id_XNDYyMTU3MTE2OA==.html)|Text 13||
-|2021-04-08|[Scraping](https://us.edstem.org/courses/181/lessons/871/edit/slides/3970) with [vimeo lectures](https://vimeo.com/404714829) and [優酷 lecture](https://v.youku.com/v_show/id_XNDYyMTU3MDg0MA==.html) vs calling [APIs](https://us.edstem.org/courses/181/lessons/871/edit/slides/4013) with [vimeo lecture](https://vimeo.com/404715597) and [優酷 lecture](https://v.youku.com/v_show/id_XNDYyMTU3MDQ1Ng==.html)|Many online blogs teach this, I would read them after listening to these lectures|[Homework 6](homeworks/hw6.md)|
-|2021-04-13|[Simulations and permutations](https://us.edstem.org/courses/181/lessons/746/edit/slides/4083)<br> Simulation video on [vimeo](https://vimeo.com/408097921) and [優酷](https://v.youku.com/v_show/id_XNDYzMzk3MzEyNA==.html) <br> Permutation video on [vimeo](https://vimeo.com/408097666) and [優酷](https://v.youku.com/v_show/id_XNDYzMzk3MzM2NA==.html)|||
-|2021-04-15|[Introduction to Version Control and Git](https://us.edstem.org/courses/181/lessons/881/slides/4073) no pre-lecture videos for this|[Change code on GitHub directly](https://guides.github.com/activities/hello-world/)||
-|2021-04-20|[Entering tidyverse with Data Visualization ggplot() and `%>%`](https://us.edstem.org/courses/181/lessons/882/slides/4088)<br> ggplot video on [Vimeo](https://vimeo.com/409003549) and [優酷](https://v.youku.com/v_show/id_XNDYzNjk0MDAzNg==.html) <br> `%>%` operator video on [Vimeo](https://vimeo.com/409003734) and [優酷](https://v.youku.com/v_show/id_XNDYzNjkzOTY5Mg==.html)|[Online Tutorials](http://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html)||
-|2021-04-22|What we don't know||[Homework 7](homeworks/hw7.md)|
+|2021-03-30|[Scraping](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_scraping_and_api.html) with [vimeo lectures](https://vimeo.com/404714829) and [優酷 lecture](https://v.youku.com/v_show/id_XNDYyMTU3MDg0MA==.html)|||
+|2021-04-01|[API Calls](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_scraping_and_api.html) with [vimeo lecture](https://vimeo.com/404715597) and [優酷 lecture](https://v.youku.com/v_show/id_XNDYyMTU3MDQ1Ng==.html)|||
+|2021-04-06|[Debugging in R](https://us.edstem.org/courses/181/lessons/873/slides/4012) with [Vimeo lectures](https://vimeo.com/407632826) and [優酷 lectures](https://v.youku.com/v_show/id_XNDYyMTU3MTE2OA==.html)|||
+|2021-04-08|Simulations<br> Simulation video on [vimeo](https://vimeo.com/408097921) and [優酷](https://v.youku.com/v_show/id_XNDYzMzk3MzEyNA==.html)||Homework 6|
+|2021-04-13|Permutations<br> Permutation video on [vimeo](https://vimeo.com/408097666) and [優酷](https://v.youku.com/v_show/id_XNDYzMzk3MzM2NA==.html)|||
+|2021-04-15|Verifying Statistical Theorems|[Change code on GitHub directly](https://guides.github.com/activities/hello-world/)||
+|2021-04-20|[Introduction to Version Control and Git](https://us.edstem.org/courses/181/lessons/881/slides/4073) no pre-lecture videos for this|||
+|2021-04-22|What we don't know||Homework 7|
 |2021-04-??|||Take-Home Final Exam|
 
 
@@ -72,7 +73,6 @@ Lectures:
 
 Office Hours:
   - Wayne: by appointment via Google Invites
-  - TBD
 
 ### Grading
 If your final grade is in [93-100], you will earn at least an A, [90-93) will earn at least an A-, [87-90) will earn at least a B+, etc. A grading curves may occur depending on the class performance but I will not curve downwards. I may not give out A+ in this class.
@@ -83,7 +83,7 @@ If your final grade is in [93-100], you will earn at least an A, [90-93) will ea
 - Your lowest homework grade will be dropped (this is for students who add this course late)
   - No make-up homeworks will be granted even if you registered late to the class
 - Please export all homeworks in PDF files following these [instructions](../../setup/math_and_code.md)
-  - If you want to learn how to set up Jupyter Notebooks with R, follow these [instructions](../../setup/conda_and_navigator_setup.md)
+  - You should try using Rmarkdown to create your solutions
 
 #### - Exams (80%)
 - Midterms (25% each)
