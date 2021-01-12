@@ -1,6 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-from numpy import nan
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
 
@@ -18,7 +17,7 @@ def vote_to_num(member_vote):
     elif member_vote == 'Not Voting':
         return 0
     else:
-        return nan
+        return -9999
 
 
 def retry_requests_get(url, max_retries=5):
