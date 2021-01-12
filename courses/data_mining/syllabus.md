@@ -26,14 +26,14 @@ I reserve the right to change the ordering and the content for the course throug
 |2021-01-12|[Intro to data mining](https://docs.google.com/presentation/d/1LRXc0v-mawZdvVYDJQXQ7MuG2_dCCOH8c2sW4aCerMs/edit?usp=sharing)|slides 1||
 |2021-01-14|The rise of machine learning|slides 2|Have R installed|
 |2021-01-19|Using regression to explore the data - NYC salary|slides 3||
-|2021-01-21|Optimization and objective functions|Slide 5|Homework 1 Due|
+|2021-01-21|Optimization and objective functions|Slide 5|[Homework 1](homeworks/hw1.md) Due|
 |2021-01-26|Beyond classification accuracy|Slides 6||
 |2021-01-28|Resampling techniques - accuracy vs robustness|Slides 7|- Read paper on [Stability](https://arxiv.org/abs/1310.0150)|
 |2021-02-02|Automated Model Selection|Slides 7||
 |2021-02-04|feature engineering - with text||Homework 2 Due|
 |2021-02-09|Working with text data continued|||
 |2021-02-11|Ridge + Lasso Regression|Slides 9||
-|2021-02-16|Principal Component Analysis||[Project 1](homeworks/proj1.md) Due|
+|2021-02-16|Principal Component Analysis||Project 1 Due|
 |2021-02-18|Principal Component Analysis continued|Slides 10 + 17||
 |2021-02-23|Weather data revisited|||
 |2021-02-25|Weather data revisited|||
@@ -43,7 +43,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2021-03-11|Splines vs Local Regression|Slides 11|Homework 3 Due|
 |2021-03-16|Regression Trees and random forests|Slides 13||
 |2021-03-18|Variable importance revisited|||
-|2021-03-23|Support Vector Machine|[Project 2](homeworks/proj2.md) Due||
+|2021-03-23|Support Vector Machine|Project 2 Due||
 |2021-03-25|Clustering|||
 |2021-03-30|k-Means |||
 |2021-04-01|Hierarchical clustering||Homework 4 Due|
@@ -52,7 +52,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2021-04-13|TBD||Homework 5 Due|
 |2021-04-15|TBD|||
 |2021-04-20|TBD|||
-|2021-04-22|TBD|[Project 3](homeworks/proj2.md)||
+|2021-04-22|TBD|Project 3 Due||
 
 
 ### Logistics
