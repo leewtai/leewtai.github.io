@@ -35,11 +35,11 @@ I reserve the right to change the ordering and the content for the course throug
 |Date|Topic|Reference|Due|
 |---|---|---|---|
 |2021-01-12|- [Why statistical computing](https://docs.google.com/presentation/d/1RH8OgxPhIbMTQdqKTUUbjtg65LER0OM8PM6M6g1jYWg/edit?usp=sharing)|||
-|2021-01-14|- Variables, vectors, and functions on vectors|[Simulating LLN](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_lln.html)|Get [R](https://cran.rstudio.com/) installed, then [R studio](https://rstudio.com/products/rstudio/download/) installed|
+|2021-01-14|- [Variables, vectors, and functions on vectors](https://docs.google.com/presentation/d/1dOFhuoEEIcQXauf6qd5FKMzbcJaiVUNROptup1Ooktw/edit?usp=sharing)|[Simulating LLN](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_lln.html)|Get [R](https://cran.rstudio.com/) installed, then [R studio](https://rstudio.com/products/rstudio/download/) installed|
 |2021-01-19|- For-loops|[Simulating LLN](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_lln.html)||
 |2021-01-21|- [Recreating Fisher's results](https://leewtai.github.io/courses/stat_computing/lectures/lec1/fisher_in_R.html)|[Past course notes on subsetting](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_data_viz.html)||
-|2021-01-26|- [Data frames and booleans](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_data_viz.html)||Homework 1 TBD|
-|2021-01-28|- [Writing functions in R](lectures/lec2/writing_functions_in_R.md)|[Scope](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_debug.html)||
+|2021-01-26|- [Data frames and booleans](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_data_viz.html)|||
+|2021-01-28|- [Writing functions in R](lectures/lec2/writing_functions_in_R.md)|[Scope](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_debug.html)|Homework 1 TBD|
 |2021-02-02|- [Data visualization - baseR](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_data_viz.html)|Text 7.1.1 + 7.1*||
 |2021-02-04|- [if/else](lectures/learning_r_data_wrangle.md)||Homework 2|
 |2021-02-09|Review session|||
@@ -92,6 +92,7 @@ If your final grade is in [93-100], you will earn at least an A, [90-93) will ea
 #### - Participation (5%)
 - This will be based on in-class online activities
 - You'll need at least 50% here to pass the class
+- If you achieve 50% participation, you will receive the full 5% credit
 
 ##### Exam accomodations
 In order to receive disability-related academic accommodations for this course, students must first be registered with their school Disability Services (DS) office. Detailed information is available online for both the [Columbia](https://health.columbia.edu/content/disability-services) and Barnard registration processes.
