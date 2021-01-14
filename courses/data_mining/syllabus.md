@@ -24,7 +24,7 @@ I reserve the right to change the ordering and the content for the course throug
 |Date|Topic|Reference|Due|
 |---|---|---|---|
 |2021-01-12|[Intro to data mining](https://docs.google.com/presentation/d/1LRXc0v-mawZdvVYDJQXQ7MuG2_dCCOH8c2sW4aCerMs/edit?usp=sharing)|slides 1||
-|2021-01-14|The rise of machine learning|slides 2|Have R installed|
+|2021-01-14|[The rise of machine learning](https://docs.google.com/presentation/d/17hPTelOmM_2OhsQnN1pEvUvf_p61rhyUVtSeNX_UHJc/edit?usp=sharing)|slides 2|Have [R](https://cran.rstudio.com/) installed|
 |2021-01-19|Using regression to explore the data - NYC salary|slides 3||
 |2021-01-21|Optimization and objective functions|Slide 5|[Homework 1](homeworks/hw1.md) Due|
 |2021-01-26|Beyond classification accuracy|Slides 6||
