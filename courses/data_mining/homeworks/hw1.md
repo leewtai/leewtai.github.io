@@ -30,7 +30,7 @@ Please plot the `close` price for VOO against the different weeks and overlay th
 
 
 #### Q3
-Please plot the residuals from the regression in Q2 against the price of GDXJ.
+Please plot the residuals from the regression in Q2 against the `close` price of GDXJ.
 - label your axes with units.
 - Your title should include the correlation value, rounded to the nearest hundredth.
 - Please show the code that demonstrates your decision on merging the 2 time series.
