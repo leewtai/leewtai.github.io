@@ -55,3 +55,5 @@ The documentation on `prob` within `?sample` is not entirely obvious. Please use
 `sample(c(1, 0), n, replace=TRUE, prob=c(3, 1))`
 
 then analyze the output to answer what does `prob` do? Please write the code and explain your answer. You should decide what sample sizes are reasonable.
+
+{% include lib/mathjax.html %}
