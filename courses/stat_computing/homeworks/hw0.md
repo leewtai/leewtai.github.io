@@ -5,7 +5,7 @@ is often used to calculate the "spread" in the data. Formally, for
 a collection of data points, $$y_1, \dots, y_n$$, the standard
 deviation is defined as:
 
-$$SD(y_1, \dots, y_n) = \sqrt{\sum_{i=1}^{n} (y_i - \bar{Y})^2}$$
+$$SD(y_1, \dots, y_n) = \sqrt{\frac{1}{n}\sum_{i=1}^{n} (y_i - \bar{Y})^2}$$
 
 where $$\bar{Y}$$ is the average of values $$\bar{Y}=\frac{1}{n}\sum_{i=1}^n y_i$$.
 
