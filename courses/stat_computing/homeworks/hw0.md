@@ -1,4 +1,4 @@
-# Homework 0 - Applied Statistical Computing
+# Homework 1 - Applied Statistical Computing
 
 In introductory statistics, a metric called the standard deviation
 is often used to calculate the "spread" in the data. Formally, for
