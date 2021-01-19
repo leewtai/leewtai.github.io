@@ -33,7 +33,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2021-02-04|feature engineering - with text||Homework 2 Due|
 |2021-02-09|Working with text data continued|||
 |2021-02-11|Ridge + Lasso Regression|Slides 9||
-|2021-02-16|Principal Component Analysis||Project 1 Due|
+|2021-02-16|Principal Component Analysis||[Project 1](homeworks/proj1.md) Due|
 |2021-02-18|Principal Component Analysis continued|Slides 10 + 17||
 |2021-02-23|Weather data revisited|||
 |2021-02-25|Weather data revisited|||
