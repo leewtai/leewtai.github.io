@@ -74,7 +74,8 @@ Lectures:
 Office Hours:
   - Wayne: by appointment via Google Invites
   - Andrew: Tu/Th 1-2pm on [Zoom](https://columbiauniversity.zoom.us/j/98205016672?pwd=NjJ1Y2JaRHRNK2syczg1YjNrNVhnUT09)
-  - Navid: TBD
+  - Navid: W 1:30-3:30pm on [Zoom](https://columbiauniversity.zoom.us/j/4838701880)
+      - Navid also has a [sign-up sheet](https://docs.google.com/spreadsheets/d/13a2S-viVBKrtIqSNZAbQRkpc5jxHJUO1SoKPlhHuMHg/edit#gid=0) to avoid overflow.
 
 ### Grading
 If your final grade is in [93-100], you will earn at least an A, [90-93) will earn at least an A-, [87-90) will earn at least a B+, etc. A grading curves may occur depending on the class performance but I will not curve downwards. I may not give out A+ in this class.
