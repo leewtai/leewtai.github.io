@@ -15,6 +15,10 @@ While the project is somewhat open-ended, your project must cover the following 
   - I recommend you to leverage the Socrata API that provides simple SQL capabilities against the databases. This allows you to trim down the dataset significantly before it hits your computer.
   - If you add other data sources to the project, you should do the same for each of them.
   - A description how you're comparing or combining the various datasets (e.g. merging by date and zip code?)
+- You must engineer a feature that does not already exist in the data
+  - This cannot be a linear combination of the other features, e.g. total pay is often sum of bonus plus base salary.
+  - Please explain your reasoning for creating this feature.
+  - Please discuss whether your feature was useful in your report.
 - Some visualizations of the data
   - One visualization must summary at least one of the key features of the data sources
   - One visualization must summarize or highlight the insight
