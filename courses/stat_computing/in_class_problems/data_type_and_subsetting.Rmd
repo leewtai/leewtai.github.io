@@ -1,0 +1,193 @@
+---
+title: "Fisher's ANOVA"
+author: "Wayne Lee"
+date: "1/20/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Did Fisher Write Reproducible Papers?
+
+For today's exercise, we'll try to reproduce one of the first papers by Fisher himself!
+Fisher wanted to test the effect of fertilizer type, fertilizer amount, and fertilizer timing in a single experiment. His data can be found on the original paper on Ed under the "Resources" tab, a file called `Fisher_ANCOVA.pdf`.
+We will try to reproduce his results while highlighting the importance of understanding your data types.
+
+### Problem 0: examine the data types
+
+Someone has entered the data from the paper for us in `/course/data/fisher_1927_straw.csv`, we will read in the data for you for now.
+
+Please answer the following questions:
+- How many rows and columns are in the dataset?
+- What data type does each column have?
+- Please use head() on the data to see the first 3 rows of data.
+- Sanity check, does the data match the numbers from the paper?
+
+```{r p0}
+block_data <- read.csv("~/Downloads/fisher_1927_straw.csv.csv")
+
+```
+
+### Problem 1: Completing the treatment information
+
+The data is incomplete because the data frame above does not have the treatment information.
+- Fertilizer amount: 0, 1, or 2 applications.
+- Fertilizer type: "M" for muriate, and "S" for sulphate.
+- Fertilizer timing: "E" for early and "L" for late.
+
+We will walk you through each step below to highlight different operations and data types.
+
+#### Problem 1.0
+
+- Please create a vector called `f_amount` as shown in the paper (same order).
+- What is the data type for this vector?
+
+```{r p1.0}
+# Hint, rep() could prove useful
+f_amount <- rep(0:2, each=4)
+class(f_amount)
+typeof(f_amount)
+rep(1:3, 3)
+rep(1:3, each=3)
+demo <- c(1, 2.2)
+class(demo)
+typeof(demo)
+# Vectors can only have one data type!
+demo <- c(1, 2, "3,1")
+
+```
+
+#### Problem 1.1, two different ways to subset
+
+A student wanted to replicate the method above to create the `f_timing` vector but noticed that the first 4 values are incorrect.
+- What is the data type of the existing wrong solution?
+- Decide how you want to encode the timing corresponding to "0" fertilizer.
+  - Method 1: use subsetting via numerical vectors (e.g. `1:2`) to replace the values corresponding to "0" fertilizer into the value you decided above.
+  - Method 2: use subsetting via boolean vectors to replace the values corresponding to "0" fertilizer into the value you decided above.
+    - hint: `has_no_fert <- f_amount == 0`
+- Did your subsetting above change the data type of `f_timing`?
+
+```{r}
+# WRONG solution:
+f_timing <- rep(c("E", "L"), 6)
+f_timing
+typeof(f_timing)
+
+missing_timing <- ""
+f_timing[1:4] <- missing_timing
+f_timing
+
+f_timing <- rep(c("E", "L"), 6)
+has_no_fert <- f_amount == 0
+f_timing[has_no_fert] <- missing_timing
+```
+
+```{r meth1}
+
+```
+
+```{r meth2}
+f_timing <- rep(c("E", "L"), 6)
+
+
+```
+
+#### Problem 1.1.0 Treating `[ ]` as a function
+
+- In the example above, if `[]` was a function, in the example above, what were the inputs?
+# vectors!
+- Were the data types of your inputs the same across the 2 methods?
+- Were the sizes of your inputs the same across the 2 methods?
+  - 4
+  - same length as `f_amount`
+- Given your answers above:
+  - Can we pass different data types to the same argument within a function?
+  - If you converted `has_no_fert` to a numeric vector (e.g. `as.numeric()`), then performed the same subsetting operation, what would happen? Please explain the difference.
+
+Please type out your answer here:
+
+
+#### Problem 1.2
+
+- Using `rep()`, please create `f_type` as shown in the paper.
+- Please handle the case with "0" fertilizer the same way as you treated it above.
+
+```{r}
+x <- rep(c("S", "M"), each=2)
+f_type <- rep(x, 3)
+f_type[has_no_fert] <- NA
+```
+
+#### Problem 1.3
+
+- Please add your created vectors into the original data frame using `data.frame(f_type, block_data)`, what error do you see?
+- Why is this happening?
+
+```{r}
+df <- data.frame(f_amount, f_type, f_timing, block_data)
+```
+
+
+#### Problem 1.4 - subsetting
+- Please extract the `block_totals` from `block_data` using:
+  - Using subsetting 
+  - Using `tail()`
+- What is the data type of `block_totals` from above? Why is this the case?
+- Please extract the `treatment_totals` from `block_data` using:
+  - Using subsetting via a numerical vector
+  - Using subsetting via a boolean vector, hint: `start_with_block <- grepl("^block", names(block_data))`
+- What is the data type of `treatment_totals` from above? Why is this the case?
+- Please extract the `yields` from `block_data` using subsetting (this should not have **any** aggregate values.
+  - Try subsetting for rows first, then subsetting by columns by sequentially calling `[ ]`
+  - Try subsetting for rows and columns with one call to `[ ]`
+    - Using nuermical vectors
+    - Using boolean vectors, hint: try creating a boolean from the `treatment_totals`
+- Please verify that the outcomes are the same across the 3 ways of generating `yields`
+```{r}
+block_totals <- block_data[13, ]
+block_totals <- tail(block_data, 1)
+```
+
+
+#### Problem 1.5 - different ways of adding variables
+- Please add the treatments into the `yields` data now by
+  - Trying once again, using `data.frame()` for adding `f_type`.
+  - Try assigning a column that doesn't exist, e.g. `yields[, "row_ind"] <- 1:12`, for adding `f_timing`.
+  - Try assigning a column that doesn't exist using `[[]]`, e.g. `yields[['row_index']] <- 1:12` for adding `f_amount`.
+- Look at the ordering of the new columns
+- Which of the methods above, when applied twice, will not affect the outcome? Why might this property be desirable?
+
+```{r}
+
+```
+
+
+
+#### Problem 1.6 - data types is about memory footprint
+- Try to replicate `f_type` 1000 times and check its memory size as a character. What if we only replicated it 10 times?
+- Try to convert your replicated data above into a factor then check its memory size once again, hint `as.factor()`
+- From what you observed above, are characters or factors more memory efficient?
+
+
+#### Problem 2.0
+- Using `yields`, please recompute the block totals and treatment totals:
+  - hint: `rowSums()` and `colSums()`
+- Do your values agree with the values from the paper?
+  - Where did the error occur and how would you fix it?
+  - Please fix the data according to your observation above.
+
+
+#### Problem 2.1
+
+In Table 3, the row that indicates "Late - Early" is the result from totalling the records that are late and subtracting the total across all early records. A similar logic applies to the other treatments as well.
+Please verify if these are calculated correctly using subsetting.
+
+
+#### Problems 3 Problems with Google Sheets or Excel
+
+Please visit this [World Bank data repository](https://data.worldbank.org/indicator/NV.AGR.EMPL.KD).
+- Download this data as a CSV and try to open it using the same function we opened `fisher_1927_straw.csv`. What error do you see?
+- Now upload this file to Google Drive, make **NO** modifications, then re-download it as a "CSV" with a different name from your Google Drive or Excel.
+- Try to read the CSV again, what happened? Is this a feature or a bug?
