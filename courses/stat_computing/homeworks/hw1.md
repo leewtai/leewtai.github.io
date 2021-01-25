@@ -1,4 +1,4 @@
-# HW1 - Basic data manipulation
+# HW2 - Basic data manipulation
 
 Before we calculate the final grades, we often normalize different categories like homework, exams,
 participation, etc. This requires subsetting and aggregating data that is common across most data
