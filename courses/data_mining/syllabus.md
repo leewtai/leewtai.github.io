@@ -43,7 +43,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2021-03-11|Splines vs Local Regression|Slides 11|Homework 3 Due|
 |2021-03-16|Regression Trees and random forests|Slides 13||
 |2021-03-18|Variable importance revisited|||
-|2021-03-23|Support Vector Machine|Project 2 Due||
+|2021-03-23|Support Vector Machine|[Project 2](homeworks/proj2.md) Due||
 |2021-03-25|Clustering|||
 |2021-03-30|k-Means |||
 |2021-04-01|Hierarchical clustering||Homework 4 Due|
