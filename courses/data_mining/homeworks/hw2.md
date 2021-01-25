@@ -30,7 +30,7 @@ report `25%`.
 #### Q2 Expectations
 Please articulate your expectations for the correlation matrix given the 2 party system.
 - What's its dimension?
-- How many modes do you expect to see?
+- How many modes do you expect to see in the distribution of correlation values?
 - Where will the correlation values center?
 
 #### Q3 Mining with correlations
