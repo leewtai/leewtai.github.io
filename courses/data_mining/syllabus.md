@@ -27,7 +27,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2021-01-14|[The rise of machine learning](https://docs.google.com/presentation/d/17hPTelOmM_2OhsQnN1pEvUvf_p61rhyUVtSeNX_UHJc/edit?usp=sharing)|slides 2 + ISL Chapter 2.2|Have [R](https://cran.rstudio.com/) installed|
 |2021-01-19|[Using regression to explore the data - NYC salary](https://docs.google.com/presentation/d/1RweE3ajD5pGn-FnPp-0tf_0iMWRHlMzUaTpp4utvmN8/edit?usp=sharing)|slides 3 + [Paper on Why Biased Estimators given Stein Estimator + Gauss Markov Theorem](https://www.jstor.org/stable/1268284?seq=1#metadata_info_tab_contents) + ISL Chapter 2.2 continued||
 |2021-01-21|[Optimization and objective functions](https://docs.google.com/presentation/d/1RKi4H1kxhtwPyP6l1lTSFTAYjDHeE7umpvkc8cMD4F4/edit?usp=sharing)|Slide 5 + ISL Chapter 3.1.1 + 3.3.3|[Homework 1](homeworks/hw1.md) Due|
-|2021-01-26|Beyond classification accuracy|Slides 6||
+|2021-01-26|[Beyond classification accuracy](https://docs.google.com/presentation/d/1Dff7Et1pejUNyRzdyXwjDvoqCK9OGTq2RDODVUUZYPU/edit?usp=sharing)|Slides 6||
 |2021-01-28|Resampling techniques - accuracy vs robustness|Slides 7|- Read paper on [Stability](https://arxiv.org/abs/1310.0150)|
 |2021-02-02|Automated Model Selection|Slides 7||
 |2021-02-04|feature engineering - with text||[Homework 2](homeworks/hw2.md) Due|
@@ -43,7 +43,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2021-03-11|Splines vs Local Regression|Slides 11|Homework 3 Due|
 |2021-03-16|Regression Trees and random forests|Slides 13||
 |2021-03-18|Variable importance revisited|||
-|2021-03-23|Support Vector Machine|[Project 2](homeworks/proj2.md) Due||
+|2021-03-23|Support Vector Machine||[Project 2](homeworks/proj2.md) Due|
 |2021-03-25|Clustering|||
 |2021-03-30|k-Means |||
 |2021-04-01|Hierarchical clustering||Homework 4 Due|
