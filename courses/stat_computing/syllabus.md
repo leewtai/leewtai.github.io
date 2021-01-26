@@ -42,7 +42,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2021-01-28|- [Writing functions in R](lectures/lec2/writing_functions_in_R.md)|[Scope](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_debug.html)|[Homework 1](homeworks/hw0.md) Due|
 |2021-02-02|- [Data visualization - baseR](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_data_viz.html)|Text 7.1.1 + 7.1*||
 |2021-02-04|- [if/else](lectures/learning_r_data_wrangle.md)|||
-|2021-02-09|Review session||Homework 2 Due|
+|2021-02-09|Review session||[Homework 2](homeworks/hw1.md) Due|
 |2021-02-11|Take-Home Midterm 1|||
 |2021-02-16|[Joins](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_data_wrangle.html)|||
 |2021-02-18|[Lists](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_data_wrangle.html)|Text 5||
