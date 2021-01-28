@@ -28,7 +28,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2021-01-19|[Using regression to explore the data - NYC salary](https://docs.google.com/presentation/d/1RweE3ajD5pGn-FnPp-0tf_0iMWRHlMzUaTpp4utvmN8/edit?usp=sharing)|slides 3 + [Paper on Why Biased Estimators given Stein Estimator + Gauss Markov Theorem](https://www.jstor.org/stable/1268284?seq=1#metadata_info_tab_contents) + ISL Chapter 2.2 continued||
 |2021-01-21|[Optimization and objective functions](https://docs.google.com/presentation/d/1RKi4H1kxhtwPyP6l1lTSFTAYjDHeE7umpvkc8cMD4F4/edit?usp=sharing)|Slide 5 + ISL Chapter 3.1.1 + 3.3.3|[Homework 1](homeworks/hw1.md) Due|
 |2021-01-26|[Beyond classification accuracy](https://docs.google.com/presentation/d/1Dff7Et1pejUNyRzdyXwjDvoqCK9OGTq2RDODVUUZYPU/edit?usp=sharing)|Slides 6||
-|2021-01-28|Resampling techniques - accuracy vs robustness|Slides 7|- Read paper on [Stability](https://arxiv.org/abs/1310.0150)|
+|2021-01-28|[Resampling techniques - accuracy vs robustness](https://docs.google.com/presentation/d/1dEpri9RjpqPSop5SBNv-TneoO0QYKMcyS0E5SEgueoQ/edit?usp=sharing)|Slides 7|- Read paper on [Stability](https://arxiv.org/abs/1310.0150)|
 |2021-02-02|Automated Model Selection|Slides 7||
 |2021-02-04|feature engineering - with text||[Homework 2](homeworks/hw2.md) Due|
 |2021-02-09|Working with text data continued|||
