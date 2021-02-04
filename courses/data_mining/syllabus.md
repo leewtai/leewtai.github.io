@@ -86,7 +86,8 @@ If your final grade is in [93-100], you will earn at least an A, [90-93) will ea
 - A modeling course that estimated parameters from data
 
 ### Textbooks / References
-[An Introduction to Statistical Learning with Applications in R](https://link.springer.com/book/10.1007%2F978-1-4614-7138-7) by Gareth James, Daniela Witten, Trevor Hastie, and Robert Tibshirani
+- [An Introduction to Statistical Learning with Applications in R](https://link.springer.com/book/10.1007%2F978-1-4614-7138-7) by Gareth James, Daniela Witten, Trevor Hastie, and Robert Tibshirani
+- To collaborate on coding projects, here's a bare minimum [GitHub tutorial](https://leewtai.github.io/setup/git_for_beginniners.html). If you ever work officially with code, you should also look into the concept of branches and reviews which are not covered in the tutorial.
 
 ### Acknowledgement
 A lot of these materials are based off the materials from Prof Thibault Vatter and Prof Gabriel Young.
