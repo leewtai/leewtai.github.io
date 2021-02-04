@@ -31,16 +31,16 @@ This document will simply go over:
 - Please choose "Create a New Repository on your Hard Drive"
   - A repository is like a folder for all the code related to this project
 - You should choose a folder to place your code in with a reasonable name, this likely is different from your class folder (or a sub-folder of your class folder) because everything in this folder will be shared with your teammate.
-  <img src="images/create_new_repo_on_disk.png" alt="GitHub Desktop Create folder" width='600'>
+  <img src="images/create_new_repo_on_disk.png" alt="GitHub Desktop Create folder" width='400'>
 - Move your code into this folder
   <img src="images/move_code_to_folder.png" alt="GitHub Desktop Create folder" width='600'>
 - You should notice that your GitHub Desktop has recognized the new file
   <img src="images/new_code_in_repo.png" alt="New Code in Git Folder" width='600'>
 - At the left bottom corner, you must type in a comment that will inform your teammate what this new code is about. 
-  <img src="images/git_comment.png" alt="Leaving a git comment" width='600'>
+  <img src="images/git_comment.png" alt="Leaving a git comment" width='250'>
 - Then hit "Commit to Main", this is like a "Save" button for Git on your computer, i.e. Git will keep track of these changes now and the record is tracked on your computer, not on the internet yet.
 - Then choose "Publish Repository", this is the "Save" button for the Git on GitHub.
-  <img src="images/init_publish.png" alt="initial publish" width='600'>
+  <img src="images/init_publish.png" alt="initial publish" width='500'>
 - On your GitHub Homepage, you should see your repository on the left
   <img src="images/github_home.png" alt="Github Home" width='400'>
 - Click on the repository, then look for settings on the top right
