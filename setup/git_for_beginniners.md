@@ -68,8 +68,9 @@ This document will simply go over:
   <img src="images/git_conflict.png" alt="Git conflict" width='400'>
 - You should fetch the changes made by your teammate.
   - Git will try to "merge" your code automatically first. So if you were editing different lines of code, Git should know what to do.
-  - If you happen to edit the same lines, then a **conflict** has happened and humans are needed to resolve the issue. If you look back at the file, you may see some notes from Git on your file. Simply remove the markers and combine the two changes that is most sensible. THIS is why you do not want to wait until you've made drastic changes to commit your code. Incremental changes are much easier to follow.
+  - If you happen to edit the same lines, then a **conflict** has happened and humans are needed to resolve the issue. If you look back at the file, you may see some notes from Git on your file. 
     <img src="images/git_conflict_on_file.png" alt="Git conflict on file" width='400'>
+    Simply remove the markers and combine the two changes that is most sensible. THIS is why you do not want to wait until you've made drastic changes to commit your code. Incremental changes are much easier to follow.
     <img src="images/resolved_git_conflict_on_file.png" alt="resolved Git conflict on file" width='400'>
 - Removing the markers should trigger your GitHub Desktop to notice that conflicts have been resolved.
   <img src="images/commit_resolution.png" alt="resolved Git conflict on file" width='400'>
