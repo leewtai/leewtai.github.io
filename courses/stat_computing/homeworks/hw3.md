@@ -1,4 +1,4 @@
-# HW3 - More programming with statistics
+# Homework 3 - random variables ARE functions
 
 #### Context: modeling data with random variables
 In your introductory statistics course, you likely came across probability distributions.
@@ -25,6 +25,7 @@ relate to summary statistics like the mean and variance of those distributions.
   `n` random samples with the specified mean and SD.
   - The default mean should be 0 and default SD should be 1
   - You should write this functin leveraging `runif()`
+  - The SD is simply square-root of the variance.
 - Please draw 1000 samples from `new_runif()` and `rnorm()` with the same mean and SD then plot their histograms.
   - The histograms can be 2 different plots. If you know what a density is, you could also try to overlay the
     density plots, try `plot(density(SOME_DATA))`
