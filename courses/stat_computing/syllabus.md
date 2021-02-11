@@ -46,7 +46,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2021-02-11|Take-Home Midterm 1|||
 |2021-02-16|[Joins](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_data_wrangle.html)|||
 |2021-02-18|[Lists](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_data_wrangle.html)|Text 5||
-|2021-02-23|[*apply functions and vectorized calculations](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_summarize.html)||Homework 3|
+|2021-02-23|[*apply functions and vectorized calculations](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_summarize.html)||[Homework 3](homeworks/hw3.md)|
 |2021-02-25|More practice on data wrangling|||
 |2021-03-02|Spring Recess No Class|||
 |2021-03-04|Spring Recess No Class|||
