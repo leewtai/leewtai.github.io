@@ -9,7 +9,7 @@ You should write this report treating your peers as your target audience.
 
 While the project is somewhat open-ended, your project must cover the following requirements:
 - A description of the your data collection and various downstream processes.
-  - This should include how your initial data pull is different from the entire dataset. This is necessarily a subset becaues downloading "all data" is in general a bad practice. Multiple attempts is encouraged but please document your decision processes.
+  - This should include how your initial data pull is different from the entire dataset. This is necessarily a subset because downloading "all data" is in general a bad practice. Multiple attempts is encouraged but please document your decision processes.
   - From your data pull to your analysis, any data processing like handling missing values, summarizing data across regions or time periods, filtering out bad data points, recoding titles, etc should also be documented.
   - Who was mainly responsible for which dataset.
   - I recommend you to leverage the Socrata API that provides simple SQL capabilities against the databases. This allows you to trim down the dataset significantly before it hits your computer.
