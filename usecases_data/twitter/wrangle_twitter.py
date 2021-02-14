@@ -1,3 +1,4 @@
+from itertools import product
 from csv import QUOTE_NONNUMERIC
 from collections import Counter
 from pathlib import Path
@@ -75,6 +76,51 @@ for tweet in sans_retweet:
 
 df = pd.DataFrame(records)
 df.fillna(value=0, inplace=True)
+
+
+# Combine similar terms
+def calc_bigrams(s):
+    s = re.sub("[^a-z0-9]+", "", s)
+    s = '^{}$'.format(s.strip())
+    grams = [s[i:(i+2)] for i in range(len(s)-1)]
+    return Counter(grams)
+
+
+def cos_sim(t1, t2):
+    bgs = [calc_bigrams(t) for t in [t1, t2]]
+    inner_prod = 0
+    mag0 = 0
+    mag1 = 0
+    for bg in (bgs[0] | bgs[1]):
+        c0 = bgs[0].get(bg, 0)
+        c1 = bgs[1].get(bg, 0)
+        inner_prod += c0 * c1
+        mag0 += c0**2
+        mag1 += c1**2
+
+    return inner_prod / (mag0**0.5 * mag1**0.5)
+
+
+non_tokens = ['retweet_count', 'reply_count', 'like_count', 'created_at',
+              'tweet_body']
+toss_outs = []
+for t1 in df.columns:
+    # we remove duplicates in place later
+    if t1 not in df.columns or t1 in non_tokens:
+        continue
+    t2s = df.columns
+    for t2 in t2s:
+        if len(t1) < 5 or len(t2) < 5:
+            continue
+        if t2 in non_tokens:
+            continue
+        if t1 == t2:
+            continue
+        if cos_sim(t1, t2) < 0.8:
+            continue
+        df.loc[:, t1] += df.loc[:, t2]
+        df.drop(columns=[t2], inplace=True)
+
 non_zero = df.apply(lambda x: (x != 0).sum(), 0)
 sdf = df.loc[:, non_zero > 50]
 sdf.to_csv("non_retweets_dc_inaug_steal.csv", index=False,
