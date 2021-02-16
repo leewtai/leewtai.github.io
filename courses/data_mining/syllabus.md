@@ -33,8 +33,8 @@ I reserve the right to change the ordering and the content for the course throug
 |2021-02-04|[feature engineering - with text](https://docs.google.com/presentation/d/1BzfHDaGuvM2Vv6Vbi8YF55ZjzFAYFCcaAGcjpl9XkPE/edit?usp=sharing)|[Pre-processing Text](https://www.cambridge.org/core/journals/political-analysis/article/text-preprocessing-for-unsupervised-learning-why-it-matters-when-it-misleads-and-what-to-do-about-it/AA7D4DE0AA6AB208502515AE3EC6989E) + [Speech and Language Chapter 6.5](https://web.stanford.edu/~jurafsky/slp3/) |[Homework 2](homeworks/hw2.md) Due|
 |2021-02-09|Working with text data continued|||
 |2021-02-11|[Ridge + Lasso Regression](https://docs.google.com/presentation/d/1W_xNZ5aty4V8sGnc9nBpeVlfY4ws0tkH-fZGm2kngfI/edit?usp=sharing)|Slides 9 + ISL 6.2||
-|2021-02-16|Principal Component Analysis||[Project 1](homeworks/proj1.md) Due|
-|2021-02-18|Principal Component Analysis continued|Slides 10 + 17||
+|2021-02-16|[Ridge + Lasso Simulations](https://docs.google.com/presentation/d/1yktXlOcSGVHkoPBFiqkE1KiWk4aZ8gNzAAbXG4ixl64/edit?usp=sharing)||[Project 1](homeworks/proj1.md) Due|
+|2021-02-18|Principal Component Analysis|Slides 10 + 17||
 |2021-02-23|Weather data revisited|||
 |2021-02-25|Weather data revisited|||
 |2021-03-02|Spring Break|||
