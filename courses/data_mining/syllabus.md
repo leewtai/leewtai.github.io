@@ -39,7 +39,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2021-02-25|Weather data revisited|||
 |2021-03-02|Spring Break|||
 |2021-03-04|Spring Break|||
-|2021-03-09|Splines|Slides 11|Homework 3 Due|
+|2021-03-09|Splines|Slides 11|[Homework 3](homeworks/hw3.md) Due|
 |2021-03-11|Splines vs Local Regression|Slides 11||
 |2021-03-16|Regression Trees and random forests|Slides 13||
 |2021-03-18|Variable importance revisited|||
