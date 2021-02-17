@@ -85,5 +85,12 @@ Please plot the distribution of the coefficients.
 ## Question 4
 Please list out the top tokens corresponding to the strongest non-zero coefficients.
 
-Side comment: If you are not or were not an American, what do these tokens and their coefficients
-suggest about inauguration?
+Side comment: If you are not an American, what do these tokens and their coefficients
+suggest about the inauguration?
+
+
+## Question 5
+Please write a function that represents the objective function for Ridge regression, i.e. your function should take in a vector of coefficients, a matrix X, and a vector Y and return a real number.
+- Please make sure you fit an intercept within the function but do not include the intercept in your regularization term for the objective.
+- Please add an additional argument called `shrink_target` that allows us to change the shrinkage of the coefficients to arbitrary vector.
+  - Please make sure you set the default for this argument to align with the usual Ridge regression.
