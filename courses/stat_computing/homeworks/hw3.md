@@ -92,8 +92,8 @@ By demonstrate, we mean that the sample averages will follow a bell curve and th
 You are expected to leverage your function from Q1.
 
 Please demonstrate the CLT works by showing the following:
-- Choose an appropriate sample size, `n`, where samples from the Gaussian mixture can produce histograms that clearly show the bimodal pattern (e.g. `n > 10`). Please plot the histogram with your sample size in the title of the graph.
-- (this is worded intentionally more statistically) Please simulate 2500 different **sample averages** for the sample size you chose above and plot the distribution of the **sample averages**.
+- Choose an appropriate sample size, `n`, i.e. samples from the Gaussian mixture with this sample size can produce histograms that clearly show the bimodal pattern (e.g. `n > 10`). Please plot the histogram with your sample size in the title of the graph.
+- (this is worded intentionally more statistically) Please simulate 2500 different **sample averages** for the sample size you chose above and plot the distribution of the **sample averages**. These different sample averages should be based on data drawn from different calls to `rgaussmix`.
 - Now please repeat the step above but draw `10*n` data points. Please make sure the new plot is comparable to the previous one, e.g. if I hid the tick marks, the distribution with the larger sample size should have a visibly tighter distribution.
   - You should not hide the tick marks!
 
