@@ -94,3 +94,15 @@ Please write a function that represents the objective function for Ridge regress
 - Please make sure you fit an intercept within the function but do not include the intercept in your regularization term for the objective.
 - Please add an additional argument called `shrink_target` that allows us to change the shrinkage of the coefficients to arbitrary vector.
   - Please make sure you set the default for this argument to align with the usual Ridge regression.
+
+## Question 6
+Please perform PCA on the token frequencies without normalizing.
+- Plot the eigenvalues in order (not the cumulative eigenvalues) of their magnitude, how many components might have interesting features. There are many correct answers but also many wrong answers here depending on your plot.
+- Analyze the loadings from the first 2 components, do they seem meaningful to you given the dataset?
+  - if yes, what key tokens are associated with these 2 components and why do they carry meaning?
+  - if no, how could you modify the token frequencies to get more meaningful principle components?
+
+Side comment (things to think about):
+- what would you do after identifying the components?
+- again, if you were not involved in American politics, how would you have done some of these steps?
+- Twitter data is not like normal language, e.g. people do not use complete sentences. How might this look if we had journal articles?
