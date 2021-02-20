@@ -37,7 +37,10 @@ Side Note:
 #### Q1 Creating a multi-modal random variable
 A difficult type of data to describe are datasets with multiple modes or peaks in their distribution.
 Height across men and women is one such example. One popular probability distribution to describe
-such data is the mixture gaussian distribution. 
+such data is the mixture gaussian distribution which models the different peaks as different Normal
+distributions overlayed on one another. For example, the height for men and women each have their
+own Normal distribution, with different means and SDs, which creates two different peaks when you
+put the data together.
 
 Please write a function `rgaussmix()` that can generate samples from a mixture gaussian distribution.
 The inputs (in order) should be:
