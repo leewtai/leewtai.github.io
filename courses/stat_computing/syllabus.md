@@ -50,7 +50,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2021-02-25|More practice on data wrangling|||
 |2021-03-02|Spring Recess No Class|||
 |2021-03-04|Spring Recess No Class|||
-|2021-03-09|[Entering tidyverse with Data Visualization ggplot() and `%>%`](https://us.edstem.org/courses/181/lessons/882/slides/4088)<br> ggplot video on [Vimeo](https://vimeo.com/409003549) and [優酷](https://v.youku.com/v_show/id_XNDYzNjk0MDAzNg==.html) <br> `%>%` operator video on [Vimeo](https://vimeo.com/409003734) and [優酷](https://v.youku.com/v_show/id_XNDYzNjkzOTY5Mg==.html)|[Online Tutorials](http://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html)|Homework 4|
+|2021-03-09|[Entering tidyverse with Data Visualization ggplot() and `%>%`](https://us.edstem.org/courses/181/lessons/882/slides/4088)<br> ggplot video on [Vimeo](https://vimeo.com/409003549) and [優酷](https://v.youku.com/v_show/id_XNDYzNjk0MDAzNg==.html) <br> `%>%` operator video on [Vimeo](https://vimeo.com/409003734) and [優酷](https://v.youku.com/v_show/id_XNDYzNjkzOTY5Mg==.html)|[Online Tutorials](http://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html)|[Homework 4](homeworks/hw4.md)|
 |2021-03-11|[Working with text](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_text_manipulation.html)|||
 |2021-03-16|[Working with text continued](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_text_manipulation.html)|||
 |2021-03-18|[Reading in different types of data](https://us.edstem.org/courses/181/lessons/870/slides/3962) and [lec-vimeo](https://vimeo.com/399962856) or [lec-優酷](https://v.youku.com/v_show/id_XNDYwMTQ5ODUyOA==.html)|||
