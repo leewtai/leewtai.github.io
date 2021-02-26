@@ -5,6 +5,7 @@ import pandas as pd
 import numpy as np
 
 csvs = glob('data/csvs/*tmax.csv')
+meta = pd.read_csv("data/csvs/station_metadata.csv")
 
 
 def process_csvs(csv):
