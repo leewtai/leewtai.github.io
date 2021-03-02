@@ -52,7 +52,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2021-04-13|TBD||Homework 5 Due|
 |2021-04-15|TBD|||
 |2021-04-20|TBD|||
-|2021-04-22|TBD|Project 3 Due||
+|2021-04-22|TBD|[Project 3](homeworks/proj3.md) Due||
 
 
 ### Logistics
