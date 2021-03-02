@@ -29,7 +29,7 @@ Your report should include:
 - How you decided to tackle the problem
   - This process should have tested if Term Frequency Inverse Document Frequency (tf-idf) provides
     useful information.
-  - Your process is likely a multi-stage proecss instead of a single model but this can be subjective
+  - Your process is likely a multi-stage process instead of a single model but this can be subjective
   - A peer outside of the class should be able to follow your steps according to these instructions and find recommendations for their resume.
 - How you validated the method is providing both **good** and **diverse** recommendations:
   - This should include a formal metric for both "good" and "diverse"
