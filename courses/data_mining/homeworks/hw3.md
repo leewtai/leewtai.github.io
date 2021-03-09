@@ -90,7 +90,7 @@ suggest about the inauguration?
 
 
 ## Question 5
-Please write a function that represents the objective function for Ridge regression, i.e. your function should take in a vector of coefficients, a matrix X, and a vector Y and return a real number.
+Please write a function that represents the objective function for Ridge regression, i.e. your function should take in a vector of coefficients, a matrix X, a vector Y, and a real number `lambda` then return a real number.
 - Please make sure you fit an intercept within the function but do not include the intercept in your regularization term for the objective.
 - Please add an additional argument called `shrink_target` that allows us to change the shrinkage of the coefficients to arbitrary vector.
   - Please make sure you set the default for this argument to align with the usual Ridge regression.
