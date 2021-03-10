@@ -34,13 +34,13 @@ I reserve the right to change the ordering and the content for the course throug
 |2021-02-09|Working with text data continued|||
 |2021-02-11|[Ridge + Lasso Regression](https://docs.google.com/presentation/d/1W_xNZ5aty4V8sGnc9nBpeVlfY4ws0tkH-fZGm2kngfI/edit?usp=sharing)|Slides 9 + ISL 6.2||
 |2021-02-16|[Ridge + Lasso Simulations](https://docs.google.com/presentation/d/1yktXlOcSGVHkoPBFiqkE1KiWk4aZ8gNzAAbXG4ixl64/edit?usp=sharing)||[Project 1](homeworks/proj1.md) Due|
-|2021-02-18|[Principal Component Analysis](https://docs.google.com/presentation/d/19C31WjmOkdca-Nm4LBn5rLLadH138BESV4F_gyXgON8/edit?usp=sharing)|Slides 10 + 17 + ISL 6.3.1||
-|2021-02-23|[Principal Component Analysis Applications](https://docs.google.com/presentation/d/11zK6jm80L31-PD224GfPAIa9n8jXYxKVoMF1aRkGINk/edit?usp=sharing)|ISL 6.3.1||
+|2021-02-18|[Principal Component Analysis](https://docs.google.com/presentation/d/19C31WjmOkdca-Nm4LBn5rLLadH138BESV4F_gyXgON8/edit?usp=sharing)|Slides 10 + 17 + ISL 6.3.1 + ISL 10.2||
+|2021-02-23|[Principal Component Analysis Applications](https://docs.google.com/presentation/d/11zK6jm80L31-PD224GfPAIa9n8jXYxKVoMF1aRkGINk/edit?usp=sharing)|ISL 6.3.1 + ISL 10.2||
 |2021-02-25|Linear Methods wrap-up|||
 |2021-03-02|Spring Break|||
 |2021-03-04|Spring Break|||
-|2021-03-09|Splines|Slides 11||
-|2021-03-11|Splines vs Local Regression|Slides 11|[Homework 3](homeworks/hw3.md) Due|
+|2021-03-09|[Clustering - Kmeans](https://docs.google.com/presentation/d/1DoWbNOEZGeZkNr4wb9u198GlnS45rxWFoaOwEvMPn-E/edit?usp=sharing)|ISL 10.2||
+|2021-03-11|Clustering - Kmeans continued|Slides 11|[Homework 3](homeworks/hw3.md) Due|
 |2021-03-16|Regression Trees and random forests|Slides 13||
 |2021-03-18|Variable importance revisited|||
 |2021-03-23|Support Vector Machine||[Project 2](homeworks/proj2.md) Due|
