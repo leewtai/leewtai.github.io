@@ -54,7 +54,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2021-03-11|[Working with text](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_text_manipulation.html)|||
 |2021-03-16|[Working with text continued](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_text_manipulation.html)|||
 |2021-03-18|[Reading in different types of data](https://us.edstem.org/courses/181/lessons/870/slides/3962) and [lec-vimeo](https://vimeo.com/399962856) or [lec-優酷](https://v.youku.com/v_show/id_XNDYwMTQ5ODUyOA==.html)|||
-|2021-03-23|Review session||[Homework 5](homework/hw5.md)|
+|2021-03-23|Review session||[Homework 5](homeworks/hw5.md)|
 |2021-03-25|Take-Home Midterm 2|||
 |2021-03-30|[Scraping](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_scraping_and_api.html) with [vimeo lectures](https://vimeo.com/404714829) and [優酷 lecture](https://v.youku.com/v_show/id_XNDYyMTU3MDg0MA==.html)|||
 |2021-04-01|[API Calls](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_scraping_and_api.html) with [vimeo lecture](https://vimeo.com/404715597) and [優酷 lecture](https://v.youku.com/v_show/id_XNDYyMTU3MDQ1Ng==.html)|||
