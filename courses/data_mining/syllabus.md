@@ -40,7 +40,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2021-03-02|Spring Break|||
 |2021-03-04|Spring Break|||
 |2021-03-09|[Clustering - Kmeans](https://docs.google.com/presentation/d/1DoWbNOEZGeZkNr4wb9u198GlnS45rxWFoaOwEvMPn-E/edit?usp=sharing)|ISL 10.2||
-|2021-03-11|Clustering - Kmeans continued|Slides 11|[Homework 3](homeworks/hw3.md) Due|
+|2021-03-11|[Clustering - Kmeans continued](https://docs.google.com/presentation/d/1RAzfwkMSzoEgLT8hYw0zL7KxCAM4jnjbCyxZgb84QxU/edit?usp=sharing)|ISL 10.2|[Homework 3](homeworks/hw3.md) Due|
 |2021-03-16|Regression Trees and random forests|Slides 13||
 |2021-03-18|Variable importance revisited|||
 |2021-03-23|Support Vector Machine||[Project 2](homeworks/proj2.md) Due|
