@@ -21,6 +21,8 @@ you may have achieved alignment but missed the objective of diversity.
 The data can be found on CourseWorks. This is scraped from [Indeed.com](https://www.indeed.com)
 using different job titles but focused in New York and full-time positions.
 
+You must have at least 2 people on your team for this project.
+
 Your report should include:
 - An introduction and conclusion
 - Please summarize the data and any data processing you have done before executing your approach.
