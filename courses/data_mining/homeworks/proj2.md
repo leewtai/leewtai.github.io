@@ -8,7 +8,7 @@ like given their age, gender, location, and past selections where a stylist make
 the final choices (e.g. Stitchfix does something like this internally).
 
 The goal of this project is for you to perform data mining on text data through
-a human-in-the-loop model.
+a human-in-the-loop process.
 In particular, you are asked to mine through job descriptions to identify the
 top 3 job descriptions with respect to a given resume. The motivating example is to
 assist a student through thousands of job descriptions without asking them to read every
@@ -31,9 +31,17 @@ Your report should include:
     useful information.
   - Your process is likely a multi-stage process instead of a single model but this can be subjective
   - A peer outside of the class should be able to follow your steps according to these instructions and find recommendations for their resume.
+  - The word "process" is used because this is NOT meant to be fully automatic, i.e. you give a resume pdf then you output 3 job descriptions.
+    Human-in-the-loop implies that there may be several checkpoints where a human intervens with the process. But this should be greatly 
+    facilitated by algorithms.
 - How you validated the method is providing both **good** and **diverse** recommendations:
   - This should include a formal metric for both "good" and "diverse"
+    - Your report should demonstrate, either through graphs, examples, or metrics how these metrics are performing.
   - You must validate the recommendations given your resume(s) so your report necessarily includes your resume
     - You should include a few intentionally bad and/or good job descriptions and show how your approach
       prioritized or deprioritized these jobs for your resume.
+    - You should validate on every team member's resume to ensure your process is not overly tailored to one of you.
+      Please do not grab resumes from online sources because you won't be able to truly validate these.
   - You cannot manually go through all descriptions as a validation.
+
+Side commemnt: have you thought re-writing your resume after this?
