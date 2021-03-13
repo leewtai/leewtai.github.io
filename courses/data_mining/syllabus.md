@@ -43,9 +43,9 @@ I reserve the right to change the ordering and the content for the course throug
 |2021-03-11|[Clustering - Kmeans continued](https://docs.google.com/presentation/d/1RAzfwkMSzoEgLT8hYw0zL7KxCAM4jnjbCyxZgb84QxU/edit?usp=sharing)|ISL 10.2|[Homework 3](homeworks/hw3.md) Due|
 |2021-03-16|Regression Trees and random forests|Slides 13||
 |2021-03-18|Variable importance revisited|||
-|2021-03-23|Support Vector Machine||[Project 2](homeworks/proj2.md) Due|
+|2021-03-23|Support Vector Machine|||
 |2021-03-25|Clustering|||
-|2021-03-30|k-Means |||
+|2021-03-30|k-Means ||[Project 2](homeworks/proj2.md) Due|
 |2021-04-01|Hierarchical clustering||Homework 4 Due|
 |2021-04-06|DBSCAN|||
 |2021-04-08|Dealing with missing values and cold starts|||
