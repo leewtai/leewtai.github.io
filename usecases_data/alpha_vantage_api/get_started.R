@@ -5,11 +5,11 @@ library(httr)
 library(jsonlite)
 
 # This is to not expose my api_key...
-source('api_key')
-url="https://www.alphavantage.co/query"
+api_key <- fromJSON('../credentials.json')[['alpha_vantage_api_key']]
+url <- "https://www.alphavantage.co/query"
 
 params <- list("function"="TIME_SERIES_INTRADAY",
-               symbol="VFINX",
+               symbol="GDXJ",
                interval="60min",
                apikey=api_key)
 response <- GET(url=url,
