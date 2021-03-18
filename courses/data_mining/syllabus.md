@@ -41,15 +41,15 @@ I reserve the right to change the ordering and the content for the course throug
 |2021-03-04|Spring Break|||
 |2021-03-09|[Clustering - Kmeans](https://docs.google.com/presentation/d/1DoWbNOEZGeZkNr4wb9u198GlnS45rxWFoaOwEvMPn-E/edit?usp=sharing)|ISL 10.2||
 |2021-03-11|[Clustering - Kmeans continued](https://docs.google.com/presentation/d/1RAzfwkMSzoEgLT8hYw0zL7KxCAM4jnjbCyxZgb84QxU/edit?usp=sharing)|ISL 10.2|[Homework 3](homeworks/hw3.md) Due|
-|2021-03-16|Regression Trees and random forests|Slides 13||
-|2021-03-18|Variable importance revisited|||
-|2021-03-23|Support Vector Machine|||
-|2021-03-25|Clustering|||
-|2021-03-30|k-Means ||[Project 2](homeworks/proj2.md) Due|
-|2021-04-01|Hierarchical clustering||Homework 4 Due|
-|2021-04-06|DBSCAN|||
-|2021-04-08|Dealing with missing values and cold starts|||
-|2021-04-13|TBD||Homework 5 Due|
+|2021-03-16|K-means with real data|ISL 10.2||
+|2021-03-18|[Hierarchical clustering](https://docs.google.com/presentation/d/1b-iWZSg5w9dm-01miUvtIIShjctAYKQo2tFMzX3OiXI/edit?usp=sharing)|ISL 10.2||
+|2021-03-23|Hierarchical clustering with real data|||
+|2021-03-25|DBSCAN|||
+|2021-03-30|Tree Methods||[Project 2](homeworks/proj2.md) Due|
+|2021-04-01|Tree Methods continued|||
+|2021-04-06|TBD|||
+|2021-04-08|TBD||Homework 4 Due|
+|2021-04-13|TBD|||
 |2021-04-15|TBD|||
 |2021-04-20|TBD|||
 |2021-04-22|TBD|[Project 3](homeworks/proj3.md) Due||
