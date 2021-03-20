@@ -37,6 +37,7 @@ points are for context.
     print(convert_decimal('9_01', '_'))
     ```
   - Use the result above along with `as.numeric()` and possibly other functions, please isolate the problematic data point and print out its value.
+    - Side comment: This is important to see because you want to know what caused this issue.
   - Please correct this value by overwriting it with an appropriate value. Appropriate here means that if you gave this data to someone else, they would know that some data points were corrupted if they calculated any statistics using it.
   - Please overwrite the column with the correct numeric data in the original data frame.
   - Please write the data out to a CSV file using `write.csv()` with the name `"better_formated_data.csv"` and make sure the argument `row.names=FALSE`.
