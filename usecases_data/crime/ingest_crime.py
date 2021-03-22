@@ -30,7 +30,7 @@ for state in states:
     formatted_url = url.format(
         state_abbr=state,
         offense='violent-crime',
-        since_year=2000,
+        since_year=2010,
         until_year=2019)
 
     while True:
@@ -60,9 +60,15 @@ for ori in oris:
     if len(all_ori) % 500 == 0:
         logging.info("all ori progress at {} out of {}".format(
             len(all_ori), len(oris)))
-    resp = requests.get(agency_url.format(ori=ori), params=params)
-    if resp.status_code != 200:
-        logging.error('ORI {} had non-200 status'.format(ori))
-    all_ori.append(resp.json())
+    attempt = 0
+    while attempt < 4:
+        resp = requests.get(agency_url.format(ori=ori), params=params)
+        if resp.status_code == 200:
+            all_ori.append(resp.json())
+            break
+        elif attempt == 3:
+            logging.error('ORI {} had non-200 status'.format(ori))
+        attempt += 1
+    time.sleep(0.5)
 
 json.dump(all_ori, Path('all_ori_metadata.json').open('w'))
