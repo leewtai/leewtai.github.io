@@ -38,7 +38,7 @@ plt.legend([], [], frameon=False)
 plt.ylim([np.min(yi), np.max(yi)])
 plt.xlabel(r'$q^2/m^2_{\pi}$')
 plt.ylabel(r'$q\cot\delta/m_{\pi}$')
-plt.savefig('demo_plot.png')
+plt.savefig('demo_plot.pdf')
 plt.close()
 
 

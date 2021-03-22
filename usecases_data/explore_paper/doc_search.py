@@ -44,6 +44,8 @@ len([rid for rid in ref_ids if rid in auth_ids])
 # Some authored papers are referenced by other papers
 
 citation_df = np.zeros((len(auth_ids), len(ref_ids)))
+auth_titles = ['' for _ in auth_ids]
+ref_titles = ['' for _ in ref_ids]
 for citation in citations:
     row_ind = [i for i, aid in enumerate(auth_ids)
                if aid == citation['auth_id']]
@@ -51,10 +53,17 @@ for citation in citations:
     if not col_ind or not row_ind:
         continue
     citation_df[row_ind[0], col_ind[0]] = citation['ref_count']
+    auth_titles[row_ind[0]] = citation['auth_title']
+    ref_titles[col_ind[0]] = citation['ref_title']
 
 
 citation_cnt = np.apply_along_axis(lambda x: np.sum(x > 0), 0, citation_df)
 citation_act = np.apply_along_axis(lambda x: np.sum(x > 0), 1, citation_df)
+
+np.savetxt('j_cunningham_citation.csv', citation_df, delimiter=',')
+json.dump({'auth_titles': auth_titles, 'ref_titles': ref_titles},
+          Path('j_cunningham_citation_titles.json').open('w'))
+
 
 
 np.min(citation_cnt)
