@@ -61,10 +61,8 @@ I reserve the right to change the ordering and the content for the course throug
 |2021-04-06|[Debugging in R](https://us.edstem.org/courses/181/lessons/873/slides/4012) with [Vimeo lectures](https://vimeo.com/407632826) and [優酷 lectures](https://v.youku.com/v_show/id_XNDYyMTU3MTE2OA==.html)|||
 |2021-04-08|Simulations<br> Simulation video on [vimeo](https://vimeo.com/408097921) and [優酷](https://v.youku.com/v_show/id_XNDYzMzk3MzEyNA==.html)||Homework 6|
 |2021-04-13|Permutations<br> Permutation video on [vimeo](https://vimeo.com/408097666) and [優酷](https://v.youku.com/v_show/id_XNDYzMzk3MzM2NA==.html)|||
-|2021-04-15|Verifying Statistical Theorems|[Change code on GitHub directly](https://guides.github.com/activities/hello-world/)||
-|2021-04-20|[Introduction to Version Control and Git](https://us.edstem.org/courses/181/lessons/881/slides/4073) no pre-lecture videos for this|||
-|2021-04-22|What we don't know||Homework 7|
-|2021-04-??|||Take-Home Final Exam|
+|2021-04-15|What we don't know|||
+|2021-04-20|Take-Home Final Exam|||
 
 
 ### Logistics
