@@ -59,9 +59,9 @@ I reserve the right to change the ordering and the content for the course throug
 |2021-03-30|[Scraping](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_scraping_and_api.html) with [vimeo lectures](https://vimeo.com/404714829) and [優酷 lecture](https://v.youku.com/v_show/id_XNDYyMTU3MDg0MA==.html)|||
 |2021-04-01|[API Calls](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_scraping_and_api.html) with [vimeo lecture](https://vimeo.com/404715597) and [優酷 lecture](https://v.youku.com/v_show/id_XNDYyMTU3MDQ1Ng==.html)|||
 |2021-04-06|[Debugging in R](https://us.edstem.org/courses/181/lessons/873/slides/4012) with [Vimeo lectures](https://vimeo.com/407632826) and [優酷 lectures](https://v.youku.com/v_show/id_XNDYyMTU3MTE2OA==.html)|||
-|2021-04-08|Simulations<br> Simulation video on [vimeo](https://vimeo.com/408097921) and [優酷](https://v.youku.com/v_show/id_XNDYzMzk3MzEyNA==.html)||Homework 6|
+|2021-04-08|Simulations<br> Simulation video on [vimeo](https://vimeo.com/408097921) and [優酷](https://v.youku.com/v_show/id_XNDYzMzk3MzEyNA==.html)|||
 |2021-04-13|Permutations<br> Permutation video on [vimeo](https://vimeo.com/408097666) and [優酷](https://v.youku.com/v_show/id_XNDYzMzk3MzM2NA==.html)|||
-|2021-04-15|What we don't know|||
+|2021-04-15|What we don't know||[Homework 6](homeworks/hw6_v2.md)|
 |2021-04-20|Take-Home Final Exam|||
 
 
