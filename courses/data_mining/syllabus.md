@@ -45,12 +45,12 @@ I reserve the right to change the ordering and the content for the course throug
 |2021-03-18|[Hierarchical clustering](https://docs.google.com/presentation/d/1b-iWZSg5w9dm-01miUvtIIShjctAYKQo2tFMzX3OiXI/edit?usp=sharing)|ISL 10.2||
 |2021-03-23|[Hierarchical clustering with real data](https://docs.google.com/presentation/d/15lNq4NQrEOzcsR0uhkltQfJrSiFQcx-FQPCh_7g9KRQ/edit?usp=sharing)|ISL 10.2||
 |2021-03-25|[DBSCAN](https://docs.google.com/presentation/d/18exR7A0qTMJsclSOFJz4_IaOhvEFPhzqo4MuW6rYVmI/edit?usp=sharing)|[DBSCAN from KDNuggets](https://www.kdnuggets.com/2020/04/dbscan-clustering-algorithm-machine-learning.html)||
-|2021-03-30|Tree Methods||[Project 2](homeworks/proj2.md) Due|
-|2021-04-01|Tree Methods continued|||
-|2021-04-06|TBD|||
-|2021-04-08|TBD|||
-|2021-04-13|TBD|||
-|2021-04-15|TBD||[Project 3](homeworks/proj3.md) Due|
+|2021-03-30|[Tree Methods](https://docs.google.com/presentation/d/1VCmWhaV4M3oAEDhB4LqYF5WUz0NZrn7v5-OpH0SnDBM/edit?usp=sharing)|ISL 8.1|[Project 2](homeworks/proj2.md) Due|
+|2021-04-01|[Tree Methods continued](https://docs.google.com/presentation/d/1tFOm3dSSBV7-PtYAAQgLYkAAp8bVMeUYiPZlP0rCtpE/edit?usp=sharing)|ISL 8.1||
+|2021-04-06|Trees + forests with real data|||
+|2021-04-08|Independent Component Analysis|||
+|2021-04-13|ICA continued or Multidimensional Scaling|||
+|2021-04-15|What we didn't teach||[Project 3](homeworks/proj3.md) Due|
 
 
 ### Logistics
