@@ -50,7 +50,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2021-04-06|[Trees + forests with real data](https://docs.google.com/presentation/d/1_yNVafSSJCs0KT_MKcVgbxio419NDCGDDeAVDZ05S7s/edit?usp=sharing)|ISL 8.2||
 |2021-04-08|[Independent Component Analysis](https://docs.google.com/presentation/d/141-Q9FFzFjAZr32RXv4D5cBd0SK38DmEzZnxVdGOma0/edit?usp=sharing)|[Stanford ICA Slides](http://statweb.stanford.edu/~tibs/sta306bfiles/ica.pdf)||
 |2021-04-13|ICA continued or Multidimensional Scaling|||
-|2021-04-15|What we didn't teach||[Project 3](homeworks/proj3.md) Due|
+|2021-04-15|What we didn't teach||[Project 3](homeworks/proj3.md) Due on 4/19/2021|
 
 
 ### Logistics
