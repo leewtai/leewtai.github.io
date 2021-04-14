@@ -45,7 +45,7 @@ Before we plot the data in the next problem, we need to get the data first. Plea
   - `agg_level_desc="STATE"`
 - Variables with multiple values
   - `commodity_desc` should vary over the values from the above `commodity_desc` that are NOT "POPCORN"
-  - `year`, any year between 1997 to 2018 (inclusive)
+  - `year`, all years between 1997 to 2018 (inclusive)
 
 - Please wrangle the data into a single data frame such that each record is a row and the different features are the columns. Hint: you can either ask for a CSV from QuickStat or simply use `dplyr::bind_rows()`.
 - Please report the number of rows and columns for this final data frame.
