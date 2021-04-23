@@ -12,15 +12,29 @@ Students should know that this class will have an emphasis on exercising their c
 - Students will learn to managae expectations around data science projects and learn to trade-off perfection vs speed
 - Students will learn to create maintainable models and documentation meant for a wide audience with different backgrounds.
 
-## Instructor
+## Instructors
 
-[Wayne Tai Lee](https://www.linkedin.com/in/waynetailee/) (wtl2109) has worked as a data scientist in industries like professional networks, agriculture, and heavy manufacturing.
+- [Wayne Tai Lee](https://www.linkedin.com/in/waynetailee/) (wtl2109)
+- [Tian Zheng](http://www.stat.columbia.edu/~tzheng/) (tz33)
 
 ## Course Structure
 
-- At the end of the course, you will present a project proposal that can be executed by a data science undergrad in collaboration with a project owner.
-- Each week, two people will called to present a data science idea to the class.
-- Participation will be mandatory, we will be cold-calling people during class.
+- At the end of the course, you will present a project proposal that can be executed by an undergraduate data scientist in collaboration with a project owner.
+- Each week, two people will be randomly called to present a data science idea to the class where we jointly shape it into an executable proposal
+  - Participation will be mandatory, we will be cold-calling people during class.
+- Each week, we will have a discussion on a special consulting topic
+
+
+## Timeline
+
+|Date|Topic|Due|
+|---|---|---|
+|2021-05-07|The template, the structure, and goals of consluting|Reading: the consulting template|
+|2021-05-14|Common problems with data science projects|- A data science idea <br>- Established first contact with project owner|
+|2021-05-21|Case study with a client - TBD|Initial draft proposal|
+|2021-05-28|Working outside your expertise - TBD|A data science idea|
+|2021-06-04|Working with first generation college students - Prof Jenn Laird|Second draft proposal|
+|2021-06-11|Presenting your proposal|Your project proposal|
 
 ## Lessons:
 - How to start a data science project
@@ -34,3 +48,5 @@ Students should know that this class will have an emphasis on exercising their c
 - The best model vs a useful model, what trade-offs exist?
 - How to create maintainable documentation and models
 - Data science is always a joint effort
+
+
