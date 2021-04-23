@@ -36,7 +36,7 @@ Students should know that this class will have an emphasis on exercising their c
 |2021-06-04|Working with first generation college students - Prof Jenn Laird|Second draft proposal|
 |2021-06-11|Presenting your proposal|Your project proposal|
 
-## Lessons:
+## Course resources:
 - How to start a data science project
   - How should I incoroporate data into my daily routine?
   - What technology/algorithms should I use?
@@ -45,8 +45,11 @@ Students should know that this class will have an emphasis on exercising their c
 - Consulting template
   - Forming long term vs short term metrics
 - Managing expectations
+  - stakeholders
+  - collaborators
 - The best model vs a useful model, what trade-offs exist?
 - How to create maintainable documentation and models
+  - Technology, versions, packages, test data
 - Data science is always a joint effort
-
+  - soliciting feedback
 
