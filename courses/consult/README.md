@@ -30,7 +30,7 @@ Students should know that this class will have an emphasis on exercising their c
 |Date|Topic|Due|
 |---|---|---|
 |2021-05-07|The template, the structure, and goals of consluting|Reading: the consulting template|
-|2021-05-14|Common problems with data science projects|- A data science idea <br>- Established first contact with project owner<br>-draft 0.0 proposal: outline + preliminary research|
+|2021-05-14|Common problems with data science projects - TBD|- A data science idea <br>- Established first contact with project owner<br>-draft 0.0 proposal: outline + preliminary research|
 |2021-05-21|Case study with a client - TBD|draft 0.1 proposal: data validation + plan B|
 |2021-05-28|Working outside your expertise - TBD|- A data science idea <br>- draft 0.2 proposal: outcomes and follow-up|
 |2021-06-04|Working with first generation college students - Prof Jenn Laird|draft 1.0 proposal: writing|
