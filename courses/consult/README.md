@@ -19,7 +19,7 @@ Students should know that this class will have an emphasis on exercising their c
 
 ## Course Structure
 
-- At the end of the course, you will present a project proposal that can be executed by an undergraduate data scientist in collaboration with a project owner.
+- At the end of the course, you will present a project proposal that can be executed by a data scientist in collaboration with a project owner.
 - Each week, two people will be randomly called to present a data science idea to the class where we jointly shape it into an executable proposal
   - Participation will be mandatory, we will be cold-calling people during class.
 - Each week, we will have a discussion on a special consulting topic
