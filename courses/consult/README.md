@@ -29,14 +29,15 @@ Students should know that this class will have an emphasis on exercising their c
 
 |Date|Topic|Due|
 |---|---|---|
-|2021-05-07|The template, the structure, and goals of consulting|Reading: the consulting template|
-|2021-05-14|Common problems with data science projects - TBD|- A data science idea <br>- Established first contact with project owner<br>-draft 0.0 proposal: outline + preliminary research|
-|2021-05-21|Case study with a client - Terri + Edna|draft 0.1 proposal: data validation + plan B|
+|2021-05-07|The template, the structure, and goals of consulting|Reading: [the consulting template](template.md)|
+|2021-05-14|Data Science Consulting - [Alex Wilson](https://www.linkedin.com/in/alexjw/)|- A data science idea <br>- Established first contact with project owner<br>-draft 0.0 proposal: outline + preliminary research|
+|2021-05-21|Common problems with data science projects in the public sector - [Director Terri Matthews](https://www.linkedin.com/in/terri-matthews-16897019/)|draft 0.1 proposal: data validation + plan B|
 |2021-05-28|Working outside your expertise - TBD|- A data science idea <br>- draft 0.2 proposal: outcomes and follow-up|
-|2021-06-04|Working with first generation college students - Prof Jenn Laird|draft 1.0 proposal: writing|
+|2021-06-04|Working with first generation college students - [Prof Jenn Laird](https://www.jennlaird.com)|draft 1.0 proposal: writing|
 |2021-06-11|Presenting your proposal|Your project proposal|
 
 ## Course resources:
+- [Template](template.md)
 - How to start a data science project
   - How should I incoroporate data into my daily routine?
   - What technology/algorithms should I use?
