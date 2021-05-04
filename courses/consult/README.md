@@ -20,9 +20,9 @@ Students should know that this class will have an emphasis on exercising their c
 ## Course Structure
 
 - At the end of the course, you will present a project proposal that can be executed by a data scientist in collaboration with a project owner.
-- Each week, two people will be randomly called to present a data science idea to the class where we jointly shape it into an executable proposal
-  - Participation will be mandatory, we will be cold-calling people during class.
+- ~~Each week, two people will be randomly called to present a data science idea to the class where we jointly shape it into an executable proposal~~
 - Each week, we will have a discussion on a special consulting topic
+  - Participation will be mandatory, we may cold call people during the meeting
 
 
 ## Timeline
@@ -30,9 +30,9 @@ Students should know that this class will have an emphasis on exercising their c
 |Date|Topic|Due|
 |---|---|---|
 |2021-05-07|The template, the structure, and goals of consulting|Reading: [the consulting template](template.md)|
-|2021-05-14|Data Science Consulting - [Alex Wilson](https://www.linkedin.com/in/alexjw/)|- A data science idea <br>- Established first contact with project owner<br>-draft 0.0 proposal: outline + preliminary research|
+|2021-05-14|Data Science Consulting - [Alex Wilson](https://www.linkedin.com/in/alexjw/)|- Established first contact with project owner<br>-draft 0.0 proposal: outline + preliminary research|
 |2021-05-21|Common problems with data science projects in the public sector - [Director Terri Matthews](https://www.linkedin.com/in/terri-matthews-16897019/)|draft 0.1 proposal: data validation + plan B|
-|2021-05-28|Working outside your expertise - TBD|- A data science idea <br>- draft 0.2 proposal: outcomes and follow-up|
+|2021-05-28|Working outside your expertise - TBD|- draft 0.2 proposal: outcomes and follow-up|
 |2021-06-04|Working with first generation college students - [Prof Jenn Laird](https://www.jennlaird.com)|draft 1.0 proposal: writing|
 |2021-06-11|Presenting your proposal|Your project proposal|
 
@@ -43,8 +43,6 @@ Students should know that this class will have an emphasis on exercising their c
   - What technology/algorithms should I use?
   - Is X do-able within Y days?
   - I have some data and I want to see if you have any ideas about how to use it?
-- Consulting template
-  - Forming long term vs short term metrics
 - Managing expectations
   - stakeholders
   - collaborators
