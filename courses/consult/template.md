@@ -36,7 +36,7 @@ feature within this body of work.
 
 #### Requirements and metrics
 
-[Short & long term metrics that aligns the project efforts with the project's intent]
+[Short & long term metrics that aligns the project efforts with the project's intent. How does one know if success is achieved?]
 
 - Deliverable
   - A documented library that ingests any video of people moving that can then
