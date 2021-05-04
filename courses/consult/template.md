@@ -1,6 +1,6 @@
 # Project "Searachable Tytle with Unique Spelling"
 
-This document provides an example for a data science proposal template.
+Last edited: May 4th, 2021
 
 #### Opportunity
 
