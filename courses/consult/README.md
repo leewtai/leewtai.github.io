@@ -29,7 +29,7 @@ Students should know that this class will have an emphasis on exercising their c
 
 |Date|Topic|Due|
 |---|---|---|
-|2021-05-07|The template, the structure, and goals of consulting|Reading: [the consulting template](template.md)|
+|2021-05-07|[The template, the workflow, and goals of consulting](https://docs.google.com/presentation/d/1ePLYSpJI8cHoT5GkrZhxMy4DGR9a_NiwhSKWnyVmHDE/edit?usp=sharing)|Reading: [the consulting template](template.md)|
 |2021-05-14|Data Science Consulting - [Alex Wilson](https://www.linkedin.com/in/alexjw/)|- Established first contact with project owner<br>-draft 0.0 proposal: outline + preliminary research|
 |2021-05-21|Common problems with data science projects in the public sector - [Director Terri Matthews](https://www.linkedin.com/in/terri-matthews-16897019/)|draft 0.1 proposal: data validation + plan B|
 |2021-05-28|Working outside your expertise - TBD|- draft 0.2 proposal: outcomes and follow-up|
