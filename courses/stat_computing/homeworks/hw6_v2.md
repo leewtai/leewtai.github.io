@@ -35,7 +35,7 @@ Specifically, the parameters of the API define different dimensions of the data,
 For the parameters, you should look at the table at the bottom of the **"Usage"** at the API page.
 For the second type, we need to leverage the API endpoint `/api/get_param_values` also listed under ["Usage"](https://quickstats.nass.usda.gov/api).
 
-Please use the API to get all possible values under `commodity_desc` that have the word `corn` or `maize` (case-insensitive so CORN or Maize should also be matched if they existed).
+Please use the API to get all possible values under `commodity_desc` that have the word `corn` or `maize` (case-insensitive so CORN or Maize should also be matched if they exist).
 Please show all code and print out the possible values.
 
 #### Getting the data
@@ -49,11 +49,12 @@ Before we plot the data in the next problem, we need to get the data first. Plea
   - `commodity_desc` should vary over the values from the above `commodity_desc` that are NOT "POPCORN"
   - `year`, all years between 1997 to 2018 (inclusive)
 
-- Please wrangle the data into a single data frame such that each record is a row and the different features are the columns. Hint: you can either ask for a CSV from QuickStat or simply use `dplyr::bind_rows()`.
+- Please wrangle the data into a single data frame such that each record is a row and the different features are the columns. Hint: you can use `dplyr::bind_rows()`.
 - Please report the number of rows and columns for this final data frame.
-- In 2017, what is the ratio between the total production between the "I-states" vs all of the states combined (including I-states so this should be less than 1)? Please do this calculation for each commodity separately.
+- In 2017, what is the ratio between the **total** production between the "I-states" vs all of the states combined (including I-states so this should be less than 1)? Please do this calculation for each commodity separately.
   - A state is an "I-state" if the first letter of its name begins with an "I". Please do not hardcode the I-states but use regular expression to identify them.
-  - The `short_desc` will inform you whether the record is relevant to "production".
+  - The `short_desc` will inform you whether the record is relevant to "production"
+    - Production output usually is measured in units of mass
   - For corn we're only interested in values related to the grain OR seed (difference is whether it is dried or not).
   - If a state/year combination is missing, we will assume the production was 0 for simplicity.
 
@@ -81,6 +82,9 @@ for the first practice midterm. Ultimately, we want to know the number of job de
   - Hints but not required:
     - `table()` can count the frequency of differnt values in a vector.
     - `bind_rows` from the the package `dplyr` can combine different data frames by column names when some columns are missing
+      - hint: `table()` does not output data frames, contrast the two different behaviors below to see which one you desire:
+        - `as.data.frame(as.list(table(c("a", "b", "b"))))`
+        - `as.data.frame(table(c("a", "b", "b")))`
 - Are some job descriptions repeated across the data? Yes/No, please show the code that demonstrates this. You can assume that
   if the word counts are identical across all words, they are the same job description.
 - Please report the number of job description that mention "r" and the number of job descriptions that mention "python"
