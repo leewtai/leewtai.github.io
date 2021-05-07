@@ -1,17 +1,17 @@
 # HW6 - Calling APIs and Text Manipulation
 
 ## Q0 Getting USDA Agriculture Data
-This problem is focused on using `httr` to call the US Department of Agriculture (USDA) API to QuickStats to
+This problem is focused on using `httr` to call the US Department of Agriculture (USDA) API, QuickStats, to
 obtain state level agricultural data. Commodity traders pay attention to this data since they have major
 implications about prices, specifically good harvest yields low prices and vice versa.
 
-The overall steps of the problem include:
-- Requesting for credentials called the API key
-- Calling one API to understand the options
-- Calling another API to get the records
-- Visualize teh data over time
+This problem is broken into 4 steps:
+1. Requesting for credentials called the API key
+2. Calling one API to understand the options
+3. Calling another API to get the records
+4. Visualize teh data over time
 
-#### Request for an API key
+#### Q0.1 Request for an API key
 Please follow the instructions under **"Request API Key"** for USDA's [QuickStat API](https://quickstats.nass.usda.gov/api).
 For convenience, please save your credentials on a file called `usda_quickstat_api_key.txt`  following this example: 
 ```r
@@ -22,15 +22,17 @@ write_json(cred, "usda_quickstat_api_key.txt")
 
 Please do **NOT** show your code here to the grader, you will need this file for later.
 In general you should never share your credentials with other people. We will take a point off if your credentials are showing anywhere in the assignment.
+We will trust that you did this step, i.e. you do not need to print/show anything, given it's necessary to finish the later tasks.
 
 Side comment: this is not the most secure way to store credentials, i.e. storing them in plain text format, but this is not the focus of this class.
 
 #### Understanding the options
-There are 2 types of options we need to understand:
-- The options to that define different sets of data, e.g. crop type (like corn vs soybeans), sampling method (like census vs surveys), sectors (like crops vs animals).
-- For each option above, what are the possible values, e.g. "CORN" or "Corn - Sweet", etc
+The API has many parameters and we do not know the possible values we can set these parameters. To understand the options available to us, we need
+to call a specific API endpoint `/api/get_param_values` also listed under ["Usage"](https://quickstats.nass.usda.gov/api).
 
-For the first type of options, you should look at the table at the bottom of the **"Usage"** at the API page.
+Specifically, the parameters of the API define different dimensions of the data, e.g. crop type (like corn vs soybeans), sampling method (like census vs surveys), sectors (like crops vs animals). For each parameter, it can take on different values, e.g. "CORN" vs "Corn - Sweet", etc that will specify, within the dimension, what values we want to retrieve.
+
+For the parameters, you should look at the table at the bottom of the **"Usage"** at the API page.
 For the second type, we need to leverage the API endpoint `/api/get_param_values` also listed under ["Usage"](https://quickstats.nass.usda.gov/api).
 
 Please use the API to get all possible values under `commodity_desc` that have the word `corn` or `maize` (case-insensitive so CORN or Maize should also be matched if they existed).
