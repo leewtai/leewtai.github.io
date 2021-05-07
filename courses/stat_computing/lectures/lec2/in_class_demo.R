@@ -19,3 +19,5 @@
 # Getting help on a function
 
 # Functions on vectors
+
+# NEVER save your workspace!
