@@ -1,10 +1,10 @@
 # Project "Searachable Tytle with Unique Spelling"
 
-Last edited: May 4th, 2021
+Last edited: May 7th, 2021
 
 #### Opportunity
 
-[Motivation for the project, potential value]
+[Motivation for the project, potential value and problem statement]
 
 Communication is no longer done solely through text. With the rise of social media,
 communication through emojis, gifs, video clips (e.g. TikTok) are on the rise where
@@ -29,21 +29,26 @@ feature within this body of work.
 
 [The people that will approve, execute, and sustain the project]
 
-- Project Owner(s)
+- Project Owner(s) [Who is responsible if the project fails]
 - Data Scientist(s)
-- Stakeholder(s)
-- Subject Matter Expert(s)
+- Stakeholder(s) [Who provides the resources]
+- Subject Matter Expert(s) [Who understands the domain and data]
 
 #### Requirements and metrics
 
-[Short & long term metrics that aligns the project efforts with the project's intent. How does one know if success is achieved?]
+[Short & long term metrics that aligns the project efforts with the project's intent.]
+
+[Metrics include guardrail metrics vs success metrics, i.e. when do you know something is wrong vs going well?]
+
+[Metrics should be easily calculated]
 
 - Deliverable
   - A documented library that ingests any video of people moving that can then
     correct identifying all the individuals then predict their emotional state.
-- Coverage for test video files - 95%
-- Precision controlling for recall being at least 50%
-- 
+- Metrics
+  - Coverage for test video files - 95% minimum
+  - Precision controlling for recall being at least 50%
+  - ...
 
 #### Timeline and milestones
 
@@ -70,6 +75,16 @@ feature within this body of work.
 #### Hand-off and maintenance
 
 [Define project completion and potential hand-offs]
+
+The project is complete when
+  - The following R code is documented into private GitHub repository
+    - Emotion prediction algorithm
+    - Data ingestion, cleaning, processing
+      - Automation is only required after ingestion
+  - Data for the report is stored in Google Drive maintained by XYW 
+  - Report for the project is reviewed and approved by ZZZ
+    - If certain requirements are not satisfied by the project deadline, ...
+
 
 - How will code and data be delivered?
 - Who will take-over the project afterwards?
