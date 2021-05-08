@@ -86,4 +86,9 @@ log(10)
 
 ```
 
-#### NEVER save your workspace!
+#### Exercise - calculate average of coin tosses
+
+```r
+
+
+```
