@@ -1,7 +1,7 @@
 # Recreating Fisher's ANOVA experiment in Spreadsheets vs R
 
 #### Learning objectives
-- Breakdown steps required in standard computing
+- Breakdown steps required in standard data filter then aggregate tasks
 
 #### The first randomized controlled experiment with more than one treatment!
 The beginning of modern statistics:
@@ -112,12 +112,12 @@ Which method of subsetting is preferable?
 
 #### Subsetting a row using a single value
 Similarly, we can subset a row out of the data frame
-- Using indices
+- Using numeric indices
   ```r
   row <- df[1, ]
   ```
   What happens when you use a **negative** index? (unique to R!)
-- Using column names
+- Using character values
   ```r
   rownames(df)
   row <- df["3", ]
@@ -128,23 +128,22 @@ Again, nothing after the comma implies "all columns"
 We want to only work with the part under "blockX" in the data frame. To do this, we can subset using
 
 - Column names (character vector)
-```r
-block_cols <- c("block1", "block2", "block3", "block4",
-                "block5", "block6", "block7", "block8")
-yield <- df[, block_cols]
-```
+  ```r
+  block_cols <- c("block1", "block2", "block3", "block4",
+                  "block5", "block6", "block7", "block8")
+  yield <- df[, block_cols]
+  ```
 - Indices of the columns (numerical vector)
-```r
-block_cols <- 4:11
-yield <- df[, block_cols]
-```
+  ```r
+  block_cols <- 4:11
+  yield <- df[, block_cols]
+  ```
 - TRUE/FALSE vectors (boolean vector)
-```r
-block_cols <- grepl("block", colnames(df))
-yield <- df[, block_cols]
-```
-
-- Note that `block_cols` is a vector of 3 different types of data in the 3 examples above
+  ```r
+  block_cols <- grepl("block", colnames(df))
+  yield <- df[, block_cols]
+  ```
+- Note that `block_cols` is a vector of 3 **different types** of data in the 3 examples above
 
 
 #### Subsetting rows using multiple values (vectors)
