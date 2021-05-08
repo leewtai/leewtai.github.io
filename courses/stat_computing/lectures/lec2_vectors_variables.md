@@ -57,6 +57,14 @@ three <- 3
 
 ```
 
+#### Editing a vector - the square bracket
+
+```r
+
+
+```
+
+
 
 #### Calculator functions
 
