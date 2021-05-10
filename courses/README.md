@@ -30,6 +30,10 @@ Here's a list of my personal belief what people with different degrees should be
   - There is no class that can teach you all the "applied statistical methods" out there.
     This is a topics course that introduces methods that tackle data collection to dealing
     with dependent data, to censored datasets, to finally topics on some causal inference.
+- [Applied Data Mining](data_mining/README.md)
+  - Data mining aims to find insightful patterns within large amounts of data or from joining
+    multiple data sources. This class will give cover some basic machine learning then dive
+    into examples in data mining.
 - [Pre-Research Seminar](../pre_research/README.md)
   - This seminar is meant to give students who are interested in statistical research some basic
     experience and skills before pursuing research with research faculty (possibly non-Statistics
