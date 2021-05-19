@@ -35,7 +35,7 @@ Students should know that this class will have an emphasis on exercising their c
 |2021-05-28|Consulting with non-statisticians - [Xiaoyue (Maggie) Niu](https://soda.la.psu.edu/people/xun5)|- draft 0.2 proposal: outcomes and follow-up|
 |2021-06-02|Share initial draft with Lehman College Students|- (due 6/1) 5 minute recording of the project overview|
 |2021-06-04|Working with first generation college students - [Prof Jenn Laird](https://www.jennlaird.com)|draft 1.0 proposal: writing|
-|2021-06-11|Presenting your proposal|Your project proposal|
+|2021-06-11|Presenting your proposal|Your project proposal + onboarding tutorial|
 
 ## Course resources:
 - [Template](template.md)
