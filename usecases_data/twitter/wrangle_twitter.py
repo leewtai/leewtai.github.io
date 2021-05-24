@@ -104,23 +104,20 @@ def cos_sim(t1, t2):
 non_tokens = ['retweet_count', 'reply_count', 'like_count', 'created_at',
               'tweet_body']
 toss_outs = []
+print(df.shape)
 for t1 in df.columns:
     # we remove duplicates in place later
     if t1 not in df.columns or t1 in non_tokens:
         continue
-    t2s = df.columns
+    t2s = [t2 for t2 in df.columns
+           if t2 > t1 and t2 not in non_tokens]
     for t2 in t2s:
-        if len(t1) < 5 or len(t2) < 5:
-            continue
-        if t2 in non_tokens:
-            continue
-        if t1 == t2:
-            continue
         if cos_sim(t1, t2) < 0.8:
             continue
         df.loc[:, t1] += df.loc[:, t2]
         df.drop(columns=[t2], inplace=True)
 
+print(df.shape)
 non_zero = df.apply(lambda x: (x != 0).sum(), 0)
 sdf = df.loc[:, non_zero > 50]
 sdf.to_csv("non_retweets_dc_inaug_steal.csv", index=False,
