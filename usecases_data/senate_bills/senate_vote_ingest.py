@@ -102,6 +102,6 @@ for congress_num, session in product(congress_nums, sessions):
 
 
 print('there are {} senate bills'.format(len(bills)))
-json.dump(bills, open('senate/bills.json', 'w'))
-json.dump(voter_bill_map, open('senate/votes.json', 'w'))
-json.dump(voters, open('senate/voters.json', 'w'))
+json.dump(bills, open('bills.json', 'w'))
+json.dump(voter_bill_map, open('votes.json', 'w'))
+json.dump(voters, open('voters.json', 'w'))
