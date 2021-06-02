@@ -17,22 +17,22 @@ I reserve the right to change the ordering and the content for the course throug
 
 |Date|Topic|Reference|Due|
 |---|---|---|---|
-|2020-10-27|Introduction to statistical computing and data structures|||
-|2020-10-29|Control Flow and Functions|||
-|2020-11-03|US Elections - NO Class|||
-|2020-11-05|Functional Programming||Homework0|
-|2020-11-10|Data Wrangling and Data Visualization||Homework1|
-|2020-11-12|SQL basics|||
-|2020-11-17|Dates and Regular Expression||Homework2|
-|2020-11-19|Web Scraping and API calls|||
-|2020-11-24|Midterm|||
-|2020-11-26|Thanksgiving - NO Class|||
-|2020-12-01|Modeling||Homework3|
-|2020-12-03|Optimization|||
-|2020-12-08|Simulations||Homework4|
-|2020-12-10|Topics in Data Science|||
-|TBD|||Final Exam|
-
+|2021-01-15|TOPIC or No Class|||
+|2021-01-22|TOPIC or No Class|||
+|2021-01-29|TOPIC or No Class|||
+|2021-02-05|TOPIC or No Class|||
+|2021-02-12|TOPIC or No Class|||
+|2021-02-19|TOPIC or No Class|||
+|2021-02-26|TOPIC or No Class|||
+|2021-03-05|Spring Break No Class|||
+|2021-03-12|TOPIC or No Class|||
+|2021-03-19|TOPIC or No Class|||
+|2021-03-26|TOPIC or No Class|||
+|2021-04-02|TOPIC or No Class|||
+|2021-04-09|TOPIC or No Class|||
+|2021-04-16|TOPIC or No Class|||
+|2021-04-23|TOPIC or No Class|||
+|TBD|Measure understanding|Final Exam|You!|
 
 ## Logistics
 
@@ -116,8 +116,8 @@ For this course, students are not required to have testing forms or accommodatio
 
 
 ### Textbooks / Supplies
-[The Art of R Programming: Tour of Statistical Software Design](https://clio.columbia.edu/catalog/13882895) is available through CLIO
-[Advanced R](https://adv-r.hadley.nz/)
+[Advanced R by Hadley Wickham](https://adv-r.hadley.nz/)
+[R for Data Science by Garrett Grolemund and Hadley Wickham](https://r4ds.had.co.nz)
 
 ### Acknowledgement
 A lot of these materials are based off the materials from Prof Thibault Vatter and Prof Gabriel Young.

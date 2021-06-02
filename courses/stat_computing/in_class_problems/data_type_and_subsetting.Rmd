@@ -26,7 +26,9 @@ Please answer the following questions:
 - Sanity check, does the data match the numbers from the paper?
 
 ```{r p0}
-block_data <- read.csv("~/Downloads/fisher_1927_straw.csv.csv")
+block_data <- read.csv("~/Downloads/fisher_1927_straw.csv")
+
+
 
 ```
 
@@ -46,16 +48,9 @@ We will walk you through each step below to highlight different operations and d
 
 ```{r p1.0}
 # Hint, rep() could prove useful
-f_amount <- rep(0:2, each=4)
-class(f_amount)
-typeof(f_amount)
-rep(1:3, 3)
-rep(1:3, each=3)
-demo <- c(1, 2.2)
-class(demo)
-typeof(demo)
-# Vectors can only have one data type!
-demo <- c(1, 2, "3,1")
+rep(1:3, 2)
+rep(1:3, each = 2)
+
 
 ```
 
@@ -63,7 +58,7 @@ demo <- c(1, 2, "3,1")
 
 A student wanted to replicate the method above to create the `f_timing` vector but noticed that the first 4 values are incorrect.
 - What is the data type of the existing wrong solution?
-- Decide how you want to encode the timing corresponding to "0" fertilizer.
+- Decide how you want to encode the timing corresponding to "0" fertilizer then fix the vector using 2 different approaches below.
   - Method 1: use subsetting via numerical vectors (e.g. `1:2`) to replace the values corresponding to "0" fertilizer into the value you decided above.
   - Method 2: use subsetting via boolean vectors to replace the values corresponding to "0" fertilizer into the value you decided above.
     - hint: `has_no_fert <- f_amount == 0`
@@ -72,19 +67,13 @@ A student wanted to replicate the method above to create the `f_timing` vector b
 ```{r}
 # WRONG solution:
 f_timing <- rep(c("E", "L"), 6)
-f_timing
-typeof(f_timing)
 
-missing_timing <- ""
-f_timing[1:4] <- missing_timing
-f_timing
 
-f_timing <- rep(c("E", "L"), 6)
-has_no_fert <- f_amount == 0
-f_timing[has_no_fert] <- missing_timing
 ```
 
 ```{r meth1}
+f_timing <- rep(c("E", "L"), 6)
+
 
 ```
 
