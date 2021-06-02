@@ -1,0 +1,82 @@
+---
+title: "optimization"
+author: "Wayne Lee"
+date: "4/2/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Question 0 - simulation with different objectives
+
+The regression objective function of $\|Y - X\beta\|^2$ is popular due to its differentiability and geometric interpretations.
+In this exercise we'll try to assess the objective function $\sum_i|Y_i - X_i\beta|$ numerically.
+
+- First create data based on the model $Y = X\beta + \epsilon$ where $\epsilon \sim Exp(1) - 1$ (the $-1$ is so $E(\epsilon) = 0$).
+  - Please set $\beta=\begin{bmatrix}0 \\ 2\end{bmatrix}$ and $\sigma^2=1$ so you can check them later but do not know their exact values!
+  - Please generate n=500 records
+  - Let the non-constant value in X simply be random values from the unit interval.
+- Please write down the objective function for the total absolute error $\sum_i |Y_i - X_i\hat{\beta}|$.
+- Please calculate the parameter estimates that minimize the absolute error.
+- Please plot the scatter plot with the fitted line vs the true line on the same plot.
+
+
+```{r}
+
+
+
+
+```
+
+### Question 1
+
+Please repeat the steps in Question 0, 1000 times (generate new data, fit a new estimate) while holding the parameters fixed ($\beta$ and $\sigma^2$) to understand how the estimates from minimizing the absolute error compare to the regression estimates.
+  - Hint: what properties do the regression estimates have?
+  
+```{r}
+
+```
+
+### Question 2: Fitting a distribution to the data
+
+Recall the Mixture-Gaussian simulation from our second exercise in the semester? Recall the bimodal weight distribution from the NHANES exercise (in `/course/data/nhanes_2015_2016_demo.csv`)? Let's try to fit those together!
+
+Normally this problem is optimized via something called the expectation-maximization (EM) algorithm, since we didn't cover this topic, we'll try something more brute-forced here.
+
+- Write down the log-likelihood based on the mixture Gaussian distribution parameters.
+- Write the objective function based on the likelihood above, you should assume we only have 2 mixtures.
+- Find the best paramters for the mixture gaussian distribution for the NHANES dataset using `optim()` (note that you'll learn something called the EM algorithm in the future that works better for this).
+  - You may want to set the bounds on the parameters, see `?optim`
+  - You should think about what are reasonable starting values for `optim()`
+- How would you evaluate your fitted distribution with your data? There can be informal validation methods!
+
+```{r}
+
+
+```
+
+### Question 3:
+
+- Given weights are positive, it might make more sense to fit a mixture gamma distribution, try changing the code from above using a function factory such that you can write down the likelihood of mixture-X distributions easily where X is any well known distribution defined in R.
+  - Hint: to standardize how parameters are passed to the density 
+    function, you might want to use `do.call()`, e.g.
+    ```
+    par <- c(0, 10)
+    dat <- rnorm(5, par[1], par[2])
+    new_dnorm <- function(mean, sd) dnorm(dat, mean, sd)
+    do.call(new_dnorm, as.list(par))
+    ```
+- Optimize the mixture-gamma distribution likelihood.
+  - You should apply your function factory using the Gaussian distribution to verify it aligns with your results above.
+  
+  
+```{r}
+
+```
+
+### Question 4
+
+- Which distribution fits the data better, the mixture Gaussian or mixture Gamma?
+  - Hint: try simulating data from the fitted model then compare it to the data

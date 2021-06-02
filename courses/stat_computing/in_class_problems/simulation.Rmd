@@ -1,0 +1,60 @@
+---
+title: "Violating model assumptions"
+author: "Wayne Lee"
+date: "3/26/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Question 0: temporally correlated errors and their impact
+
+We know that time series is often treated differently by Statisticians. Let's learn why!
+
+Please simualted some correlated errors according to
+$$\epsilon_0 \sim N(0, 1)$$
+$$\epsilon_i|\epsilon_{i-1} \sim N(\epsilon_{i-1}, 1)$$
+for $i \geq 1$.
+
+Let's set the sample size `n=50` for now.
+- Please simulate 5 different sets of $\epsilon$ values according to the description above (5 * 50 values!) and 5 sets of independent $N(0, 1)$ (same length) and plot them side by side in order.
+  - Please comment on the difference between the 2 sets of values.
+- For the correlated errors, please visualize the distribution of $\epsilon_i$ for at least 4 different $i$ values.
+  - Please compare the distributions and comment on their similarities/differences.
+- Please calculate (no code) $E(\epsilon_i)$?
+  - Hint: what is the relationship to $E(\epsilon_i|\epsilon_{i-1})$?
+- Is $\epsilon_i$ normally distributed? Visually check this.
+
+```{r}
+
+```
+
+
+### Question 1: What happens to regression with positively correlated errors?
+
+Let $X = \begin{bmatrix}1 & x_1 \\ \vdots & \vdots \\ 1 & x_n \end{bmatrix}$, and $\beta = \begin{bmatrix}1 \\ 2\end{bmatrix}$. Please simulate data $Y = X\beta + \epsilon$ with a sample size $n=100$ where $\epsilon$ are the correlated erorrs.
+For $x_i$, simply set these at equal intervals between 0 and 10. We will only have one observation per $x_i$ value.
+
+- Please generate 1000 different simulations where we fit the originary least squares (OLS) model to to estimate $\beta$.
+- Please comment on the $\hat{\beta}$ distribution you see across the 1000 simulations vs the distribution implied by each simulation's `summary.lm()` output.
+- Please comment on the implication of this result when analyzing time series data.
+- Please give an example of what $X\beta$ and $\epsilon$ could be in real life for time series. Then articulate this example with the implication above to a non-statistical but mathematically-trained colleague (e.g. physicists).
+
+```{r}
+
+```
+
+### Question 2: bootstrapping for a confidence interval
+
+How can we get a confidence interval for $\sigma^2$?
+
+Let $Y_i \sim N(0, 1)$ for $i=1, \dots, n$ where $n=50$.
+The unbiased estimate for $\hat{\sigma}^2 = \frac{1}{n-1}\sum (Y_i - \bar{Y})^2$
+- Please create a bootstrap confidence interval for $\sigma^2$
+- Please verify this interval, what would the alternative be if you could simulate from the distribution directly?
+
+```{r}
+
+```

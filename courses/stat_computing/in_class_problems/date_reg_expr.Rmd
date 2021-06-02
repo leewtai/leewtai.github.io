@@ -1,0 +1,112 @@
+---
+title: "Parsing Job Descriptions"
+author: "Wayne Lee"
+date: "2/26/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Parsing Job Descriptions
+
+Job descriptions can now be easily searched online but the information within can be hard to extract. [indeed.com](indeed.com) is a popular website for job postings. We will learn how to scrape websites later but we have grabbed 14 job titles and a few of the first listed job descriptions in the file `indeed_job_descs.json`.
+
+The information used to query each title is under the field called `request_params`.
+
+```{r}
+library(jsonlite)
+library(purrr)
+library(tidyverse)
+jobs <- jsonlite::read_json("data/indeed_job_descs.json")
+```
+
+### Problem 0
+
+- Please describe the data structure to your labmates.
+- Which job titles were collected?
+- Please print out one job description, what do you notice about its formatting?
+
+```{r}
+length(jobs)
+class(jobs)
+names(jobs)
+class(jobs[[1]])
+names(jobs[[1]])
+jobs[[14]]$request_params$q
+
+get_title <- function(job){
+    return(job$request_params$q)
+}
+titles <- map_chr(jobs, get_title)
+
+jd <- job$job_descriptions[[1]]
+```
+
+
+### Problem 1 General keyword search
+
+- Find a job description that mentions "R", this will help you know if your code below is working.
+- For each job title, what's the frequency that it mentions R? Please write a function using regular expression to do this.
+  - Are there surprises in your results? Investigate and you may need to adjust your logic
+- What about Python?
+- What does this say about R's popularity?
+
+```{r}
+jd <- jobs[[14]]$job_descriptions[[1]]
+jd <- jobs[[1]]$job_descriptions[[1]]
+
+
+detect_keyword <- function(jd, keyword){
+    express <- paste0("[^a-zA-Z]", keyword, "[^a-zA-Z]")
+    match <- grep(express, jd)
+    return(length(match) != 0)
+}
+
+calc_prop <- function(job){
+  has_R <- map_lgl(job$job_descriptions, detect_keyword, keyword="R")
+  has_Python <- map_lgl(job$job_descriptions, detect_keyword, keyword="Python")
+  return(c(has_R=mean(has_R),
+           has_Python=mean(has_Python)))
+}
+names(jobs) <- titles
+props = map_dfr(jobs, calc_prop)
+t(props)
+
+job <- jobs[[1]]
+has_R <- map_lgl(job$job_descriptions, detect_keyword, keyword="R")
+which(has_R)
+jd <- job$job_descriptions[[30]]
+regexpr("[^a-zA-Z]R[^a-zA-Z]",
+        jd)
+substr(jd, 1000, 1020)
+```
+
+
+### Problem 2 - Human in the loop
+
+Sometimes the number of articles are too large for a single person to read them all within a given amount of time. For example, how many jobs are looking for deep learning expertise? A key word, we may look for is "deep learning" and see its surrounding context afterwards.
+
+- First, use your function above, how many job descriptions reference "deep learning" in their search?
+  - You may need to modify your function, that's fine. Do you need to pre-process the data somehow?
+  - Are there anomalies that you see? Make sure you investigate and modify your function if it's reasonably easy.
+- Identify the postings under the `data+science` job title that mention "deep learning", then extract the context around them to find out more. 
+  - Which companies seem more serious about actually implementing "deep learning" according to what you see?
+  
+```{r}
+
+```
+
+
+### Problem 3 - Pre-processing text
+
+When processing text, one common task is to identify stopwords, e.g. "is", "the", and "and", that help the structure of the sentence but does not directly contribute meaning (most of the time) to the sentence. In fact, most Natural Language libraries provide a default list of stopwords but they rarely are identical. One possible way to identify stopwords is to simply look for words for your usecase is to find words that are common across all documents.
+
+- For one job title, create a word frequency matrix where the columns are words and the rows are different documents. The element in the matrix should record the frequency of that word appearing.
+  - There are packages that do this but try to do this by hand to appreciate the amount of pre-processing that goes into this.
+  - HINT: map_dfr, as_tibble(table(CHAR_VECTOR)), etc
+  - HINT: make sure you remove any words with length 0, i.e. the empty string character ""
+- Please list out the words that are "used commonly" across all job titles (You are expected to make a few judgement calls here!)
+  - Please list out words that are common within a particular job title but not common across all job titles.
+- How should we interpret this last piece of analysis?

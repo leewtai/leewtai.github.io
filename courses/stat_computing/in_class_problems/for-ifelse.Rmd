@@ -1,0 +1,150 @@
+---
+title: "When Fitting The Wrong Distribution"
+author: "Wayne Lee"
+date: "1/25/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## What happens when we fit the wrong model to the data?
+It is common in Statistics to wonder the impact of fitting the wrong model to the data.
+
+For this exercise, we will focus on fitting **unimodal distributions** to multi-modal data.
+
+### Problem 0, simulating multi-modal data via a Gaussian Mixture
+
+You can imagine a distribution with $k$ modes comes from overlaying $k$ different Gaussian distributions on top of each other. To simulate something like that, we could define:
+
+$$X \sim MultiNomial(p_1, p_2, \dots, p_k)$$
+$$Y|X \sim Normal(\mu_{X}, \sigma^2_{X})$$
+
+where $p_i = P(X=i)$, then we say $Y$ is a mixture Gaussian with $k$ mixtures. There will be $3k$ number of parameters overall, $p_1, \dots, p_k$, $\mu_1, \dots, \mu_k$, and $\sigma^2_1, \dots, \sigma^2_k$.
+
+The 2 stage expression above suggests how we could simulate this using standard distributions like the multinomial and Gaussian.
+
+- Before you start coding, write down in words, how you would translate the mathematical expression into a 2 stage sampling process using the multinomial and Gaussian distribution. Make sure you reference the parameters in your description.
+
+```{r}
+
+
+```
+
+### Problem 1:
+
+We will eventually write a function called `rmixgauss(n, mix_probs, mus, sds)` that draws $n$ different samples from a Mixture Gaussian.
+
+However, we will start off with a simpler version called `binary_rmixgauss(n, mix_probs, mus, sds)` and slowly generalize this. As the name suggests, we will be assuming there are only 2 mixtures, i.e. $k = 2$.
+
+Your function should use 2 built-in functions in R, `sample()` and `rnorm()` to help produce the final function. In particular, `sample()` has an argument `prob` that can adjust the sampling probabilities.
+
+- What data type should each input be and their respective size?
+- Write `binary_rmixgauss()` in 3 different ways:
+  - Write a function called `bi_rmixgauss_single(mix_probs, mus, sds)` then use a for-loop to generate `n` samples.
+  - Use `ifelse()` where the condition depends on the length `n` dice roll vector.
+  - Use `for() {...}` and `if(){...}else{...}` to write your function.
+- Comment and compare on the 3 functions above, e.g. which is easiest to read?
+
+```{r}
+
+
+```
+
+### Problem 2: Testing your functions
+
+Please run the following test cases against your favorite version from Problem 1.
+  - Test cases:
+    - `binary_rmixgauss(100, c(0.5, 0.5), c(0, 10), c(3, 3))`
+    - `binary_rmixgauss(-1, c(0.5, 0.5), c(0, 10), c(3, 3))`
+    - `binary_rmixgauss(0, c(0.5, 0.5), c(0, 10), c(3, 3))`
+    - `binary_rmixgauss(10, c(1, 0), c(0, 10), c(3, 3))`
+    - `binary_rmixgauss(10, c(0.33, 0.67, 0.5), c(0, 10), c(3, 3))`
+    - `binary_rmixgauss(10, c(0.33, 0.33), c(0, 10, -10), c(3, 3))`
+    - `binary_rmixgauss(10, c(0.33, 0.33), c(0, 10), c(3, 3, -1))`
+    - `binary_rmixgauss(10, c(0.33, 0.67), c(0, 10), c(3, -1))`
+    - `binary_rmixgauss(c(10, 5), c(0.33, 0.33), c(0, 10), c(3, 1))`
+    - `binary_rmixgauss(10, c(0.5, 0.5), c(0, 10), c(1, 1))`
+  - Make sure each test case is performing as you expected, discuss with your group to make sure you're on the same page.
+    - Notice how R handles all the different cases!
+  - Try running all 3 versions of your function on the last test case but increase `n=100`, and look at the data using `hist(data)`
+    hint:
+    ```
+    funs <- c(median, mean, sum)
+    data <- c(1, 1, 1, 1, 1, 100)
+    for(my_fun in funs){
+        print(my_fun(data))
+    }
+    ```
+  - What is the data type for `funs` in the example above?
+  
+  
+```{r}
+
+```
+
+### Problem 3: Input validation
+
+- In problem 1, we stated some expectations for the input lengths and data types. It's often good to check the inputs before executing any code. Please write a function called `check_rmixgauss_input()` that checks for the conditions you stated in Problem 1 and use `stop()` to give the user meaningful error messages.
+- Please add this sanity check function into your favorite version of the `binary_rmixgauss()` function and run through **some of the** test cases one more time.
+
+```{r}
+```
+
+
+### Problm 4: Simulating data and fitting the wrong model!
+A method to fit a model to data is to **search** for the parameters that maximize the log-likelihood of observing the sample, i.e.
+  $$\theta_{MLE} = \arg\max_{\theta} \log p_{\theta}(data)$$
+  So if we assume the data follows a Normal distribution and the samples are independent from one another, we can rewrite this as:
+  $$\theta_{MLE} = \arg\max \log \prod_i \frac{1}{\sigma\sqrt{2\pi}} \exp\left(-\frac{1}{2} (\frac{y_i - \mu}{\sigma})^2\right)$$
+
+- Please generate an **obviously bimodal** distribution using 1000 samples using your function above. Hint: you can check with `hist(rnorm(100))` to get the histogram of your samples.
+- Since we have not covered optimization yet and to further illustrate the use of for-loops, we use a for-loop to sweep across a range of values to search for a reasonably parameters that can describe the data. Use `seq()` to create "reasonable" candidate values for both $\hat{\mu}$ and $\hat{\sigma}^2$ (you should have 2 vectors at the end of this, they do not need to be the same length).
+- Pick arbitrary values among your candidate values from above, calculate the log-density of your sample using R's built-in function `dnorm(y, mu, sd, log=TRUE)`.
+- Pick another set of arbitrary values among your candidate values from above, calculate the log-density, which set of parameter values is better? Why?
+- Now calculate the log-density of your sample using **each possible combinations** of your candidate $\hat{\mu}$ and $\hat{\sigma}^2$ and report the pair that has the highest value. While comparing different combination of your candidate values, **if** the new pair of parameter values produce a larger log-density, **then** you should update your $\hat{\mu}$, and $\hat{\sigma}^2$. Hint:
+  ```
+  par1 <- 1:2
+  par2 <- 4:7
+  candidates <- expand.grid(par1, par2)
+  dim(candidates)
+  head(candidates)
+  largest <- 0
+  for(i in seq_len(dim(candidates)[1])){
+      challenger <- candidates[i, 1] + candidates[i, 2]
+      if(largest < challenger){
+          
+      }
+  }
+  ```  
+- Please plot your sample against your fitted Normal distribution by modifying the code below:
+  ```
+  data <- rnorm(1000)
+  hist(data, freq = FALSE)
+  best_normal <- function(x) return(dnorm(x, 0, 1))
+  curve(best_normal, min(data), max(data), col="blue", add=TRUE)
+  ```
+- Please comment on whether the best model worked as you expected.
+
+```{r}
+
+```
+
+
+### Problem 5: Generalizing functions
+
+Here we'll relax the assumption that $k=2$.
+- What happens when we pass a vector for the mean and sd, e.g. `rnorm(2, c(0, 10), c(0.1, 3))`?
+  - What happens if you change `n=6`?
+- Recall that we can subset the same index multiple times, e.g. `c(-1, -2, -3)[c(1, 1, 3)]`, use this fact and the above result to write rmixguass(). This function should avoid any for-loop or if/else logic.
+  - Don't forget to update the input validation function as well!
+- Check your function works by running
+  ```
+  
+  dat <- rmixgauss(1000,
+                   c(0.3, 0.1, 0.6),
+                   c(-10, 0, 10),
+                   c(1, 1, 3))
+  hist(dat)
+  ```

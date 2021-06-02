@@ -1,0 +1,119 @@
+---
+title: "joins"
+author: "Wayne Lee"
+date: "2/18/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## How connected are airports?
+
+We could rank the "connectiveness" of an airport and their associated cities by its reach around the globe. Specifically, how many cities are within 1 direct flight or within 1 transfer flight of each city.
+
+We will perform some basic JOIN operations for this to compare the 2019 vs 2020 data.
+
+To answer these questions, you can use the domestic and international destinations from all US airport from [this website](https://www.transtats.bts.gov/Tables.asp?DB_ID=111&DB_Name=Air%20Carrier%20Statistics%20(Form%2041%20Traffic)-%20All%20Carriers&DB_Short_Name=Air%20Carriers).
+In particular, we have data from both 2019, `T_100_MARKET_DOM_INT_2020.csv`, and 2020, `T_100_MARKET_DOM_INT_2019.csv`.
+
+### Porblem 0 data exploration
+
+- Please verify the claim that "at least one of the origin or destination airports must be from the US".
+- How many foreign countries have a direct flight with the US in 2019 (either way)?
+- (No code) To calculate all possible airports within 2 flights from JFK, what information is the data missing?
+- Are there countries that do not have "round trip" relationships with the US if you are restricted to only direct flights?
+- Is there a one to one relationship between `ORIGIN_AIRPORT_ID` and `ORIGIN`?
+  - (optional) If you find something weird, what would you say is causing it?
+- How many unique airports are out there in the US?
+
+```{r}
+airports <- read.csv("~/Downloads/airports.csv")
+library(tidyverse)
+head(airports)
+connected_to_US <- (airports$ORIGIN_COUNTRY == "US"
+                    | airports$DEST_COUNTRY == "US")
+all(connected_to_US)
+dest_from_us_countries <- ifelse(airports$ORIGIN_COUNTRY == "US",
+                            airports$DEST_COUNTRY,
+                            airports$ORIGIN_COUNTRY)
+is_domestic <- (airports$ORIGIN_COUNTRY == "US"
+                & airports$DEST_COUNTRY == "US")
+foreign_countries <- dest_from_us_countries[!is_domestic]
+uniq_foreign <- unique(foreign_countries)
+length(uniq_foreign)
+
+from_us <- airports$ORIG_COUNTRY == "US"
+
+to_us <- airports$DEST_COUNTRY == "US"
+is_from_foreign <- to_us & !is_domestic
+cntry_to_us <- unique(airports$ORIGIN_COUNTRY[is_from_foreign])
+length(cntry_to_us)
+uniq_foreign[!(uniq_foreign %in% cntry_to_us)]
+
+
+head(unique(airports$ORIGIN))
+head(unique(airports$ORIGIN_AIRPORT_ID))
+
+us_airports <- unique(c(airports$DEST[to_us],
+                        airports$ORIG[from_us]))
+length(us_airports)
+```
+
+
+
+```{r}
+user <- data.frame(
+    user_id=c(1, 2, 3),
+    family_name=c("Snow", "Stark", "Stark"),
+    given_name=c("John", "Rob", "Arya"))
+activity <- data.frame(
+    user_id=c(1, 3, 1),
+    page_views=c(14, 20, 1))
+merge(user, activity)
+```
+
+
+
+
+### Problem 1
+
+- Please remove the `*_AIRPORT_ID` variables from the data frame.
+  - Do we need to deduplicate the data after removing the airport ID? Why or why not?
+- At least how many airports within the US are reachable from JFK using 2 or fewer flights?
+  - What about ATL? Please wrap your code from above into a function!
+  - Which airport is more connected?
+- How many airports are in the US?
+- Sample the US airports and plot the relationship between the number of airports reachable by a direct flight vs by 2 flights (each dot is an airport). What relationship do you expect to see? (Plot it afterwards to verify!)
+
+```{r}
+ap_sans_id <- airports %>% select(-ends_with("_AIRPORT_ID")) %>% unique()
+
+target_airport <- "ATL"
+ap_sans_id %>% filter(ORIGIN == target_airport) %>% select(join_key=DEST) %>% unique() -> flight1
+nrow(flight1)
+
+airports %>% filter(to_us) %>% select(join_key=ORIGIN, DEST) %>% unique() -> flight2
+
+connect_flights <- inner_join(flight1, flight2)
+ap_reachable2 <- unique(connect_flights$DEST)
+
+length(unique(c(ap_reachable2, flight1$join_key)))
+```
+
+
+### Problem 2 Impact of locking down?
+
+- The Lombardy region in Italy was the hardest hit by COVID-19 and one of its airports is MXP.
+- The Wuhan region in China is the origin of the COVID-19 pandemic and one of its airports is WUH.
+
+(Wayne does not know if there are other airports in either region)
+
+How would US domestic travel be impacted if we shutdown the airports with traffic **from** these two airports? This problem is intentionally open-ended. How would you quantify/visualize this?
+  - Domestic travel means that your flight never leaves the US territory
+  - Who is your audience and would your report change?
+  
+```{r}
+  
+```

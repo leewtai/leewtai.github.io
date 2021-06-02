@@ -1,0 +1,140 @@
+---
+title: "modeling"
+author: "Wayne Lee"
+date: "3/19/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Modeling and adding variables
+
+In today's exercise, we have 2 examples where we will highlight the impact of adding variables to your model.
+
+Imagine the following distribution of variables:
+$$S_i \sim Bernoulli(B_i)$$
+$$C_i \sim Exponential(\frac{0.1}{B_i + A_i})$$
+$$B_i \sim Unif(0, 1)$$
+$$A_i \sim Bernoulli(0.2)$$
+
+You can imagine this as a simulation for **S**ubscriptions are a function of someone's **B**ackground, the number of **C**licks is a function of someone's **B**ackground whether they have been exposed to an **A**dvertisement.
+
+In general, companies often run **randomized trials** to estimate the impact of marketing campaigns. So it's not unrealistic to imagine that people exposed to the advertisement are randomly chosen.
+
+In general, you will not observe/measure someone's background but only know of their online activity (e.g. clicks) and whether they are exposed to your advertisement. The goal for many businesses is for people to subscribe to their services.
+
+### Question 0
+
+Most advertisement campaigns are run by the marketing teams, who are interested in **estimating the impact of the campaign**.
+
+- From the data generation process above, does the advertisement encourage users to subscribe?
+- Please generate this dataset with `n=200`, each record $i$ should have one realized value for each of the variables.
+- Please perform a hypothesis test on those exposed to the advertisement vs not, whether the subscription rates are significantly different.
+- (Optional - do this last): The advertisement was meant to target 20% of the users, do we have enough data to determine if the percentage of users actually exposed to the advertisement is more than 1% off from 20%?
+
+```{r}
+
+```
+
+### Question 1
+
+Remember that you do not have access to the **B**ackground variable!
+
+- According to the "truth", is the likelihood of subscribing a function of the clicks?
+- Please fit a logistic regression `glm(YOUR_SUB ~ YOUR_CLICKS, family=binomial(link=logit))` of the subscription probability based on the clicks. Please comment on whether you're surprised by the outcome or not.
+- Please fit a logistic regression of hte subscription probability based on the clicks AND the advertisement.
+- Comparing the 2 models above, which model fits the data better?
+
+```{r}
+
+```
+
+
+### Question 2
+
+- You fitted 3 models so far, one on ads, one on clicks, and one with both, which one should you use?
+- How would you report to the marketing team on their campaign's impact on the customer's likelihood to subscribe?
+
+```{r}
+
+```
+
+### Question 3
+
+- Now change the data generation such that the advertisement indeed increases the chance of subscribing. Does the model you chose above properly detect this?
+  - Hint: you may want to tune the magnitude of the impact of the advertisement, you also might want to increase your sample size.
+  
+```{r}
+
+```
+
+### Question 4: modeling weight
+
+Now to back to real data!
+
+We have a subset of data from the [National Health and Nutrition Examination Survey (NHANES)](https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Demographics&CycleBeginYear=2015). The data is a national representative survey if we weighted the records properly. We will ignore the weights for this exercise.
+
+Let's create a model for people's weights in the US! You can treat this as a potential "filling in missing values" exercise.
+
+```{r}
+#df <- read.csv("/course/data/nhanes_2015_2016_demo.csv")
+
+```
+
+### Question 5: Exploratory Data Analysis
+- Please plot the boxplot of height by gender
+  - Which gender corresponds to which code?
+- Please plot the distribution of weights
+  - Please comment on features you notice
+- Please plot the scatter plot between age and weights
+  - Please comment on features you notice
+  
+```{r}
+
+```
+
+### Question 6: Creating a feedback loop
+
+Although it's tempting to immediate modify the variables before modeling, it's often better to first create a feedback loop with a naive baseline model.
+
+- Please fit a regression model that predicts weight using age and at most one other variable for now.
+- Please assess the model's fit using:
+  - A number
+  - A graph
+- How is `lm()` handling missing values?
+- How do these missing values impact your model?
+
+```{r}
+
+```
+
+### Question 7: variable tranformation
+
+- Please transform the age variable such that its scatter plot with the weight variable is "linear".
+  - Hint: do not worry about finding the "best" transformation in this exercise
+- Fit your old model with the new variable, can you tell if the "fit" is better relative to using the old variable?
+
+```{r}
+
+```
+
+### Question 8: Interactions
+
+- Try interacting the height, age, and gender variables together then assess your model one more time.
+- Try adding other variables until you have the "best" model, compare with your teammates your final model.
+  - Besides accuracy, keep track of who's model can be applied on the most records as well!
+  
+```{r}
+
+```
+
+
+### Question 9: Discussion
+
+- Thinking about both exercises, please answer this question: "is it always better to add variables when modeling?"
+
+```{r}
+
+```

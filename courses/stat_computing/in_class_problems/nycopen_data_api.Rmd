@@ -1,0 +1,72 @@
+---
+title: "scraping_api"
+author: "Wayne Lee"
+date: "4/9/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Scraping + Calling APIs, combining multiple data sources
+
+You often hear that women are paid less than men for doing the same type of work. If you are a skeptic, one way to validate this is to pull some data and see for yourself!
+
+In particular, let's look at the Fire Department in NYC and compare the payroll between men vs women in 2019.
+
+Today's activity will be broken down into:
+- Grabbing Payroll data from the [NYC OpenData](https://dev.socrata.com/foundry/data.cityofnewyork.us/k397-673e)
+  - Because NYC OpenData is public, it does not require you to register for credentials before calling its API. This is definitely an exception rather than the rule. You are **highly encouraged** to go through the motions of applying for the "app token" in this document.
+- Grabbing names and their associated gender from the [Sociel Security Agency](https://www.ssa.gov/oact/babynames/) under "Popular Names by Birth Year"
+- A third step that will become obvious hopefully :)
+
+
+### Problem 0: Getting NYC Payroll Information
+
+
+
+- To avoid overloading Ed and NYC OpenData API, you'll need the specify several variables before calling the API. You should focus on data from the `FIRE DEPARTMENT`, in 2019, in Manhattan (you have to figure out which field this corresponds to). We will only focus on the `base_salary` and ignore other factors. You should record other variables that might help explain the variability within the data.
+  - The URL is slightly hidden on the page, HINT, urls always start with `http`
+  - If you're not from NYC, Queens, Bronx, Manhattan are all different Boroughs of New York City.
+  - The default cap on the number of records returned is 1000, to increase this, you'll need to look for the documentation in "Paging Through Data". 
+- How many people satisfy the query you sent?
+- What would you explore before moving on in terms of data quality?
+  - You may need to "wrangle" the data into a format that's easy to work with. During this step, you should drop the fields that are unnecessary for later analysis.
+  
+```{r}
+library(plyr)
+library(tidyverse)
+library(httr)
+library(xml2)
+
+
+```
+
+
+### Problem 1: Getting names and their associated gender
+
+Try to get the top names for each gender for 4 different years. Again, try to divide and conquer.
+
+- Try to load the names using your web browser, please make sure to have your "Inspect Element" or "Inspector" widget open when you're doing this.
+  - You should look under the "Network" tab and look for the "Request" made out to `popularnames.cgi`, this will help you form your query automatically.
+    - Notice that this is a `POST` instead of the usual `GET()`. You'll also need to pass `encode="form"` for the `body` to be formatted correctly. See `?POST` for details
+- Once you get your data, you'll need to parse the HTML using `xml2::read_html`
+- Write a function that takes in name and returns a recommended gender.
+  - You may need to wrangle the data from above into a more friendly format
+  - What happens if a name was not in the database?
+  
+```{r}
+
+```
+
+### Problem 2: Combining the 2 sources of data
+
+- How many women are on the payroll?
+- Please answer if men and women have significantly different base-salaries? What factors affect one's salary?
+
+
+```{r}
+
+
+```

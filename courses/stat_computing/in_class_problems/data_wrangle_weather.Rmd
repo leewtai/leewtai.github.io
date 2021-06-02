@@ -1,0 +1,104 @@
+---
+title: "Data Wrangling Weather Data"
+author: "Wayne Lee"
+date: "2/7/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Is it raining less in 2000s compared to 1900s?
+
+There are **several** files with the format of `USH*prcp.csv` in the folder `/course/data/`, these are a sample pulled and processes from [US Historical Climatology Network (USHCN)](https://www.ncdc.noaa.gov/ushcn/introduction). It contains the total monthly precipitation levels starting in late 1800s to recent years at different weather stations. There's also a file `/course/data/station_metadata.csv` that contains the location information for each weather station.
+
+Our goal is to see if the rain amounts have dropped along with the increasing temperature.
+
+Throughout, avoid using any for-loops and try to use the tidyverse functions: `select`, `arrange`, `filter`, ...
+
+#### Data description
+The readme.txt file says that the 
+- DMFLAG: data measurement flag, e.g. E stands for values are estimated
+- QCFLAG: quality control flag, e.g. manually flagged as erroneous
+- DSFLAG: data source flag for monthly value, e.g. Means Book - 
+  Smithsonian Institute
+- VALUE: monthly value (MISSING=-9999). 
+  Precipitation values are in tenths of millimeters, but are
+  also expressed as whole integers (e.g. divide by 10.0 to 
+  get millimeters)
+
+Citation:
+
+Menne, M.J., C.N. Williams, and R.S. Vose, 2009:  The United States Historical Climatology Network monthly temperature data?Version 2.  Bulletin of the American Meteorological Society, 90, 993-1007.
+
+### Problem 0
+
+- To know what files are available, try `list.files()`
+- Focus on just one file first. Please discard all the dsflag values using `select()` and `starts_with()`.
+- Since `values` contains the data, we will process this first, for all `values*` data, please:
+  - Convert the missing value into NAs
+  - If the qcflag is not blank/NA or dmflag == 'E', replace its recorded
+    value as NA
+  - Scale the precipitation values to be in millimeters
+- Why can't we use 0 for the missing values?
+- Please produce a data frame with all the `value*`, `year`, and `id` columns. You may need `bind_cols` depending on how you approach this problem.
+- Please apply all of your processing above across all the files into a list of data frames. Please use `map()`. To get a list of all the files, you can try `list.files(pattern="USH.*csv")` (this will not work as is, you will need to read the documentation for `list.files()`).
+
+```{r}
+course_data_files <- list.files("/course/data/")
+head(course_data_files)
+
+```
+
+
+### Problem 1
+
+- Since we want to understand if it's raining less over time, how should we normalize the data such that we can see this (multiple answers exist here)? Please write the code that will perform some normalization (you can change this later).
+- Please combine all the data frames across stations into one data frame. `map_dfr()` may be useful.
+- Please manipulate the data such that it is "tidy" (there are multiple ways to achieve this), note that Climate Scientists often think of different measurements over time as different samples but different locations as different features.
+  - Make sure your final data frame's temporal order is respected
+  - You may find `pivot_longer()` and `complete()` helpful.
+  
+```{r}
+
+
+```
+
+
+### Problem 2
+
+- Which state has the station with the most complete data? This should be relative to the overall data history across stations.
+- What is the earliest year_month that has data?
+  - Is there something that seems odd about the data? (depending
+    on how you processed the data, there may not be anything weird)
+- Try arranging the metadata and your final data frame such that the order and number of the stations are the same. Remember that we only have a sample of the stations. Please verify that the order is correct.
+
+```{r}
+
+
+```
+
+### Problem 3
+
+- Pick 2 months that are at least 50 years apart, plot the precipitation levels and compare them.
+  Is it wetter or drier from what you can see?
+  - Can you infer anything from 2 graphs alone?
+  
+```{r}
+
+```
+  
+#### Problem 4
+
+- Oh no! Turns out we should be aggregating the precipitation by year. Please create a data frame such that your
+  is aggregated per year.
+  - You should first discuss how should you handle NA values.
+- Try plotting the different stations precipitation levels over time, i.e. with the years on the x-axis, and normalized precipitation on the y-axis. Try adding an average (over stations) line to this as well. 
+
+
+```{r}
+
+
+
+```

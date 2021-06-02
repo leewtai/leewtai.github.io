@@ -1,0 +1,99 @@
+---
+title: "Who writes what on NYTimes?"
+author: "Wayne Lee"
+date: "1/31/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### What do NYTimes opinion writers write about?
+
+NYTimes is one of the left-leaning major national news outlets. It is also one of the news companies that have more successfully transitioned into the digital age.
+
+Similar to most tech companies, NYTimes published a few APIs to query some of its data. In today's exercise, we will focus on the data from their [Archive API](https://developer.nytimes.com/docs/archive-product/1/overview), which stores the metadata on every article published at NYTimes, e.g. author, published time, topics, etc.
+
+Due to limitations on Ed, we've limited the sections to only those in Opinion, New York, Sports, World, U.S., Arts, Business Day.
+
+Our ultimate goal is to group the different opinion writers into different categories depending on the topics they write about.
+An opinion writer is someone who simply comments on the current events given their background. They may or may not have formal training in the subject they comment about.
+
+```{r}
+library(jsonlite)
+arch <- jsonlite::read_json("/course/data/nytimes_archive_202001.json")
+```
+
+
+### Problem 0
+
+- How many articles were published at NYTimes in 2020 January?
+- What data type is each record stored as?
+- Where can I find the author(s) for each article? Hint, work with just one record to figure out the "structure" of this data.
+- Please comment on whether you think the data types are reasonable choices?
+
+```{r}
+
+```
+
+### Problm 1
+
+- Please create a vector that contains the respective `section_name` for each article, please do this in 2 ways:
+  - Use a for-loop
+  - Use purrr::map()
+- Please verify that the 2 methods above produce the same answer
+- Which method is more readable to you?
+- What section (e.g. sports, business, etc) has the most articles? Hint: `table(sample(1:3, 100, replace=TRUE))`
+- Please create a subset of the data with only records from the "Opinion" section.
+
+```{r}
+
+```
+
+### Problem 2
+
+For the **filtered data**, we want to create a data frame, where the rows correspond to different writers, and the y-axis denotes different subjects they write about.
+
+Subjects are under `keywords` with the attribute `name='subject'`. The corresponding `value` would denote the actual subject matter.
+
+- You may want to remove the unfiltered dataset from Ed's memory for now. Look into `rm()`
+- What is the distribution of "number of authors" per article for the Opinion pieces? Please avoid using a for-loop!
+- Please decide how you'll record the names (single character string? how will you include the middle name?) and the subjects (e.g. if there are 4 authors who wrote about anti-semitism, do they each get 0.25 or 1, if an author wrote 2 articles under the same subject, what should you do)?
+- We suggest you to first read then plan out the following! Try to divide and conquer for the following methods to obtain the data frame where rows are writers and the columns are different subjects.
+  - Use multiple passes, with the first few passes obtaining the full list of the authors and subjects, then the final pass will fill in the matrix. 
+    - Hint: `unique()` can help you deduplicate things.
+    - Hint: `flatten_????` can turn a list into a vector.
+    - Hint: `data.frame(matrix(0, nrow=2, ncol=3))`
+    - Hint: `letters %in% c('a', 'd')`
+  - (OPTIONAL, more challenging) Use 1 pass through the data. 
+    - Recycle your functions from above, get data frame per record that contains only information for the authors and subjects in that record
+    - Use dplyr::bind_rows() to align the columns across the data frames.
+    - Use aggregate() to ensure each author only has one row of data. Hint:
+      ```
+      names_col <- names(df) == "auth_name"
+      df <- aggregate(df[, !names_col], by=df[names_col], max)
+      ```
+- Who wrote the most diverse set of subjects? And how many subjects they write about in January?
+
+```{r}
+
+```
+
+
+#### Problem 3
+
+To calculate the number of 
+
+- What is the dimension of your final data frame from above?
+- Write a function, `sim_factory` that can output different "similarity" measures between the authors, measured across the topics they write about. These simiarity measures should take in 2 authors names, then output their similarity score (not the data frame from above, i.e. the data frame needs to be included in definition of `sim_factory()`).
+  - Naive similiarty measure:
+    $$sim(X, Y) = \frac{1}{p}\sum_i 1[X_i = Y_i]$$ where $p$ is the length of $X$ and $Y$.
+  - Cosine similarity
+    $$cos\_sim(X, Y) = \frac{X\cdot Y}{\|X\|\|Y\|} = \frac{\sum_i X_i Y_i}{\sqrt{\sum_i X_i^2 \sum_i Y_i^2}}$$
+- Use the functions from above to calculate the similarity between each author to the most diverse writer. Please plot this outcome. Hint: `plot(sim_scores)`.
+- Comment on the 2 similarity scores, which one do you like better?
+
+
+```{r}
+```
