@@ -3,7 +3,7 @@ import re
 import matplotlib.pyplot as plt
 import pandas as pd
 
-df = pd.read_csv('data/2021-04-28T1109_Grades-STATUN2102'
+df = pd.read_csv('data/2021-05-01T1214_Grades-STATUN2102'
                  '_001_2021_1_-_Applied_Statistical_Computing.csv')
 # First row is a row indicating which were manually posted,
 # does not have grades. Solely for Canvas
@@ -78,3 +78,5 @@ grades.replace({'max_letters': gpa2letter}, inplace=True)
 
 
 grades.to_csv('testb.csv')
+
+print(grades)
