@@ -13,7 +13,7 @@ See "Get Started" to obtain your API key.
 For those who cannot access NYTimes, please see the special note in the `()` for each question.
 
 - According to the documentation, what is the maximum number of results that can be
-  returned per call? (a copy of this page is available on `Canvas/Files/homeworks/hw7_files/Article Search | Dev Portal.html`
+  returned per call?
   if you cannot access NYTimes).
 - What is the `status code` if you do not provide your API key when making the call? (Please inform the grader that you cannot complete this part)
 - What does `content()` return if you fail to provide your API key when making the call? (Please inform the grader that you cannot complete this part)
