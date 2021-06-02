@@ -15,11 +15,16 @@ extra = canvas['Ethics and Data Privacy Summary (extra credit) (514495)']
 
 
 def calc_hw_avg(x, extra=extra):
-    skip = 1 if pd.isna(extra.loc[i]) else 2
+    skip = 1 if pd.isna(extra) else 2
     return(x.sort_values()[skip:].mean())
- 
 
-hw_perc = hw_norm.apply(calc_hw_avg, axis=1)
+
+hw_perc = []
+for i in range(hw_norm.shape[0]):
+    hw_avg = calc_hw_avg(hw_norm.iloc[i, :], extra.iloc[i])
+    hw_perc.append(hw_avg)
+
+hw_perc = pd.DataFrame(hw_perc)
 
 
 projs_cols = [col for col in canvas.columns if re.search('proj.*', col.lower())]
