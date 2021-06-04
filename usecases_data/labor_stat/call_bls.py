@@ -6,14 +6,13 @@ cred = json.load(open('../credentials.json', 'r'))
 
 url = 'https://api.bls.gov/publicAPI/v2/timeseries/data/'
 
-# ,
-# CWUS0000SA0: CPI for Urban Wage Earners and Clerical Workers (adjusted)
-# LNS14000000: Unemployment Rate (Seasonally Adjusted)
 headers = {
     'registrationkey': cred['bureau_of_labor_stat_api_key'],
     'Content-type': 'application/json'
 }
 
+# CWUS0000SA0: CPI for Urban Wage Earners and Clerical Workers (adjusted)
+# LNS14000000: Unemployment Rate (Seasonally Adjusted)
 params = {
     'startyear': 2000,
     'endyear': 2020,
