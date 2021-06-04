@@ -20,3 +20,4 @@
 *.tar.gz
 *.xpt
 .RData
+*.geojson
