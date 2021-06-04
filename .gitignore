@@ -17,3 +17,6 @@
 *.raw
 *.pdf
 *.html
+*.tar.gz
+*.xpt
+.RData
