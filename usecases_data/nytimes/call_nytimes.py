@@ -1,3 +1,4 @@
+from itertools import product
 import json
 import logging
 import time
@@ -29,25 +30,25 @@ if file.exists():
         archs = json.load(f)
 else:
     archive_url = 'https://api.nytimes.com/svc/archive/v1/{year}/{month}.json'
-    months = list(range(1, 7))
+    months = list(range(1, 13))
+    years = list(range(2010, 2021))
     logging.info('Extracting archive data for {} months'.format(len(months)))
-    archs = {}
-    for month in months:
-        arch_url_2020 = archive_url.format(year=2020, month=month)
+    for year, month in product(years, months):
+        arch_url = archive_url.format(year=year, month=month)
         params = {'api-key': cred['nytimes_api_key']}
-        arch_resp = requests.get(url=arch_url_2020, params=params)
+        arch_resp = requests.get(url=arch_url, params=params)
         calls_today += 1
         if arch_resp.status_code != 200:
-            logging.info('month {month} failed'.format(month=month))
+            logging.info('year {year}, month {month} failed'.format(
+                year=year, month=month))
         out = arch_resp.json()
-        logging.info('got month {}'.format(month))
+        logging.info('got year {}, month {}'.format(year, month))
         # Archives have duplicate entries, take the later one arbitrarily
         uniq_arts = {article['_id']: article
                      for article in out['response']['docs']}
-        archs.update(uniq_arts)
+        json.dump(uniq_arts,
+                  open('nyt_arch_{}_{}.json'.format(year, month), 'w'))
         time.sleep(6.1)
-
-    json.dump(archs, file.open('w'))
 
 
 comment_fields = [
