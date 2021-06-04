@@ -105,3 +105,12 @@ The notes are organized by semester for now.
 - Might try to teach students to reproduce each other's reports
 - Undergraduates need time to ramp up expectations for research (...not sure how yet)
 - MA students really want to try a lot of different models in research
+
+## Semester Fall 2020
+- Teach logistic regression in Applied Stat Methods
+  - cutoffs
+  - different measures of accuracy
+  - cross validation (leave last few games out vs leaving some samples)
+- Go through a paper slowly... let students attempt the same problem
+- T-test vs regression (with and w/o intercept)
+- dogma that more data is better, more granular is better
