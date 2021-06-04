@@ -1,6 +1,7 @@
 # Data is using
 # https://www.alphavantage.co/documentation/
 
+library(dplyr)
 library(httr)
 library(jsonlite)
 
@@ -9,23 +10,30 @@ creds <- read_json('../credentials.json')
 api_key <- creds[['alpha_vantage_api_key']]
 url <- "https://www.alphavantage.co/query"
 
+symbols = c('VOO', 'BLV', 'BSV', 'VTIP', 'BIV', 'VTC',
+            'VIG', 'VUG', 'VYM', 'VV', 'VO')
 params <- list("function"="TIME_SERIES_DAILY_ADJUSTED",
-               symbol="VOO",
                outputsize='full',
                apikey=api_key)
-response <- GET(url=url,
-                query=params)
-dat <- content(response)
-ts <- dat[['Time Series (Daily)']]
-ts_features <- sub("[0-9]+\\. ", "", names(ts[[1]]))
-length(ts)
+Sys.sleep(60)
+dfs <- list()
+for(symbol in symbols){
+    print(symbol)
+    params['symbol'] <- symbol
+    response <- GET(url=url, query=params)
 
-split_coeff <- as.numeric(sapply(ts, function(x) x[['8. split coefficient']]))
-split_inds <- which(split_coeff != 1)
-split_days <- names(ts)[split_inds]
-adj_close <- sapply(ts, function(x) x[['5. adjusted close']])
-dates <- strptime(names(ts), '%Y-%m-%d')
+    dat <- content(response)
+    ts <- dat[['Time Series (Daily)']]
+    df <- bind_rows(ts)
+    names(df) <- sub("[0-9]+\\. ", "", names(ts[[1]]))
+    df <- as.data.frame(sapply(df, as.numeric))
+    df$date <- names(ts)
+    df$symbol <- symbol
 
-plot(dates, adj_close)
+    dfs[[symbol]] <- df
+    Sys.sleep(12)
+}
+bdf <- bind_rows(dfs)
 
-jsonlite::write_json(dat, "alpha_vantage_voo_ts_daily.json")
+# jsonlite::write_json(bdf, "alpha_vantage_etfs_ts_daily.json")
+write.csv(bdf, 'alpha_vantage_etfs_ts_daily.csv', row.names=FALSE)
