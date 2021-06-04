@@ -2,9 +2,9 @@
 
 Confidence interval is one of the most popular yet also most misunderstood concepts in
 statistics. Most practictioners confuse confidence intervals with credible intervals.
-Even Statisticians confuse these interpretations sometimes (CITATION). This paper
+Even Statisticians confuse these interpretations sometimes ([Morey et al 2016](https://link.springer.com/article/10.3758/s13423-015-0947-8)). I
 argues that rebranding and teaching the confidence interval differently can alleviate
-this misunderstanding.
+many misunderstandings.
 
 The first proposal is to rebrand the confidence interval as not-rejected intervals (NRI).
 The first reason for this rebranding is a simple word association for students. The word
@@ -54,6 +54,7 @@ Traditionally, people teach confidence intervals using the
 
 Things to read:
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4742490/
+https://link.springer.com/article/10.3758/s13423-015-0947-8
 
 http://www.stat.columbia.edu/~gelman/research/published/uncertainty_intervals.pdf
 https://www.tandfonline.com/doi/epub/10.1080/00031305.2018.1527253?needAccess=true
