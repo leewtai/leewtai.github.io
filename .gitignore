@@ -21,3 +21,7 @@
 *.xpt
 .RData
 *.geojson
+*.xls
+*.dta
+*.sav
+*.sas7bdat
