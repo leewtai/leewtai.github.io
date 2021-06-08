@@ -1,0 +1,115 @@
+---
+title: "lec16 cluster practice"
+author: "Wayne Lee"
+date: "3/11/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Pre-class download
+Please get `cluster_sim_practice.Rmd`
+
+## Our previous simulation
+```{r}
+set.seed(0)
+k <- 5 #sample(5, 1)
+n <- 100
+# dimension of the data/features
+p <- 100
+means <- sapply(1:p,
+         function(i){
+           runif(k, min=0, max=10)}
+         )
+means <- matrix(means, nrow=k)
+# assignment of cluster for each record!
+clus_assign <- sample(k, n, replace=TRUE)
+x <- sapply(1:n,
+            function(i) rnorm(p, means[clus_assign[i],]))
+x <- t(x)
+plot(x[, 1], x[, 2])
+
+```
+
+## Anatomy of k-means
+```{r}
+km_out <- kmeans(x, centers=k)
+
+# betweenness - total squared distance
+# between the centroids (each record contributes one vote).
+grand_mean <- apply(x, 2, mean)
+gm_mat <- matrix(rep(grand_mean, length(km_out$size)), nrow=length(km_out$size), byrow=TRUE)
+err <- km_out$centers - gm_mat
+sum(apply(err^2, 1, sum) * km_out$size)
+km_out$betweenss
+
+# All pair-wise squared dist
+tot_dist <- as.matrix(dist(x))
+sum(tot_dist[lower.tri(tot_dist)]^2) / n
+# Another way to think about this is
+# squared dist to the overall mean.
+gm_mat <- matrix(rep(grand_mean, n), byrow=TRUE, nrow=n)
+sum((x - gm_mat)^2)
+
+sum((x - gm_mat)^2) - km_out$betweenss
+km_out$tot.withinss
+km_out$withinss
+
+i <- 2
+clus_i_x <- x[km_out$cluster == i,]
+within_dist <-  as.matrix(dist(clus_i_x))
+sum(within_dist[lower.tri(within_dist)]^2) / km_out$size[i]
+```
+
+## What if there're no clusters
+```{r}
+km_out <- kmeans(x, 2)
+clus_col <- c("red", "blue")[km_out$cluster]
+plot(x[, 1], x[, 2],
+     col=clus_col, pch=16)
+# Should always try multiple starting
+# values with k-means
+```
+
+```{r}
+k_guess <- 4
+km_out <- kmeans(x, k_guess)
+library(RColorBrewer)
+if(k_guess < 3){
+  cols <- c("black", "red")[1:k_guess]
+} else{
+  cols <- brewer.pal(k_guess, "Set1")
+}
+plot(x[, 1], x[, 2],
+     col=cols[km_out$cluster],
+     pch=16)
+
+
+k_max <- 20
+outs <- matrix(NA, ncol=2, nrow=k_max)
+for(k_guess in seq_len(k_max)){
+  km_out <- kmeans(x, centers=k_guess)
+  outs[k_guess, 1] <- km_out$betweenss
+  outs[k_guess, 2] <- km_out$tot.withinss
+}
+plot(outs[,1] / outs[, 2])
+
+```
+
+
+```{r}
+set.seed(0)
+km1 <- kmeans(x, centers=6)
+table(km1$cluster, clus_assign)
+
+# What makes 2 different from 4?
+assign <- data.frame(clus=as.factor(km1$cluster))
+mat <- model.matrix(~clus, assign)
+
+
+
+
+```
+

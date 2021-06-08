@@ -1,0 +1,52 @@
+---
+title: "ica"
+author: "Wayne Lee"
+date: "4/7/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## PCA vs ICA toy
+
+```{r}
+n <- 100
+S <- cbind(runif(n), runif(n))
+p <- ncol(S)
+mixing <- matrix(rnorm(p * p), ncol=p, nrow=p)
+X <- S %*% t(mixing)
+
+plot(S[, 1], S[, 2])
+plot(X[, 1], X[, 2])
+pca_out <- prcomp(X)
+ica_out <- ica::icafast(X, 2)
+
+```
+
+## Mixing signals
+
+```{r}
+max_T <- 100
+t <- seq(0, 2*pi, length.out=max_T)
+
+# Creating random "curves"
+cov_mat <- 2 * exp(-as.matrix(dist(t)) / 0.3)
+dat <- chol(cov_mat) %*% rnorm(max_T)
+
+sources <- cbind(
+  sd(dat) * sin(t),
+  dat)
+p <- ncol(sources)
+mixing <- matrix(rnorm(p * p), ncol=p, nrow=p)
+
+# rows are the different samples/records/times
+# columns are features
+X <- sources %*% t(mixing)
+
+#install.packages("ica")
+ica_out <- ica::icafast(X, p)
+
+```

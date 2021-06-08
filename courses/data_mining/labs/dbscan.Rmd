@@ -1,0 +1,53 @@
+---
+title: "dbscan"
+author: "Wayne Lee"
+date: "3/25/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Pre-class downloads
+
+- dbscan.Rmd
+  - `install.packages("dbscan")`
+
+```{r}
+n <- 100
+clus <- sample(c(TRUE, FALSE), n, replace=TRUE)
+x <- ifelse(clus, rnorm(n, mean=2.5, sd=0.3),
+            runif(n, 0, 2))
+y <- ifelse(clus,
+            rnorm(n, mean=4, sd=0.3),
+            3 + 2 * x + rnorm(n, sd=0.3))
+
+plot(x, y)
+
+library(dbscan)
+db_out <- dbscan(cbind(x, y),
+                 eps = 0.5,
+                 minPts = 5)
+db_out1 <- dbscan(cbind(x, y),
+                 eps = 0.5,
+                 minPts = 5)
+table(db_out$cluster, db_out1$cluster)
+
+range(db_out$cluster)
+df <- data.frame(x, y,
+                 clus=as.factor(db_out$cluster))
+
+library(ggplot2)
+ggplot(df, aes(x, y, color=clus)) + geom_point()
+
+```
+
+```{r}
+x <- c(-1.1, -1, -0.9,
+       0,
+       1.1, 1, 0.9)
+x <- as.matrix(x)
+db_out <- dbscan(x, eps=0.91, minPts=4)
+db_out$cluster
+```

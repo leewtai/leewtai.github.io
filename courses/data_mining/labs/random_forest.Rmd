@@ -1,0 +1,30 @@
+---
+title: "random_forest"
+author: "Wayne Lee"
+date: "4/5/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Pre-class Downloads
+- install.packages("randomForest")
+- [Kaggle dataset on HR analytics](https://www.kaggle.com/arashnic/hr-analytics-job-change-of-data-scientists?select=aug_train.csv): `aug_train.csv`
+
+## Random Forest
+
+```{r, eval=FALSE}
+df <- read.csv("~/Downloads/aug_train.csv")
+library(randomForest)
+library(dplyr)
+
+df$target <- as.factor(df$target)
+mod <- randomForest(target ~ . -enrollee_id, df, importance=TRUE)
+
+varImpPlot(mod, type=2)
+
+partialPlot(mod, df, "city_development_index")
+```

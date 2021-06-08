@@ -1,0 +1,47 @@
+---
+title: "clustering1"
+author: "Wayne Lee"
+date: "3/9/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+## k-means exercise!
+```{r}
+# number of clusters
+k <- 4 #sample(5, 1)
+n <- 100
+# dimension of the data/features
+p <- 2
+means <- sapply(1:p,
+                function(i){
+                runif(k, min=0, max=10)})
+# assignment of cluster for each record!
+j <- sample(k, n, replace=TRUE)
+x <- sapply(1:n,
+            function(i) rnorm(p, means[j[i],]))
+x <- t(x)
+plot(x[, 1], x[, 2])
+
+km_out <- kmeans(x, centers = 4)
+names(km_out)
+# km_out$cluster is the estimated cluster assignment!
+length(km_out$cluster)
+table(km_out$cluster)
+# km_out$centers these are the centroids
+km_out$centers
+```
+
+## high dimension simulation
+
+```{r}
+n <- 100
+p <- 2
+x <- matrix(rnorm(n * p), nrow=n)
+x_dist <- as.matrix(dist(x))
+x_dist[1:5, 1:5]
+min(x_dist[lower.tri(x_dist)])
+```

@@ -1,0 +1,113 @@
+---
+title: "neighborhoods"
+author: "Wayne Lee"
+date: "3/16/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Pre-class installs/downloads
+- `noise_complaints_feb2021.csv` on CourseWorks
+- `noise_clus.Rmd`
+- R packages: `zoo`, `maps`, `RColorBrewer`
+
+
+# GOAL:
+- cluster different zip codes, based on noise characteristics!
+
+```{r}
+library(tidyverse)
+library(zoo)
+library(maps) # this willl conflict with purrr
+library(RColorBrewer)
+
+
+df0 <- read.csv("~/repos/leewtai.github.io/usecases_data/nyc_opendata/noise_complaints_feb2021.csv")
+
+zip_loc <- df0 %>% select(
+  incident_zip, longitude, latitude) %>%
+    group_by(incident_zip) %>%
+    summarize(lon_avg=mean(longitude),
+              lat_avg=mean(latitude))
+plot(zip_loc$lon_avg, zip_loc$lat_avg)
+maps::map('county', add=TRUE)
+
+# change time to DAY OF WEEK + Hour
+df <- df0 %>%
+    select(created_date, incident_zip) %>%
+    mutate(day_of_week=strftime(strptime(created_date, "%Y-%m-%dT%H:%M:%S.000"), "%a:%H"))
+
+# time series of noise complaints
+cnts <- tapply(rep(1, nrow(df)), df[, c("incident_zip", "day_of_week")], sum)
+
+cnts[is.na(cnts)] <- 0
+head(cnts)
+plot(cnts[1, ], type="l")
+```
+
+# Creating features
+```{r}
+# violation of time!
+ma_cnts <- apply(cnts, 1, function(x) zoo::rollmean(x, 7))
+# rolling average makes things less noisy!
+plot(ma_cnts[, 1], type="l")
+plot(ma_cnts[, 5], type="l")
+
+# normalizes each zip code, to have complaints between 0 and 1.
+ma_cnts <- apply(ma_cnts, 2,
+                 function(x){
+                   if(max(x) == min(x)){ return(x)}
+  (x - min(x)) / (max(x) - min(x))
+})
+
+# key to transpose, each row = zip code
+ma_cnts <- t(ma_cnts)
+```
+
+## Identifying clusters
+
+```{r}
+k_max <- 20
+out <- matrix(NA, ncol=2, nrow=k_max)
+for(k in seq_len(k_max)){
+    km_out <- kmeans(ma_cnts, k)
+    out[k, 1] <- km_out$betweenss
+    out[k, 2] <- km_out$tot.withinss
+}
+
+plot(out[,1]/out[, 2], type="b")
+```
+
+## Validate clusters
+```{r}
+km_out <- kmeans(ma_cnts, centers=3)
+zip_clus <- data.frame(
+  incident_zip=as.integer(rownames(cnts)),
+  clus=km_out$cluster)
+
+result <- merge(
+  zip_clus,
+  zip_loc,
+  how='outer')
+result$clus <- as.factor(result$clus)
+
+ggplot(result, aes(lon_avg, lat_avg, color=clus)) + geom_point()
+```
+## Give meeaning to clusters
+
+- each line is a different zip code
+- each color is the estimated cluster assignment!
+
+```{r}
+cols <- brewer.pal(max(km_out$cluster), "Set2")
+plot(ma_cnts[1, ], type="n")
+for(i in seq_len(max(km_out$cluster))){
+    sub_cnts <- ma_cnts[result$clus == i,]
+    apply(sub_cnts, 1, function(x)
+      lines(x, col=paste0(cols[i], '33')))
+}
+
+```

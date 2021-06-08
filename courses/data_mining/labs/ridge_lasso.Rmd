@@ -1,0 +1,101 @@
+---
+title: "ridge_lasso"
+author: "Wayne Lee"
+date: "2/10/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##
+
+## Regression requires more data than features
+
+```{r}
+install.packages("glmnet")
+library(glmnet)
+```
+```{r}
+df <- read.csv("non_retweets_dc_inaug_steal.csv")
+
+# Down-sampling for faster processing
+samp_ind <- sample(nrow(df), 8000)
+df <- df[samp_ind,]
+
+# combining the different flags
+steal_index <- grep("steai", names(df))
+names(df)[steal_index]
+df[, "X.stopthesteai2020"] <- (
+  df[, "X.stopthesteai2020"] +
+    df[, "X.stopthesteai"] +
+    df[, "X.stopthesteai2021"])
+
+df <- df[, -grep("(X.stopthesteai$|X.stopthesteai2021$)", names(df))]
+
+# Removing features that are not numeric
+text <- df[, grep("tweet_body", names(df))]
+df <- df[, -grep("(tweet_body|created_at)", names(df))]
+names(df)[grep("_", names(df))]
+head(df$created_at)
+df <- df[, sapply(df, class) == "numeric"]
+
+# Fitting the model
+y_ind <- grep("X.stopthesteai2020", names(df))
+x <- as.matrix(df[, -y_ind])
+x <- scale(x)
+y <- as.numeric(df[, y_ind])
+bad_data <- which(is.na(x[, colnames(x) == "xinaugur"]))
+x <- x[-bad_data,]
+y <- y[-bad_data]
+
+ols <- lm(y ~ x)
+ols_coeffs <- summary(ols)$coefficients
+
+# To do data mining with p-values, do not
+# treat them like probabilities, but you can
+# use them as a metric to guide you.
+p_ord <- order(ols_coeffs[, 4])
+rownames(ols_coeffs)[head(p_ord, 10)]
+```
+
+```{r}
+library(glmnet)
+
+lasso_cv <- cv.glmnet(x,
+                      y,
+                      alpha=1,
+                      nfolds = 5,
+                      intercept=TRUE)
+plot(lasso_cv)
+abline(v=log(lasso_cv$lambda.min),
+       col="blue")
+abline(v=log(lasso_cv$lambda.1se),
+       col="green")
+```
+
+
+```{r}
+lasso.fits <- lasso_cv$glmnet.fit
+lasso_cv$lambda[which.min(lasso_cv$cvm)]
+lasso_cv$lambda.min
+lambda_ind <- which.min(lasso_cv$cvm)
+plot(ols$coefficients[-1],
+     lasso_cv$glmnet.fit$beta[, lambda_ind], 
+     xlab="OLS Coeffs", ylab="LASSO Coeffs",
+     xlim=c(-.1, 0.1),ylim=c(-.05, 0.05))
+abline(h=0)
+abline(a=0,b=1)
+```
+
+```{r}
+lasso_coeffs <- lasso_cv$glmnet.fit$beta[, lambda_ind]
+lasso_coeffs[abs(lasso_coeffs) > 0.05]
+```
+
+```{r}
+lasso <- glmnet(as.matrix(df[, -y_ind]),
+                df[, y_ind], lambda=lasso_cv$lambda.1se,
+                intercept=TRUE)
+```

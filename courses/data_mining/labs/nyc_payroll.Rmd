@@ -1,0 +1,63 @@
+---
+title: "NYC Payroll"
+author: "Wayne Lee"
+date: "1/18/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+setwd("~/repos/leewtai.github.io/courses/data_mining/labs/")
+students <- read.delim("../ssol_roster.tsv")$First_Name
+```
+## NYC Payroll Data Mining Example
+
+- ~~Wayne will code~~
+- ~~You get to ask questions~~
+
+Jan 21, 2020 - Please download the data from CourseWorks!
+`processed_nyc_payroll_2019_small.csv`
+
+```{r}
+pay <- read.csv("~/repos/leewtai.github.io/usecases_data/nyc_opendata/processed_nyc_payroll_2019_small.csv")
+
+is_num_col <- sapply(pay, class) == "numeric"
+is_y <- names(pay) == "base_salary"
+
+x <- as.matrix(pay[, is_num_col & !is_y])
+ols <- lm(pay$base_salary ~ x)
+
+summary(ols)
+
+```
+
+- If you have a column with 0 variability, it can only give you 0 information.
+
+
+
+
+```{r}
+names(pay)
+mean(pay[, "base_salary"] / pay$regular_hours)
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

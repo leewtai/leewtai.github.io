@@ -1,0 +1,97 @@
+---
+title: "ridge_lasso_sim"
+author: "Wayne Lee"
+date: "2/15/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## simulating collinearity + sparsity
+```{r}
+sample_size <- 100
+p <- 50
+useful_p <- 3
+# number of corr features
+collin_p <- 30
+useful_ind <- sample(p, useful_p)
+corr_ind <- sample(p, collin_p)
+
+# independent variables
+z <- rnorm(sample_size)
+corrs <- rep(0, p)
+corrs[corr_ind] <- runif(collin_p, 0.3, 0.9)
+x <- sapply(corrs,
+            function(corr) corr * z + (1 - corr) * rnorm(sample_size))
+
+noise <- rnorm(sample_size)
+y <- 2 * z + noise
+beta <- rep(0, p)
+beta[useful_ind] <- runif(useful_p, -1.2, 1.2)
+y <- x %*% beta + noise
+
+ols <- lm(y ~ x)
+cols <- rep('black', p)
+cols[corr_ind] <- "red"
+pchs <- rep(1, p)
+pchs[useful_ind] <- 16
+plot(ols$coefficients[-1], beta,
+     pch=pchs, col=cols)
+abline(a=0, b=1)
+```
+
+## Demo on glmnet functionalities
+
+```{r}
+library(glmnet)
+lasso_cv <- cv.glmnet(cbind(x, z), y, alpha=1)
+coef(lasso_cv)
+lasso_mod <- glmnet(x, y, alpha=1, lambda=lasso_cv$lambda.1se)
+coef(lasso_mod)
+```
+
+```{r}
+sim_num <- 100
+
+z_coeffs <- matrix(NA, ncol=3, nrow=sim_num)
+for(i in seq_len(sim_num)){
+  if(i %% 10 == 0){
+    print(i)
+  }
+  noise <- rnorm(sample_size)
+  y <- 2 * z + noise
+  
+  ols <- lm(y ~ x + z)
+  lasso_cv <- cv.glmnet(cbind(x, z), y, alpha=1)
+  ridge_cv <- cv.glmnet(cbind(x, z), y, alpha=0)
+  z_coeffs[i, 1] <- tail(ols$coefficients, 1)
+  z_coeffs[i, 2] <- tail(coef(lasso_cv), 1)[1, 1]
+  z_coeffs[i, 3] <- tail(coef(ridge_cv), 1)[1, 1]
+}
+boxplot(z_coeffs)
+abline(h=2)
+```
+
+```{r}
+sim_num <- 100
+
+mses <- matrix(NA, ncol=3, nrow=sim_num)
+for(i in seq_len(sim_num)){
+  if(i %% 10 == 0){
+    print(i)
+  }
+  noise <- rnorm(sample_size)
+  y <- x %*% beta + noise
+  
+  ols <- lm(y ~ x)
+  lasso_cv <- cv.glmnet(x, y, alpha=1)
+  ridge_cv <- cv.glmnet(x, y, alpha=0)
+  mses[i, 1] <- mean((ols$coefficients[-1] - beta)^2)
+  mses[i, 2] <- mean((coef(lasso_cv)[-1] - beta)^2)
+  mses[i, 3] <- mean((coef(ridge_cv)[-1] - beta)^2)
+}
+boxplot(mses)
+abline(h=0)
+```

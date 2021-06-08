@@ -1,0 +1,74 @@
+---
+title: "pca"
+author: "Wayne Lee"
+date: "2/17/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Principle Component Analysis
+
+```{r}
+hidden_p <- 5
+observ_p <- 30
+prob <- NULL # runif(hidden_p)
+h2o <- sample(hidden_p,
+              observ_p,
+              replace=TRUE,
+              prob=prob)
+sample_size <- 1000
+hidden_z <- sapply(
+  seq_len(hidden_p),
+  function(x) rnorm(sample_size))
+corrs <- runif(observ_p, 0.3, 0.8)
+observ_x <- mapply(
+  function(i, corr) {
+  hidden_z[, i] * corr + rnorm(sample_size) * (1 - corr)
+    },
+  h2o, corrs)
+
+image(cor(observ_x))
+
+beta <- runif(hidden_p, -10, 10)
+noise <- rnorm(sample_size, sd=10)
+y <- hidden_z %*% beta + noise
+df <- data.frame(y, observ_x)
+```
+
+## Typical machine learning approach
+```{r}
+train <- 1:800
+ols <- lm(y ~ ., df, subset=train)
+ols_pred <- predict(ols, df[-train,])
+mean((df$y[-train] - ols_pred)^2)
+
+pr_out <- prcomp(observ_x, scale=TRUE)
+
+eigen_val <- pr_out$sdev^2 
+plot(cumsum(eigen_val) / sum(eigen_val))
+abline(h=.9)
+
+cutoff <- 
+
+W <- pr_out$x[, 1:cutoff]
+df_w <- data.frame(y, W)
+pca <- lm(y ~ ., df_w, subset=train)
+pca_pred <- predict(pca, df_w[-train,])
+mean((df_w$y[-train] - pca_pred)^2)
+```
+
+
+## What we would do in data mining
+```{r}
+k <- 3
+plot(pr_out$rotation[, k])
+abline(h = 0)
+which(abs(pr_out$rotation[, k]) > 0.2)
+# what is the truth we should be comparing to?
+
+
+
+```

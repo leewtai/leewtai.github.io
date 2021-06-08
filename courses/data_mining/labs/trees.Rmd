@@ -1,0 +1,62 @@
+---
+title: "trees"
+author: "Wayne Lee"
+date: "3/30/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Infer cluster meaning
+
+```{r}
+set.seed(3)
+n <- 1000
+p <- 4
+k <- 3
+x <- matrix(runif(n * p), ncol=p)
+chosen_col <- sample(p, 1, replace=FALSE)
+clust <- sample(k, n, replace=TRUE)
+shuffled_means <- sample(seq(-1, 1, length.out=k + 2)[2:(k + 1)])
+sds <- rep(1/(4 * k), k)
+x[, chosen_col] <- rnorm(n, shuffled_means[clust], sds[clust])
+
+hist(x[, chosen_col])
+boxplot(x[, chosen_col]~ clust)
+
+# naive clustering
+h_out <- hclust(dist(x), "ward.D")
+est_clus <- cutree(h_out, 3)
+
+table(clust, est_clus)
+
+# Problem with linear models
+y <- est_clus == 2
+lin_mod <- lm(y ~ x)
+summary(lin_mod)
+
+y <- as.factor(est_clus)
+cart <- rpart(est_clus ~ x)
+plot(cart)
+text(cart)
+```
+
+```{r}
+png("~/Desktop/tree1.png")
+plot(x[, 1], x[, 2],
+     col=c("black", "red")[(x[,2] >= 0.2903222) + 1])
+abline(h=0.2903222)
+legend("bottomright", fill="red", legend=c("Clust 1"))
+dev.off()
+
+png("~/Desktop/tree2.png")
+plot(x[, 1], x[, 2],
+     col=c("red", "blue", "black")[est_clus])
+abline(h=0.2903222)
+abline(h=-0.201894)
+legend("bottomright", fill=c("red", "blue", "black"), legend=c("Clust 1", "Clust 2", "Clust 3"))
+dev.off()
+
+```

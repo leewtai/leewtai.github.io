@@ -1,0 +1,74 @@
+---
+title: "cos_sim_hier_clus"
+author: "Wayne Lee"
+date: "3/21/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## cosine similarity
+
+```{r}
+cos_sim <- function(v1, v2){
+  inner_prod <- sum(v1 * v2)
+  mag <- sqrt(sum(v1^2) * sum(v2^2))
+  return(inner_prod/mag)
+}
+
+cos_sim(c(1, 3), c(1, 3))
+cos_sim(c(1, 3), c(2, 6))
+cos_sim(c(1, 3), c(3, 1))
+```
+
+## Our data
+
+```{r}
+library(dplyr)
+df <- read.csv("~/repos/leewtai.github.io/usecases_data/bioRxiv_covid/sub_biorxiv_word_freq.csv")
+mat <- as.matrix(df %>% select(-X, -doc_index))
+
+doc_index <- df$doc_index
+comb <- expand.grid(1:nrow(df), 1:nrow(df))
+cos_dis <- apply(comb, 1, function(ij) 1 - cos_sim(mat[ij[1], ], mat[ij[2], ]))
+cos_dist <- matrix(cos_dis, nrow=nrow(df))
+write.csv(cos_dist, "cos_dissim_mat.csv", row.names = FALSE)
+cos_dist <- as.dist(cos_dist)
+
+cos_mat <- as.matrix(cos_dist)
+flat <- as.numeric(cos_mat[lower.tri(cos_mat)])
+quantile(flat, seq(0, 1, 0.1))
+
+h_out <- hclust(cos_dist, method="ward.D2")
+plot(h_out)
+
+clus_est <- cutree(h_out, k=7)
+table(clus_est)
+
+
+library(jsonlite)
+docs <- read_json("~/repos/leewtai.github.io/usecases_data/bioRxiv_covid/bioRxiv.json")
+
+rand_membs <- sample(which(clus_est == 3), 5)
+
+for(i in doc_index[rand_membs]){
+  print(docs[[i]]$rel_title)
+}
+```
+
+## Can we detect what is contributing to the similarities?
+```{r}
+clus1 <- which(clus_est == 4)
+clus2 <- which(clus_est != 4)
+y <- rep(c(1, 0), times=c(length(clus1), length(clus2)))
+library(glmnet)
+lasso_cv <- cv.glmnet(scale(mat[c(clus1, clus2),]), y)
+# How good is it?
+
+
+target_beta <- lasso_cv$glmnet.fit$beta[, lasso_cv$lambda == lasso_cv$lambda.1se]
+plot(target_beta)
+rownames(lasso_cv$glmnet.fit$beta)[target_beta > 0.01]
+```

@@ -1,0 +1,60 @@
+---
+title: "hier_clust"
+author: "Wayne Lee"
+date: "3/17/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Pre-class downloads
+- `hier_clus.Rmd`
+
+## Hierarchical Clustering
+
+```{r}
+dat <- list(c(-1, 0), c(1, 0),
+            c(0, 3),
+            c(-1, -3))
+mat <- do.call(rbind, dat)
+d <- dist(mat)
+d
+```
+
+
+```{r}
+hclus_out <- hclust(d, "single")
+png("~/Desktop/average_link.png")
+plot(hclus_out)
+dev.off()
+
+hclus_k2 <- cutree(hclus_out, k=3)
+hclus_k2
+```
+
+```{r}
+n <- 100
+clus <- sample(c(TRUE, FALSE), n, replace=TRUE)
+x <- ifelse(clus, rnorm(n, mean=1.5, sd=0.3),
+            runif(n, 0, 2))
+y <- ifelse(clus,
+            rnorm(n, mean=4, sd=0.3),
+            3 + 2 * x + rnorm(n, sd=0.3))
+
+
+plot(x, y)
+hclus_out <- hclust(dist(cbind(x, y)), "complete")
+plot(hclus_out)
+clus_est <- cutree(hclus_out, k=3)
+km_out <-  kmeans(cbind(x, y), 2)
+clus_est <- km_out$cluster
+
+png("~/Desktop/clus_complete.png")
+plot(x, y, pch=16,
+     col=c("red", "blue", "black")[clus_est])
+dev.off()
+
+```
+

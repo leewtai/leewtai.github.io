@@ -1,0 +1,83 @@
+---
+title: "pca_application"
+author: "Wayne Lee"
+date: "2/23/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Pre-class downloads
+- pca_application.Rmd
+- j_cunningham* files under Data
+
+## Citation data
+
+```{r}
+library(jsonlite)
+citations <- read.csv("../../../usecases_data/explore_paper/j_cunningham_citation.csv", header=FALSE)
+titles <- read_json("../../../usecases_data/explore_paper/j_cunningham_citation_titles.json")
+
+ref_count <- apply(citations, 2, function(x) sum(x > 0))
+targets <- tail(names(sort(ref_count)), 2)
+
+target_ind <- which(names(citations) %in% targets)
+titles[["ref_titles"]][target_ind]
+
+citations[, target_ind]
+```
+
+```{r}
+dim(citations)
+```
+
+```{r}
+pr_out <- prcomp(citations, scale=TRUE)
+plot(pr_out$sdev, main="")
+png("~/Desktop/loadings.png", 900, 700)
+par(mfrow=c(4, 3))
+for(i in seq_len(ncol(pr_out$rotation[,1:12]))){
+    eigenvec <- pr_out$rotation[, i]
+    plot(eigenvec, main=paste("Eigvec", i))
+    abline(h=0)
+}
+dev.off()
+
+norm_citation <- apply(citations, 2,
+                       function(x) x / max(x))
+pr_out <- prcomp(norm_citation, center=FALSE,
+                 scale=FALSE)
+plot(pr_out$sdev, main="")
+png("~/Desktop/loadings.png", 900, 700)
+par(mfrow=c(4, 3))
+for(i in seq_len(ncol(pr_out$rotation[,1:12]))){
+    eigenvec <- pr_out$rotation[, i]
+    plot(eigenvec, main=paste("Eigvec", i))
+    abline(h=0)
+}
+dev.off()
+
+
+norm_citation <- apply(citations, 1,
+                       function(x) x / max(x))
+norm_citation <- t(norm_citation)
+pr_out <- prcomp(norm_citation, center=FALSE,
+                 scale=FALSE)
+plot(pr_out$sdev, main="")
+png("~/Desktop/loadings.png", 900, 700)
+par(mfrow=c(4, 3))
+for(i in seq_len(ncol(pr_out$rotation[,1:12]))){
+    eigenvec <- pr_out$rotation[, i]
+    plot(eigenvec, main=paste("Eigvec", i))
+    abline(h=0)
+}
+dev.off()
+
+target_ind <- which(abs(pr_out$rotation[, 11]) > 0.15)
+titles[["ref_titles"]][target_ind]
+
+
+```
+

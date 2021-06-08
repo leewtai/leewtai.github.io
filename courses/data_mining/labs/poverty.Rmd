@@ -1,0 +1,43 @@
+---
+title: "Poverty"
+author: "Wayne Lee"
+date: "3/16/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Poverty data
+The [Inter-American Development Bank has posted a challenge in the past on Kaggle](https://www.kaggle.com/c/costa-rican-household-poverty-prediction/)
+
+
+```{r}
+library(tidyverse)
+df <- read.csv("~/Downloads/costa-rican-household-poverty-prediction/train.csv") %>%
+  select(-Target, -starts_with("SQB"),
+         -idhogar # household ID
+         )
+sd_all_vals <- apply(df, 2, sd)
+is_bad <- sd_all_vals < 1e-8 | is.na(sd_all_vals)
+df_cln <- df[, !is_bad]
+
+km_outs <- rep(NA, 20)
+for(k_guess in seq_along(km_outs)){
+    km_out <- kmeans(df_cln, k_guess)
+    s2n <- km_out$betweenss / km_out$tot.withinss
+    km_outs[k_guess] <- s2n
+}
+plot(km_outs)
+```
+
+
+## Grouping time curves
+
+```{r}
+df <- read.csv("~/repos/leewtai.github.io/usecases_data/nyc_opendata/noise_count_byzip_by_day-hour.csv")
+
+
+
+```

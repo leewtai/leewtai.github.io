@@ -1,0 +1,114 @@
+---
+title: "ica_practice"
+author: "Wayne Lee"
+date: "4/13/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Pre-class downloads
+- ica_practice.Rmd
+- `alpha_vantage_etfs_ts_daily.csv`
+
+## Our PCA Simulation
+
+```{r, eval=FALSE}
+hidden_p <- 5
+observ_p <- 30
+prob <- NULL # runif(hidden_p)
+h2o <- sample(hidden_p,
+              observ_p,
+              replace=TRUE,
+              prob=prob)
+sample_size <- 1000
+hidden_z <- sapply(
+  seq_len(hidden_p),
+  function(x) rnorm(sample_size))
+corrs <- runif(observ_p, 0.3, 0.8)
+observ_x <- mapply(
+  function(i, corr) {
+  hidden_z[, i] * corr + rnorm(sample_size) * (1 - corr)
+    },
+  h2o, corrs)
+
+image(cor(observ_x))
+```
+
+```{r, eval=FALSE}
+library(ica)
+
+ica_out <- ica::icafast(observ_x, nc=30)
+ica_cor <- cor(ica_out$S, hidden_z)
+plot(ica_cor[, 1])
+
+which(abs(ica_cor[, 1]) > 0.3)
+h2o_list <- lapply(1:hidden_p, function(x)
+  which(h2o == x))
+
+short_target <- which.min(sapply(h2o_list, length))
+target_obs <- h2o_list[[short_target]]
+ica_out <- ica::icafast(observ_x[, target_obs], nc=length(target_obs))
+cor(ica_out$S, hidden_z[, short_target])
+plot(ica_out$S[, 3], hidden_z[, short_target])
+
+```
+
+
+```{r, eval=FALSE}
+library(tidyverse)
+df <- read.csv("~/repos/leewtai.github.io/usecases_data/alpha_vantage_api/alpha_vantage_etfs_ts_daily.csv")
+df <- df %>% select(symbol, date, adjusted.close)
+
+vanguard <- pivot_wider(
+  df,
+  names_from = symbol,
+  values_from = adjusted.close)
+
+obs_x <- na.omit(vanguard)
+ord <- order(obs_x$date)
+obs_x <- obs_x[ord, ]
+dates <- as.Date(obs_x$date)
+obs_x$date <- NULL
+obs_x <- sapply(obs_x, diff)
+plot(dates[-1], obs_x[, 1])
+```
+
+
+```{r, eval=FALSE}
+# PCA preserves variance!
+# So if we don't scale, the PCA
+# results will be dominated by VOO
+pca_out <- prcomp(obs_x,
+                  center=TRUE,
+                  scale=TRUE)
+plot(pca_out$sdev)
+plot(cumsum(pca_out$sdev^2) / sum(pca_out$sdev^2))
+abline(h=0.95)
+W <- pca_out$x[, 1:2]
+
+plot(dates[-1], W[, 2])
+```
+
+```{r, eval=FALSE}
+ica_out <- ica::icafast(obs_x, nc=ncol(obs_x))
+
+names(ica_out)
+
+# Because X(t) = M %*% S(t)
+# first row of M, indicates the contribution
+# from different sources to VOO (obs_x first column)
+ica_out$M[1, ]
+
+# sources correspond to different columns 
+# in the M matrix
+weights <- apply(ica_out$M, 1, function(x) abs(x)/sum(abs(x)))
+
+# This indicates fraction of contribution
+# from inferred source 1 to all the different
+# ETFS
+apply(weights, 2, max)
+
+```

@@ -1,0 +1,162 @@
+---
+title: "feature_generation"
+author: "Wayne Lee"
+date: "2/4/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Our text data
+
+```{r}
+df <- read.csv("~/repos/leewtai.github.io/courses/data_mining/labs/small_non_retweets_dc_inaug_steal.csv")
+
+samps <- sample(nrow(df), 4)
+df[samps, "text"]
+
+target <- 1566
+df[target, "text"]
+```
+
+## Parsing the data by "non-alpha numeric values"
+```{r}
+text <- df[, "text"]
+tokens <- strsplit(head(df$text), "[^A-Za-z0-9_.]+")
+lowered_tokens <- lapply(tokens, tolower)
+token_counts <- lapply(lowered_tokens, function(x) as.data.frame(as.list(table(x))))
+library(plyr)
+wf <- plyr::rbind.fill(token_counts)
+wf[is.na(wf)] <- 0
+total_nonzeros <- apply(wf, 2, function(x) sum(x > 0))
+wf <- wf[, total_nonzeros > 1]
+
+target <- 1566
+target_vec <- as.numeric(wf[target, ])
+diffs <- abs(as.matrix(wf) - matrix(rep(target_vec, nrow(df)), nrow=nrow(df), byrow=TRUE))
+dists <- apply(diffs, 1, sum)
+ord <- order(dists)
+head(ord, 10)
+text[head(ord)]
+
+k <- 958
+tail(sort(diffs[k, ]/dists[k]))
+
+
+doc_freq <- apply(wf, 2, function(x) mean(x > 0))
+idf <- 1/doc_freq
+idf_mat <- matrix(rep(idf, nrow(freqs_mat)), byrow=TRUE, nrow=nrow(freqs_mat))
+tf_idf <- wf * idf_mat
+
+target_freq <- as.numeric(tf_idf[target, ])
+freqs_mat <- as.matrix(tf_idf[, ])
+diffs <- abs(as.matrix(freqs_mat) - matrix(rep(target_vec, nrow(df)), nrow=nrow(df), byrow=TRUE))
+
+
+```
+
+
+```{r}
+library(tokenizers)
+library(tm)
+
+tweet_tokens <- lapply(text, tokenizers::tokenize_tweets)
+
+lowered_tweet_tokens <- lapply(tweet_tokens, function(x) stemDocument(tolower(unlist(x))))
+
+token_counts <- lapply(lowered_tweet_tokens, function(x) as.data.frame(as.list(table(x))))
+wf <- plyr::rbind.fill(token_counts)
+wf[is.na(wf)] <- 0
+
+total_nonzeros <- apply(wf, 2, function(x) sum(x > 0))
+wf <- wf[, total_nonzeros > 1]
+
+bdf <- cbind(df[, 2:9], wf)
+write.csv(bdf, "~/Downloads/tweet_token_freq.csv", row.names = FALSE)
+```
+
+
+##
+```{r}
+df <- read.csv("~/Downloads/tweet_token_freq.csv")
+head(names(df))
+head(df[,10:20], 2)
+
+target <- 1566
+samps <- sample(nrow(df), 4)
+df[target, "text"]
+
+target_freq <- as.numeric(df[target, -(1:9)])
+freqs_mat <- as.matrix(df[, -(1:9)])
+
+
+diffs <- abs(freqs_mat - matrix(rep(target_freq,  nrow(freqs_mat)), byrow=TRUE, nrow=nrow(freqs_mat)))
+dist_to_target_tweet <- apply(diffs, 1, sum)
+
+dist_to_target_tweet[head(ord)]
+
+
+df[tail(ord), "text"]
+
+k <- 3350
+tail(sort(diffs[k,]/dist_to_target_tweet[k]))
+
+
+# Decomposing the distance!
+for(i in seq_along(head(ord, 10))){
+    k <- ord[i]
+    dist_to_target_tweet[k]
+    print(tail(sort(diffs[k, ]/dist_to_target_tweet[k])))
+}
+```
+
+
+### Attempt 2 on motivating tf-idf
+
+```{r}
+freqs_mat <- as.matrix(df[, -(1:9)])
+norm_freqs_mat <- t(apply(freqs_mat, 1, function(x) x / sum(x + 1)))
+
+doc_freq <- apply(norm_freqs_mat, 2, function(x) mean(x > 0))
+idf <- 1/doc_freq
+idf_mat <- matrix(rep(idf, nrow(freqs_mat)), byrow=TRUE, nrow=nrow(freqs_mat))
+tf_idf <- norm_freqs_mat * idf_mat
+
+target_freq <- as.numeric(tf_idf[target, ])
+ref_freqs_mat <- as.matrix(tf_idf)
+
+diffs <- abs(
+  ref_freqs_mat - matrix(
+    rep(target_freq,  nrow(ref_freqs_mat)),
+    byrow=TRUE, nrow=nrow(ref_freqs_mat)))
+dist_to_target_tweet <- apply(diffs, 1, sum)
+
+new_ord <- order(dist_to_target_tweet)
+tweets[head(new_ord)]
+tweets[tail(new_ord)]
+
+head(cbind(ord, new_ord))
+```
+
+
+
+## To evaluate a feature
+- Does it split the data according to its purpose!
+  - sample particular examples
+    - make sure good examples appear in the right side
+    - make sure negative examples appear in the right side
+    - or look at relative order!
+- Decompose the feature itself, to understand what is driving its variability. (distance decomposed into components contributing to the total distance)
+- Stopwords!
+
+
+
+    
+
+
+
+
+
+

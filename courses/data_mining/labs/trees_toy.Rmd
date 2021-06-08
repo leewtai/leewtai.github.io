@@ -1,0 +1,111 @@
+---
+title: "trees"
+author: "Wayne Lee"
+date: "3/31/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## tree toy example!
+
+```{r}
+n <- 1000
+x <- cbind(runif(n), runif(n))
+y <- rep(1, n)
+noise_sd <- 0.1
+rect <- x[, 1] > 0.1 & x[, 2] < 0.6 & x[, 2] > 0.3
+y[rect] <- rnorm(sum(rect), 1, noise_sd)
+rect <- x[, 1] > 0.5 & x[, 2] > 0.6
+y[rect] <- rnorm(sum(rect), 2, noise_sd)
+rect <- x[, 1] < 0.5 & x[, 1] > 0.1 & x[, 2] > 0.6
+y[rect] <- rnorm(sum(rect), 3, noise_sd)
+rect <- x[, 1] > 0.1 & x[, 2] < 0.3
+y[rect] <- rnorm(sum(rect), 4, noise_sd)
+rect <- x[, 1] < 0.1 & x[, 2] < 0.1
+y[rect] <- rnorm(sum(rect), 5, noise_sd)
+rect <- x[, 1] < 0.1 & x[, 2] > 0.1
+y[rect] <- rnorm(sum(rect), 6, noise_sd)
+
+df <- data.frame(x, y, y_int = as.factor(round(y)))
+library(ggplot2)
+base_plot <- ggplot(df, aes(X1, X2, color=y_int)) + geom_point()
+```
+
+```{r}
+split_var <- function(split, x, y){
+  condition <- x >= split
+  sum_squares <- var(y[condition]) * sum(condition) + var(y[!condition]) * sum(!condition)
+  return(sum_squares)
+}
+uniq_x <- sort(unique(x[, 1]))
+x_mid <- (uniq_x[-length(uniq_x)] + uniq_x[-1]) / 2
+x_vars <- sapply(x_mid, split_var, x=x[, 1], y=y)
+plot(x_mid, x_vars)
+min(x_vars, na.rm=TRUE)
+x_mid[which.min(x_vars)]
+
+cart <- rpart(y ~ x, control=list(cp=0.005))
+```
+
+#### Classification tree
+
+```{r}
+y_fac <- as.factor(round(y))
+cart1 <- rpart(y_fac ~ x)
+```
+
+
+#### Boosting slides
+
+```{r}
+x <- runif(100, -pi/2, pi * 3 / 2)
+y <- sin(x) + rnorm(100)
+m1 <- rpart(y ~ x, control=list(maxdepth=1))
+predict(m1)
+png("~/Desktop/boost1.png")
+plot(x, y, ylim=c(-1, 1))
+points(x, predict(m1), col="red")
+abline(h=0)
+dev.off()
+
+alpha <- 0.1
+png("~/Desktop/boost2.png")
+plot(x, y, ylim=c(-1, 1))
+points(x, predict(m1) * alpha, col="red", pch=16)
+abline(h=0)
+dev.off()
+
+res <- y - predict(m1) * alpha
+
+m2 <- rpart(res ~ x, control=list(maxdepth=1))
+png("~/Desktop/boost3.png")
+plot(x, res, main="2nd Iteration in Boosting", ylim=c(-1, 1))
+points(x, predict(m2) * alpha, col="red", pch=16)
+abline(h=0)
+dev.off()
+
+png("~/Desktop/boost4png")
+plot(x, y, main="Overall Boosted Model")
+points(x, alpha * (predict(m1) + predict(m2)), pch=16, col="red")
+dev.off()
+
+overall <- alpha* (predict(m1) + predict(m2))
+for(b in seq_len(100)){
+  res <- y - overall
+  new_m <- rpart(res ~ x, control=list(maxdepth=1))
+  overall <- overall + predict(new_m) * alpha
+}
+
+png("~/Desktop/boost7png")
+plot(x, y, main="Overall Boosted Model")
+points(x, overall, pch=16, col="red")
+dev.off()
+
+cart <- rpart(y ~ x)
+plot(x, y)
+points(x, predict(cart), col="red")
+```
+

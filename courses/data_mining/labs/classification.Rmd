@@ -1,0 +1,108 @@
+---
+title: "classification"
+author: "Wayne Lee"
+date: "1/26/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Please download the "classification.Rmd" from CourseWorks + the music*.csv file!
+code_from_lecture/classification.Rmd
+
+## Music dataset
+
+From the [CORGIS data project](https://corgis-edu.github.io/corgis/) I've obtained a [music dataset](https://corgis-edu.github.io/corgis/csv/music/).
+
+```{r}
+music <- read.csv("~/Downloads/music_hottest_song_only.csv")
+y <- as.numeric(music$artist.terms == "hip hop")
+x <- music$song.hotttnesss
+```
+
+## Logistic Regression Review
+$Y \sim Binomial(n=1, p(X))$
+
+$p(X) = \frac{exp(X\beta)}{\exp(X\beta) + 1}$
+
+```{r}
+logit <- function(x){exp(x) / (1 + exp(x))}
+logistic_obj <- function(params, X, y){
+  xbeta <- cbind(1, X) %*% params
+  p <- logit(xbeta)
+  return(-sum(dbinom(y, size=1, prob=p, log=TRUE)))
+}
+optim(c(1, 1), logistic_obj, X=x, y=y)
+my_model <- glm(y ~ x, family=binomial(logit))
+summary(my_model)
+```
+
+How to run logistic regression in R?
+```{r}
+train <- sample(
+  c(TRUE, FALSE),
+  nrow(music),
+  replace=TRUE)
+mod <- glm(y ~ x,
+           family=binomial(link="logit"),
+           subset=train)
+test_probs <- predict(
+  mod,
+  newdata=data.frame(x=x[!train]),
+  type="response")
+test_pred <- test_probs > 0.5
+
+# How good is my prediction?
+same_as_data <- as.numeric(test_pred) == y[!train]
+# classification error!
+mean(same_as_data)
+# 96% is good!
+# most predictive probabilities are close to 0!
+
+```
+
+- $\frac{A}{A + C}$ = recall! Of all the records, that are "1", how many are our model capturing?
+- $\frac{A}{A + B}$ = precision! Of all the records, that our model labels as "1", how many are truly "1"?
+
+```{r}
+alphas <- seq(0, 1, length.out=1000)
+recalls <- rep(NA, length(alphas))
+precisions <- rep(NA, length(alphas))
+for(i in seq_along(alphas)){
+  alpha <- alphas[i]
+  test_pred <- test_probs > alpha
+  truly1 <- y[!train] == 1
+  called1 <- as.numeric(test_pred)
+
+  recall <- sum(called1 & truly1)/ sum(truly1)
+  precision <- sum(truly1 & called1) / sum(called1)
+  recalls[i] <- recall
+  precisions[i] <- precision
+}
+```
+
+
+```{r}
+mean(y)
+pos_indices <- which(y > 0)
+rep_indices <- sample(pos_indices,
+                      15 * length(pos_indices), replace=TRUE)
+new_y <- c(y, y[pos_indices])
+
+starts_w_artists <- grepl("^artist", names(music))
+x <- as.data.frame(scale(music[, !starts_w_artists]))
+new_x <- rbind(x, x[pos_indices, ])
+imbalance_mod <- glm(y ~ .,
+           family=binomial(link="logit"), data=cbind(x, y))
+balanced_mod <- glm(new_y ~ .,
+                family=binomial(link="logit"), data=cbind(new_x, new_y))
+plot(imbalance_mod$coefficients,
+     balanced_mod$coefficients)
+abline(a=0, b=1)
+```
+
+```{r}
+step(imbalance_mod, scope=y ~ ., direction="both")
+```

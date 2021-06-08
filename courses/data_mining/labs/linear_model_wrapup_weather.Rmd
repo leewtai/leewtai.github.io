@@ -1,0 +1,67 @@
+---
+title: "linear_model_wrapup"
+author: "Wayne Lee"
+date: "2/24/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Pre-class Downloads
+- Download
+  - ushcn.csv
+  - station_metadata.csv
+  - linear_model_wrapup_weather.Rmd
+
+## Agenda
+- Wrap up the citation problem
+- Play with weather data, tmax, celsius
+
+```{r}
+df <- read.csv("../../../usecases_data/us_hist_climat_network/ushcn.csv")
+station <- read.csv("../../../usecases_data/us_hist_climat_network/data/csvs/station_metadata.csv")
+rownames(station) <- station$id
+meta_sort <- station[names(df)[-1], c("longitude", "latitude")]
+
+prop_na <- apply(df[, -1], 1,
+                 function(x) mean(is.na(x)))
+
+sdf <- df[prop_na < 0.1, ]
+sdf_sans_na <- apply(sdf[, -1], 2, function(x){
+  x[is.na(x)] <- mean(x, na.rm=TRUE)
+  return(x)
+})
+
+library(RColorBrewer)
+cols <- brewer.pal(7, "RdYlBu")
+
+pr_out <- prcomp(sdf_sans_na)
+png("~/Desktop/no_norm_pca.png", 600, 800)
+par(mfrow=c(2, 1))
+for(i in 1:2){
+  eigvec <- pr_out$rotation[, i]
+  breaks <- seq(min(eigvec), max(eigvec), length.out=length(cols)+1)
+  col_factors <- cut(eigvec, breaks=breaks)
+  plot(meta_sort$longitude,
+       meta_sort$latitude,
+       col=cols[col_factors],
+       pch=16, cex=0.5)
+  legend("bottomright",
+         legend = levels(col_factors),
+         fill=cols)
+}
+dev.off()
+
+```
+
+
+```{r}
+train <- 1:(nrow(sdf_sans_na) - 144)
+y_ind <- sample(ncol(sdf_sans_na), 1)
+y_train <- sdf_sans_na[train, y_ind]
+x_train <- sdf_sans_na[train, -y_ind]
+
+
+```
