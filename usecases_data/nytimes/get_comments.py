@@ -1,4 +1,3 @@
-from itertools import product
 import json
 import logging
 import time
@@ -7,7 +6,7 @@ from pathlib import Path
 import requests
 
 
-log_file = 'call_nytimes.log'
+log_file = 'get_comments.log'
 logging.basicConfig(format="%(asctime)-15s %(message)s",
                     filename=log_file,
                     level=logging.INFO)
@@ -22,34 +21,11 @@ calls_today = 0
 
 comments_url = 'https://api.nytimes.com/svc/community/v3/user-content/url.json'
 
+# See get_archive.py
 file = Path('nytimes_2020_arch.json')
 
-if file.exists():
-    logging.info('Archive file exists, using existing file')
-    with file.open() as f:
-        archs = json.load(f)
-else:
-    archive_url = 'https://api.nytimes.com/svc/archive/v1/{year}/{month}.json'
-    months = list(range(1, 13))
-    years = list(range(2010, 2021))
-    logging.info('Extracting archive data for {} months'.format(len(months)))
-    for year, month in product(years, months):
-        arch_url = archive_url.format(year=year, month=month)
-        params = {'api-key': cred['nytimes_api_key']}
-        arch_resp = requests.get(url=arch_url, params=params)
-        calls_today += 1
-        if arch_resp.status_code != 200:
-            logging.info('year {year}, month {month} failed'.format(
-                year=year, month=month))
-        out = arch_resp.json()
-        logging.info('got year {}, month {}'.format(year, month))
-        # Archives have duplicate entries, take the later one arbitrarily
-        uniq_arts = {article['_id']: article
-                     for article in out['response']['docs']}
-        json.dump(uniq_arts,
-                  open('nyt_arch_{}_{}.json'.format(year, month), 'w'))
-        time.sleep(6.1)
-
+with file.open() as f:
+    archs = json.load(f)
 
 comment_fields = [
     'userID', 'userDisplayName', 'commentBody', 'updateDate',
@@ -96,7 +72,7 @@ def call_comments(article_url, offset=0,
 def bad_call(resp, calls_today):
 
     if calls_today > cap:
-                status = True
+        status = True
     return status
 
 
