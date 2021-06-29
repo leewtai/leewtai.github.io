@@ -18,3 +18,5 @@ Features in the data:
   on delimiters. This information is stored in a readme.txt file.
 - There are missing values since not all stations were operational
   for each year.
+
+[Instructions on getting Climate Data](https://pcmdi.llnl.gov/mips/cmip5/data-access-getting-started.html)
