@@ -33,7 +33,7 @@ for month in range(1, 13):
 # This loop reads the data into memory and also removes the files/folders
 # after it's done. Not optimal given we may run out of memory.
 bag = {}
-for date_folder in ungz_folder.iterdir():
+for dfolder in ungz_folder.iterdir():
     for raw_file in dfolder.iterdir():
         # Detect variable
         var = raw_file.suffix[1:]
@@ -57,7 +57,7 @@ ungz_folder.rmdir()
 Path('csvs').mkdir(exist_ok=True)
 for var in bag:
     df = pd.DataFrame(bag.get(var))
-    df.tocsv("csvs/{}.csv".format(var)
+    df.to_csv("csvs/{}.csv".format(var))
 
 
 meta_char = {

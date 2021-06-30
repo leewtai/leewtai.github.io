@@ -20,3 +20,5 @@ Features in the data:
   for each year.
 
 [Instructions on getting Climate Data](https://pcmdi.llnl.gov/mips/cmip5/data-access-getting-started.html)
+
+[variable list](https://pcmdi.llnl.gov/mips/cmip3/variableList.html)
