@@ -22,7 +22,7 @@ Here's a list of my personal belief what people with different degrees should be
   - Statistical computing focuses on data manipulation, simulation, and data visualization.
     The goal is to develop the necessary skills for you to verify the various statistical
     concepts you've learned and will learn in the future.
-- [Linearity Regression](linear_regression/README.md)
+- [Linear Regression](linear_regression/README.md)
   - Linear regression is the most foundational tool in machine learning and
     multivariate statistics. It demonstrates the simplest "model" that connects
     problems to data and the challenges faced by fancier models.
