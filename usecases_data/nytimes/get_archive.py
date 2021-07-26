@@ -8,7 +8,7 @@ from pathlib import Path
 import requests
 
 
-log_file = 'get_archives.log'
+log_file = 'get_archive.log'
 logging.basicConfig(format="%(asctime)-15s %(message)s",
                     filename=log_file,
                     level=logging.INFO)
