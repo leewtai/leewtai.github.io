@@ -1,7 +1,7 @@
 # Research and project ideas
 
-This folder stores all the different projects and ideas
-
+This folder stores all the different project ideas I have for potential research.
+I prefer if you could come up with your own question though.
 
 ## Ideas
 
@@ -31,7 +31,7 @@ The problem with this, however, is that the conditional distribution is numerica
 unstable. Are there ways to mitigate this?
 
 #### Data anti-trust as an idea
-Can we quantify when someone has "too much" data?
+Can we quantify when someone has "too much" data on a certain topic?
 How would we even go about doing this?
 Legal definitions for adverse impact is defined for discrimination,
 anti-trust also has similar metrics but is more applicable to non-data
@@ -51,6 +51,7 @@ given regression can be phrased as a weighted average.
 Recommendation algorithms dwell on repeated recommendations and can discourage
 users to continue their subscription. Is there a way to modify the objective function
 such that algorithms will constantly adapt? Do we need to model boredom?
+
 
 #### Can we train a linear model without using all the data?
 Sufficient statistic, differential privacy, core sets, data sketching, Nyström approximations
@@ -78,5 +79,12 @@ The problem is these methods are doing 2 different things: one is effect estimat
 and the other is optimization.
 
 #### Training on "what you won't like" instead of "what you will like"
+Can we train algorithms only with negative labels, e.g. how babies communicate?
+
+#### Data quality as a research topic
+As data pipelines get more complex and models ingest output from each other, data
+quality goes beyond uncertainty propagation. There is also a human aspect to data
+quality where earning trust from people who will "take whatever positive result but
+question all negative results you produce" could use some frameworks.
 
 {% include lib/mathjax.html %}
