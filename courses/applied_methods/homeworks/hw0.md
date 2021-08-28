@@ -5,7 +5,7 @@
 - Encouraging you to setup your jupyter notebook properly.
 
 ### Format
-Please return a **PDf** file with your solutions on Canvas.
+Please return a **PDF** file with your solutions on Canvas.
 
 ### Questions
 Please download the data `Canvas/Files/Data/unemployment_cpi_unempl_2000_2020.json`
@@ -15,8 +15,8 @@ regarding inflation and unemployment.
 In economics, we believe that low unemployment will lead to higher inflation.
 The reasoning being that labor is hard to find so employers need to attract
 workers with higher salaries. With higher salaries, people are willing to pay
-more for goods and therefore leading to inflation. We will validate this theory
-at the US national level at a very coarse time scale.
+more for goods and therefore leading to inflation. We will **roughly** validate this theory
+at the US national level at a very coarse time scale. You are not expected to have taken an economics class to do this assignment.
 
 The time series data:
 - "LNS14000000" is the [seasonally adjusted national unemployment rate](https://data.bls.gov/timeseries/LNS14000000)
@@ -61,7 +61,7 @@ Which assumptions were required for your p-value in Q3 to make sense?
 #### Q5 - Test whether the inflation is independent of the unemployment rate via permutation test
 Please write the code for the following:
 - Calculate the correlation between the 2 variables and record this value.
-- Repeat the following 1000 times: shuffle the order of one of the variables, then recalculate the correlation.
+- Repeat the following 1000 times: shuffle the order of one of the variables, then recalculate the correlation. In other words, we're making the two variables independent from one another.
 - Please plot the histogram of these recalculated correlations against the original correlation.
 - Please comment on what you can infer from the histogram
 
