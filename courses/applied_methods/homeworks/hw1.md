@@ -54,3 +54,7 @@ Please make a choice on dealing with missing values.
 #### Question 5
 If our population of interest was all the news articles from NYTimes in March 2020.
 What type of sample would you say we have?
+
+#### Question 7
+Please list one data quality issue that you have noticed and articulate why this may impact
+our study on the commenters' behavior depending on the gender of the author?
