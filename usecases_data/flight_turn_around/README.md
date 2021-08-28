@@ -1,6 +1,7 @@
 ## Introduction
 
-One of the key metrics airlines track is their turn-around time at airports.
+One of the key metrics airlines and airports track is the turn-around time for each
+plane at airports.
 Shorter turn-around time are valuable because they can lead to higher usage
 for planes and also because long turn-around times can often highlight issues
 early on with the machines or operations.
@@ -47,5 +48,15 @@ We're specifically using the dataset labeled as [On-Time : Reporting Carrier On-
   - Diverted Flight Indicator (1=Yes)
   - Distance between airports (miles)
   - Flight Time, in Minutes
+- Please filter the data so we only have the data that **departs** from PDX or SEA.
+- Please report how many flights are in the year 2019 after filtering?
+- How would you summarize the "utilization rate" for the different airports?
+- What data quality issues have you noticed? What results will be impacted by these issues?
+- Are turn-around times independent of the destination airport? How would you test this idea?
+- Is there a cyclical pattern to the turn-around time? Please use a graph and a paragraph to justify your answer.
+- Are turn-around times the same across airlines (i.e. carriers)?
 
 
+#### Some modeling and prediction
+
+#### Expanding the dataset
