@@ -26,10 +26,9 @@ topics in the applied statistics course.
 We're specifically using the dataset labeled as [On-Time : Reporting Carrier On-Time Performance (1987-present)](https://www.transtats.bts.gov/tables.asp?gnoyr_VQ=FGJ&flf_gnoyr_anzr=g_bagVZR_eRcbegVaT).
 
 
-## Guidance
+## Tasks
 
-#### Exploratory data analysis
-
+#### Getting the data from the source
 - Please visit the website and find the **Download** hyperlink associated with the dataset: [On-Time : Reporting Carrier On-Time Performance (1987-present)](https://www.transtats.bts.gov/tables.asp?gnoyr_VQ=FGJ&flf_gnoyr_anzr=g_bagVZR_eRcbegVaT). Please download all of the data corresponding to 2019 Jan-Dec with the following variables (this is somewhat manual)
   - FlightDate (yyyymmdd)
   - Unique Carrier Code
@@ -48,14 +47,23 @@ We're specifically using the dataset labeled as [On-Time : Reporting Carrier On-
   - Diverted Flight Indicator (1=Yes)
   - Distance between airports (miles)
   - Flight Time, in Minutes
+
+#### Data filtering and sampling
 - Please filter the data so we only have the data that **departs** from PDX or SEA.
+- Please calculate the probability of choosing PDX and SEA from a SRS from all of the possible departing airports in the dataset.
+- If our goal is to understand the average turn-around for PDX and SEA, please write the code and explain how one could:
+  - Collect a multi-staged sample that stratified by **months and airlines**?
+- [TODO] Compare SRS performance relative to multi-staged stratified sample?
+
+#### Exploratory data analysis
+
 - Please report how many flights are in the year 2019 after filtering?
 - How would you summarize the "utilization rate" for the different airports?
 - What data quality issues have you noticed? What results will be impacted by these issues?
+- Do certain airlines cancel their flights more often than others?
 - Are turn-around times independent of the destination airport? How would you test this idea?
 - Is there a cyclical pattern to the turn-around time? Please use a graph and a paragraph to justify your answer.
 - Are turn-around times the same across airlines (i.e. carriers)?
-
 
 #### Some modeling and prediction
 
