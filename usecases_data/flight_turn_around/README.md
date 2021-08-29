@@ -19,7 +19,7 @@ topics in the applied statistics course.
 
 - Computing
 - Regression and regularized regressions
-- Time series
+- Time series (possible)
 
 ## Data source
 
@@ -29,6 +29,7 @@ We're specifically using the dataset labeled as [On-Time : Reporting Carrier On-
 ## Tasks
 
 #### Getting the data from the source
+
 - Please visit the website and find the **Download** hyperlink associated with the dataset: [On-Time : Reporting Carrier On-Time Performance (1987-present)](https://www.transtats.bts.gov/tables.asp?gnoyr_VQ=FGJ&flf_gnoyr_anzr=g_bagVZR_eRcbegVaT). Please download all of the data corresponding to 2019 Jan-Dec with the following variables (this is somewhat manual)
   - FlightDate (yyyymmdd)
   - Unique Carrier Code
@@ -47,15 +48,22 @@ We're specifically using the dataset labeled as [On-Time : Reporting Carrier On-
   - Diverted Flight Indicator (1=Yes)
   - Distance between airports (miles)
   - Flight Time, in Minutes
+- Please make it such that each downloaded CSV is in the same folder. At this stage you want to minimize We will process the raw data in later tasks!
+
+#### Exploratory data analysis Stage 1
+
+- How many airlines are in the dataset?
+- Please aggregate the number of flights per month and visualize this with clear labels.
 
 #### Data filtering and sampling
+
 - Please filter the data so we only have the data that **departs** from PDX or SEA.
 - Please calculate the probability of choosing PDX and SEA from a SRS from all of the possible departing airports in the dataset.
 - If our goal is to understand the average turn-around for PDX and SEA, please write the code and explain how one could:
   - Collect a multi-staged sample that stratified by **months and airlines**?
 - [TODO] Compare SRS performance relative to multi-staged stratified sample?
 
-#### Exploratory data analysis
+#### Exploratory data analysis Stage 2
 
 - Please report how many flights are in the year 2019 after filtering?
 - How would you summarize the "utilization rate" for the different airports?
