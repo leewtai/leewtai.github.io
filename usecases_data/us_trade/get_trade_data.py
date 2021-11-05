@@ -14,7 +14,7 @@ import_add_vars = ['CON_VAL_MO', 'GEN_VAL_MO']
 export_add_vars = ["ALL_VAL_MO"]
 
 months = range(1, 13)
-years = range(2019, 2020)
+years = range(2013, 2020)
 ies = ['imports', 'exports']
 
 for ie, year, month in product(ies, years, months):
@@ -33,4 +33,4 @@ for ie, year, month in product(ies, years, months):
         continue
     dat = resp.json()
     df = pd.DataFrame(dat[1:], columns=dat[0])
-    df.to_csv("{ie}_{yr}_{mo}.csv".format(ie=ie, yr=year, mo=month))
+    df.to_csv("data/{ie}_{yr}_{mo}.csv".format(ie=ie, yr=year, mo=month))
