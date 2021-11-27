@@ -25,7 +25,7 @@ titles = ['ux+designer', 'recruiter', 'marketing', 'sales', 'office+manager',
           'researcher', 'data+scientist', 'software+developer',
           'statistician', 'deep+learning', 'machine+learning+engineer',
           'actuary', 'financial+analyst', 'econmist', 'financial+engineer',
-          'political+analyst', 'data+journalist']
+          'political+analyst', 'data+journalist', 'analyst']
 
 all_jobs = []
 for title in titles:
