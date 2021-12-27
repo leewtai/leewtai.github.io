@@ -7,16 +7,18 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Olist Data
+#### Olist Data
 
 https://www.kaggle.com/olistbr/brazilian-ecommerce
 
+I've placed the unzipped data in a folder called "olist" with my .Rmd file.
 
 ```{r olist}
 list.files("olist/")
 
 ```
 
+#### Try reading the data
 ```{r}
 df <- read.csv("olist/olist_orders_dataset.csv")
 ```
