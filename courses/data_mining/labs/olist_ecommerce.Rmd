@@ -1,0 +1,22 @@
+---
+title: "Olist - E-Commerce"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Olist Data
+
+https://www.kaggle.com/olistbr/brazilian-ecommerce
+
+
+```{r olist}
+list.files("olist/")
+
+```
+
+```{r}
+df <- read.csv("olist/olist_orders_dataset.csv")
+```
