@@ -25,13 +25,7 @@ like in the US, e.g. Christmas?
 
 #### Q4
 
-Why would we have a hard time classifying the sellers into companies who sell fewer
-but valuable items (e.g. furniture) vs many but cheap items (e.g. toilet paper) with
-the current dataset?
-
-#### Q5
-
-Do the 2 largest cities, large by total order amount, have different "total order payment" distributions?
+Do the 2 largest cities, defined by total order amount, have different "total order payment" distributions?
 Please perform a permutation test to test this statement.
 
 
