@@ -28,7 +28,12 @@ While the project is somewhat open-ended, your project must cover the following 
 - Some visualizations of the data
   - One visualization must summarize at least one of the key features of the data sources
   - One visualization must summarize or highlight the interaction between features in your data
+- Use at least one algorithm to predict the churn
+  - A description of what algorithm, features, and/or data filtering was used
+  - You should compare the algorithm's prediction to the "base rate" of natural turnover 
+  - You must do some sort of validation for this prediction
 - Use at least one algorithm to explore any patterns (or lack of patterns) in the data that may not be obvious
+  - This can be the same algorithm as your prediction
   - A short reason why the pattern was not obvious at first, e.g. people who work longer get paid more is considered an obvious fact. Articulating your expectation before exploring the data would often help this requirement.
   - A description on how the algorithm helped you identify this pattern (or lack of pattern)
   - Please investigate and comment on whether you think the pattern (or lack of pattern) is "by chance" or likely a real phenomenon. This should be supported by further data exploration or external sources of information like a major journal or academic literature.
