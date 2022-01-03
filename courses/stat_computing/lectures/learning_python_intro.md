@@ -17,21 +17,19 @@ each concept.
   <td>Variables</td>
   <td>
 
-
-```python
-n = 10
-print(n)
-m = n / 2
-```
-
+  ```python
+  n = 10
+  print(n)
+  sum(range(n))
+  ```
 
   </td>
   <td>
 
-  $n$ is used to estimate the cost of sampling, the
+  N is used to estimate the cost of sampling, the
   uncertainty of our hypothetical sample average, and to calculate the
   sample average. We want the same value used throughout so we give it
-  a name, sample size.
+  a name, the sample size.
 
   </td>
   <td>
