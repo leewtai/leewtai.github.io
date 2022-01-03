@@ -14,6 +14,7 @@ each concept.
   <td>Use case example</td>
   <td>statistics example</td>
 </tr>
+<tr>
   <td>Variables</td>
   <td>
 
