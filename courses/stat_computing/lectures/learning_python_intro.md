@@ -25,18 +25,14 @@ each concept.
 
   </td>
   <td>
-
   N is used to estimate the cost of sampling, the
   uncertainty of our hypothetical sample average, and to calculate the
   sample average. We want the same value used throughout so we give it
   a name, the sample size.
-
   </td>
   <td>
-
   $$n = 10$$
   $$\sum_{i=1}^n i = \sum_{j=1}^n j$$
-
   </td>
 </tr>
 </table>
