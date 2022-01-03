@@ -17,17 +17,21 @@ each concept.
   <td>Variables</td>
   <td>
 
-    ```python
-    n = 10
-    print(n)
-    m = n / 2
-    ```
+
+```python
+n = 10
+print(n)
+m = n / 2
+```
+
 
   </td>
   <td>
 
-  If our sample size is $$n$$, then we need to divide the total by the
-  same number, also referred as $$n$$, to get the sample average.
+  $n$ is used to estimate the cost of sampling, the
+  uncertainty of our hypothetical sample average, and to calculate the
+  sample average. We want the same value used throughout so we give it
+  a name, sample size.
 
   </td>
   <td>
