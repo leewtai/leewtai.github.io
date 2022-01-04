@@ -15,6 +15,19 @@ each concept.
   <td>statistics example</td>
 </tr>
 <tr>
+  <td>Basics - interacting with the REPL</td>
+  <td><pre>
+  a = 1  # works!
+   a = 1 # fails!
+  </pre></td>
+  <td>
+  The rules in interacting with Python after each command
+  </td>
+  <td>
+  
+  </td>
+</tr>
+<tr>
   <td>Variables</td>
   <td><pre>
   n = 10
