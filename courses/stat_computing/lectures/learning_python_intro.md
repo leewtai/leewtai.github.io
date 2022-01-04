@@ -16,15 +16,15 @@ each concept.
 </tr>
 <tr>
   <td>Variables</td>
-  <td>
+<td>
 
-  ```python
-  n = 10
-  print(n)
-  sum(range(n))
-  ```
+```
+n = 10
+print(n)
+sum(range(n))
+```
 
-  </td>
+</td>
   <td>
   N is used to estimate the cost of sampling, the
   uncertainty of our hypothetical sample average, and to calculate the
