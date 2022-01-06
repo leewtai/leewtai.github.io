@@ -1,5 +1,5 @@
 # Statistical Computing and Introduction to Data Science
-GR5206 - Fall 2020
+GR5206 - Spring 2022
 
 ## Learning outcomes
 - Understand basic programming
@@ -17,22 +17,22 @@ I reserve the right to change the ordering and the content for the course throug
 
 |Date|Topic|Reference|Due|
 |---|---|---|---|
-|2021-01-15|TOPIC or No Class|||
-|2021-01-22|TOPIC or No Class|||
-|2021-01-29|TOPIC or No Class|||
-|2021-02-05|TOPIC or No Class|||
-|2021-02-12|TOPIC or No Class|||
-|2021-02-19|TOPIC or No Class|||
-|2021-02-26|TOPIC or No Class|||
-|2021-03-05|Spring Break No Class|||
-|2021-03-12|TOPIC or No Class|||
-|2021-03-19|TOPIC or No Class|||
-|2021-03-26|TOPIC or No Class|||
-|2021-04-02|TOPIC or No Class|||
-|2021-04-09|TOPIC or No Class|||
-|2021-04-16|TOPIC or No Class|||
-|2021-04-23|TOPIC or No Class|||
-|TBD|Measure understanding|Final Exam|You!|
+|2022-01-21|Introduction + AB testing|||
+|2022-01-28|AB testing continued|||
+|2022-02-04|Data quality||HW1 Due|
+|2022-02-11|Data visualization|||
+|2022-02-18|Data wrangle||HW2 Due|
+|2022-02-25|Data analytics - SQL|||
+|2022-03-04|Data analytics - Dates and Regular expression||HW3 Due|
+|2022-03-11|Midterm|||
+|2022-03-18|Spring Break|||
+|2022-03-25|APIs and scraping|||
+|2022-04-01|Modeling||HW4 Due|
+|2022-04-08|Simulations|||
+|2022-04-15|Optimization||HW5 Due|
+|2022-04-22|OOP|||
+|2022-04-29|Unfinished topics like density estimation||HW6 Due|
+|TBD|Final|||
 
 ## Logistics
 
@@ -45,24 +45,6 @@ I reserve the right to change the ordering and the content for the course throug
   - TBD
   - TBD
 
-### Course format
-During this special semester, we will have a flipped classroom format that combines online and in-person sessions.
-- Online
-  - Lectures will be pre-recorded and posted online. You will be expected to watch these before class time.
-- In-person 
-  - Discussions during class time (twice a week)
-    - For each class, we will break out into groups to work on problems that utilize the concepts covered by the online
-      videos.
-    - Groups will be asked to present their solution
-    - You can participate online via breakout rooms for this but coordinating with your peers will be easier in-person.
-  - Exams (twice a semester)
-    - All exams will be in person by default 
-  - Mock interviews with data analysis (once a week starting the week of 11/16) during the optional discussion section
-    - This is a peer-evaluated data analysis mock interview. Each Friday, students will be assigned into random pairs to
-      meet in person. One student will perform basic data analysis to a new dataset within 45 minute and present the results
-      where the other student will be given rules and questions to conduct the interview. Debriefs will be discussed
-      in class.
-
 ### Grading
 If your final grade is in [93-97), you will earn at least an A, [90-93) will earn at least an A-, [87-90) will earn at least a B+, etc. A grading curves may occur depending on the class performance but I will not curve downwards. I will not give out A+ for this class.
 
@@ -74,7 +56,7 @@ If your final grade is in [93-97), you will earn at least an A, [90-93) will ear
   - If you want to learn how to set up Jupyter Notebooks with R, follow these [instructions](../../setup/conda_and_navigator_setup.md)
 
 #### - Exams (75%)
-- Midterms (30% each)
+- Midterms (30%)
 - Final (45%)
 
 
@@ -116,8 +98,7 @@ For this course, students are not required to have testing forms or accommodatio
 
 
 ### Textbooks / Supplies
-[Advanced R by Hadley Wickham](https://adv-r.hadley.nz/)
-[R for Data Science by Garrett Grolemund and Hadley Wickham](https://r4ds.had.co.nz)
+[Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/)
 
 ### Acknowledgement
 A lot of these materials are based off the materials from Prof Thibault Vatter and Prof Gabriel Young.
