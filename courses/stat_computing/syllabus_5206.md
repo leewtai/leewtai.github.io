@@ -17,21 +17,21 @@ I reserve the right to change the ordering and the content for the course throug
 
 |Date|Topic|Reference|Due|
 |---|---|---|---|
-|2022-01-21|Introduction + AB testing|||
-|2022-01-28|AB testing continued|||
-|2022-02-04|Data quality||HW1 Due|
-|2022-02-11|Data visualization|||
-|2022-02-18|Data wrangle||HW2 Due|
-|2022-02-25|Data analytics - SQL|||
-|2022-03-04|Data analytics - Dates and Regular expression||HW3 Due|
+|2022-01-21|Introduction + python as a calculator|||
+|2022-01-28|Numpy, objects, and subsetting<br>AB Testing|||
+|2022-02-04|For-loop, if/else, working with files<br>AB testing assignment||HW1 Due|
+|2022-02-11|Pandas, summaries, and visualization<br>Exploratory data analysis|||
+|2022-02-18|Nested data and data wrangling<br>Basic data engineering||HW2 Due|
+|2022-02-25|Data use cases, relational data, and SQL<br>Data engineering concepts and data analytics|||
+|2022-03-04|Dates and regular expression<br>Data quality||HW3 Due|
 |2022-03-11|Midterm|||
 |2022-03-18|Spring Break|||
-|2022-03-25|APIs and scraping|||
-|2022-04-01|Modeling||HW4 Due|
-|2022-04-08|Simulations|||
-|2022-04-15|Optimization||HW5 Due|
-|2022-04-22|OOP|||
-|2022-04-29|Unfinished topics like density estimation||HW6 Due|
+|2022-03-25|APIs and scraping<br>Designing data pipelines|||
+|2022-04-01|Modeling data<br>"Data science methods"||HW4 Due|
+|2022-04-08|Optimization<br>Objective functions|||
+|2022-04-15|Bootstrap, permutation, and other simulations<br>Model evaluation||HW5 Due|
+|2022-04-22|Validation and density estimation|||
+|2022-04-29|Guest Speaker from Data Science||HW6 Due|
 |TBD|Final|||
 
 ## Logistics
@@ -42,7 +42,6 @@ I reserve the right to change the ordering and the content for the course throug
   - Office Hours: TBD
 
 - Teaching Assistant(s):
-  - TBD
   - TBD
 
 ### Grading
@@ -59,6 +58,12 @@ If your final grade is in [93-97), you will earn at least an A, [90-93) will ear
 - Midterms (30%)
 - Final (45%)
 
+### Textbooks and references
+- Google!
+- [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/)
+- [Programming with Python by Software Carpentry](https://swcarpentry.github.io/python-novice-inflammation/)
+- [LearningPython.org](https://www.learnpython.org/)
+- Designing Data-Intensive Applications by Martin Kleppmann
 
 ##### Exam accomodations
 In order to receive disability-related academic accommodations for this course, students must first be registered with their school Disability Services (DS) office. Detailed information is available online for both the [Columbia](https://health.columbia.edu/content/disability-services) and Barnard registration processes.
@@ -95,10 +100,6 @@ For this course, students are not required to have testing forms or accommodatio
   - Online: describe what you observe, describe what you expect, communicate clearly.
   - To each other: summarize the conversation to ensure you're listening and think constructively before criticizing.
 - Academic honesty: https://www.cs.columbia.edu/education/honesty/
-
-
-### Textbooks / Supplies
-[Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/)
 
 ### Acknowledgement
 A lot of these materials are based off the materials from Prof Thibault Vatter and Prof Gabriel Young.
