@@ -17,7 +17,7 @@ I reserve the right to change the ordering and the content for the course throug
 
 |Date|Topic|Reference|Due|
 |---|---|---|---|
-|2022-01-21|Introduction + python as a calculator|||
+|2022-01-21|[Introduction + python as a calculator](https://docs.google.com/presentation/d/1hbdEFneIriuFSxtwfH29LvJp1AX_gZ961FtG4msPL7o/edit?usp=sharing)|||
 |2022-01-28|Numpy, objects, and subsetting<br>AB Testing|||
 |2022-02-04|For-loop, if/else, working with files<br>AB testing assignment||HW1 Due|
 |2022-02-11|Pandas, summaries, and visualization<br>Exploratory data analysis|||
