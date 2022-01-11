@@ -36,8 +36,8 @@ You write your code into a script, e.g. save the following into
 a file called `demo.py`.
 
 ```python
-print("Hello world")
-print("I am coding!')
+print(1 + 1)
+print(1 + 2)
 ```
 
 Then execute the commands by passing the script to Python for interpretation,
@@ -94,7 +94,7 @@ This means that Python encountered a problem that forced the code execution
 to stop somewhere in the code but it may not be obvious what has and has
 not been executed.
 
-Below we have two examples where we try to "add" the number `1` to the
+Below we have two examples where we try to add the number `1` to the
 character `"1"`, notice how the errors are different!
 
 ```python
@@ -113,11 +113,31 @@ TypeError: can only concatenate str (not "int") to str
 As a beginner, you should focus on:
 - the error type, e.g. "TypeError", which is 
 - the error message, e.g. "unexpected indent"
-- Python's best guess at where the error occurred, e.g. where the
-  `^` symbol is pointing at our code.
+- Python's best guess at where the error occurred, e.g. `line 1` will
+  usually be the case for most REPL commands. This would be more helpful
+  if your code were in a script.
 
-Given our example was caused by extra spaces in the front of the line,
-it's sometimes hard to see the error. 
 
+## The print() function
+Similar to how calculators can perform `log(1)`, Python has some built-in
+functions ready to use. One of the most useful ones is `print()`.
+
+It's most useful when you're not sure of the value of a variable.
+In particular, `print()` will accept numeric **and** character values.
+This may seem trivial for now but later you will see that most
+functions are strict about the type of inputs it will accept. 
+
+```python
+print('hello world!')
+x = 'hello universe!'
+print(x)
+
+x = 1.3
+y = x * 3
+z = x * y / 13
+print(z)
+
+print('hello', z)
+```
 
 {% include lib/mathjax.html %}
