@@ -15,16 +15,34 @@ each concept.
   <td>statistics example</td>
 </tr>
 <tr>
-  <td>Basics - interacting with the REPL</td>
+  <td>Folder structure and permissions</td>
   <td><pre>
-  a = 1  # works!
-   a = 1 # fails!
+  Documents/
+    python_notes/
+        hello.py
+  </pre></td>
+  <td>
+  Your files and programs are located at different "paths" on your computer.
+  Modern computer interfaces abstract this concept away which can confuse
+  beginning programmers.
+  </td>
+  <td>
+  </td>
+</tr>
+<tr>
+  <td>Basics syntax - interacting with the REPL</td>
+  <td><pre>
+  1 + 1  # works!
+   1 + 1 # fails
   </pre></td>
   <td>
   The rules in interacting with Python after each command
   </td>
   <td>
-  
+  Makes sense:
+  $$\sum_{i=1}^{10} i$$
+  Doesn't make sense:
+  $$i \sum_{i=1}^{10} $$
   </td>
 </tr>
 <tr>
@@ -45,6 +63,168 @@ each concept.
   $$\sum_{i=1}^n i = \sum_{j=1}^n j$$
   </td>
 </tr>
+<tr>
+  <td>Simple and single-valued data types</td>
+  <td><pre>
+  demo_num = 1
+  demo_str = "1"
+  demo_bool = True
+  </pre></td>
+  <td></td>
+  <td>$$$$</td>
+</tr>
+<tr>
+  <td>Simple and multi-valued data types</td>
+  <td><pre>
+  a_list = [1, 2, '3']
+  a_dict = {'a': 1,
+            'b': 2}
+  a_tuple = (1, 2, 3)
+  </pre></td>
+  <td></td>
+  <td>$$$$</td>
+</tr>
+<tr>
+  <td>Calling functions</td>
+  <td><pre>
+  min(3, -1)
+  1 * 3
+  "1" * 3
+  </pre></td>
+  <td></td>
+  <td>$$$$</td>
+</tr>
+<tr>
+  <td>Control flow - for-loops</td>
+  <td><pre>
+  for i in range(3):
+    print(i)
+  </pre></td>
+  <td></td>
+  <td>$$$$</td>
+</tr>
+<tr>
+  <td>Importing libraries</td>
+  <td><pre>
+  </pre></td>
+  <td></td>
+  <td>$$$$</td>
+</tr>
+<tr>
+  <td>Control flow - if/else</td>
+  <td><pre>
+  </pre></td>
+  <td></td>
+  <td>$$$$</td>
+</tr>
+<tr>
+  <td>Logical operations in Python</td>
+  <td><pre>
+  2 <= 3
+  'A' > 'a'
+  </pre></td>
+  <td></td>
+  <td>$$$$</td>
+</tr>
+<tr>
+  <td>Reading and writing data to files</td>
+  <td><pre>
+  </pre></td>
+  <td></td>
+  <td>$$$$</td>
+</tr>
+<tr>
+  <td>Subsetting data and re-assignment</td>
+  <td><pre>
+  </pre></td>
+  <td></td>
+  <td>$$$$</td>
+</tr>
+<tr>
+  <td>Numpy</td>
+  <td><pre>
+  </pre></td>
+  <td></td>
+  <td>$$$$</td>
+</tr>
+<tr>
+  <td>Pandas</td>
+  <td><pre>
+  </pre></td>
+  <td></td>
+  <td>$$$$</td>
+</tr>
+<tr>
+  <td>Text manipulation and regular expression</td>
+  <td><pre>
+  </pre></td>
+  <td></td>
+  <td>$$$$</td>
+</tr>
+<tr>
+  <td>Writing functions and anonymous functions</td>
+  <td><pre>
+  </pre></td>
+  <td></td>
+  <td>$$$$</td>
+</tr>
+<tr>
+  <td>Date and time</td>
+  <td><pre>
+  </pre></td>
+  <td></td>
+  <td>$$$$</td>
+</tr>
+<tr>
+  <td>Data visualization with seaborn</td>
+  <td><pre>
+  </pre></td>
+  <td></td>
+  <td>$$$$</td>
+</tr>
+<tr>
+  <td>Interacting with APIs</td>
+  <td><pre>
+  </pre></td>
+  <td></td>
+  <td>$$$$</td>
+</tr>
+<tr>
+  <td>sklearn and fitting models</td>
+  <td><pre>
+  </pre></td>
+  <td></td>
+  <td>$$$$</td>
+</tr>
+<tr>
+  <td>sklearn and fitting models</td>
+  <td><pre>
+  </pre></td>
+  <td></td>
+  <td>$$$$</td>
+</tr>
+<tr>
+  <td>Bootstrapping</td>
+  <td><pre>
+  </pre></td>
+  <td></td>
+  <td>$$$$</td>
+</tr>
+<tr>
+  <td>Permutation tests</td>
+  <td><pre>
+  </pre></td>
+  <td></td>
+  <td>$$$$</td>
+</tr>
+<tr>
+  <td>Basic optimization</td>
+  <td><pre>
+  </pre></td>
+  <td></td>
+  <td>$$$$</td>
+</tr>
+
 </table>
 
 
