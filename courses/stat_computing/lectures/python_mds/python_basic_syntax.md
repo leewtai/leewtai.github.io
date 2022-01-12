@@ -1,64 +1,5 @@
 # Python Basic Syntax
 
-## The different modes of working with Python
-Python enables one to communicate commands to the
-computer. You'll write commands, code, that Python can
-interpret into commands for the computer to execute.
-
-To interact with Python, there are several different modes that we
-list below:
-- Interacting with the REPL
-- Writing script then executing them
-- Notebooks (in between REPL and scripts)
-
-#### Interacting with the REPL
-The read-evaluate-print loop (REPL) is the interface that responds to
-every command you type immediately.
-
-The REPL is most commonly found by executing `python` in the command line.
-You can directly type code into the REPL, i.e. the space after `>`.
-
-<img src="images/command_line.png" alt="REPL demo" width='600'>
-
-**Flaws**:
-- The commands in the REPL are not saved to a file so it is hard
-  to reproduce the results and debug if there are errors in the code.
-- Impossible to do large projects in this format
-**Pros**:
-- Minimal installation requirement
-- Instant feedback is useful for exploration
-- Can remedy the flaw by executing lines of code from a script
-
-
-#### Writing script then executing them
-This is the most programming coding pattern for software development.
-You write your code into a script, e.g. save the following into
-a file called `demo.py`.
-
-```python
-print(1 + 1)
-print(1 + 2)
-```
-
-Then execute the commands by passing the script to Python for interpretation,
-e.g. typing `python demo.py` into your command line in the directory where
-`demo.py` is located.
-
-Your code will be executed from top to bottom in order. Notice that the code
-writing and code execution are two separate steps.
-
-**Flaws**:
-- Bugs often surface too late for beginners
-- The lack of immediate feedback makes learning harder
-**Pros**:
-- There are simple code checkers called "linters" that check for style and
-  basic syntax. These can often be installed into your IDE (e.g. Pycharm).
-- Most serious coding is done this way
-- Some IDEs offer the ability to run lines of code in a REPL
-
-#### Notebooks (in between REPL and scripts)
-
-
 ## Using Python as a calculator
 Python can perform all the functionalities that advanced calculators
 can perform.
@@ -69,7 +10,13 @@ can perform.
 10 ** 2  # exponentiate
 ```
 
-A successful execution will often output
+A successful execution will often output the result of the computation
+and "print" the final results.
+
+Notice later some computations will
+produce results with multiple attributes. What gets printed in these cases
+can vary widely so you shouldn't assume you'll be able to view "everything".
+Instead you should/will learn to ask what is available!
 
 
 ## Python cares about indentation at the front of the line
@@ -87,6 +34,8 @@ See which of the following will "break"
 
 If you're using **iPython**, you may not see an error in any of the commands
 above.
+
+We will call out when these cases will matter later.
 
 ## Reading error messages
 Python's error messages often have the word "Error" in them.
@@ -117,6 +66,10 @@ As a beginner, you should focus on:
   usually be the case for most REPL commands. This would be more helpful
   if your code were in a script.
 
+## Dealing with error messages
+You should try to embrace error messages early on. Expert
+coders make errors all the time and the messages are really there
+to guide you instead of intimidate you.
 
 ## The print() function
 Similar to how calculators can perform `log(1)`, Python has some built-in
@@ -126,6 +79,9 @@ It's most useful when you're not sure of the value of a variable.
 In particular, `print()` will accept numeric **and** character values.
 This may seem trivial for now but later you will see that most
 functions are strict about the type of inputs it will accept. 
+
+Try running the code below line by line, then try to "copy&paste" blocks
+of the code. See how things may be different in a REPL.
 
 ```python
 print('hello world!')
