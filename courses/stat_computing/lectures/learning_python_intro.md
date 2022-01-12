@@ -15,11 +15,11 @@ each concept.
   <td>statistics example</td>
 </tr>
 <tr>
-  <td>Folder structure and permissions</td>
+  <td>
+  <a href="python_mds/interacting_with_python.html">Interacting with Python and your files</a>
+  </td>
   <td><pre>
-  Documents/
-    python_notes/
-        hello.py
+  python hello.py
   </pre></td>
   <td>
   Your files and programs are located at different "paths" on your computer.
@@ -30,7 +30,9 @@ each concept.
   </td>
 </tr>
 <tr>
-  <td>Basics syntax - interacting with the REPL</td>
+  <td>
+  <a href="python_mds/python_basic_syntax.html">Basics syntax - interacting with the REPL</a>
+  </td>
   <td><pre>
   1 + 1  # works!
    1 + 1 # fails
