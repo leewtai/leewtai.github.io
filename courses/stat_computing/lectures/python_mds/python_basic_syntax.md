@@ -96,4 +96,9 @@ print(z)
 print('hello', z)
 ```
 
+## Additional references
+- [LearnPython.org's HelloWorld](https://www.learnpython.org/en/Hello%2C_World%21)
+- [Guru99's HelloWorld](https://www.guru99.com/creating-your-first-python-program.html)
+
+
 {% include lib/mathjax.html %}

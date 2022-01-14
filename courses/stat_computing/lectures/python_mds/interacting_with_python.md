@@ -69,9 +69,10 @@ writing and code execution are two separate steps.
 - The lack of immediate feedback makes learning harder
 **Pros**:
 - There are simple code checkers called "linters" that check for style and
-  basic syntax. These can often be installed into your IDE (e.g. Pycharm).
+  basic syntax. These can often be installed into your editor (e.g. Pycharm).
 - Most serious coding is done this way
-- Some IDEs offer the ability to run lines of code in a REPL
+- Most editors offer the ability to run lines of code in a REPL (and many more
+  features that we won't touch on in this class).
 
 #### Notebooks (in between REPL and scripts)
 You can think of notebooks as a file with multiple "blocks", each acting
