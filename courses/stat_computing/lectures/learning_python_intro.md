@@ -48,7 +48,9 @@ each concept.
   </td>
 </tr>
 <tr>
-  <td>Variables</td>
+  <td>
+  <a href="python_mds/variables.html">Assigning variables</a>
+  </td>
   <td><pre>
   n = 10
   print(n)
