@@ -68,7 +68,9 @@ each concept.
   </td>
 </tr>
 <tr>
-  <td>Simple and single-valued data types</td>
+  <td>
+  <a href="python_mds/simple_data_types.html">Simple and single-valued data types</a>
+  </td>
   <td><pre>
   demo_num = 1
   demo_str = "1"
