@@ -212,8 +212,12 @@ Assume `a = 1`, `b = 2`, `c = 3`
   `'a' > 'A'` is something we'll talk about later.
 - `a != b`, `a is not b`, `not a == b`, checking for inequality
 - `a == b`, `a is b`, checking for equality
-- `a < b and b > c`, checking if both statements are true
-- `a < b or b > c`, checking if at least one statement is true
+- `a < b and b > c`, `a < b & b > c`, checking if both statements are true
+- `a < b or b > c`, `a < b | b > c`, checking if at least one statement is true
+  - If one case is commonly True, to put that first.
+
+Note that `not` is a special keyword to negate a boolean, i.e. turn `True` into
+`False` and vice versa.
 
 
 {% include lib/mathjax.html %}
