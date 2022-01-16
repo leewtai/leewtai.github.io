@@ -157,16 +157,23 @@ these, simply type out `a.__` then hit Tab in iPython to see the hidden methods.
 
 #### Relationship between binary functions and methods
 
-Note that binary operators like `"+"` will invoke the method `.__add__()`
+Note that binary operators like `"+"` will **usually** invoke the method `.__add__()`
 on the first object, treating the second object as inputs. This explains why
 the error messages are different below. Since different methods are being used.
 
 ```python
-1 + "1"
 "1" + 1
+1 + "1"
 ```
 
-Yes, strings can be "added" in Python! Try it out!
+There is some extra code that gets implemented with the binary operators because
+the behavior is not always consistent:
+```python
+a = 3
+b = 'hello'
+a * b
+a.__mul__(b)
+```
 
 ## Common operations
 

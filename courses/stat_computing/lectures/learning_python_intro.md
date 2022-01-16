@@ -80,7 +80,9 @@ each concept.
   <td>$$$$</td>
 </tr>
 <tr>
-  <td>Simple and multi-valued data types</td>
+  <td>
+  <a href="python_mds/container_data_types.html">Simple and multi-valued data types</a>
+  </td>
   <td><pre>
   a_list = [1, 2, '3']
   a_dict = {'a': 1,

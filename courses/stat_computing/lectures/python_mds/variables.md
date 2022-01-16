@@ -29,7 +29,7 @@ operation, e.g.
 ```python
 x = 3 * 4
 ```
-If `=` happened before `*`, then `x` could be 3.
+If `=` happened before `*`, then `x` **could** be 3 (almost no languages do this).
 Fortunately, the assignment operation is always last so `x` will take on the value 12
 
 #### Some convenient features in Python
@@ -47,7 +47,8 @@ a = 2 = b
 
 
 ## Restrictions when defining variables
-There are restrictions on what your variable name can begin with
+
+There are restrictions on what your variable name can be.
 
 One of these won't work
 ```python
@@ -57,7 +58,28 @@ _a = 3
 _ = 4
 ```
 
+There are other restrictions but the key is to try it if you're not sure.
+
+## Something we take for granted
+
+In some programming languages, you have to define the "type" of the variable
+when you define it. This isn't true for Python which makes it easier to read
+but also allows mistakes to happen more easily, e.g. when different scripts
+can assign different values to the same variable name.
+
+```python
+a = 1
+a = '1'
+```
+
+## Always always always spend some time to think about variable names
+
+Naming variables is sometimes considered one of the hardest things to do in
+programming. Achieving concise, meaningful, and specific names is hard.
+This is especially in large projectds but you should practice early.
+
 #### Convention around `_`
+
 Some people use the `_` to prevent information printed in the REPL since
 algorithms can print a lot of information that swamps your REPL.
 
