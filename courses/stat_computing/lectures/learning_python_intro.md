@@ -93,17 +93,20 @@ each concept.
   <td>$$$$</td>
 </tr>
 <tr>
-  <td>Calling functions</td>
+  <td>
+  <a href="python_mds/call_functions.html">Calling functions</a>
+  </td>
   <td><pre>
   min(3, -1)
-  1 * 3
-  "1" * 3
+  sum([1, 2, -1])
   </pre></td>
   <td></td>
   <td>$$$$</td>
 </tr>
 <tr>
-  <td>Control flow - for-loops</td>
+  <td>
+  <a href="python_mds/loops.html">Control flow - for-loops</a>
+  </td>
   <td><pre>
   for i in range(3):
     print(i)

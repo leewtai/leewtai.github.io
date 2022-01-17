@@ -69,15 +69,18 @@ Here are the functions that help "cast"
 |boolean  |`bool(0)`|
 
 You should try to cast something that doesn't make sense, e.g. `int('abc')`
+
 #### Casting to boolean values checks for emptiness ("nullness")
 
 Most casting results should be somewhat intuitive. The only 2 exceptions are the
 rounding behavior above and the treatment of casting to boolean values.
 
+Why this matters is because code often needs to act differently if there's no data.
+You'll frequently see checks about the amount of data before executing any code.
+
 The most common behavior when casting to booleans is to ask the user to
-be specific about the cases than should be `True` vs `False`. This can be
-done via an error or by asking the output from the casting to return a missing
-value.
+be specific about the cases that should be `True` vs `False`. This can be
+done via an error or by returning a missing value after casting (R does this).
 
 Python is somewhat unique in its handling of casting with `bool()` which is
 often considered a feature. The overall principle is that "empty" values are
@@ -225,6 +228,17 @@ Assume `a = 1`, `b = 2`, `c = 3`
 
 Note that `not` is a special keyword to negate a boolean, i.e. turn `True` into
 `False` and vice versa.
+
+## Interacting different data types with each other
+Every now and then we perform operations with multiple data types. Python is
+somewhat unique in how these interactions unfold.
+
+In general, the best way is to try it out and see. The programmer has to implement
+the allowed interactions one by one. Here we list some of the common ones:
+- `int * str` will replicate the `str` as many times as the `int`
+  - Values less than or equal to 0, will be treated as 0, returning an empty string
+- Any mathematical operation between an `int` or `float` with a `bool` will
+  first convert the `bool` value to `1` (if it's `True`) and `0` (if it's `False`).
 
 
 {% include lib/mathjax.html %}

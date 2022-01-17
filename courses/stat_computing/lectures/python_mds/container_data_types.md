@@ -91,6 +91,26 @@ You cannot add or remove values from a tuple once they're created.
 
 ## Common operations with containers
 
+#### Checking the number of items in the container
+The total number of records is a common statistic used to check the quality of
+the data.
+
+Fortunately, the same function `len()` can be applied to each of these.
+
+```python
+len(demo_map)
+len(demo_list)
+len(demo_tuple)
+```
+
+One somewhat unintuitive behavior of `len()` is that it does not work for
+numeric values but will return the number of characters in a string.
+
+```python
+len(1) # this should have an error
+len('hello')
+```
+
 #### Subsetting particular values - Python starts counting at 0
 We can subset specific values from each of these containers using the square
 bracket `[]`.
