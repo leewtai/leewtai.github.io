@@ -221,7 +221,7 @@ if type(input) != str:
 
 ```
 So in this case we initiated a Type Error if the input is not of type
-`str`.
+`str`. You can see a [list of built-in errors](https://docs.python.org/3/library/exceptions.html#IndentationError)
 
 
 {% include lib/mathjax.html %}
