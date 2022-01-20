@@ -115,37 +115,25 @@ each concept.
   <td>$$$$</td>
 </tr>
 <tr>
-  <td>Importing libraries</td>
+  <td>
+  <a href="python_mds/packages.html">Importing packages</a>
+  </td>
   <td><pre>
   </pre></td>
   <td></td>
   <td>$$$$</td>
 </tr>
 <tr>
-  <td>Control flow - if/else</td>
+  <td>
+  <a href="python_mds/ifelse_except.html">if/else and exceptions</a>
+  </td>
   <td><pre>
-  </pre></td>
-  <td></td>
-  <td>$$$$</td>
-</tr>
-<tr>
-  <td>Logical operations in Python</td>
-  <td><pre>
-  2 <= 3
-  'A' > 'a'
   </pre></td>
   <td></td>
   <td>$$$$</td>
 </tr>
 <tr>
   <td>Reading and writing data to files</td>
-  <td><pre>
-  </pre></td>
-  <td></td>
-  <td>$$$$</td>
-</tr>
-<tr>
-  <td>Subsetting data and re-assignment</td>
   <td><pre>
   </pre></td>
   <td></td>
