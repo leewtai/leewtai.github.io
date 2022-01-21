@@ -74,9 +74,14 @@ If your final grade is in [93-97), you will earn at least an A, [90-93) will ear
 - Please export all homeworks in PDF files following these [instructions](../../setup/math_and_code.md)
   - If you want to learn how to set up Jupyter Notebooks with R, follow these [instructions](../../setup/conda_and_navigator_setup.md)
 
-#### - Exams (75%)
+#### - Exams (65%)
 - Midterms (30%)
 - Final (45%)
+
+#### - Participation (10%)
+- In class participation
+- Online question posting (non-private) and answers are all ways to achieve this
+- I will reach out after the midterm if you are at risk of missing some points here.
 
 ##### Exam accomodations
 In order to receive disability-related academic accommodations for this course, students must first be registered with their school Disability Services (DS) office. Detailed information is available online for both the [Columbia](https://health.columbia.edu/content/disability-services) and Barnard registration processes.
