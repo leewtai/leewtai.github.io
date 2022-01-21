@@ -42,7 +42,8 @@ I reserve the right to change the ordering and the content for the course throug
   - Office Hours: TBD
 
 - Teaching Assistant(s):
-  - TBD
+  - Owen Ward (ogw2103)
+  - Office hours: Tu/Th 5-6pm
 
 ### Grading
 If your final grade is in [93-97), you will earn at least an A, [90-93) will earn at least an A-, [87-90) will earn at least a B+, etc. A grading curves may occur depending on the class performance but I will not curve downwards. I will not give out A+ for this class.
@@ -60,8 +61,9 @@ If your final grade is in [93-97), you will earn at least an A, [90-93) will ear
 
 ### Textbooks and references
 - Google!
+- [Python concept notes](lectures/learning_python_intro.md)
 - [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/)
-- [Programming with Python by Software Carpentry](https://swcarpentry.github.io/python-novice-inflammation/)
+- Basics only - [Programming with Python by Software Carpentry](https://swcarpentry.github.io/python-novice-inflammation/)
 - [LearningPython.org](https://www.learnpython.org/)
 - Designing Data-Intensive Applications by Martin Kleppmann
 
@@ -90,6 +92,7 @@ For this course, students are not required to have testing forms or accommodatio
 - Multivariate calculus
   - Derivatives and functions
 - Matrix operations and inverses of matrices
+- You should be at least co-enrolled in a modeling class like regression
 
 ## Expectations
 - Take chances!
