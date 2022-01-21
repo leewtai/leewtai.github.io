@@ -81,4 +81,12 @@ import pandas as pd
 
 demo_df = pd.read_csv("demo.csv")
 ```
+
+Another approach is using `Numpy` which we will discuss in more detail soon.
+```python
+import numpy as np
+
+demo_array = np.loadtxt(fname="demo.csv", delimiter=",")
+```
+
 {% include lib/mathjax.html %}
