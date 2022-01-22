@@ -76,7 +76,7 @@ each concept.
   demo_str = "1"
   demo_bool = True
   </pre></td>
-  <td></td>
+  <td>Some data are in numbers, some data are in text, we need to represent these differently.</td>
   <td>$$$$</td>
 </tr>
 <tr>
@@ -89,8 +89,8 @@ each concept.
             'b': 2}
   a_tuple = (1, 2, 3)
   </pre></td>
-  <td></td>
-  <td>$$$$</td>
+  <td>We need to differentiate a single value from a collection of data.</td>
+  <td>$$1 vs \{1, 2, 3\}$$</td>
 </tr>
 <tr>
   <td>
@@ -100,7 +100,7 @@ each concept.
   min(3, -1)
   sum([1, 2, -1])
   </pre></td>
-  <td></td>
+  <td>We want to operate on a collection of numbers so we'll need to know how to apply functions.</td>
   <td>$$$$</td>
 </tr>
 <tr>
@@ -111,7 +111,7 @@ each concept.
   for i in range(3):
     print(i)
   </pre></td>
-  <td></td>
+  <td>How do we ask a computer to repeat its tasks?</td>
   <td>$$$$</td>
 </tr>
 <tr>
@@ -119,8 +119,10 @@ each concept.
   <a href="python_mds/packages.html">8. Importing packages</a>
   </td>
   <td><pre>
+  import math
+  math.log(1)
   </pre></td>
-  <td></td>
+  <td>To leverage other people's code, we often source in their pacakges.</td>
   <td>$$$$</td>
 </tr>
 <tr>
@@ -128,8 +130,10 @@ each concept.
   <a href="python_mds/ifelse.html">9. if/else and exceptions</a>
   </td>
   <td><pre>
+  if 'a' in 'Broadway':
+      print('Broadway with an "a"')
   </pre></td>
-  <td></td>
+  <td>When the code changes behavior under different conditions</tdr
   <td>$$$$</td>
 </tr>
 <tr>
@@ -137,7 +141,7 @@ each concept.
   <a href="python_mds/load_write_files.html">10. Reading and writing data to files</a>
   </td>
   <td><pre>
-  </pre></td>
+  </pre>Getting data loaded</td>
   <td></td>
   <td>$$$$</td>
 </tr>
