@@ -36,7 +36,7 @@ I reserve the right to change the ordering and the content for the course throug
 
 |Date|Topic|Reference|Due|
 |---|---|---|---|
-|2022-01-21|[Introduction + python as a calculator](https://docs.google.com/presentation/d/1hbdEFneIriuFSxtwfH29LvJp1AX_gZ961FtG4msPL7o/edit?usp=sharing)|- [Python concepts 1, 2, 3, 4, 6, 8, 10, 11](lectures/learning_python_intro.md)<br>- [Python Data Science Handbook Chapter 2: Understanding Data Types in Python to Aggregations: Min, Max, and Everything in Between](https://jakevdp.github.io/PythonDataScienceHandbook/)||
+|2022-01-21|[Introduction + python as a calculator](https://docs.google.com/presentation/d/1hbdEFneIriuFSxtwfH29LvJp1AX_gZ961FtG4msPL7o/edit?usp=sharing)|- [Python concepts 1, 2, 3, 4, 6, 8, 10, 11](lectures/learning_python_intro.md)<br>- [Software Carpentry - Python Fundamentals + Analyzing Patient Data](https://swcarpentry.github.io/python-novice-inflammation/)<br>- [Python Data Science Handbook Chapter 2: Understanding Data Types in Python to Aggregations: Min, Max, and Everything in Between](https://jakevdp.github.io/PythonDataScienceHandbook/)||
 |2022-01-28|Numpy, objects, and subsetting<br>AB Testing||[Set up your jupyter notebook environment with the command line](https://leewtai.github.io/setup/conda_and_navigator_setup.html)|
 |2022-02-04|For-loop, if/else, working with files<br>AB testing assignment||HW1 Due|
 |2022-02-11|Pandas, summaries, and visualization<br>Exploratory data analysis|||
