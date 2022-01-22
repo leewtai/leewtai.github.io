@@ -107,5 +107,12 @@ reasonably comfortable with the command line.
 - `scikit-learn` is where most machine learning and statistical algorithms
   are stored.
 
+When sourcing these packages, it's common to shorten their name. Below
+we shorten `numpy` to `np` so the code is shorter.
+```python
+import numpy as np
+
+demo_array = np.array([1, 2, 3])
+```
 
 {% include lib/mathjax.html %}

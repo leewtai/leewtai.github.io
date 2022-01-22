@@ -143,7 +143,7 @@ each concept.
 </tr>
 <tr>
   <td>
-  <a href="python_mds/load_write_files.html">11. Numpy</a>
+  <a href="python_mds/numpy.html">11. Numpy</a>
   </td>
   <td><pre>
   </pre></td>
