@@ -16,7 +16,7 @@ each concept.
 </tr>
 <tr>
   <td>
-  <a href="python_mds/interacting_with_python.html">Interacting with Python and your files</a>
+  <a href="python_mds/interacting_with_python.html">1. Interacting with Python and your files</a>
   </td>
   <td><pre>
   python hello.py
@@ -31,7 +31,7 @@ each concept.
 </tr>
 <tr>
   <td>
-  <a href="python_mds/python_basic_syntax.html">Basics syntax - interacting with the REPL</a>
+  <a href="python_mds/python_basic_syntax.html">2. Basics syntax - interacting with the REPL</a>
   </td>
   <td><pre>
   1 + 1  # works!
@@ -49,7 +49,7 @@ each concept.
 </tr>
 <tr>
   <td>
-  <a href="python_mds/variables.html">Assigning variables</a>
+  <a href="python_mds/variables.html">3. Assigning variables</a>
   </td>
   <td><pre>
   n = 10
@@ -69,7 +69,7 @@ each concept.
 </tr>
 <tr>
   <td>
-  <a href="python_mds/simple_data_types.html">Simple and single-valued data types</a>
+  <a href="python_mds/simple_data_types.html">4. Simple and single-valued data types</a>
   </td>
   <td><pre>
   demo_num = 1
@@ -81,7 +81,7 @@ each concept.
 </tr>
 <tr>
   <td>
-  <a href="python_mds/container_data_types.html">Simple and multi-valued data types</a>
+  <a href="python_mds/container_data_types.html">5. Simple and multi-valued data types</a>
   </td>
   <td><pre>
   a_list = [1, 2, '3']
@@ -94,7 +94,7 @@ each concept.
 </tr>
 <tr>
   <td>
-  <a href="python_mds/call_functions.html">Calling functions</a>
+  <a href="python_mds/call_functions.html">6. Calling functions</a>
   </td>
   <td><pre>
   min(3, -1)
@@ -105,7 +105,7 @@ each concept.
 </tr>
 <tr>
   <td>
-  <a href="python_mds/loops.html">Control flow - for-loops</a>
+  <a href="python_mds/loops.html">7. Control flow - for-loops</a>
   </td>
   <td><pre>
   for i in range(3):
@@ -116,7 +116,7 @@ each concept.
 </tr>
 <tr>
   <td>
-  <a href="python_mds/packages.html">Importing packages</a>
+  <a href="python_mds/packages.html">8. Importing packages</a>
   </td>
   <td><pre>
   </pre></td>
@@ -125,7 +125,7 @@ each concept.
 </tr>
 <tr>
   <td>
-  <a href="python_mds/ifelse_except.html">if/else and exceptions</a>
+  <a href="python_mds/ifelse.html">9. if/else and exceptions</a>
   </td>
   <td><pre>
   </pre></td>
@@ -134,7 +134,7 @@ each concept.
 </tr>
 <tr>
   <td>
-  <a href="python_mds/load_write_files.html">Reading and writing data to files</a>
+  <a href="python_mds/load_write_files.html">10. Reading and writing data to files</a>
   </td>
   <td><pre>
   </pre></td>
@@ -142,7 +142,9 @@ each concept.
   <td>$$$$</td>
 </tr>
 <tr>
-  <td>Numpy</td>
+  <td>
+  <a href="python_mds/load_write_files.html">11. Numpy</a>
+  </td>
   <td><pre>
   </pre></td>
   <td></td>
@@ -163,7 +165,7 @@ each concept.
   <td>$$$$</td>
 </tr>
 <tr>
-  <td>Writing functions and anonymous functions</td>
+  <td>Mapping functions instead of looping</td>
   <td><pre>
   </pre></td>
   <td></td>
@@ -198,7 +200,7 @@ each concept.
   <td>$$$$</td>
 </tr>
 <tr>
-  <td>sklearn and fitting models</td>
+  <td>Routine jobs</td>
   <td><pre>
   </pre></td>
   <td></td>
