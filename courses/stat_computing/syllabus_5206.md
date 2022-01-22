@@ -36,7 +36,7 @@ I reserve the right to change the ordering and the content for the course throug
 
 |Date|Topic|Reference|Due|
 |---|---|---|---|
-|2022-01-21|[Introduction + python as a calculator](https://docs.google.com/presentation/d/1hbdEFneIriuFSxtwfH29LvJp1AX_gZ961FtG4msPL7o/edit?usp=sharing)|||
+|2022-01-21|[Introduction + python as a calculator](https://docs.google.com/presentation/d/1hbdEFneIriuFSxtwfH29LvJp1AX_gZ961FtG4msPL7o/edit?usp=sharing)|- [Python concepts 1, 2, 3, 4, 6, 8, 10, 11](lectures/learning_python_intro.md)<br>- [Python Data Science Handbook Chapter 2: Understanding Data Types in Python to Aggregations: Min, Max, and Everything in Between](https://jakevdp.github.io/PythonDataScienceHandbook/)||
 |2022-01-28|Numpy, objects, and subsetting<br>AB Testing||[Set up your jupyter notebook environment with the command line](https://leewtai.github.io/setup/conda_and_navigator_setup.html)|
 |2022-02-04|For-loop, if/else, working with files<br>AB testing assignment||HW1 Due|
 |2022-02-11|Pandas, summaries, and visualization<br>Exploratory data analysis|||
@@ -69,10 +69,8 @@ If your final grade is in [93-97), you will earn at least an A, [90-93) will ear
 
 #### - Homeworks (25%)
 - Late homeworks will receive 0 credit
-- Homework solutions will exist in R
 - No make-up homeworks will be granted even if you registered late to the class
-- Please export all homeworks in PDF files following these [instructions](../../setup/math_and_code.md)
-  - If you want to learn how to set up Jupyter Notebooks with R, follow these [instructions](../../setup/conda_and_navigator_setup.md)
+- If you want to learn how to set up Jupyter Notebooks with R, follow these [instructions](../../setup/conda_and_navigator_setup.md)
 
 #### - Exams (65%)
 - Midterms (30%)
