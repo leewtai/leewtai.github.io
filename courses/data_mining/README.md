@@ -57,7 +57,6 @@ I reserve the right to change the ordering and the content for the course throug
 |2022-04-21|[Independent Component Analysis](https://docs.google.com/presentation/d/141-Q9FFzFjAZr32RXv4D5cBd0SK38DmEzZnxVdGOma0/edit?usp=sharing)|[Stanford ICA Slides](http://statweb.stanford.edu/~tibs/sta306bfiles/ica.pdf)||
 |2022-04-26|ICA continued or Multidimensional Scaling|||
 |2022-04-28|What we didn't teach||[Project 2](homeworks/proj3.md) Due on 5/2/2022|
-|TBD|Measure understanding|Final Exam|You!|
 
 
 ### Logistics
@@ -70,15 +69,18 @@ Wayne Tai Lee: wtl2109
 - Office hours TBD
 
 Teaching Assistant(s):
-- TBD
+- Andrew Davison (ad3395)
 
+#### Online Discussion
+The TA and grader will check the online discussion for 30 minutes each weekday.
+Do not expect an immediate response so please start your work early and understand
+that you should post your questions more clearly.
 
 ### Grading
 If your final grade is in [93-100], you will earn at least an A, [90-93) will earn at least an A-, [87-90) will earn at least a B+, etc. A grading curves may occur depending on the class performance but I will not curve downwards. I may not give out A+'s in this class.
 
 #### - Homeworks (30%)
   - Late homeworks will receive 0 credit
-  - Your lowest homework grade will be dropped. If you missed Homework0 because you enrolled late, this prevents you from receiving 0.
 #### - Projects (60%)
   - Late projects will be penalized by 50% for each day it's late.
   - Projects should be submitted on Canvas

@@ -164,6 +164,8 @@ col_sum = np.apply_along_axis(np.sum, 0, demo)
 print(col_sum)
 ```
 
+If we changed the axis to `1` then we would have obtained the row totals instead.
+
 #### Broadcasting
 
 Broadcasting is how numpy distributes calculations across arrays

@@ -58,7 +58,8 @@ _a = 3
 _ = 4
 ```
 
-There are other restrictions but the key is to try it if you're not sure.
+There are other restrictions, like special keywords,
+but the key is to **try it** if you're not sure.
 
 ## Something we take for granted
 
@@ -92,6 +93,16 @@ but you should just treat it like a letter.
 a = "hello"
 a.upper()
 a.__len__()
+```
+
+#### Looking up all variable names
+The following 2 functions will inform you on the variable names that are
+defined in your local or global environment by returning a dictionary.
+Topics like local environment and dictionary will be covered later.
+
+```python
+locals()
+globals()
 ```
 
 ## Additional References
