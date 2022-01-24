@@ -24,6 +24,7 @@ to **Lessons**.
 For non-coding questions on the homework, they tend to be easily verifiable. 
 Once you make your selection, make sure to click "Submit" and make sure
 the button appears as a grayed out "submitted".
+
 <img src="edu_images/pre_submit_multi_choice.png" alt="Submit will stay blue if you have not submitted yet" width='300'>
 <img src="edu_images/post_submit_multi_choice.png" alt="Submit will turn gray after you submitted" width='300'>
 
