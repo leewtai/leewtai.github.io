@@ -17,7 +17,7 @@ the "Ed Discussion" tab in CourseWorks
 Once you log onto Ed, the right-top corner will have a book icon that corresponds
 to **Lessons**.
 
-<img src="edu_images/lesson_on_ed.png" alt="lessons is at the right top corner on Ed" width='600'>
+<img src="edu_images/lessons_on_ed.png" alt="lessons is at the right top corner on Ed" width='600'>
 
 #### Non-coding questions
 
