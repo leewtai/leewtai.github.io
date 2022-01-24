@@ -47,6 +47,7 @@ A few things to know
 - You can write code or notes to yourself by creating a new cell using the `+ Code`
   and `+ Text` options.
 - The `Mark` button on the right bottom is what will trigger the auto-grader.
+  - You must hit `Mark` at least once to receive credit.
   - You can regrade this as many times as you wish in Spring 2022.
   - You must **save the notebook before marking**! Ctrl-S or Cmnd+S should work.
 - If you wish to Download the notebook, you can find the `>>` on the left of the `+ Code`
