@@ -71,6 +71,7 @@ If your final grade is in [93-97), you will earn at least an A, [90-93) will ear
 - Late homeworks will receive 0 credit
 - No make-up homeworks will be granted even if you registered late to the class
 - If you want to learn how to set up Jupyter Notebooks with R, follow these [instructions](../../setup/conda_and_navigator_setup.md)
+- Please read these important things related to [submitting homeworks on Ed](ed_hw_faq.md)
 
 #### - Exams (65%)
 - Midterms (30%)
