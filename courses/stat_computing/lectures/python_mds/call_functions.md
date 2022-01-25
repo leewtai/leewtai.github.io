@@ -86,5 +86,33 @@ standardize_text('')
 standardize_text(['i said x', 'you said y'])
 ```
 
+#### In-place functions
+
+Python has a few in-place functions/methods that modify the object directly
+and usually returns nothing (this is a coding pattern in Python, not a result of
+in-place algorithms). Here's an example of a common **mistake**
+
+```python
+demo = [1, -1, 0]
+sorted_demo = demo.sort()
+
+print(demo)         # prints [-1, 0, 1]
+print(sorted_demo)  # prints None
+```
+
+`list.sort()` sorts the list `demo` directly so `demo` is modified.
+The method, however, does not return anything so `sorted_demo` will
+be assigned `None`. The common mistake is to assume all functions will
+return an object and see code crash because `sorted_demo` is `None` instead
+of a `list`.
+
+In-place operations are attractive because they do not require doubling the
+memory when working with data. If `demo` and `sorted_demo`
+both existed, then you now have two copies of the data (different order).
+If these lists were much larger, this will quickly become a problem.
+
+There unfortunately is no standard around naming for in-place functions and
+you need to read the documentation. The popular package `pandas` often has
+options to do in-place operations.
 
 {% include lib/mathjax.html %}
