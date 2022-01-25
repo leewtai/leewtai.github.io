@@ -59,6 +59,7 @@ Class time: [F 10:10am - 12:40pm, Location: 301 Pupin](https://vergil.registrar.
 ### Teaching Team
 Wayne Tai Lee (wtl2109)
   - Office Hours: Tu/Th 10-11am at Watson Hall (W 115th St) room 714 
+    - [Zoom](https://columbiauniversity.zoom.us/j/98032760108?pwd=b0hXTjN1SjVLMTdwc29lWWFzbnpSZz09)
 Owen Ward (ogw2103)
   - Office hours: Tu/Th 5-6pm at School of Social Work 10th Floor Lounge
 
