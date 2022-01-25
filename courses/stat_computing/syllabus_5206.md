@@ -54,15 +54,13 @@ I reserve the right to change the ordering and the content for the course throug
 |TBD|Final|||
 
 ## Logistics
+Class time: [F 10:10am - 12:40pm, Location: 301 Pupin](https://vergil.registrar.columbia.edu/#/courses/STAT%20COMP%20&%20INTRO%20DATA%20SCIENCE)
 
-### People and times
-- Instructor: Wayne Tai Lee (wtl2109)
-  - Class time: [TuTh 6:10pm - 8:55pm, Location: TBD](https://vergil.registrar.columbia.edu/#/courses/APPLIED%20STATISTICAL%20COMPUTING)
-  - Office Hours: TBD
-
-- Teaching Assistant(s):
-  - Owen Ward (ogw2103)
-  - Office hours: Tu/Th 5-6pm
+### Teaching Team
+Wayne Tai Lee (wtl2109)
+  - Office Hours: Tu/Th 10-11am at Watson Hall (W 115th St) room 714 
+Owen Ward (ogw2103)
+  - Office hours: Tu/Th 5-6pm at School of Social Work 10th Floor Lounge
 
 ### Grading
 If your final grade is in [93-97), you will earn at least an A, [90-93) will earn at least an A-, [87-90) will earn at least a B+, etc. A grading curves may occur depending on the class performance but I will not curve downwards. I will not give out A+ for this class.
