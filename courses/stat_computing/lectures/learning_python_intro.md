@@ -76,8 +76,8 @@ each concept.
   demo_str = "1"
   demo_bool = True
   </pre></td>
-  <td>Some data are in numbers, some data are in text, we need to represent these differently.</td>
-  <td>$$$$</td>
+  <td>Data can be numbers or text, we handle them differently so we have data types for functions to treat them differently too.</td>
+  <td>$$y \in \mathbb{R}, x \in \{0, 1\}$$</td>
 </tr>
 <tr>
   <td>
@@ -90,7 +90,7 @@ each concept.
   a_tuple = (1, 2, 3)
   </pre></td>
   <td>We need to differentiate a single value from a collection of data.</td>
-  <td>$$1 vs \{1, 2, 3\}$$</td>
+  <td>$$y = 1, x = \{1, 2, 3\}$$</td>
 </tr>
 <tr>
   <td>
@@ -101,7 +101,7 @@ each concept.
   sum([1, 2, -1])
   </pre></td>
   <td>We want to operate on a collection of numbers so we'll need to know how to apply functions.</td>
-  <td>$$$$</td>
+  <td>$$f:\mathbb{R}^p \to \mathbb{R}$$</td>
 </tr>
 <tr>
   <td>
@@ -112,7 +112,7 @@ each concept.
     print(i)
   </pre></td>
   <td>How do we ask a computer to repeat its tasks?</td>
-  <td>$$$$</td>
+  <td>$$\forall i, f(x_i)$$</td>
 </tr>
 <tr>
   <td>
@@ -123,7 +123,7 @@ each concept.
   math.log(1)
   </pre></td>
   <td>To leverage other people's code, we often source in their pacakges.</td>
-  <td>$$$$</td>
+  <td></td>
 </tr>
 <tr>
   <td>
@@ -134,15 +134,20 @@ each concept.
       print('Broadway with an "a"')
   </pre></td>
   <td>When the code changes behavior under different conditions</tdr
-  <td>$$$$</td>
+  <td>$$f(x)=\left\{ \begin{array}{ccc} 
+        0 & x < \theta \\ 
+        x & x \geq \theta \end{array} \right\} $$
+  </td>
 </tr>
 <tr>
   <td>
   <a href="python_mds/load_write_files.html">10. Reading and writing data to files</a>
   </td>
   <td><pre>
-  </pre>Getting data loaded</td>
-  <td></td>
+  x = np.loadtxt('demo.csv', delimiter=',')
+  y = pd.read_csv('demo.csv')
+  </pre></td>
+  <td>Getting data loaded and written to and from files</td>
   <td>$$$$</td>
 </tr>
 <tr>
@@ -150,23 +155,32 @@ each concept.
   <a href="python_mds/numpy.html">11. Numpy</a>
   </td>
   <td><pre>
+  import numpy as np
+  demo = np.array([[1, 2, 3],
+                   [4, 5, 6]])
+  demo.reshape(-1, 2)
   </pre></td>
+  <td>The foundational mathematics package that offers many features similar to R's vectors.</td>
   <td></td>
-  <td>$$$$</td>
 </tr>
 <tr>
   <td>Pandas</td>
   <td><pre>
+  import pandas as pd
+  pd.DataFrame([{'sex': 'M', 'score': 2},
+                {'sex': 'F', 'score': 8}])
   </pre></td>
+  <td>Python needed something like R's data frames that could handle multiple types of data in a tabular format</td>
   <td></td>
-  <td>$$$$</td>
 </tr>
 <tr>
   <td>Text manipulation and regular expression</td>
   <td><pre>
+  import re
+  re.compile('[A-Z][a-z]+').search('Python')
   </pre></td>
+  <td>How can we express general rules in text like how proper nouns start with a capital letter followed by one or more lower-cased letters.</td>
   <td></td>
-  <td>$$$$</td>
 </tr>
 <tr>
   <td>Mapping functions instead of looping</td>
