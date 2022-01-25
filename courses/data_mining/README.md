@@ -63,13 +63,15 @@ I reserve the right to change the ordering and the content for the course throug
 Lectures:
   [TuTh 2:40pm - 3:55pm, Zoom Link on Canvas](https://vergil.registrar.columbia.edu/#/courses/APPLIED%20DATA%20MINING)
 
-### People
-Instructor:
-Wayne Tai Lee: wtl2109
-- Office hours TBD
-
-Teaching Assistant(s):
-- Andrew Davison (ad3395)
+### Teaching Team
+Wayne Tai Lee (wtl2109)
+  - OH: TuTh 1-2pm
+    - [Zoom](https://columbiauniversity.zoom.us/j/92977520582?pwd=RDE2bUEzRCtRODd3K05RUkJUcHJyQT09)
+    - Room: Watson 714
+Andrew Davison (ad3395)
+  - OH: MW 1-2pm
+    - [Zoom](https://columbiauniversity.zoom.us/j/4404461516?pwd=TzVEb09XYzB2dDFHN1hYV0NvWWQwUT09)
+    - Room TBD
 
 #### Online Discussion
 The TA and grader will check the online discussion for 30 minutes each weekday.
