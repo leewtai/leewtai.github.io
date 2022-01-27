@@ -161,7 +161,7 @@ each concept.
   demo.reshape(-1, 2)
   </pre></td>
   <td>The foundational mathematics package that offers many features similar to R's vectors.</td>
-  <td></td>
+  <td>$$X(X^TX)^{-1}X$$</td>
 </tr>
 <tr>
   <td>Pandas</td>
