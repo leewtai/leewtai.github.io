@@ -37,7 +37,7 @@ I reserve the right to change the ordering and the content for the course throug
 |Date|Topic|Reference|Due|
 |---|---|---|---|
 |2022-01-21|[Introduction + python as a calculator](https://docs.google.com/presentation/d/1hbdEFneIriuFSxtwfH29LvJp1AX_gZ961FtG4msPL7o/edit?usp=sharing)|- [Python concepts 1, 2, 3, 4, 6, 8, 10, 11](lectures/learning_python_intro.md)<br>- [Software Carpentry - Python Fundamentals + Analyzing Patient Data](https://swcarpentry.github.io/python-novice-inflammation/)<br>- [Python Data Science Handbook Chapter 2: Understanding Data Types in Python to The Basics of Numpy Arrays](https://jakevdp.github.io/PythonDataScienceHandbook/)||
-|2022-01-28|[Numpy, objects, and subsetting](https://edstem.org/us/courses/18674/lessons/29142/slides/166976)<br>[AB Testing](https://docs.google.com/presentation/d/1lRzWdkLiwV0_3zBNKcDF6VqOu6JGpXSCy4WZNXH69NM/edit#slide=id.p)||[Set up your jupyter notebook environment with the command line](https://leewtai.github.io/setup/conda_and_navigator_setup.html)|
+|2022-01-28|[Numpy, objects, and subsetting](https://edstem.org/us/courses/18674/lessons/29142/slides/166976)<br>[AB Testing](https://docs.google.com/presentation/d/1lRzWdkLiwV0_3zBNKcDF6VqOu6JGpXSCy4WZNXH69NM/edit#slide=id.p)|[Python concepts 5, 7, 9]|[Set up your jupyter notebook environment with the command line](https://leewtai.github.io/setup/conda_and_navigator_setup.html)|
 |2022-02-04|For-loop, if/else, working with files<br>AB testing assignment||HW1 Due|
 |2022-02-11|Pandas, summaries, and visualization<br>Exploratory data analysis|||
 |2022-02-18|Nested data and data wrangling<br>Basic data engineering||HW2 Due|
