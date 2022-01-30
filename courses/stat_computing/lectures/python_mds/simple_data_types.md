@@ -215,6 +215,10 @@ Assume `demo = 'i said'`
     name = 'world'
     f'hello {name}'
     ```
+- Splitting a string by a particular character, e.g.
+  ```python
+  dates = "12/30/2022".split("/")
+  ```
 
 #### Common boolean operations
 Assume `a = 1`, `b = 2`, `c = 3`

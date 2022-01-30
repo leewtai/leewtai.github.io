@@ -176,7 +176,9 @@ each concept.
   <td></td>
 </tr>
 <tr>
-  <td>Text manipulation and regular expression</td>
+  <td>
+  <a href="python_mds/regular_expression.html">13. Text manipulation and regular expression</a>
+  </td>
   <td><pre>
   import re
   re.compile('[A-Z][a-z]+').search('Python')
