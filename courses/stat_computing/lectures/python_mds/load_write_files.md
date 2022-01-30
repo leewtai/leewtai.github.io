@@ -67,26 +67,60 @@ characters are surrounded by `""`, values are separated by `,`, etc.
 There are more complicated versions when the data is not stored in
 plain text.
 
-Here's an example of how to read a JSON file.
+Here's an example of how to read/write a JSON file.
 ```python
 import json
 
 demo_handle = open('demo.json', 'r')
 demo_json = json.load(demo_handle)
+json.dump(demo_json, open('demo_copy.json', 'w'))
 ```
 
-Here's an example of how to read a CSV file.
+Here's an example of how to read/write a CSV file.
 ```python
 import pandas as pd
 
 demo_df = pd.read_csv("demo.csv")
+demo_df.to_csv("demo_copy1.csv")
 ```
 
-Another approach is using `Numpy` which we will discuss in more detail soon.
+Another approach is using `numpy` which we will discuss in more detail soon.
 ```python
 import numpy as np
 
 demo_array = np.loadtxt(fname="demo.csv", delimiter=",")
+np.savetxt("demo_copy.csv", demo_array, delimiter=",")
 ```
 
+#### Reading in plain text data that may be poorly formatted
+
+Every now and then, we'll have data that is poorly formatted. For example,
+the [CSV file from the World Bank](https://data.worldbank.org/topic/health)
+will lead to a parsing error for most programs.
+
+```python
+import pandas as pd
+df = pd.read_csv("API_8_DS2_EN_csv_v2_3471645.csv")
+# ParserError: Error tokenizing data. C error: Expected 3 fields in line 5, saw 66
+```
+
+To debug the problem, we could open the file with a text editor (e.g. Note Pad on
+Windows) or let Python read the file line by line to debug the issue.
+
+```python
+with open("API_8_DS2_EN_csv_v2_3471645.csv", "r") as f:
+    txt = f.readlines()
+
+txt[:5]
+```
+Reading the first 5 lines reveals that the first 4 lines contain metadata (data
+title and last updated date), breaking the usual CSV format. Knowing this error,
+we can tell our usual functions to skip the first 4 lines.
+
+```python
+df = pd.read_csv("API_8_DS2_EN_csv_v2_3471645.csv", skiprows=4)
+```
+
+In worst cases, we would need to parse the data line by line.
+ 
 {% include lib/mathjax.html %}
