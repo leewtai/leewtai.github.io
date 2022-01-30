@@ -164,7 +164,9 @@ each concept.
   <td>$$X(X^TX)^{-1}X$$</td>
 </tr>
 <tr>
-  <td>Pandas</td>
+  <td>
+  <a href="python_mds/pandas.html">12. Pandas</a>
+  </td>
   <td><pre>
   import pandas as pd
   pd.DataFrame([{'sex': 'M', 'score': 2},
