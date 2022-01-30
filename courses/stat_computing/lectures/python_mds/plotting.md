@@ -53,3 +53,7 @@ sns.histplot(data=penguins,
 plt.savefig('test_seaborn.png') # create a file at your working directory
 plt.close()
 ```
+
+To create good graphics, most people think about what they want to plot,
+look up examples online that shows a similar graphic, then tweaks the
+code until they achieve the desired graphic.
