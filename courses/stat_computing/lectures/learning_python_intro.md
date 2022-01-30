@@ -187,10 +187,15 @@ each concept.
   <td></td>
 </tr>
 <tr>
-  <td>Mapping functions instead of looping</td>
+  <td>
+  <a href="python_mds/mapping.html">14. Mapping functions instead of looping</a>
+  </td>
   <td><pre>
+  from functools import reduce
+  abs_nums = map(abs, [-1, 2, 0])
+  tot_mag = reduce(lambda x, y: x + y, abs_nums)
   </pre></td>
-  <td></td>
+  <td>How can we separate the parallizable operations from the ones that cannot?</td>
   <td>$$$$</td>
 </tr>
 <tr>
