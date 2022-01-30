@@ -199,14 +199,21 @@ each concept.
   <td>$$$$</td>
 </tr>
 <tr>
-  <td>Date and time</td>
+  <td>
+  <a href="python_mds/date_time.html">15. Date and Time Objects</a>
+  </td>
   <td><pre>
+  import datetime
+  datetime.datetime.now()
   </pre></td>
-  <td></td>
+  <td>How can we handle date/time values since they have different conventions
+  from usual numbers. E.g. 60 secs is in 1 minute.</td>
   <td>$$$$</td>
 </tr>
 <tr>
-  <td>Data visualization with seaborn</td>
+  <td>
+  <a href="python_mds/plotting.html">16. Data visualization with seaborn</a>
+  </td>
   <td><pre>
   </pre></td>
   <td></td>
