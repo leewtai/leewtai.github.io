@@ -60,6 +60,10 @@ A `pandas.DataFrame` is similar to a `numpy.array` in it often has 2 dimensions.
 Similar to `numpy`, we generally subset data frames by columns and rows. 
 However, since data frames have additional features, they need to be subsetted
 using particular methods with different types of data.
+- `pandas.DataFrame.head`, allows us to look at the first few rows of data.
+  ```python
+  df.head()
+  ```
 - `pandas.DataFrame.loc`, which allows us to subset using boolean Series
   ```python
   cheap_tickets = df.Fare < 5
@@ -214,7 +218,7 @@ the group.
 
 ```python
 for grp, inds in df_grp.groups.items():
-    surv_rate = df.loc[inds, 'Survived'].mean()
+    surv_rate = df.iloc[inds, :].loc[:, 'Survived'].mean()
     print('Survival rate for group with Sex {} and Pclass {} is {}%'.format(
         grp[0], grp[1], round(100 * surv_rate, 2)))
     
