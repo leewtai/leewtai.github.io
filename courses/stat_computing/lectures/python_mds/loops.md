@@ -139,7 +139,7 @@ for index, num in enumerate(nums):
 understand it by casting it to a list. You should see a list of tuples, where the first
 element in the tuple is the index and the second is the corresponding value in `nums`.
 ```python
-In [98]: list(enumerate(nums))
+list(enumerate(nums))
 Out[98]: [(0, 1), (1, 3), (2, -1), (3, 10)]
 ```
 
@@ -207,4 +207,50 @@ line, keeping the important logic at the front and the looping information towar
 Wrapping this all into a list is a common choice but other containers can do this as well.
 This is appropriate only for loops with little amount of calculations.
 
+#### Looping over dictionaries
+
+When looping over a dictionaries, it is important to know that since dictionaries are
+not ordered, your loop may not run in a particular order that you intended.
+
+In general, when looping over a dictionary, we loop over the keys.
+
+```python
+demo = {'a': 1, 'b': 2, 'd': 4}
+for key in demo:
+    print(key)
+
+# Equivalent to
+for key in demo.keys():
+    print(key)
+```
+
+If you want to loop over the key and values, you should loop over the `dictionary.items()`
+method
+
+```python
+for key, val in demo.items():
+    print('The key {} maps to the valure {}'.format(key, val))
+```
+
+Notice that here we are simultaneously looping over 2 indices. This is similar to how
+we had 2 different indices in the `enumerate` example above.
+
+#### Looping over two lists - zip() 
+Every now and then, we wish to loop over two lists of equal length but do not
+want to use `enumerate()` to decrease our code clutter. Then `zip()` is a handy
+function that can create a sequence of tuples that contains the value from each list
+(in order of the list). 
+
+```python
+a = [1, 2, 3]
+b = ['a', 'b', 'c']
+
+print(list(zip(a, b)))
+
+output = {}
+for ai, bi in zip(a, b):
+    output.update({bi: ai})
+
+print(output)
+```
 {% include lib/mathjax.html %}

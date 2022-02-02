@@ -29,12 +29,14 @@ covered.
   past = datetime.strptime('2011 Feb 02; 11-10-00',
                            '%Y %b %d; %H-%M-%S')
   time_passed = today - past
-  time_passed.total_seconds()
+  time_passed.total_seconds() # This is a float
+
   # Print out the relevant time information
   today.strftime('%Y_%m_%d')
   ```
 - `datetime.timedelta` is a special class of data that works with time differences
-  They are important because they 
+  They are important because it's not obvious to a program that there are 24 hours
+  in a day, 60 minutes in an hour, etc. 
   ```python
   from datetime import timedelta, datetime
   today = datetime.today()

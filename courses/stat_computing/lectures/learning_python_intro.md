@@ -216,14 +216,18 @@ each concept.
   </td>
   <td><pre>
   </pre></td>
-  <td></td>
+  <td>A picture is worth a thousand words</td>
   <td>$$$$</td>
 </tr>
 <tr>
-  <td>Interacting with APIs</td>
+  <td>
+  <a href="python_mds/api.html">17. Interacting with APIs</a>
+  </td>
   <td><pre>
   </pre></td>
-  <td></td>
+  <td>To interact with machines, especially online, there is a standard protocol
+      to give and get data.
+  </td>
   <td>$$$$</td>
 </tr>
 <tr>
