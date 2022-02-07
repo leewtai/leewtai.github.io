@@ -86,6 +86,27 @@ standardize_text('')
 standardize_text(['i said x', 'you said y'])
 ```
 
+#### Setting defaults in functions
+
+You can give your function default values for its parameters by assigning the
+parameter during its definition. For example, if we wanted a log function 
+that defaulted to `base=10` instead of `base=e`:
+
+```python
+from math import log
+
+
+def my_log(x, base=10):
+    return log(x, base)    
+
+
+my_log(100)
+my_log(100, 100)
+```
+- By assigning `base=10` in the parameter specification, we default the value
+  of `base` to `10`.
+- We can still override the value of `base` like a normal parameter.
+
 #### In-place functions
 
 Python has a few in-place functions/methods that modify the object directly
