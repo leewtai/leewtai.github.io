@@ -54,4 +54,35 @@ tox_freq = reduce(lambda x, y: x + y, tox_freqs)
 Practicing how to split for-loops into `map()` vs `reduce()` operations
 will be the key to big data computation in the future (not covered in this class).
 
+#### What is a lambda function?!
+
+There was a tricky usage of a `lambda` function above. Overall, `lambda` just allows
+us to define a function without giving it a name.
+
+Recall that defining functions often require the declaration like `def FUNCTION_NAME(INPUTS):`
+Now imagine if we will only use the function once AND the function is relatively simple. Then
+it does not seem useful to think of a practical name (recall WHY we have variables). The
+inputs and function is sufficient. Because of this, you will see `lambda` functions
+defined relatively commonly.
+
+A lambda function has a few elements:
+- Starts with the keyword: `lambda`
+- Followed by the inputs separated by comma
+- Followed by a colon, `:`
+- Then the function body, this should be a single line of code that is easy to understand.
+  Anymore then you should define a function properly with a name that summarizes its intent.
+
+A common place to see `lambda` functions is with `pandas.Series.apply()` or `numpy.apply_along_axis()`.
+For example, if I want to find the power outage events related to only Texas from a messy
+dataset:
+```python
+power_outage = pd.DataFrame(
+    {'num_customers_impacted': [1000, 2000, 3000],
+     'location': ['TX', 'Texas, Oklahoma', 'OK, KS']})
+hasTX = power_outage.location.apply(lambda x: 'TX' in x or 'Texas' in x)
+tx_outages = power_outage.loc[hasTX, :]
+```
+
+
+
 {% include lib/mathjax.html %}
