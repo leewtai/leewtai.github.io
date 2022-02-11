@@ -193,7 +193,7 @@ sub("=", "<-", demo)
 The code replaced `=` with `<-` for the character assigned in the variable `demo`.
 
 #### Specifying the frequency in regular expression
-For the following example, we will use the demo string `demo <- ''`
+For the following example, we will use the demo string `demo <- 'borrow some rope'`
 with the `r` as the character to be replaced.
 
 Here are a few common frequencies, you should TYPE out each example to see the impact
