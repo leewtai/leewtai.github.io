@@ -61,6 +61,7 @@ Casting can be expensive because Python may need to "guess"
 what your intent, e.g. the example above rounded downwards even though $x > 1.5$.
 
 Here are the functions that help "cast"
+
 |Data type|Function|
 |---------|--------|
 |integers |`int(1.2)`|

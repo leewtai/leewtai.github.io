@@ -100,7 +100,7 @@ each concept.
   min(3, -1)
   sum([1, 2, -1])
   </pre></td>
-  <td>We want to operate on a collection of numbers so we'll need to know how to apply functions.</td>
+  <td>We want to wrap up a collection of commands into a single call with certain inputs and outputs.</td>
   <td>$$f:\mathbb{R}^p \to \mathbb{R}$$</td>
 </tr>
 <tr>
@@ -252,7 +252,7 @@ each concept.
   <td>$$$$</td>
 </tr>
 <tr>
-  <td>Permutation tests</td>
+  <td>Random functions and their uses</td>
   <td><pre>
   </pre></td>
   <td></td>
