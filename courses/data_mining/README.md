@@ -36,7 +36,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2022-02-08|[Rise of machine learning and "wrong" models - some history](https://docs.google.com/presentation/d/1RweE3ajD5pGn-FnPp-0tf_0iMWRHlMzUaTpp4utvmN8/edit?usp=sharing)|[Paper on Why Biased Estimators given Stein Estimator + Gauss Markov Theorem](https://www.jstor.org/stable/1268284?seq=1#metadata_info_tab_contents) + ISL Chapter 2.2 continued||
 |2022-02-10|[Ridge + Lasso Regression](https://docs.google.com/presentation/d/1W_xNZ5aty4V8sGnc9nBpeVlfY4ws0tkH-fZGm2kngfI/edit?usp=sharing)|ISL 6.2|[Homework 2](homeworks/hw2.md) Due|
 |2022-02-15|[Ridge + Lasso Simulations](https://docs.google.com/presentation/d/1yktXlOcSGVHkoPBFiqkE1KiWk4aZ8gNzAAbXG4ixl64/edit?usp=sharing)|ISL 6.2||
-|2022-02-17|[Tree Methods](https://docs.google.com/presentation/d/1VCmWhaV4M3oAEDhB4LqYF5WUz0NZrn7v5-OpH0SnDBM/edit?usp=sharing)|ISL 8.1||
+|2022-02-17|[Tree Methods](https://docs.google.com/presentation/d/1tFOm3dSSBV7-PtYAAQgLYkAAp8bVMeUYiPZlP0rCtpE/edit?usp=sharing)|ISL 8.1||
 |2022-02-22|[Tree Methods continued](https://docs.google.com/presentation/d/1tFOm3dSSBV7-PtYAAQgLYkAAp8bVMeUYiPZlP0rCtpE/edit?usp=sharing)|ISL 8.1||
 |2022-02-24|[Trees + forests with real data](https://docs.google.com/presentation/d/1_yNVafSSJCs0KT_MKcVgbxio419NDCGDDeAVDZ05S7s/edit?usp=sharing)|ISL 8.2|[Homework 3](homeworks/hw3.md)|
 |2022-03-01|[Optimization and objective functions](https://docs.google.com/presentation/d/1RKi4H1kxhtwPyP6l1lTSFTAYjDHeE7umpvkc8cMD4F4/edit?usp=sharing)|Slide 5 + ISL Chapter 3.1.1 + 3.3.3||
