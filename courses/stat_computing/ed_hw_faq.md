@@ -36,6 +36,7 @@ For this class we'll be using the Jupyter Notebooks for coding questions.
 <img src="edu_images/coding_challenge_view.png" alt="View of Coding Challenge" width='600'>
 
 A few things to know
+- Please use **Chrome** on Ed. Certain functionalities are not working in IE.
 - All your code on the Jupyter Notebook will be ran by the autograder except cells with
   `### SKIP` at the top.
 - Your solutions must stay entirely inside the cell with
