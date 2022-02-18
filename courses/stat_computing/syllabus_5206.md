@@ -40,12 +40,12 @@ I reserve the right to change the ordering and the content for the course throug
 |2022-01-28|[Numpy, objects, and subsetting](https://edstem.org/us/courses/18674/lessons/29142/slides/166976)<br>[AB Testing](https://docs.google.com/presentation/d/1lRzWdkLiwV0_3zBNKcDF6VqOu6JGpXSCy4WZNXH69NM/edit#slide=id.p)|[Python concepts 5, 7, 9](https://leewtai.github.io/courses/stat_computing/lectures/learning_python_intro.html)|[Set up your jupyter notebook environment with the command line](https://leewtai.github.io/setup/conda_and_navigator_setup.html)|
 |2022-02-04|[For-loop, if/else, working with files,<br>AB testing assignment](https://docs.google.com/presentation/d/115mFspST_Id7c0qk1H4R2UAmUOQAp_nZO96KPQbcRyc/edit?usp=sharing)|[Python concepts 12, 14, 15, 16](https://leewtai.github.io/courses/stat_computing/lectures/learning_python_intro.html)|HW1 Due|
 |2022-02-11|[Pandas, summaries, and visualization<br>Exploratory data analysis](https://docs.google.com/presentation/d/1qpWNoeyzZnxuKsi4O1v4FJDc6m_V177fIRht_kAhySg/edit?usp=sharing)|||
-|2022-02-18|Nested data and data wrangling<br>Basic data engineering||HW2 Due|
-|2022-02-25|Data use cases, relational data, and SQL<br>Data engineering concepts and data analytics|||
-|2022-03-04|Dates and regular expression<br>Data quality||HW3 Due|
+|2022-02-18|[Nested data and data wrangling<br>Basic data engineering](https://docs.google.com/presentation/d/1c_hbkqKo-_kqrwFSeuebhyAjaNsKvaCAZCmI3pkI2xc/edit?usp=sharing)||HW2 Due|
+|2022-02-25|Regular expression and interacting with APIs|[Python concepts 13, 17](https://leewtai.github.io/courses/stat_computing/lectures/learning_python_intro.html)||
+|2022-03-04|Designing data pipelines|All previous Python concepts|HW3 Due|
 |2022-03-11|Midterm|||
 |2022-03-18|Spring Break|||
-|2022-03-25|APIs and scraping<br>Designing data pipelines|||
+|2022-03-25|Data use cases, relational data, and SQL<br>Data quality concepts and data engineering|||
 |2022-04-01|Modeling data<br>"Data science methods"||HW4 Due|
 |2022-04-08|Optimization<br>Objective functions|||
 |2022-04-15|Bootstrap, permutation, and other simulations<br>Model evaluation||HW5 Due|
