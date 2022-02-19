@@ -31,7 +31,7 @@ Please answer the following:
 
 ## Q2. Basic model setup
 
-For the rest of the homework, we will set our response variable as any job title that has the word 'analyst' in it.
+For the rest of the homework, we will set our response variable as does the job title have the word 'analyst' in it.
 
 - What percentage of job titles have the word "analyst" in it?
 - Please report all words that begins with "analy" in our word frequency matrix, then remove them from our word frequency matrix. This will be our feature matrix `X`.
