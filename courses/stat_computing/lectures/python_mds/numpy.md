@@ -168,12 +168,14 @@ If we changed the axis to `1` then we would have obtained the row totals instead
 
 #### Broadcasting
 
-Broadcasting is how numpy distributes calculations across arrays
-of different sizes.
+Broadcasting is how numpy distributes calculations across arrays that can be
+of different sizes. This is often orders of magnitude faster than running
+loops. A common usecase is to calculate pairwise distances between two arrays.
 
 - An array of arbitrary size operated with a single value will
   distribute that calculation to each element in the array.
   ```python
+  demo1 = np.array([[1, 2], [3, 4], [5, 6]])
   demo1  - 2
   ```
 - An array of arbitrary size operated with an array that has
@@ -181,6 +183,7 @@ of different sizes.
   on the remaining dimension, will act as if the smaller array
   was replicated until it matches the larger array
   ```python
+  demo1 = np.array([[1, 2], [3, 4], [5, 6]])
   demo1 * np.array([[1, 2]])
   demo1 - np.array([[1], [3], [5]])
   ```
