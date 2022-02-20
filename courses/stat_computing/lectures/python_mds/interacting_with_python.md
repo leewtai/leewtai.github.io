@@ -41,6 +41,7 @@ You can directly type code into the REPL, i.e. the space after `>`.
 - The commands in the REPL are not saved to a file so it is hard
   to reproduce the results and debug if there are errors in the code.
 - Impossible to do large projects in this format
+
 **Pros**:
 - Minimal installation requirement
 - Instant feedback is useful for exploration
@@ -67,6 +68,7 @@ writing and code execution are two separate steps.
 **Flaws**:
 - Bugs often surface too late for beginners
 - The lack of immediate feedback makes learning harder
+
 **Pros**:
 - There are simple code checkers called "linters" that check for style and
   basic syntax. These can often be installed into your editor (e.g. Pycharm).
@@ -86,6 +88,7 @@ One can then choose to run the code within the different blocks.
     errors and surprises, since variables from different blocks can
     overwrite variables in each other.
 - Lots of overhead to install
+
 **Pros**
 - Combines best of both REPL and script writing if done right
 - The blocks allow scientific writing (e.g. LaTeX and Markdown) along with
