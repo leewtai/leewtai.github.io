@@ -62,7 +62,7 @@ For the rest of the homework, we will set our response variable as does the job 
 - Please round your predictions to make a prediction on the test set. Please calculate your classification error, precision, and recall.
 
 ## Q5. Fitting Naive Bayes
-- Please fit the Naive Bayes model using both X and X2. For both cases, please use cross validation (with at least 10 folds) to determine
+- Please fit the Naive Bayes model using both X and X2. For both cases, please use a single validation set or cross validation (EDITED) to determine
   an optimal cutoff for prediction rather than using "rounding" as we had from before. You will need to choose one metric when doing this cross validation.
 - Please calculate your 2 sets of classification errors, precisions, and recalls on the test set using the respective optimal cutoffs.
 
