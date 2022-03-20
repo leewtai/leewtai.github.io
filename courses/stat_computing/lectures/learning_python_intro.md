@@ -215,6 +215,13 @@ each concept.
   <a href="python_mds/plotting.html">16. Data visualization with seaborn</a>
   </td>
   <td><pre>
+  import matplotlib.pyplot as plt
+  import numpy as np
+  import seaborn as sns
+  x = np.linspace(-1, 1, 100)
+  y = 0.1 * x - 0.5 * np.power(x, 2) + np.random.normal(size=len(x), scale=0.03)
+  sns.relplot(x, y)
+  plt.show()
   </pre></td>
   <td>A picture is worth a thousand words</td>
   <td>$$$$</td>
@@ -231,11 +238,21 @@ each concept.
   <td>$$$$</td>
 </tr>
 <tr>
-  <td>sklearn and fitting models</td>
+  <td>
+  <a href="python_mds/api.html">18. sklearn and fitting models</a>
+  </td>
   <td><pre>
+  from sklearn.linear_model import LinearRegression
+  ols = LinearRegression().fit(X, Y)
+  pred = ols.predict(X2)
   </pre></td>
-  <td></td>
-  <td>$$$$</td>
+  <td>Models are mathematical instruments that can help scientist understand patterns in
+      the data, understand how the world works, or to simply predict future outcomes.
+      These models are tuned and validated using data. This module talks about fitting
+      different models with data using `sklearn`.</td>
+  <td>$$Y = f(X, \beta) + \epsilon$$
+      $$\hat{\beta} = \arg\min_\beta Loss(Y, \hat{Y}(\beta))$$
+  </td>
 </tr>
 <tr>
   <td>Routine jobs</td>
