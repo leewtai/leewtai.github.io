@@ -38,7 +38,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2022-02-15|[Ridge + Lasso Simulations](https://docs.google.com/presentation/d/1yktXlOcSGVHkoPBFiqkE1KiWk4aZ8gNzAAbXG4ixl64/edit?usp=sharing)|ISL 6.2||
 |2022-02-17|[Tree Methods](https://docs.google.com/presentation/d/1tFOm3dSSBV7-PtYAAQgLYkAAp8bVMeUYiPZlP0rCtpE/edit?usp=sharing)|ISL 8.1||
 |2022-02-22|[Tree Methods continued](https://docs.google.com/presentation/d/1tFOm3dSSBV7-PtYAAQgLYkAAp8bVMeUYiPZlP0rCtpE/edit?usp=sharing)|ISL 8.1||
-|2022-02-24|[Trees + forests with real data](https://docs.google.com/presentation/d/1_yNVafSSJCs0KT_MKcVgbxio419NDCGDDeAVDZ05S7s/edit?usp=sharing)|ISL 8.2|[Homework 3](homeworks/hw3.md)|
+|2022-02-24|[Trees + forests with real data](https://docs.google.com/presentation/d/1_yNVafSSJCs0KT_MKcVgbxio419NDCGDDeAVDZ05S7s/edit?usp=sharing)|ISL 8.2<br> [bias in random forest variable importance](https://www.jstor.org/stable/27594202)|[Homework 3](homeworks/hw3.md)|
 |2022-03-01|[Optimization and objective functions](https://docs.google.com/presentation/d/1RKi4H1kxhtwPyP6l1lTSFTAYjDHeE7umpvkc8cMD4F4/edit?usp=sharing)|Slide 5 + ISL Chapter 3.1.1 + 3.3.3||
 |2022-03-03|[Beyond classification accuracy](https://docs.google.com/presentation/d/1Dff7Et1pejUNyRzdyXwjDvoqCK9OGTq2RDODVUUZYPU/edit?usp=sharing)|Slides 6||
 |2022-03-08|[Resampling techniques - accuracy vs robustness](https://docs.google.com/presentation/d/1dEpri9RjpqPSop5SBNv-TneoO0QYKMcyS0E5SEgueoQ/edit?usp=sharing)|Slides 7 + [Resampling from ISL](https://link.springer.com/chapter/10.1007/978-1-4614-7138-7_5)|- Read paper on [Stability](https://arxiv.org/abs/1310.0150)|
@@ -48,7 +48,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2022-03-22|[Clustering - Kmeans](https://docs.google.com/presentation/d/1DoWbNOEZGeZkNr4wb9u198GlnS45rxWFoaOwEvMPn-E/edit?usp=sharing)|ISL 10.2||
 |2022-03-24|[Clustering - Kmeans continued](https://docs.google.com/presentation/d/1RAzfwkMSzoEgLT8hYw0zL7KxCAM4jnjbCyxZgb84QxU/edit?usp=sharing)|ISL 10.2||
 |2022-03-29|K-means with real data|ISL 10.2||
-|2022-03-31|[Hierarchical clustering](https://docs.google.com/presentation/d/1b-iWZSg5w9dm-01miUvtIIShjctAYKQo2tFMzX3OiXI/edit?usp=sharing)|ISL 10.2|Homework 4|
+|2022-03-31|[Hierarchical clustering](https://docs.google.com/presentation/d/1b-iWZSg5w9dm-01miUvtIIShjctAYKQo2tFMzX3OiXI/edit?usp=sharing)|ISL 10.2|[Homework 4](homeworks/hw4.md)|
 |2022-04-05|[Hierarchical clustering with real data](https://docs.google.com/presentation/d/15lNq4NQrEOzcsR0uhkltQfJrSiFQcx-FQPCh_7g9KRQ/edit?usp=sharing)|ISL 10.2||
 |2022-04-07|[DBSCAN](https://docs.google.com/presentation/d/18exR7A0qTMJsclSOFJz4_IaOhvEFPhzqo4MuW6rYVmI/edit?usp=sharing)|[DBSCAN from KDNuggets](https://www.kdnuggets.com/2020/04/dbscan-clustering-algorithm-machine-learning.html)||
 |2022-04-12|[feature engineering - with text](https://docs.google.com/presentation/d/1BzfHDaGuvM2Vv6Vbi8YF55ZjzFAYFCcaAGcjpl9XkPE/edit?usp=sharing)|[Pre-processing Text](https://www.cambridge.org/core/journals/political-analysis/article/text-preprocessing-for-unsupervised-learning-why-it-matters-when-it-misleads-and-what-to-do-about-it/AA7D4DE0AA6AB208502515AE3EC6989E) + [Speech and Language Chapter 6.5](https://web.stanford.edu/~jurafsky/slp3/)||
