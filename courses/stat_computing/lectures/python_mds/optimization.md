@@ -113,7 +113,11 @@ print(nelder_min.success)
 print(nelder_min.x)
 ```
 
-It is vital to check the convergence of the algorithm. Most algorithms stop once the objective
+## Validating optimization outcomes
+
+Similar to how we validate models fitted to data, we are also able to judge the quality of the research.
+
+That said, it is vital to check the convergence of the algorithm. Most algorithms stop once the objective
 function improvement is less than a threshold or if the gradient indicates that we have reached
 an optimum (local or global). If the algorithm stops before reaching these stopping criteria,
 a `message` is often associated and one would need to react to the message.
@@ -127,6 +131,9 @@ Common solutions to solve for non-convergence in optimization algorithms are:
   here tends to be to fix the source of the issue. If this is caused by the lack of data,
   then collect more. If this is caused by some calculation that can be done more robustly, you
   should fix that.
+- Check if different initial_guesses changes the final `x` value. If this is the case, then it is
+  important to save the attempted objective function evaluations. The objective function may have
+  multiple optimums and the algorithm may be stuck locally.
 
 
 {% include lib/mathjax.html %}
