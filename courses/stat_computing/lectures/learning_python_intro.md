@@ -219,7 +219,9 @@ each concept.
   import numpy as np
   import seaborn as sns
   x = np.linspace(-1, 1, 100)
-  y = 0.1 * x - 0.5 * np.power(x, 2) + np.random.normal(size=len(x), scale=0.03)
+  y = (0.1 * x - 0.5 * np.power(x, 2)
+       + np.random.normal(size=len(x),
+                          scale=0.03))
   sns.relplot(x, y)
   plt.show()
   </pre></td>
@@ -276,8 +278,13 @@ each concept.
   <td>$$$$</td>
 </tr>
 <tr>
-  <td>Basic optimization</td>
+  <td>
+  <a href="python_mds/optimization.html">19. Basic Optimization</a>
+  </td>
   <td><pre>
+  from scipy.optimize import minimize
+
+  min_out = minimize(obj)
   </pre></td>
   <td></td>
   <td>$$$$</td>
