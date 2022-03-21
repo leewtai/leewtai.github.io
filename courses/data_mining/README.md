@@ -83,6 +83,7 @@ If your final grade is in [93-100], you will earn at least an A, [90-93) will ea
 
 #### - Homeworks (30%)
   - Late homeworks will receive 0 credit
+  - Homeworks will receive 0 credit if the code + write up is not submitted in both the .ipynb/.Rmd AND the knitted PDF or HTML form.
 #### - Projects (60%)
   - Late projects will be penalized by 50% for each day it's late.
   - Projects should be submitted on Canvas
