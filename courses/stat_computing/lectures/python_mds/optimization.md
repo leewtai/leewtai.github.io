@@ -17,7 +17,7 @@ objective function.
 #### Examples - linear regression
 
 One classic example of optimization is solving for the regression coefficients,
-i.e. given $(x_i, y_i), i=1,\dots,n$, how can we pick the best line that "fits"
+i.e. given $$(x_i, y_i), i=1,\dots,n$$, how can we pick the best line that "fits"
 to the data.
 
 The objective function in this case is the squared error, $$f(\beta) = \|Y - X\beta\|_2$$
@@ -127,3 +127,6 @@ Common solutions to solve for non-convergence in optimization algorithms are:
   here tends to be to fix the source of the issue. If this is caused by the lack of data,
   then collect more. If this is caused by some calculation that can be done more robustly, you
   should fix that.
+
+
+{% include lib/mathjax.html %}
