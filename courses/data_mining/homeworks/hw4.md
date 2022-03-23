@@ -2,6 +2,8 @@
 
 This homework is meant for you to practice basic clustering with COVID data over different counties.
 
+You **must** submit both your HTML (or PDF) + .Rmd file on CourseWorks.
+
 Context: How did different counties experience COVID? Rather than tackling a county at a time, we will calculate some characteristics, cluster, then diagnose the different types of counties in the US.
 
 ### Question 0 - Explore the data
@@ -42,3 +44,11 @@ The [NYTimes has a GitHub repository with COVID data per counties](https://githu
 - For each state, please perform a hypothesis test whether the counties are distributed proportional to the size of the cluster. Then sort (small to large) and plot the p-values from these tests against the line that has slope `1/num_states` and a 0 intercept. Please conclude whether you believe counties are distributed randomly across the clusters or not, i.e. do certain clusters have a preference for certain states.
 - Depending on your answer above, what does a random or non-random distribution across the clusters mean about the clusters?
 - Side comment: You have the representative curve for each cluster, the distribution of the states into different clusters. Often these could start giving people ideas for the meaning for different clusters.
+
+### Question 4 - Final Project
+
+Please articulate what the minimal dataset means for your project. Make sure you talk about
+- minimal time range(s) or spatial coverage
+- features that you expect to have
+- the unit of record, i.e. a row in your data frame (people, cars, documents, etc)
+- why this is related to your final project
