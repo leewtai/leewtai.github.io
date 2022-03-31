@@ -157,9 +157,9 @@ To create the project, some advice
 - You need to prepare a `input.csv` file with the s3 image urls. Recall that we set a variable called `$image_url` so the header needs to be the same, e.g.
   ```csv
   image_url
-  https://charleston-sidewalks.s3.amazonaws.com/pano_images/streetview__S6cMacMuIia406jIjiT6Q.jpg
-  https://charleston-sidewalks.s3.amazonaws.com/pano_images/streetview_-Hbslm-Ptx8FTLqKB1-wDQ.jpg
-  https://charleston-sidewalks.s3.amazonaws.com/pano_images/streetview__uC3BQi29PRVT5uwtylv3w.jpg
+  https://charleston-sidewalks.s3.amazonaws.com/pano_images/streetview_PKlu0zAlTlZO6QK-JomnLQ.jpg
+  https://charleston-sidewalks.s3.amazonaws.com/pano_images/streetview_PLClKWS4sOrfADZcVkqJWw.jpg
+  https://charleston-sidewalks.s3.amazonaws.com/pano_images/streetview_pN8Jy0gZEku7ndYAazV8_w.jpg
   ```
 - Don't forget to preview some HITs before publishing.
 - Test out your project using your SANDBOX worker account.
