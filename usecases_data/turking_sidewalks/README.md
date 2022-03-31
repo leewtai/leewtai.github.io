@@ -96,7 +96,11 @@ You should also create a sandbox account as a requester **AND** worker to test o
 
       <img src="images/object-properties.png" alt="object properties" width='400'>
 - In addition to permissions, there's a piece of metadata, [EXIF data](https://en.wikipedia.org/wiki/Exif), that needs to be exposed, the [reasons can be found here](https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMechanicalTurkRequester/MturkCorsConfig.html).
-  - Follow the instructions on [configuring cross-origin resource sharing (CORS)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enabling-cors-examples.html) for your bucket, I recommend using the s3 console then using the [example](https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMechanicalTurkRequester/MturkCorsConfig.html) like below
+  - Follow the instructions on [configuring cross-origin resource sharing (CORS)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enabling-cors-examples.html) for your bucket (under **Permissions** tab again), I recommend using the s3 console then using the [example](https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMechanicalTurkRequester/MturkCorsConfig.html) like below
+
+    <img src="images/bucket-cors.png" alt="EDIT bucket CORS" width='400'>
+
+    JSON that can be copied/pasted is below for your convenience:
     ```json
     [{
       "AllowedHeaders": [],
