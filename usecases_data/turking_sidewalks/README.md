@@ -30,6 +30,10 @@ that account into mturk.com as a **requester**. Follow the [steps here](https://
 
 <img src="images/mturk-login.png" alt="login page for mturk.com" width='400'>
 
+
+You should also create a sandbox account as a requester **AND** worker to test out your project later. This is basically a twin website for mturk.com except real workers will not access the tasks. Follow [Step 6 here](https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMechanicalTurkRequester/SetUpMturk.html) to setup your sandbox accounts.
+
+
 ## Uploading images to s3
 
 - The images for the workers need to be hosted on AWS s3. Login to AWS then search for the s3 console
@@ -89,6 +93,51 @@ that account into mturk.com as a **requester**. Follow the [steps here](https://
     - `{bucket-name}` in our case is `test-sidewalks`
     - `{Region}` in our case is `us-east-1`, this can be found under **Properties for your bucket** under `AWS Region`
     - `{key-name}` in our case is `streetview_-qq-zQb3RpvRXLjV0o6V1A.jpg` which can be found under **Properties for your object**. If you uploaded a folder, the folder name should precede the file name.
+
       <img src="images/object-properties.png" alt="object properties" width='400'>
  
 ## Setup your project and HITs
+
+Log back to [SANDBOX mturk.com](https://requestersandbox.mturk.com/create/projects/new), select the appropriate template under `Vision` titled `Image Classification`, then choose `Create Project`
+
+<img src="images/mturk-template.png" alt="mturk template" width='600'>
+
+To create the project, some advice
+- Market the project somewhat
+
+  <img src="images/edit-project1.png" alt="mturk project edit" width='600'>
+- Start conservatively but allow quick feedback for adjustments
+
+  <img src="images/edit-project2.png" alt="mturk project edit" width='600'>
+- Give examples assuming the worker is not an American (e.g. driveway vs sidewalks). This should be in the instruction tab in "Design Layout", you can embed an image there from your s3 bucket again. Here's one that is not well tested.
+  ```html
+      <crowd-image-classifier 
+        src="${image_url}"
+        categories="['Sidewalk is present', 'Sidewalk not present', 'Image quality too poor']"
+        header="Choose the correct category"
+        name="category">
+
+       <!-- Use the short-instructions section for quick instructions that the Worker
+              will see while working on the task. Including some basic examples of 
+              good and bad answers here can help get good results. You can include 
+              any HTML here. -->
+        <short-instructions>
+            <p>Is there a sidewalk where pedestrians can walk along the driving traffic?</p>
+            <p>Note that private driveways and unpaved sidewalks like trails do not count.</p>
+            <p>Images without a road, like farm land, would also be considered "not present"</p>
+        </short-instructions>
+
+        <!-- Use the full-instructions section for more detailed instructions that the 
+              Worker can open while working on the task. Including more detailed 
+              instructions and additional examples of good and bad answers here can
+              help get good results. You can include any HTML here. -->
+        <full-instructions header="Classification Instructions">
+            <h4>Common mistakes</h4>
+               <img src="https://charleston-sidewalks.s3.amazonaws.com/demo-instructions.png" alt="driveways are not sidewalks" width="400">
+            <p>Choose the appropriate label that best suits the image.</p>
+        </full-instructions>
+
+    </crowd-image-classifier>
+  ```
+  <img src="images/demo-instructions.png" alt="image instruction" width='600'>
+
