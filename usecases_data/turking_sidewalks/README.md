@@ -157,4 +157,7 @@ To create the project, some advice
   https://charleston-sidewalks.s3.amazonaws.com/pano_images/streetview_-Hbslm-Ptx8FTLqKB1-wDQ.jpg
   https://charleston-sidewalks.s3.amazonaws.com/pano_images/streetview__uC3BQi29PRVT5uwtylv3w.jpg
   ```
+- Don't forget to preview some HITs before publishing.
+- Test out your project using your SANDBOX worker account.
+- Now create the project under the NON-SANDBOX [mturk.com](https://requester.mturk.com/create/projects/new)
 
