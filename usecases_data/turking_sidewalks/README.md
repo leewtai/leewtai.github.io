@@ -24,14 +24,14 @@ own blog describing how to **label images**.
 
 ## Setting up an account with AWS and mturk
 Although both owned by Amazon, mturk.com is separate from AWS.
-There is a bug with setting up a non-root user with mturk.com so 
+There is a [bug with setting up a non-root user with mturk.com](https://repost.aws/questions/QUGCubCr1LQf2GVusgTjrIHg/unable-to-log-into-my-m-turk-requester-account) so 
 you need to create a root AWS account through AWS then login with
 that account into mturk.com as a **requester**. Follow the [steps here](https://requester.mturk.com/signin_options) should be straight forward.
 
 <img src="images/mturk-login.png" alt="login page for mturk.com" width='400'>
 
 
-You should also create a sandbox account as a requester **AND** worker to test out your project later. This is basically a twin website for mturk.com except real workers will not access the tasks. Follow [Step 6 here](https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMechanicalTurkRequester/SetUpMturk.html) to setup your sandbox accounts.
+You should also create a sandbox account as a requester **AND** worker to test out your project later. This is basically a twin website for mturk.com except real workers will not access the tasks. Follow [Step 6 here](https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMechanicalTurkRequester/SetUpMturk.html) to setup your sandbox accounts. You can ignore the steps about creating access keys.
 
 
 ## Uploading images to s3
@@ -95,6 +95,16 @@ You should also create a sandbox account as a requester **AND** worker to test o
     - `{key-name}` in our case is `streetview_-qq-zQb3RpvRXLjV0o6V1A.jpg` which can be found under **Properties for your object**. If you uploaded a folder, the folder name should precede the file name.
 
       <img src="images/object-properties.png" alt="object properties" width='400'>
+- In addition to permissions, there's a piece of metadata, [EXIF data](https://en.wikipedia.org/wiki/Exif), that needs to be exposed, the [reasons can be found here](https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMechanicalTurkRequester/MturkCorsConfig.html).
+  - Follow the instructions on [configuring cross-origin resource sharing (CORS)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enabling-cors-examples.html) for your bucket, I recommend using the s3 console then using the [example](https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMechanicalTurkRequester/MturkCorsConfig.html) like below
+    ```json
+    [{
+      "AllowedHeaders": [],
+      "AllowedMethods": ["GET"],
+      "AllowedOrigins": ["*"],
+      "ExposeHeaders": []
+    }]
+    ```
  
 ## Setup your project and HITs
 
@@ -109,7 +119,7 @@ To create the project, some advice
 - Start conservatively but allow quick feedback for adjustments
 
   <img src="images/edit-project2.png" alt="mturk project edit" width='600'>
-- Give examples assuming the worker is not an American (e.g. driveway vs sidewalks). This should be in the instruction tab in "Design Layout", you can embed an image there from your s3 bucket again. Here's one that is not well tested.
+- Give examples assuming the worker is not an American (e.g. driveway vs sidewalks). This should be in the instruction tab in `Design Layout`, you can embed an image there from your s3 bucket again. Here's one that is not tested but gives you an idea.
   ```html
       <crowd-image-classifier 
         src="${image_url}"
@@ -140,4 +150,11 @@ To create the project, some advice
     </crowd-image-classifier>
   ```
   <img src="images/demo-instructions.png" alt="image instruction" width='600'>
+- You need to prepare a `input.csv` file with the s3 image urls. Recall that we set a variable called `$image_url` so the header needs to be the same, e.g.
+  ```csv
+  image_url
+  https://charleston-sidewalks.s3.amazonaws.com/pano_images/streetview__S6cMacMuIia406jIjiT6Q.jpg
+  https://charleston-sidewalks.s3.amazonaws.com/pano_images/streetview_-Hbslm-Ptx8FTLqKB1-wDQ.jpg
+  https://charleston-sidewalks.s3.amazonaws.com/pano_images/streetview__uC3BQi29PRVT5uwtylv3w.jpg
+  ```
 
