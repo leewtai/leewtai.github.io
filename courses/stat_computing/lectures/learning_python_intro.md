@@ -241,7 +241,7 @@ each concept.
 </tr>
 <tr>
   <td>
-  <a href="python_mds/api.html">18. sklearn and fitting models</a>
+  <a href="python_mds/model_fitting.html">18. sklearn and fitting models</a>
   </td>
   <td><pre>
   from sklearn.linear_model import LinearRegression
