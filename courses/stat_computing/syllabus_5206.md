@@ -46,7 +46,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2022-03-11|Midterm|||
 |2022-03-18|Spring Break|||
 |2022-03-25|[Data use cases, relational data, and SQL](https://docs.google.com/presentation/d/18RuceAE4_9vM4k7ILTNcpoA2UCarpObwNjdonlgEpjQ/edit?usp=sharing)<br>Data quality concepts and data engineering|||
-|2022-04-01|Modeling data<br>"Data science methods"|[Python concepts 18](https://leewtai.github.io/courses/stat_computing/lectures/learning_python_intro.html)||
+|2022-04-01|[Modeling data](https://docs.google.com/presentation/d/1StjjdlxBuHEJidpC3D_NczrsBitZaXmuvIven_xs5c4/edit?usp=sharing)<br>"Data science methods"|[Python concepts 18](https://leewtai.github.io/courses/stat_computing/lectures/learning_python_intro.html)||
 |2022-04-08|Optimization<br>Objective functions|[Python concepts 19](https://leewtai.github.io/courses/stat_computing/lectures/learning_python_intro.html)|HW4 Due|
 |2022-04-15|Bootstrap, permutation, and other simulations<br>Model evaluation|||
 |2022-04-22|Validation and density estimation|||
