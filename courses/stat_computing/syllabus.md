@@ -36,7 +36,7 @@ I reserve the right to change the ordering and the content for the course throug
 |---|---|---|---|
 |2021-01-12|- [Why statistical computing](https://docs.google.com/presentation/d/1RH8OgxPhIbMTQdqKTUUbjtg65LER0OM8PM6M6g1jYWg/edit?usp=sharing)|||
 |2021-01-14|- [Variables, vectors, and functions on vectors](https://docs.google.com/presentation/d/1dOFhuoEEIcQXauf6qd5FKMzbcJaiVUNROptup1Ooktw/edit?usp=sharing) with [in-class prompts](lectures/lec2_vectors_variables.md)|[Simulating LLN](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_lln.html)|Get [R 4.0](https://cran.rstudio.com/) installed, then [R studio](https://rstudio.com/products/rstudio/download/) installed|
-|2021-01-19|- [For-loops](lectures/lec3_lln_for_loop.md)|[Simulating LLN](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_lln.html)||
+|2021-01-19|- [For-loops](https://docs.google.com/presentation/d/1yiEH4INA9TFzXFLvl1HgFziXbKspdrogSlSyYpTJmK8/edit?usp=sharing)|[Simulating LLN](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_lln.html)||
 |2021-01-21|- [Recreating Fisher's results](lectures/lec4_fisher_csv_subset.md)|[Past course notes on subsetting](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_data_viz.html)||
 |2021-01-26|- [Data frames and booleans](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_data_viz.html)|||
 |2021-01-28|- [Writing functions in R](lectures/lec2/writing_functions_in_R.md)|[Scope](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_debug.html)|[Homework 1](homeworks/hw0.md) Due|

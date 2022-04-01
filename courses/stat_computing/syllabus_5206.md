@@ -11,54 +11,76 @@ GR5206 - Spring 2022
 - Automate tasks with programming
 - Understand basic optimization
 
+### Prerequisites
+- An introductory statistics class
+  - Basic probability distributions (e.g. Gaussian, binomial distributions and their likelihoods)
+  - Basic hypothesis testing (e.g. t-test)
+  - Summary statistics
+  - Histograms, boxplots, etc
+- Multivariate calculus
+  - Derivatives and functions
+- Matrix operations and inverses of matrices
+- You should be at least co-enrolled in a modeling class like regression
+
+### Textbooks and references
+- Google!
+- [Python concept notes](lectures/learning_python_intro.md)
+- [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/)
+- Basics only - [Programming with Python by Software Carpentry](https://swcarpentry.github.io/python-novice-inflammation/)
+- [LearningPython.org](https://www.learnpython.org/)
+- Designing Data-Intensive Applications by Martin Kleppmann (available in NYPL)
+
 
 ## Timeline
 I reserve the right to change the ordering and the content for the course throughout the semester.
 
 |Date|Topic|Reference|Due|
 |---|---|---|---|
-|2022-01-21|Introduction + AB testing|||
-|2022-01-28|AB testing continued|||
-|2022-02-04|Data quality||HW1 Due|
-|2022-02-11|Data visualization|||
-|2022-02-18|Data wrangle||HW2 Due|
-|2022-02-25|Data analytics - SQL|||
-|2022-03-04|Data analytics - Dates and Regular expression||HW3 Due|
+|2022-01-21|[Introduction + python as a calculator](https://docs.google.com/presentation/d/1hbdEFneIriuFSxtwfH29LvJp1AX_gZ961FtG4msPL7o/edit?usp=sharing)|- [Python concepts 1, 2, 3, 4, 6, 8, 10, 11](lectures/learning_python_intro.md)<br>- [Software Carpentry - Python Fundamentals + Analyzing Patient Data](https://swcarpentry.github.io/python-novice-inflammation/)<br>- [Python Data Science Handbook Chapter 2: Understanding Data Types in Python to The Basics of Numpy Arrays](https://jakevdp.github.io/PythonDataScienceHandbook/)||
+|2022-01-28|[Numpy, objects, and subsetting](https://edstem.org/us/courses/18674/lessons/29142/slides/166976)<br>[AB Testing](https://docs.google.com/presentation/d/1lRzWdkLiwV0_3zBNKcDF6VqOu6JGpXSCy4WZNXH69NM/edit#slide=id.p)|[Python concepts 5, 7, 9](https://leewtai.github.io/courses/stat_computing/lectures/learning_python_intro.html)|[Set up your jupyter notebook environment with the command line](https://leewtai.github.io/setup/conda_and_navigator_setup.html)|
+|2022-02-04|[For-loop, if/else, working with files,<br>AB testing assignment](https://docs.google.com/presentation/d/115mFspST_Id7c0qk1H4R2UAmUOQAp_nZO96KPQbcRyc/edit?usp=sharing)|[Python concepts 12, 14, 15, 16](https://leewtai.github.io/courses/stat_computing/lectures/learning_python_intro.html)|HW1 Due|
+|2022-02-11|[Pandas, summaries, and visualization<br>Exploratory data analysis](https://docs.google.com/presentation/d/1qpWNoeyzZnxuKsi4O1v4FJDc6m_V177fIRht_kAhySg/edit?usp=sharing)|||
+|2022-02-18|[Nested data and data wrangling<br>Basic data engineering](https://docs.google.com/presentation/d/1c_hbkqKo-_kqrwFSeuebhyAjaNsKvaCAZCmI3pkI2xc/edit?usp=sharing)||HW2 Due|
+|2022-02-25|Regular expression and interacting with APIs|[Python concepts 13, 17](https://leewtai.github.io/courses/stat_computing/lectures/learning_python_intro.html)||
+|2022-03-04|Designing data pipelines|All previous Python concepts|HW3 Due|
 |2022-03-11|Midterm|||
 |2022-03-18|Spring Break|||
-|2022-03-25|APIs and scraping|||
-|2022-04-01|Modeling||HW4 Due|
-|2022-04-08|Simulations|||
-|2022-04-15|Optimization||HW5 Due|
-|2022-04-22|OOP|||
-|2022-04-29|Unfinished topics like density estimation||HW6 Due|
+|2022-03-25|[Data use cases, relational data, and SQL](https://docs.google.com/presentation/d/18RuceAE4_9vM4k7ILTNcpoA2UCarpObwNjdonlgEpjQ/edit?usp=sharing)<br>Data quality concepts and data engineering|||
+|2022-04-01|Modeling data<br>"Data science methods"|[Python concepts 18](https://leewtai.github.io/courses/stat_computing/lectures/learning_python_intro.html)||
+|2022-04-08|Optimization<br>Objective functions|[Python concepts 19](https://leewtai.github.io/courses/stat_computing/lectures/learning_python_intro.html)|HW4 Due|
+|2022-04-15|Bootstrap, permutation, and other simulations<br>Model evaluation|||
+|2022-04-22|Validation and density estimation|||
+|2022-04-29|Guest Speaker from Data Science||HW5 Due|
 |TBD|Final|||
 
 ## Logistics
+Class time: [F 10:10am - 12:40pm, Location: 301 Pupin](https://vergil.registrar.columbia.edu/#/courses/STAT%20COMP%20&%20INTRO%20DATA%20SCIENCE)
 
-### People and times
-- Instructor: Wayne Tai Lee (wtl2109)
-  - Class time: [TuTh 6:10pm - 8:55pm, Location: TBD](https://vergil.registrar.columbia.edu/#/courses/APPLIED%20STATISTICAL%20COMPUTING)
-  - Office Hours: TBD
+### Teaching Team
+Wayne Tai Lee (wtl2109)
+  - Office Hours: Tu/Th 10-11am at Watson Hall (W 115th St) room 714 
+    - [Zoom](https://columbiauniversity.zoom.us/j/98032760108?pwd=b0hXTjN1SjVLMTdwc29lWWFzbnpSZz09)
 
-- Teaching Assistant(s):
-  - TBD
-  - TBD
+Owen Ward (ogw2103)
+  - Office hours: Tu/Th 5-6pm at School of Social Work 10th Floor Lounge
 
 ### Grading
 If your final grade is in [93-97), you will earn at least an A, [90-93) will earn at least an A-, [87-90) will earn at least a B+, etc. A grading curves may occur depending on the class performance but I will not curve downwards. I will not give out A+ for this class.
 
 #### - Homeworks (25%)
 - Late homeworks will receive 0 credit
-- Homework solutions will exist in R
 - No make-up homeworks will be granted even if you registered late to the class
-- Please export all homeworks in PDF files following these [instructions](../../setup/math_and_code.md)
-  - If you want to learn how to set up Jupyter Notebooks with R, follow these [instructions](../../setup/conda_and_navigator_setup.md)
+- If you want to learn how to set up Jupyter Notebooks with R, follow these [instructions](../../setup/conda_and_navigator_setup.md)
+- Please read these important things related to [submitting homeworks on Ed](ed_hw_faq.md)
 
-#### - Exams (75%)
+#### - Exams (65%)
 - Midterms (30%)
 - Final (45%)
 
+#### - Participation (10%)
+- In class participation
+- Online question posting (non-private) and answers are all ways to achieve this
+- I will reach out after the midterm if you are at risk of missing some points here.
 
 ##### Exam accomodations
 In order to receive disability-related academic accommodations for this course, students must first be registered with their school Disability Services (DS) office. Detailed information is available online for both the [Columbia](https://health.columbia.edu/content/disability-services) and Barnard registration processes.
@@ -76,16 +98,6 @@ For this course, students are not required to have testing forms or accommodatio
 ·         Master forms are available in the Disability Services office or online: https://health.columbia.edu/services/testing-accommodations
 
 
-### Prerequisites
-- An introductory statistics class
-  - Basic probability distributions (e.g. Gaussian, binomial distributions and their likelihoods)
-  - Basic hypothesis testing (e.g. t-test)
-  - Summary statistics
-  - Histograms, boxplots, etc
-- Multivariate calculus
-  - Derivatives and functions
-- Matrix operations and inverses of matrices
-
 ## Expectations
 - Take chances!
   - Break the code in lecture
@@ -95,10 +107,6 @@ For this course, students are not required to have testing forms or accommodatio
   - Online: describe what you observe, describe what you expect, communicate clearly.
   - To each other: summarize the conversation to ensure you're listening and think constructively before criticizing.
 - Academic honesty: https://www.cs.columbia.edu/education/honesty/
-
-
-### Textbooks / Supplies
-[Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/)
 
 ### Acknowledgement
 A lot of these materials are based off the materials from Prof Thibault Vatter and Prof Gabriel Young.

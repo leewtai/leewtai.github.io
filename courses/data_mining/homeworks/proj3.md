@@ -6,7 +6,7 @@ The final project in this class is an open-ended **data mining** project. Key de
 - A **written report**, in a PDF format. There is no page limit but you must address all of the requirements below and produce a cohesive report.
 - A critique written about **another group's** final project, your final project can be critiqued by multiple teams but there is no requirement that your project must be summarized.
 - Your code on Github.
-- You must have a partner for the final project.
+- You **can** have a partner for the final project.
 
 ### Written report
 - The project must perform a form of data mining:

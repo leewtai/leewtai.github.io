@@ -10,6 +10,8 @@ You can work on a different dataset or work on a different problem but please cl
 
 You should write this report treating Freshmen students as your target audience.
 
+You MUST have a partner for project 1. There is a 15% penalty (on the project grade) for those who submit a project by themselves.
+
 While the project is somewhat open-ended, your project must cover the following requirements:
 - A description and exploration of the data
   - If you decide to work on a subset of data, you should explain how that subset is selected
