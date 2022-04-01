@@ -85,6 +85,8 @@ for doc in doc_paths:
     if not doc_paths[doc].exists():
         doc_paths[doc].touch()
     processed.extend([fn for fn in doc_paths[doc].open('r').readlines()])
+
+
 docs = {doc: doc_paths[doc].open('a') for doc in doc_paths}
 # Running the Grobid service (depends on JVM8, gradle, grobid)
 # https://grobid.readthedocs.io/en/latest/Grobid-service/
@@ -109,8 +111,9 @@ for i, pdf_file in enumerate(pdf_files):
         pub_year = int(re.sub('.*((19|20)[0-9]{2}).*', '\\1', year_tag.text))
     else:
         # Take the latest referenced date as the date of publication
-        mentioned_years = [int(re.findall('[0-9]{4}', d['when'])[0])
-                for d in soup.find_all('date')[:36] if d.get('when')]
+        mentioned_years = [
+            int(re.findall('[0-9]{4}', d['when'])[0])
+            for d in soup.find_all('date')[:36] if d.get('when')]
         pub_year = max(mentioned_years) if mentioned_years else 0
     authors = header.findChildren('author')
     author_names = [grab_names(author) for author in authors]
