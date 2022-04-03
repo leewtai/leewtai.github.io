@@ -257,13 +257,6 @@ each concept.
   </td>
 </tr>
 <tr>
-  <td>Routine jobs</td>
-  <td><pre>
-  </pre></td>
-  <td></td>
-  <td>$$$$</td>
-</tr>
-<tr>
   <td>Bootstrapping</td>
   <td><pre>
   </pre></td>
@@ -289,7 +282,16 @@ each concept.
   <td></td>
   <td>$$$$</td>
 </tr>
-
+<tr>
+  <td><a href="python_mds/sql.html">20. SQL</a></td>
+  <td><pre>
+  ```sql
+  SELECT COUNT(DISTINCT(customer_id)) FROM orders
+  ```
+  </pre></td>
+  <td>Data often sits in a database and SQL is one of the most popular languages we use to query data from databases. Python3 has a built-in library that allows us to interface with SQLite.</td>
+  <td>$$$$</td>
+</tr>
 </table>
 
 
