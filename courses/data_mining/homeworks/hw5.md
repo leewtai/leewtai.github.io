@@ -38,9 +38,9 @@ shows the distribution of word presence across all words, e.g. "be" likely appea
 ### Q1: Calculating TF-IDF
 
 Please calculate the TF-IDF matrix using the definition of term frequency as "the occurrence of a token
-normalized by the occurrence of the most frequently used token in the letter". Please use $log(\frac{N}{n_t})$ as
-your inverse document frequency where $N$ is the number of letters and $n_t$ is the number of letters that contain the
-term $t$.
+normalized by the occurrence of the most frequently used token in the letter". Please use $$log(\frac{N}{n_t})$$ as
+your inverse document frequency where $$N$$ is the number of letters and $$n_t$$ is the number of letters that contain the
+term $$t$$.
 
 Please calculate, for each token, its maximum TF-IDF value across all letters and assign this to a variable named `mtfidf`.
 
