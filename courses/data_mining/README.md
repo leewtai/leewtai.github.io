@@ -53,8 +53,8 @@ I reserve the right to change the ordering and the content for the course throug
 |2022-04-07|[DBSCAN](https://docs.google.com/presentation/d/18exR7A0qTMJsclSOFJz4_IaOhvEFPhzqo4MuW6rYVmI/edit?usp=sharing)|[DBSCAN from KDNuggets](https://www.kdnuggets.com/2020/04/dbscan-clustering-algorithm-machine-learning.html)||
 |2022-04-12|[feature engineering - with text](https://docs.google.com/presentation/d/1BzfHDaGuvM2Vv6Vbi8YF55ZjzFAYFCcaAGcjpl9XkPE/edit?usp=sharing)|[Pre-processing Text](https://www.cambridge.org/core/journals/political-analysis/article/text-preprocessing-for-unsupervised-learning-why-it-matters-when-it-misleads-and-what-to-do-about-it/AA7D4DE0AA6AB208502515AE3EC6989E) + [Speech and Language Chapter 6.5](https://web.stanford.edu/~jurafsky/slp3/)||
 |2022-04-14|Working with text data continued|||
-|2022-04-19|Topic models or Wordfish||[Homework 5](homeworks/hw5.md)|
-|2022-04-21|[Independent Component Analysis](https://docs.google.com/presentation/d/141-Q9FFzFjAZr32RXv4D5cBd0SK38DmEzZnxVdGOma0/edit?usp=sharing)|[Stanford ICA Slides](http://statweb.stanford.edu/~tibs/sta306bfiles/ica.pdf)||
+|2022-04-19|Topic models or Wordfish|||
+|2022-04-21|[Independent Component Analysis](https://docs.google.com/presentation/d/141-Q9FFzFjAZr32RXv4D5cBd0SK38DmEzZnxVdGOma0/edit?usp=sharing)|[Stanford ICA Slides](http://statweb.stanford.edu/~tibs/sta306bfiles/ica.pdf)|[Homework 5](homeworks/hw5.md) due 4/22/2022|
 |2022-04-26|ICA continued or Multidimensional Scaling|||
 |2022-04-28|What we didn't teach||[Project 2](homeworks/proj3.md) Due on 5/2/2022|
 
