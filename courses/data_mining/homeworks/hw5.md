@@ -58,8 +58,11 @@ are not considered "stopwords" by the package.
 Please choose at least the top 60 tokens based on your TF-IDF matrix above. This is left intentionally open for you to explore different options.
 
 Using your TF-IDF matrix, please cluster the letters using k-means clustering and hierarchical clustering
-using the "ward.D" linkage method. Please pick one method and try to **explain** the resulting clustering either visually,
+one of the linkage methods, e.g. "single", "complete", or "ward.D".
+
+Please pick one method and try to **explain** the resulting clustering either visually,
 algorithmically, or using simple statistics. You can quote news articles or wikipedia pages to support your findings as well.
+Your resulting cluster should AT LEAST separate out the Gates vs Warrn Buffet letters from each other.
 
 ### Q3: Final Project
 
