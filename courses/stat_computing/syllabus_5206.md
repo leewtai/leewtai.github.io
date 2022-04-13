@@ -51,7 +51,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2022-04-15|Bootstrap, permutation, and other simulations<br>Model evaluation||HW4 Due|
 |2022-04-22|Validation and density estimation|||
 |2022-04-29|Guest Speaker from Data Science||HW5 Due|
-|TBD|Final|||
+|2022-05-06|[Final 9am](https://ssol.columbia.edu/cgi-bin/ssol/ZBIkJ5oELsuvEqV0GCk0bB/?p%.5Fr%.5Fid=ZBIkJ5oELsuvEqV0GCk0bB&p%.5Ft%.5Fid=1&tran%.5B1%.5D%.5Fletter=S&tran%.5B1%.5D%.5Fterm%.5Fid=20221&tran%.5B1%.5D%.5Ftran%.5Fname=scex) - take-home|||
 
 ## Logistics
 Class time: [F 10:10am - 12:40pm, Location: 301 Pupin](https://vergil.registrar.columbia.edu/#/courses/STAT%20COMP%20&%20INTRO%20DATA%20SCIENCE)
