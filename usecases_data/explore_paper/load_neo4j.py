@@ -4,7 +4,6 @@ import re
 from collections import Counter
 from pathlib import Path
 
-import requests
 from bs4 import BeautifulSoup
 from glob import glob
 from py2neo import Graph
@@ -19,8 +18,8 @@ logging.basicConfig(format="%(asctime)-15s %(message)s",
 neo4j_cred = json.load(open('neo4j_login.json', 'r'))
 graph = Graph('localhost', password=neo4j_cred['password'])
 
-dir_path = 'prod_files/'
-pdf_files = glob(dir_path + '*.pdf')
+dir_path = 'grobid_xml/'
+xml_files = glob(dir_path + '*.xml')
 
 
 def grab_names(tei_author):
@@ -78,36 +77,20 @@ def process_biblio(graph, biblstruct, current_paper_title, cite_count,
                         ref_count=ref_count)
 
 
-doc_paths = {'fail': Path('failed_grobid_parsed_pdf.txt'),
-             'success': Path('grobid_parsed_pdf.txt')}
-processed = []
-for doc in doc_paths:
-    if not doc_paths[doc].exists():
-        doc_paths[doc].touch()
-    processed.extend([fn for fn in doc_paths[doc].open('r').readlines()])
+for i, xml_file in enumerate(xml_files):
+    print(i)
+    fp = Path(xml_file)
 
+    logging.info('parsing file {}'.format(fp.name))
+    with fp.open() as f:
+        xml = '\n'.join(f.readlines())
 
-docs = {doc: doc_paths[doc].open('a') for doc in doc_paths}
-# Running the Grobid service (depends on JVM8, gradle, grobid)
-# https://grobid.readthedocs.io/en/latest/Grobid-service/
-grobid_url = 'http://localhost:8070/api/processFulltextDocument'
-for i, pdf_file in enumerate(pdf_files):
-    if pdf_file in processed:
-        logging.info('processed in past runs, skipping {}'.format(pdf_file))
-        continue
-    fp = Path(pdf_file)
-    files = {'input': fp.open('rb'),
-             'consolidateCitations': 1}
-
-    logging.info('parsing file {}'.format(pdf_file))
-    out = requests.post(url=grobid_url, files=files)
-
-    soup = BeautifulSoup(out.text, 'lxml')
+    soup = BeautifulSoup(xml, 'lxml')
     header = soup.teiheader
     # FYI, BeautifulSoup will lower case all the tags
     biblio = soup.find_all('biblstruct')
     year_tag = header.find('date')
-    if year_tag.text:
+    if year_tag and year_tag.text:
         pub_year = int(re.sub('.*((19|20)[0-9]{2}).*', '\\1', year_tag.text))
     else:
         # Take the latest referenced date as the date of publication
@@ -119,8 +102,7 @@ for i, pdf_file in enumerate(pdf_files):
     author_names = [grab_names(author) for author in authors]
     title = cq.cln_property(header.find('title').text)
     if not title or not pub_year or not author_names:
-        docs['fail'].writelines('\n{}'.format(fp.name))
-        logging.warning('skipping {} missing title'.format(fp.name))
+        logging.warning('skipping {} - missing title'.format(fp.name))
         continue
 
     # Create the authors
@@ -155,11 +137,13 @@ for i, pdf_file in enumerate(pdf_files):
 
     citations = soup.find_all('ref', type='bibr')
     cite_count = Counter([citation.get('target') for citation in citations])
-    # first biblio is the paper itself
-    [process_biblio(graph, biblstruct, title, cite_count, pub_year)
-     for biblstruct in biblio[1:]]
-    docs['success'].writelines('\n{}'.format(fp.name))
-
-
-for doc in docs:
-    docs[doc].close()
+    # fir=st biblio is the paper itself
+    for biblstruct in biblio[1:]:
+        try:
+            process_biblio(graph, biblstruct, title, cite_count, pub_year)
+        except Exception as e:
+            ref_title = cq.cln_property(biblstruct.title.text)
+            logging.error(e)
+            logging.error('Problems with citation: {} to paper: {}'.format(
+                ref_title), title)
+    logging.info('{} loaded to neo4j'.format(fp.name))
