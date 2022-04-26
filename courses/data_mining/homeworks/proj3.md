@@ -51,8 +51,8 @@ The final project in this class is an open-ended **data mining** project. Key de
   - Your introduction and conclusion should be written at the level so a peer outside of this class can understand your intent and findings.
 
 
-### Abstract requirements
-To complete this portion, I recommend you talk to each other before the full project is finished.
+### Critique requirements
+To complete this portion, I recommend you talk to each other **before** the full project is finished.
 - What was the initial motivation for tackling the project?
 - What datasets were used?
 - What aspect of the project is considered a **data-mining** and what is discovered?
