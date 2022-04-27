@@ -56,7 +56,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2022-04-19|[Independent Component Analysis](https://docs.google.com/presentation/d/141-Q9FFzFjAZr32RXv4D5cBd0SK38DmEzZnxVdGOma0/edit?usp=sharing)|[Stanford ICA Slides](http://statweb.stanford.edu/~tibs/sta306bfiles/ica.pdf)||
 |2022-04-21|[Models on text including Wordfish](https://docs.google.com/presentation/d/1so4mBtaC2f881o2-20RKPyOi_xdxcXm_psQ5UPPECnw/edit?usp=sharing)||[Homework 5](homeworks/hw5.md) due 4/22/2022|
 |2022-04-26|Going over final projects in class|||
-|2022-04-28|Going over final projects in class + what we didn't teach||[Project 2](homeworks/proj3.md) Due on 5/2/2022|
+|2022-04-28|Going over final projects in class + what we didn't teach||[Project 2](homeworks/proj3.md) Due on ~5/2/2022~ 5/7/2022|
 
 
 ### Logistics
