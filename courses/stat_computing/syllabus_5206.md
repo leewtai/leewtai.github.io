@@ -50,7 +50,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2022-04-08|[Optimization](https://docs.google.com/presentation/d/1zcG_RxtVZMPP-ZjkovMpZwXvI-GKbifcGzuU8vMjU-E/edit?usp=sharing)<br>Objective functions|[Python concepts 19](https://leewtai.github.io/courses/stat_computing/lectures/learning_python_intro.html)||
 |2022-04-15|[Bootstrap, permutation, and other simulations](https://docs.google.com/presentation/d/1NiOdRHs7eeB94F-eS3lxJvqZGsKUll2LWwjw7bf5mqk/edit?usp=sharing)<br>Model evaluation||HW4 Due|
 |2022-04-22|[Validation](https://docs.google.com/presentation/d/1OO7WHa8oKpOS0HeTQqeKeWK0MqFlg70d9ytTdTZMm0s/edit?usp=sharing)|||
-|2022-04-29|Guest Speaker from Data Science||HW5 Due on 5/2|
+|2022-04-29|[what we don't know](https://docs.google.com/presentation/d/1x_RDVUNHKRA_OH53BqoBpp8QLwQ62WZrk7jnzdBsegE/edit?usp=sharing) and Guest Speaker from Data Science||HW5 Due on 5/2|
 |2022-05-06|[Final 9am](https://ssol.columbia.edu/cgi-bin/ssol/ZBIkJ5oELsuvEqV0GCk0bB/?p%.5Fr%.5Fid=ZBIkJ5oELsuvEqV0GCk0bB&p%.5Ft%.5Fid=1&tran%.5B1%.5D%.5Fletter=S&tran%.5B1%.5D%.5Fterm%.5Fid=20221&tran%.5B1%.5D%.5Ftran%.5Fname=scex) - take-home|||
 
 ## Logistics
