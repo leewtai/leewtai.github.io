@@ -1,33 +1,19 @@
-# Applied Statistical Computing
-UN2102 - Spring 2021
+# UN2102 Applied Statistical Computing and Data Mining
 
 ### Learning outcomes
 - Manipulate data with different structures
-- Explore data via visualization
+- Explore data via visualization and basic models
 - Tackle familiar statistical concepts using simulations
 - Solving problems by working backwards and decomposing complex tasks
-- Write reproducible code
 - Debug code
-
-
-### Expectations
-- Come to class, bring your laptop, take chances!
-  - Run through the code in lecture
-  - Take notes that augment the lectures
-- Give feedback, don't waste your time if you think a topic is not helpful
-- Participate and ask questions, this is not easy!
-  - In class: forecast what should be done, compare with what is happening, then summarize the difference.
-  - Online: describe what you observe, describe what you expect, communicate clearly.
-  - To each other: summarize the conversation to ensure you're listening and think constructively before criticizing.
-- Academic honesty: https://www.cs.columbia.edu/education/honesty/
 
 ### People
 Instructor:
 Wayne Tai Lee: wtl2109
 
 Teaching Assistant(s):
-- Andrew Davison: ad3395
-- Navid Ardeshir: na2844
+- TBD
+- TBD
 
 ### Timeline
 I reserve the right to change the ordering and the content for the course throughout the semester.
@@ -36,7 +22,7 @@ I reserve the right to change the ordering and the content for the course throug
 |---|---|---|---|
 |2021-01-12|- [Why statistical computing](https://docs.google.com/presentation/d/1RH8OgxPhIbMTQdqKTUUbjtg65LER0OM8PM6M6g1jYWg/edit?usp=sharing)|||
 |2021-01-14|- [Variables, vectors, and functions on vectors](https://docs.google.com/presentation/d/1dOFhuoEEIcQXauf6qd5FKMzbcJaiVUNROptup1Ooktw/edit?usp=sharing) with [in-class prompts](lectures/lec2_vectors_variables.md)|[Simulating LLN](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_lln.html)|Get [R 4.0](https://cran.rstudio.com/) installed, then [R studio](https://rstudio.com/products/rstudio/download/) installed|
-|2021-01-19|- [For-loops](lectures/lec3_lln_for_loop.md)|[Simulating LLN](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_lln.html)||
+|2021-01-19|- [For-loops](https://docs.google.com/presentation/d/1yiEH4INA9TFzXFLvl1HgFziXbKspdrogSlSyYpTJmK8/edit?usp=sharing)|[Simulating LLN](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_lln.html)||
 |2021-01-21|- [Recreating Fisher's results](lectures/lec4_fisher_csv_subset.md)|[Past course notes on subsetting](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_data_viz.html)||
 |2021-01-26|- [Data frames and booleans](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_data_viz.html)|||
 |2021-01-28|- [Writing functions in R](lectures/lec2/writing_functions_in_R.md)|[Scope](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_debug.html)|[Homework 1](homeworks/hw0.md) Due|
@@ -64,16 +50,26 @@ I reserve the right to change the ordering and the content for the course throug
 |2021-04-15|[What we don't know](https://docs.google.com/presentation/d/17UwO5m5jiZxWWRVF_U-WHpgFXOErSCnfGmIvSaXc5_o/edit?usp=sharing)||[Homework 6](homeworks/hw6_v2.md)|
 |2021-04-20|Take-Home Final Exam|||
 
+### Expectations
+- Come to class, bring your laptop, take chances!
+  - Run through the code in lecture
+  - Take notes that augment the lectures
+- Give feedback, don't waste your time if you think a topic is not helpful
+- Participate and ask questions, this is not easy!
+  - In class: forecast what should be done, compare with what is happening, then summarize the difference.
+  - Online: describe what you observe, describe what you expect, communicate clearly.
+  - To each other: summarize the conversation to ensure you're listening and think constructively before criticizing.
+- Academic honesty: https://www.cs.columbia.edu/education/honesty/
+
 
 ### Logistics
 Lectures:
   [TuTh 4:10pm - 5:25pm, Zoom Link on Canvas](https://vergil.registrar.columbia.edu/#/courses/APPLIED%20STATISTICAL%20COMPUTING)
 
 Office Hours:
-  - Wayne: by appointment via Google Invites
-  - Andrew: Tu/Th 1-2pm on [Zoom](https://columbiauniversity.zoom.us/j/98205016672?pwd=NjJ1Y2JaRHRNK2syczg1YjNrNVhnUT09)
-  - Navid: W 1:30-3:30pm on [Zoom](https://columbiauniversity.zoom.us/j/4838701880)
-      - Navid also has a [sign-up sheet](https://docs.google.com/spreadsheets/d/13a2S-viVBKrtIqSNZAbQRkpc5jxHJUO1SoKPlhHuMHg/edit#gid=0) to avoid overflow.
+  - Wayne: TBD
+  - TBD
+  - TBD
 
 ### Grading
 If your final grade is in [93-100], you will earn at least an A, [90-93) will earn at least an A-, [87-90) will earn at least a B+, etc. A grading curves may occur depending on the class performance but I will not curve downwards. I may not give out A+ in this class.

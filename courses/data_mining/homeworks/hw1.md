@@ -1,42 +1,32 @@
-# HW1 - Review
+# HW1 - Reviewing prerequisites
 
-This homework is to meant for you to brush up some prerequisites.
-If some of these topics are new to you, feel free to ask on Piazza how to approach these.
+### Context - Olist E-commerce data
+Please find the dataset on Kaggle named ["Brazilian E-Commerce Public Dataset by Olist"](https://www.kaggle.com/olistbr/brazilian-ecommerce).
+The goal is to refresh your computing and statistics basics with this homework.
 
-### Context - Is gold price inversely related to the market?
+#### Q1 basic data checks
 
-There's a belief that the money from the stock market will escape to gold
-when the stock market is not doing well. The demand for gold and the expectations
-for the market are often reflected in the pricing of the assets, i.e. high demand yields
-high gold prices and upward expectations also lead to higher stock prices.
+For each of the following statements, please write a short paragraph that explains
+your logic and data to verify this question.
 
-#### Q1 
-Please use the 'TIME_SERIES_WEEKLY' API listed on [Alpha Vantage](https://www.alphavantage.co/documentation/)
-to get the weekly time series data for
-- 'VOO': an arbitrarily chosen ETF that tracks the market
-- 'GDXJ': an arbitrarily chosen ETF for gold
+- Does each order correspond to a single payment? 
+- Does each customer make at least one payment?
 
-For this problem, simply show the code for your query and print out the number of weeks of data for each time series.
-Your API key should NOT appear in your solutions but the URL you're using and the query should be shown.
+#### Q2 understanding the orders
 
-Hint:
-- You will need to [claim a free API key](https://www.alphavantage.co/support/#api-key) before you can query data
-- The functions in `httr` should be helpful, here is [some sample code](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_scraping_and_api.html) if you have not done so before.
-
-
-#### Q2
-Please plot the `close` price for VOO against the different weeks and overlay the regression line for this scatter plot.
-- You do not need to label your week index but the prices should be labeled.
-
+Please plot the relationship between "order value" vs "the number of unique products" for
+each order in the dataset. You should decide what is the most appropriate graphic given
+the dataset.
 
 #### Q3
-Please plot the residuals from the regression in Q2 against the `close` price of GDXJ.
-- label your axes with units.
-- Your title should include the correlation value, rounded to the nearest hundredth.
-- Please show the code that demonstrates your decision on merging the 2 time series.
+
+Please visualize the temporal pattern of Olist orders. Are there seasonal patterns
+like in the US, e.g. Christmas?
 
 #### Q4
-Relying only on the scatter plot, would you say the belief between gold and the market
-is supported or rejected? Please explain.
+
+Do the 2 largest cities, defined by total order amount, have different "total order payment" distributions?
+Please perform a permutation test to test this statement.
+
 
 {% include lib/mathjax.html %}

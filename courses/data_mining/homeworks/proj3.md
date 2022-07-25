@@ -1,11 +1,12 @@
 # Project 3: Final Project
 
 ### Overview
+
 The final project in this class is an open-ended **data mining** project. Key deliverables are
 - A **written report**, in a PDF format. There is no page limit but you must address all of the requirements below and produce a cohesive report.
 - A critique written about **another group's** final project, your final project can be critiqued by multiple teams but there is no requirement that your project must be summarized.
 - Your code on Github.
-- You must have a partner for the final project.
+- You **can** have a partner for the final project.
 
 ### Written report
 - The project must perform a form of data mining:
@@ -50,8 +51,8 @@ The final project in this class is an open-ended **data mining** project. Key de
   - Your introduction and conclusion should be written at the level so a peer outside of this class can understand your intent and findings.
 
 
-### Abstract requirements
-To complete this portion, I recommend you talk to each other before the full project is finished.
+### Critique requirements
+To complete this portion, I recommend you talk to each other **before** the full project is finished.
 - What was the initial motivation for tackling the project?
 - What datasets were used?
 - What aspect of the project is considered a **data-mining** and what is discovered?

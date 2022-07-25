@@ -1,108 +1,85 @@
 # HW3 - Comparing different models
 
-This homework is to meant for you practice some feature engineering with the
-different regression models.
+This homework is to meant for you practice with different regression models on the same dataset.
 
-Context: the US is increasingly polarized and [Twitter](https://twitter.com/home), a social
-media platform, is providing the space for people to voice their opinions or find like-minded
-individuals. In this assignment, we will use Twitter data `non_retweets_dc_inaug_steal.csv` on CourseWorks
-that has contains the token frequencies. This has been processed somewhat to minimize the data size. 
-The non-token variables are `created_at`, `like_count`, `reply_count`, `retweet_count`, `tweet_body`.
+Context: Finding jobs is difficult. Job descriptions tell us what companies are looking for
+so we should be able to detect some signal from job descriptions whether we're prepared enough
+for industry. However, there are too many job descriptions to look through.
 
-Please **re-download** this dataset given there were issues with the version given in class.
+Please download the dataset, `job_descrip.csv`, from CourseWorks.
+- This dataset has the "word counts" from a non-random sample of job descriptions from indeed (2021 and before).
+  - The column names are the "words" from the job description and the elements are the absolute count of those
+    words in the job description.
+  - Some words have been filtered out if it is either too frequent (not discriminative enough for different titles)
+    or too rare (indiffertiable from noise).
+  - Each row corresponds to a different job description
+- There's a column called `job_title` that has the job title used to search for these job descriptions.
+- There are "ads" on indeed's website so some job descriptions are not real.
 
-The tweets are collected overtime with the query words "steal", "inaguration", and "washington dc" using
-Twitter's [Recent Search API](https://developer.twitter.com/en/docs/twitter-api/tweets/search/api-reference/get-tweets-search-recent).
-Calls were made once a day around midnight and there is a limit on the number of queries that
-can be made freely.
+## Q1. Exploratory Data Analysis (EDA)
 
-## Question 0
-What dates do the tweets cover? Please visualize the temporal distribution of the tweets
-with the intent to understand where most Tweets in the dataset came from in time.
+Please answer the following:
+- How many job titles are there?
+- What is the least popular and most popular job title?
+- How many columns do we have?
+- What is the percentage of 0's in our word counts, across all of the words and jobs in our data?
+- For each word, compute the number of 0's. Now plot this histogram.
+- What is the longest and shortest word in our job descriptions? If there are ties, just pick 5 random ones (in each category) to show.
+  This is to gain an understanding of the data quality.
+- For the most popular word, i.e. word appeared in most job descriptions, plot the histogram of its word counts across the different job descriptions. If there is a tie, just pick one of them randomly.
+- Please describe on the distribution that you see (this should be one sentence only).
 
-## Question 1
-Please combine all the token frequencies that contain the string `inaug` into a single column.
-You should remove the redundant tokens after this summarization. Please select the method
-of "combining" that is consistent with the "token frequency" concept.
+## Q2. Basic model setup
 
-Please report the fraction of records that have non-zero frequencies for this new column.
+For the rest of the homework, we will set our response variable as does the job title have the word 'analyst' in it.
 
-## Question 2
-We want to discover the topics correlated with the inauguration over time. To achieve this,
-please model your new column from Question 1 against all other tokens (i.e. exclude the non-token variables)
-using the following models. This is **time-consuming**! You should use `Sys.time()` to have a realistic expectation of how long each model will take.
+- What percentage of job titles have the word "analyst" in it?
+- Please report all words that begins with "analy" in our word frequency matrix, then remove them from our word frequency matrix. This will be our feature matrix `X`.
+- Please create another feature matrix called `X2 = log(X + 1)`
+  - Why would the `log()` make sense and why do we add 1? (one sentence each or combine both answers into one sentence)
+- Why can't we fit OLS to this current setup?
+- Please isolate 100 records from the data to serve as a test set.
+  - Please make sure your code will have the expected amount of "analyst" positions in this test set (hint: stratified sampling).
+- Please calculate the classification error, precision, and recall if we predicted randomly (but proportional to the frequency of "analyst" positions in our dataset).
 
-Please plot the MSE from a 5-fold cross validation to compare the prediction accuracy between
-- OLS
-  - Please ignore the rank deficient warning, this is a warning of high-collinearity
-    that is common with high dimensional data and why OLS shouldn't do well.
-- stepwise regression using AIC as the objective
-  ```r
-  ols = lm(y ~ ., df)
-  ols_summ = summary(ols)$coefficients
-  okay_features = rownames(ols_summ)[ols_summ[, 4] < 0.05]
-  init_formula = paste('y ~', paste(okay_features, collapse='+'))
-  init_mod = lm(init_fomrula, df)
-  # "~." sets the upper model for the `scope` as using all of the features
-  step_mod <- step(init_mod, "~.")
-  ```
-- Lasso corresponding to $$\lambda$$=`lambda.min` from cv.glmnet
-  - hint: [predict.cv.glmnet](https://www.rdocumentation.org/packages/glmnet/versions/4.1/topics/predict.cv.glmnet)
-  - hint: you may want to convert the training X matrix into sparse matrices, i.e. `Matrix(as.matrix(df_sans_y), sparse=TRUE)`
-    to speed things up. This essentially avoids many multiplications when a 0 is involved.
-- Ridge regression corresponding to $$\lambda$$=`lambda.min` from cv.glmnet
+## Q3. Fitting PCA + OLS
 
-Please **do not** normalize your features for this problem but use the raw frequencies.
+- Please apply PCA to `X2` and plot the ratio of cumulative `sdev^2` over the total `sdev^2`. Please make a decision how to set `center` and `scale` for our call to `prcomp()`.
+  - FYI, `sdev` is the singular value and `sdev^2` is called the eigen value.
+- Between eyeballing for a `k` value as we did in class vs choosing the smallest `k` such that our ratio above is greater than 0.9, which approach do you recomend choosing given the plot above?
+- Please fit OLS using your PCA output and your recommended `k` value.
+- Please sort the features according to the p-values you observe. Hint: `lm_summary <- summary(my_ols)$coefficients` 
+  - Please report the top words associated with the top 3 features using the "rotation" matrix from your PCA. Please explain whether these features make sense or not given our problem.
+- Please round your predictions to make a prediction on the test set. Please calculate your classification error, precision, and recall.
+- Please comment on whether you believe the OLS is similar to fitting to random noise or it seems to detect a signal between our "W" and Y.
 
-hint, adding some print statements can help with unnecessary panics:
-```{r}
-library(caret)
-test_folds <- createFolds(DEP_VARIABLE, k=5)
-for(i in seq_along(test_folds)){
+## Q4. Fitting LASSO
 
-    # Some code that isolates the test/train data!
-    
-    print(paste("cross validation fold", i))
-    t0 <- Sys.time()
-    ols <- lm(TRAIN_DEP_VARIABLE ~ TRAIN_INDEP_VARIABLE)
-    print(paste('running OLS took', Sys.time() - t0))
-    }
-```
+- Please fit the LASSO to our `Y` and `X2` (using the `glmnet` package) and show the change in cross validation error given different regularization parameters (i.e. `lambda`). Make sure you test a wide enough range of `lambda` values that a "dip" appears.
+  - Should we normalize our data first?
+- What percentage of coefficients were set to 0 in the model corresponding to the `lambda.1se`?
+- What are the 50 most influencial words (if there are 50 or more non-0 coefficients) in this case?
+- Please round your predictions to make a prediction on the test set. Please calculate your classification error, precision, and recall.
 
-Side comment:
-- You may want to see how the `lambda.1se` compares.
-- (personal observation) Normalizing the features does help with the optimization but our features are
-  all token frequencies so it's not as big of a concern.
+## Q5. Fitting Naive Bayes
+- Please fit the Naive Bayes model using both X and X2. For both cases, please use a single validation set or cross validation (EDITED) to determine
+  an optimal cutoff for prediction rather than using "rounding" as we had from before. You will need to choose one metric when doing this cross validation.
+- Please calculate your 2 sets of classification errors, precisions, and recalls on the test set using the respective optimal cutoffs.
 
-## Question 3
-For the algorithm that performed the best, please retrain the model with the following requirements:
-- Use all of the data, i.e. do not reserve data for test/train.
-- You may need to normalize the features. If Lasso/Ridge was best, note that sparsity will not hold after
-  you normalize.
+## Q6. Back to OLS
 
-Please plot the distribution of the coefficients.
+- Use all top words we've discovered in LASSO and filter a new `X3` matrix. Use this matrix to run OLS and make predictions as we did for LASSO on the test set. Reporting the same set of metrics on the test set.
+- Use `X3` to run Logistic Regression as well. Report the same set of metrics on the test set.
 
-## Question 4
-Please list out the top tokens corresponding to the strongest non-zero coefficients.
+## Q7. Some questions
 
-Side comment: If you are not an American, what do these tokens and their coefficients
-suggest about the inauguration?
+- Across all models, are the top words what you expected? Elaborate with a couple sentences.
+- Visualize the evaluation metrics we have for all models and label the graph.
+- Based on the graph(s), do you think there's an optimal model or are they all comparable?
+- If we can get top words from the model, why do we care about the evaluation metrics.
 
 
-## Question 5
-Please write a function that represents the objective function for Ridge regression, i.e. your function should take in a vector of coefficients, a matrix X, a vector Y, and a real number `lambda` then return a real number.
-- Please make sure you fit an intercept within the function but do not include the intercept in your regularization term for the objective.
-- Please add an additional argument called `shrink_target` that allows us to change the shrinkage of the coefficients to arbitrary vector.
-  - Please make sure you set the default for this argument to align with the usual Ridge regression.
+## Q8. Thinking about Final Project
 
-## Question 6
-Please perform PCA on the token frequencies without normalizing.
-- Plot the eigenvalues in order (not the cumulative eigenvalues) of their magnitude, how many components might have interesting features. There are many correct answers but also many wrong answers here depending on your plot.
-- Analyze the loadings from the first 2 components, do they seem meaningful to you given the dataset?
-  - if yes, what key tokens are associated with these 2 components and why do they carry meaning?
-  - if no, how could you modify the token frequencies to get more meaningful principle components?
+Please write a paragraph abou what you will do for your final project and where you "might" find data for this. You may need to start collecting data early if you need to scrape data on a routine.
 
-Side comment (things to think about):
-- what would you do after identifying the components?
-- again, if you were not involved in American politics, how would you have done some of these steps?
-- Twitter data is not like normal language, e.g. people do not use complete sentences. How might this look if we had journal articles?
