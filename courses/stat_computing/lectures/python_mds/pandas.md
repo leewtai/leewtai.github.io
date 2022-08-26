@@ -4,8 +4,8 @@
 when the data has both numeric **and** categorical information
 (e.g. sex, occupation etc).
 
-Although all algorithms ultimately only work with numeric values either by
-converting categories into counts or 0-1 flags, the data is rarely ever coded in
+Although all algorithms ultimately only work with numeric values, e.g. by
+converting categories into counts or a collection of 0-1 columns, the data is rarely ever encoded in
 that format. For example, the variable `gender` is commonly coded as `M`, `F`, `Other`,
 `NA`. Then most algorithms will create multiple columns/variables **like**
 `gender_is_M`, `gender_is_F`, `gender_is_Other` where each is 0 or 1 depending

@@ -33,7 +33,7 @@ and the package is relatively large, e.g. sklearn.
   cnt = Counter(['a', 'b', 'a'])
   cnt['a']
   ```
-- `itertools.product` is useful when creating the possible combinations between
+- `itertools.product` is useful when creating all possible combinations between
   two lists of variables. This often turns a double loop into a single loop.
   ```python
   for i, j in product([1, 2], [4, 5]):
@@ -89,7 +89,7 @@ reasonably comfortable with the command line.
   conda create -n proj1 python=3.8 pandas ipykernel numpy
   ```
   This would handle all the dependencies between the packages.
-- Before working on a projet, activate the environment then launch Python
+- Before working on a project, activate the environment then launch Python
   from the environment to use the proper functions.
   ```
   conda activate proj1
@@ -97,6 +97,10 @@ reasonably comfortable with the command line.
   ```
 
 #### Dominant packages in data science
+
+Here's a list of the popular packages used in data science that will be
+covered in later chapters.
+
 - `numpy` for matrix computation
 - `pandas` for basic data wrangling and jointly manipulating multiple
   data types

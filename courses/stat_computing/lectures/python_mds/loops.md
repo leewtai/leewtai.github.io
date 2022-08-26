@@ -69,7 +69,6 @@ for num in nums:
 
 ```
 
-- `n` records the number of values in the list (i.e. 4)
 - The `for` and `in` are special keywords where the `:` indicates the end of the
   for-loop declaration (delcaration just tells Python to anticipate a for-loop).
   For-loops always have the structure of:
@@ -87,7 +86,8 @@ for num in nums:
   The number of iterations depend on the length of `nums`, the first iteration
   `num` will take on the value of `1`, then `3`, then `-1`, and then `10`.
   This is the only variable that will change in the loop.
-  - if you run `print(num)` after the loop, you should see `10` being printed.
+  - if you run `print(num)` __after the loop__, you should see `10` being printed since
+    `10` is the last value `num` assumed before the loop ended.
 
 
 #### A different type of loop
@@ -118,9 +118,20 @@ for index in range(n):
   iterations of the loop. In this case, it'll first be `0`, then `1`, then `2`, then `3`.
   We then use subsetting by position (the index) to extract the specific value from `nums`.
 
-In most programming langauges, you'll see `index` abbreviated as `i`.
-Looping over the indices is convenient because you may another list, e.g. `denoms` that
-you want to loop over at the same time.
+In most code, you'll see `index` abbreviated as `i`.
+Looping over the indices is convenient because you may want to do so for another list, e.g. `denoms` that
+you want to loop over at the same time. E.g.
+
+```python
+heights = [70, 71, 68]
+weights = [180, 172, 160]
+
+n = len(heights)
+for i in range(n):
+    print('my height is ', heights[i], 'and weight is ', weights[i])
+
+```
+
 
 #### Looping over the index and values
 Somtimes people want access to both the index and the value in a list. Rather than
@@ -135,7 +146,7 @@ for index, num in enumerate(nums):
     print('num is {}'.format(num))
 ```
 
-`enumerate(nums)`, similarly to `range(n)` from before is a generator. It's easiest to
+`enumerate(nums)`, similarly to `range(n)` outputs a generator. It's easiest to
 understand it by casting it to a list. You should see a list of tuples, where the first
 element in the tuple is the index and the second is the corresponding value in `nums`.
 ```python
@@ -144,14 +155,15 @@ Out[98]: [(0, 1), (1, 3), (2, -1), (3, 10)]
 ```
 
 This is exploiting Python's ability to assign multiple variables at once, e.g.
-`a, b = (1, 2)`.
+`index, num = (0, 1)`.
 
 #### Recording the output from each loop
 Since the body of the loop is identical, any variables assigned in the loop will
-be overwritten and only keep the value from the last loop.
+be overwritten and only keep the value from the last loop. This can be an issue
+when you need to carry the results from the loop else where.
 
 To avoid this problem, the usual approach is to define a variable outside the loop
-and allow the loop to **update** the variable rather than assign over the variable.
+and allow the loop to **update** the variable rather than overwriting the variable.
 
 The variable that will keep the records should be a data type that can hold multiple
 values and can be updated (e.g. tuples wouldn't work). We give an example below with

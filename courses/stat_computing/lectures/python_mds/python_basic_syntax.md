@@ -10,19 +10,20 @@ can perform.
 10 ** 2  # exponentiate
 ```
 
-A successful execution will often output the result of the computation
-and "print" the final results.
+A successful execution in the REPL will often output the result of the computation
+and "print" the final results just after the code.
 
-Notice later some computations will
-produce results with multiple attributes. What gets printed in these cases
-can vary widely so you shouldn't assume you'll be able to view "everything".
-Instead you should/will learn to ask what is available!
+Later, some computations will
+produce results with multiple attributes, e.g. a model's parameters, inputs, and runtime.
+What gets printed in these cases can vary widely so you shouldn't assume you'll be able
+to "view everything" when you're running code.
+Instead you should/will learn to __ask__ for what is available!
 
 
 ## Python cares about indentation at the front of the line
 One unique characteristic about Python is that its syntax forces us to
-write neater code. It enforces this by leveraging the empty spaces
-in front of the commands as part of the command.
+write "neater" code. It enforces this by interpreting the empty spaces
+in front of the code as part of the command.
 
 See which of the following will "break"
 ```python
@@ -35,7 +36,6 @@ See which of the following will "break"
 If you're using **iPython**, you may not see an error in any of the commands
 above.
 
-We will call out when these cases will matter later.
 
 ## Reading error messages
 Python's error messages often have the word "Error" in them.
@@ -53,16 +53,18 @@ Traceback (most recent call last):
 TypeError: unsupported operand type(s) for +: 'int' and 'str'
 >>> 
 >>> 
->>> "1" + 1
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: can only concatenate str (not "int") to str
+>>> 1 + 
+  File "<stdin>", line 1
+    1 + 
+       ^
+SyntaxError: invalid syntax
 ```
 
 As a beginner, you should focus on:
-- the error type, e.g. "TypeError", which is 
-- the error message, e.g. "unexpected indent"
-- Python's best guess at where the error occurred, e.g. `line 1` will
+- the error type, e.g. "TypeError". Knowing the category of error can quickly
+  help us understand the issue in our code.
+- the error message, e.g. "unsupported operand type(s) for +: 'int' and 'str'"
+- Python's best guess at **where** the error occurred, e.g. `line 1` will
   usually be the case for most REPL commands. This would be more helpful
   if your code were in a script.
 
@@ -76,7 +78,7 @@ Similar to how calculators can perform `log(1)`, Python has some built-in
 functions ready to use. One of the most useful ones is `print()`.
 
 It's most useful when you're not sure of the value of a variable.
-In particular, `print()` will accept numeric **and** character values.
+In particular, `print()` will accept numeric, character values, **and more**.
 This may seem trivial for now but later you will see that most
 functions are strict about the type of inputs it will accept. 
 
@@ -95,6 +97,9 @@ print(z)
 
 print('hello', z)
 ```
+
+Notice that our last `print()` function took 2 inputs that were separated by
+a comma.
 
 #### Writing comments in code
 Sometimes we write comments into our code to remind ourselves of some subtle
