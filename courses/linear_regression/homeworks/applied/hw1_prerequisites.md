@@ -34,7 +34,7 @@ Small reminder, 2 distributions can be the same **type** of distribution but may
 #### Q6 - Functions
 We often deal with variables on different scales which can make interpreting results difficult. A useful trick is to standardize each variable such that its mean is 0 and standard deviation is 1. What transformation can do this?
 - Please write down an R function called `standardize()` (without using the built-in function `scale()`) that does this.
-- Please simulate some data with $$E(X) \not\eq 0$$ and $$SD(X) > 1$$ then show that your function is working properly on this set of data.
+- Please simulate some data with $$E(X) \neq 0$$ and $$SD(X) > 1$$ then show that your function is working properly on this set of data.
   - You should demonstrate that the average and standard deviation of your simulated data satisfies the conditions above
   - You should show that after applying the function you defined, the average and standard deviation is now "standardized".
 
