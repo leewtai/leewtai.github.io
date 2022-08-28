@@ -1,13 +1,13 @@
 # Homework 2: Simulations and Programming and Simple Least Squares
 
 #### Goals
-Homework 2 is meant to encourage you to challenge the reasoning of the "least square".
+Homework 2 encourage you to challenge the reasoning behind the "least square" choice.
 In particular, we have shown that the regression line minimizes the total squared vertical distance between each data point and any other line.
 In this assignment, we challenge this choice by proposing to minimize the a different distance.
 
 #### Q1 - an alternative distance
 Between an arbitrary point $$(u_1, v_2)$$, and another arbitrary point $$(u_2, v_2)$$, the Euclidean distance between them can be written as $$\sqrt{(u_1 - u_2)^2 + (v_1 - v_2)^2}$$.
-Given arbitrary point  $$(u, v)$$ and arbitrary line $$y = a + b * x$$, there exists a point, $$(x^*, a + b * x^*)$$, on the line that minimizes the Euclidean distance between the point $$(u, v)$$ and the line. Please solve for the expression for $$x^*$$ using $$a$$, $$b$$, $$u$$, $$v$$. 
+Given arbitrary point  $$(u, v)$$ and arbitrary line $$y = a + b * x$$, there exists a point, $$(x^*, a + b * x^*)$$, on the line that minimizes the Euclidean distance between the point $$(u, v)$$ and the line. Please solve for the expression for $$x^*$$ using $$a$$, $$b$$, $$u$$, $$v$$.
 
 Hints:
 - If $$k < w$$, then $$k^2 < w^2$$ so the point that minimizes the Euclidean distance also minimizes the squared Euclidean distance. 
@@ -38,14 +38,6 @@ best_a <- opt_ab$par[1]
 best_b <- opt_ab$par[2]
 ```
 
-If you are a Python user, note that you should work with numpy arrays. 
-
-```python
-from scipy.optimize import minimize
-opt_ab = minimize(q2_fun, [2, -2], args=(u, v), method="BFGS")
-best_a = opt_ab.x[0]
-best_b = opt_ab.x[1]
-```
 Comment: the `(2, -2)` is just a place for the algorithm to start searching, 
 
 - Please compare the answer from the snippet above to your answer from the grid search. Which set of values are better, `optim()` or grid search? Better is defined by having a smaller total shortest Euclidean distance. In the future, I would expect you to infer what "better" means given the context.
@@ -61,15 +53,6 @@ u <- runif(n, -5, 5)
 v <- 2 - 3 * u + rnorm(n, sd=2)
 ```
 
-Or 
-
-```python
-import numpy as np
-n = 100
-u = np.random.uniform(-5, 5, n)
-v = 2 - 3 * u + np.random.normal(scale=2, size=n)
-```
-
 Please simulate `5000` different datasets and use your function from Q4 to create 2 histograms:
 - A histogram of the 5000 different $$\tilde{a}$$ values across the 5000 datasets with a vertical line marking the value $$2$$.
 - A histogram of the 5000 different $$\tilde{b}$$ values across the 5000 datasets with a vertical line marking the value $$-3$$.
@@ -79,14 +62,7 @@ Please simulate `5000` different datasets and use your function from Q4 to creat
 In Q5, the value `2` and `-3` are respectively the true intercept ($$a_{true}$$) and true slope ($$b_{true}$$) that generates the data. Given any dataset, our current method could use $$\tilde{a}$$ and $$\tilde{b}$$ to estimate $$a_{true}$$ and $$b_{true}$$ respectively. Using your results from Q5, please answer whether you believe $$E(\tilde{a}) = a_{true}$$ AND $$E(\tilde{b}) = b_{true}$$, i.e. unbiased, your answer should be a single Yes/No with a short explanation.
 
 #### Q7 - Different objectives lead to different solutions
-Recall that regression minimizes the total squared residual instead of the total shortest Euclidean distance. Let's name the coefficients from the regression $$\hat{a}$$ and $$\hat{b}$$ respectively. You can get the regression coefficients using `lm(v ~ u)$coefficients` in R. For Python users, 
-
-```python
-import statsmodels.api as sm
-
-ols = sm.OLS(v, sm.add_constant(u)).fit()
-ols.params
-```
+Recall that regression minimizes the total squared residual instead of the total shortest Euclidean distance. Let's name the coefficients from the regression $$\hat{a}$$ and $$\hat{b}$$ respectively. You can get the regression coefficients using `lm(v ~ u)$coefficients` in R. 
 
 Please plot the scatter plot using the data `hw2_q2.csv` with `u` on the x-axis and `v` on the y-axis along with 2 lines: a dotted line with the intercept $$\tilde{a}$$ and slope $$\tilde{b}$$ and a solid line with intercept $$\hat{a}$$ and slope $$\hat{b}$$.
 
