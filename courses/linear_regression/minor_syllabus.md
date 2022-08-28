@@ -35,21 +35,20 @@ TBD
   |Date|Topic|Reference|Due|
   |---|---|---|---|
   |2022-09-07|[Introduction, expectations, and transitions oh my!](https://drive.google.com/open?id=12GIwf8KVtYc7KN7C6eVC8c3R41LiQNtQlVBHTNv4HmA)|||
-  |2022-09-12|[Reviewing Hypothesis Testing with R Simulations](https://drive.google.com/open?id=1zBjQ9G508s4PBlmMWR2_fofictjvj3Achw30BBCVmnc)|Any R Tutorial Videos on For-Loop, e.g. [R Tutorial Videos](https://www.stat.berkeley.edu/share/rvideos/R_Videos/R_Videos.html)|Make sure R is installed and running|
+  |2022-09-12|[Reviewing Hypothesis Testing with R Simulations](https://drive.google.com/open?id=1zBjQ9G508s4PBlmMWR2_fofictjvj3Achw30BBCVmnc)|[How to simulate the LLN](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_lln.html)|Make sure R is installed and running|
   |2022-09-14|[Deriving simple linear regression](https://docs.google.com/presentation/d/15m8XkAKZaDA4lsTJxvTaHekrFPXFVv22qZ6j5MDrBrg/edit?usp=sharing)|Text 2.1.1|[Homework 1](homeworks/applied/hw1_prerequisites.md)|
-  |2022-09-19|[Linking regression coefficients to the data generation process](https://docs.google.com/presentation/d/1NalZQ2EWSt3Z7ojP0iPOt902VyJfRrP-MsEyc8qXoE0/edit?usp=sharing)|Text 2.7.1||
+  |2022-09-19|[Linking regression coefficients to the data generation process](https://docs.google.com/presentation/d/1NalZQ2EWSt3Z7ojP0iPOt902VyJfRrP-MsEyc8qXoE0/edit?usp=sharing)|Text 2.7.1|Read [Global Evidence on Economic Preferences](https://doi.org/10.1093/qje/qjy013) until Chapter IV.A|
   |2022-09-21|[Linking math to simulations](https://docs.google.com/presentation/d/1-TaFO-3j1-een-w3pjExEbKQXdrJqV6ZI-AOZc9ZQHM/edit?usp=sharing)|Text 2.7.3||
   |2022-09-26|[Properties of the regression coefficients](https://us.edstem.org/courses/182/lessons/670/slides/2979)|Text 2.7.2 + 2.7.3||
   |2022-09-28|[Properties of the regression coefficients](https://us.edstem.org/courses/182/lessons/670/slides/2979)|Text 2.7.2 + 2.7.3|[Homework 2](homeworks/applied/hw2_optimization.md)|
   |2022-10-03|[Diagnostics of SLR](https://docs.google.com/presentation/d/1_ydaxURpK2F-YkuGXKHxYF9rJ4bRAi6B9ftnyh_LXrM/edit?usp=sharing)|Text 3.1||
   |2022-10-05|Midterm 1|||
   |2022-10-10|[Bootstrapping](https://us.edstem.org/courses/182/lessons/724/slides/3287)|[Stanford Notes](http://statweb.stanford.edu/~tibs/sta305files/FoxOnBootingRegInR.pdf)||
-  |2022-10-12|[Inferring the true line](https://us.edstem.org/courses/182/lessons/688/slides/3343)|Text 2.3||
+  |2022-10-12|[Inferring the true line](https://us.edstem.org/courses/182/lessons/688/slides/3343)|Text 2.3|[Homework 3](homeworks/applied/hw3_simple_lin_reg.md)|
   |2022-10-17|[Predicting new data points](https://us.edstem.org/courses/182/lessons/688/slides/3357)|Text 2.4||
-  |2022-10-19|[Linear algebra view of linear regression](https://us.edstem.org/courses/182/lessons/765/slides/3496)|Text 5.2|[Homework 3](homeworks/applied/hw3_simple_lin_reg.md)|
-  |2022-10-24|[Simultaneous inference on coefficients](https://us.edstem.org/courses/182/lessons/767/edit/slides/3504)|||
-  |2022-10-26|Class suspended due to coronavirus|||
-  ||[Issues with multiple variables](https://us.edstem.org/courses/182/lessons/770/slides/3524) and [lecture - can bad features hurt](https://vimeo.com/398651931) and [lecture - collinearity](https://vimeo.com/398652055)||[Homework 4](homeworks/applied/hw4_pred_inference.md)|
+  |2022-10-19|[Linear algebra view of linear regression](https://us.edstem.org/courses/182/lessons/765/slides/3496)|Text 5.2||
+  |2022-10-24|[Simultaneous inference on coefficients](https://us.edstem.org/courses/182/lessons/767/edit/slides/3504)||[Homework 4](homeworks/applied/hw4_pred_inference.md)|
+  |2022-10-26|[Issues with multiple variables](https://us.edstem.org/courses/182/lessons/770/slides/3524) and [lecture - can bad features hurt](https://vimeo.com/398651931) and [lecture - collinearity](https://vimeo.com/398652055)|||
   |2022-10-31|[Cross Validation](https://us.edstem.org/courses/182/lessons/734/slides/3362) and [lecture](https://vimeo.com/398680410)|||
   |2022-11-02|Review session||[Homework 5](homeworks/applied/hw5_adding_features.md)|
   |2022-11-07|US ELECTIONS - NO CLASS|||
@@ -69,23 +68,23 @@ TBD
 
 ### Logistics
 Lectures:
-  [TuTh 8:40pm - 9:55pm, Location: 627 Seeley W. Mudd Building](https://www.vergil.registrar.columbia.edu/)
+  [MW 2:40pm - 3:55pm, Location: 702 Hamilton Hall](https://vergil.registrar.columbia.edu/#/courses/APPLIED%20LINEAR%20REG%20ANALYSIS)
 
 Office Hours:
-- Owen: M 3-4pm and W 4-5pm at the School of Social Works 10th Floor Lounge (1255 Amsterdam Ave)
-- Wayne: Th 10am-Noon at 715 Watson Hall (612 W 115th St)
+- TBD: TBD
+- Wayne: TBD
 
 
 ### Grading
 If your final grade is in \[93-100], you will earn at least an A, \[90-93) will earn at least an A-, \[87-90) will earn at least a B+, etc. A grading curves may occur depending on the class performance but will not curve downwards. I may not give out A+
 
-#### - Homeworks (10%)
+#### - Homeworks (15%)
   - Late homeworks will receive 0 credit
   - Homework solutions will exist in R
   - Your lowest homework grade will be dropped
   - No make-up homeworks will be granted even if you registered late to the class
   - Please export all homeworks in PDF files following these [instructions](../../setup/math_and_code.md)
-#### - Exams (85%)
+#### - Exams (80%)
   - Midterms (15% for midterm 1 and 30% for Midterm 2)
   - Final Exam or Project (40%)
 #### - Participation (5%)
