@@ -3,11 +3,11 @@
 Sometimes we want to refer to the same quantity repeatly throughout our code.
 For example, the sample size $n$ in introductory statistics is used to
 calculate the average, the variance of the average, the cost
-of the sample, and the expected number of records in your database.
-This is when we use variables.
+of collecting the sample, and the expected number of records in your database.
+To avoid inconsistencies, we should use variables.
 
 The main benefits of using variables
-- Consistent value will be used by avoiding typos, changes at the top will change
+- Consistent value will be used by avoiding typos and changes at the top will change
   all following instances of the same value.
 - Code would be easier to read if your variable is named `sample_size` instead of `n`
 
@@ -22,14 +22,14 @@ In the following example we would say
 sample_size = 111
 ```
 
-#### Some important things to know
-The right-hand-side expression will always be evaluated before the "assignment"
+#### Order of operations - assignment happens last
+The right-hand-side expression will always be evaluated before the assignment
 operation, e.g.
 
 ```python
 x = 3 * 4
 ```
-If `=` happened before `*`, then `x` **could** be 3 (almost no languages do this).
+If `=` happened before `*`, then `x` **could** be 3.
 Fortunately, the assignment operation is always last so `x` will take on the value 12
 
 #### Some convenient features in Python
@@ -65,7 +65,7 @@ but the key is to **try it** if you're not sure.
 
 In some programming languages, you have to define the "type" of the variable
 when you define it. This isn't true for Python which makes it easier to read
-but also allows mistakes to happen more easily, e.g. when different scripts
+but also allows mistakes to happen more easily, e.g. different scripts
 can assign different values to the same variable name.
 
 ```python
@@ -76,8 +76,8 @@ a = '1'
 ## Always always always spend some time to think about variable names
 
 Naming variables is sometimes considered one of the hardest things to do in
-programming. Achieving concise, meaningful, and specific names is hard.
-This is especially in large projectds but you should practice early.
+programming. Achieving concise and meaningful names is hard.
+This is especially true in large projectds so you should practice early.
 
 #### Convention around `_`
 

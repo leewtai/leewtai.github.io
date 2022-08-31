@@ -21,7 +21,7 @@ Numpy arrays can be created manually or sourced from a file.
   demo1.shape
   print(demo)
   ```
-- Generating 2D numpy arrays with 200 $Normal(0, 1)$ random numbers
+- Generating 2D numpy arrays with $$X_1, \dots, X_{200} \sim Normal(0, 1)$$ random numbers
   to simulate data.
   ```python
   import numpy as np
@@ -74,8 +74,9 @@ Subsetting numpy arrays similarly uses the square brackets `[]`.
 However, since we have rows and columns now, we subset for them
 together.
 
-Subsetting with integers, the first value indicates the row (3rd row),
-and the second value represents the column (2nd column).
+In the example below, we subset with integers, the first value
+indicates the row (3rd row), and the second value represents the
+column (2nd column).
 ```python
 demo1[2, 1]
 ```
@@ -116,8 +117,11 @@ when there are missing values in the data.
 np.nan * 2
 np.nan + 1
 
+nan_demo = [2, np.nan, 5, -3]
 # max/min ignores nans
-max(2, np.nan, 5, -3)
+max(nan_demo) # 5
+# np.max will not ignore nans
+np.max(nan_demo) # nan
 ```
 
 #### Common methods
@@ -131,7 +135,7 @@ We will demonstrate some of the common methods using the demos above.
   ```
   `-1` asks `numpy` to figure out the size of the remaining dimension
   such that no data is loss.
-- `numpy.array.sum()` adds everything up `demo1.sum()`
+- `numpy.array.sum()` adds everything up, e.g. `demo1.sum()`
 - `numpy.array.T` takes the matrix transposes of the array.
 - `numpy.array.dot()` takes the dot product and can be chained nicely.
 

@@ -18,6 +18,7 @@ values of data:
 |Lists|Yes|Yes|No|Yes|
 |Dictionaries|No|Yes|Yes|Yes|
 |Tuples|Yes|No|No|Yes|
+|Sets|No|"Yes"|No|Yes but limited to hashable values|
 
 More advanced data containers like numpy arrays will restrict all values to
 share the same data type to speed up calculations.
@@ -78,8 +79,8 @@ print(demo_map)
 
 #### Tuples are predictable
 Tuples stand out with their predictability because they cannot be changed
-after they are formed. This is useful with larger projects where some code
-may update your data and cause some unintended consequences.
+after they are formed. This is useful with larger projects where multiple teams
+may update your data (e.g. clean your data) and cause some unintended consequences.
 These are not as popular for data users but more useful for data engineers.
 The concept that some values are not changable (a.k.a. mutable) is important though.
 
@@ -93,7 +94,7 @@ You cannot add or remove values from a tuple once they're created.
 
 #### Checking the number of items in the container
 The total number of records is a common statistic used to check the quality of
-the data.
+the data since larger datasets are almost always more desirable.
 
 Fortunately, the same function `len()` can be applied to each of these.
 
@@ -101,14 +102,6 @@ Fortunately, the same function `len()` can be applied to each of these.
 len(demo_map)
 len(demo_list)
 len(demo_tuple)
-```
-
-One somewhat unintuitive behavior of `len()` is that it does not work for
-numeric values but will return the number of characters in a string.
-
-```python
-len(1) # this should have an error
-len('hello')
 ```
 
 #### Subsetting particular values - Python starts counting at 0

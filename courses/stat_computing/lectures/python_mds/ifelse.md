@@ -64,12 +64,12 @@ else:
 ```
 
 The above if/else is intentionally bad to demonstrate a few things:
-- Python does not check if your logic makes sense, if `x = -2` then
-  it is unclear which line you meant to run.
+- Python does not check if your logic makes sense, in our example with `x = -2`,
+  it is unclear which line will be printed.
 - Notice that only the first `print()` statement is ran. This is because
   `elif` and `else` will not be checked if the condition before is true.
   Therefore the ordering of your conditions matters.
-- `else` will capture all possible leftover cases. This can be lead to
+- `else` will capture all possible leftover cases. This can lead to
   surprises.
 
 
@@ -129,7 +129,8 @@ Notice that all the `False` cases will be dropped!
 For readability, some people like to separate the
 conditional in the list comprehension
 ```python
-output = [num * 10 for num in nums
+output = [num * 10
+          for num in nums
           if num > 0]
 ```
 
@@ -223,5 +224,15 @@ if type(input) != str:
 So in this case we initiated a Type Error if the input is not of type
 `str`. You can see a [list of built-in errors](https://docs.python.org/3/library/exceptions.html#IndentationError)
 
+Checking the type of variables is a common enough operation that
+a built-in function exists. We could rewrite the above with the function
+`isinstance()`
+```python
+input = 1
+
+if not isinstance(input, str):
+    raise TypeError('expecting str input bur got non-str values')
+
+```
 
 {% include lib/mathjax.html %}

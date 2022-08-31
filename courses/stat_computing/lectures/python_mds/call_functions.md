@@ -134,6 +134,7 @@ If these lists were much larger, this will quickly become a problem.
 
 There unfortunately is no standard around naming for in-place functions and
 you need to read the documentation. The popular package `pandas` often has
-options to do in-place operations.
+options to do in-place operations although its default is to return a new
+copy of data.
 
 {% include lib/mathjax.html %}
