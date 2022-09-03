@@ -12,11 +12,11 @@ import cypher_queries as cq
 
 
 logging.basicConfig(format="%(asctime)-15s %(message)s",
-                    filename='parse_pdf.log',
+                    filename='load_neo4j.log',
                     level=logging.INFO)
 
 neo4j_cred = json.load(open('neo4j_login.json', 'r'))
-graph = Graph('localhost', password=neo4j_cred['password'])
+graph = Graph('localhost:7474', password=neo4j_cred['password'])
 
 dir_path = 'grobid_xml/'
 xml_files = glob(dir_path + '*.xml')
@@ -58,17 +58,17 @@ def process_biblio(graph, biblstruct, current_paper_title, cite_count,
     else:
         year = 0
         logging.warning('Cannot find published year for {}'.format(ref_title))
-        logging.warning('Here is what is listed under date tag'.format(
+        logging.warning('Here is what is listed under date tag {}'.format(
             source.date))
 
-    producer = source.title
-    if producer:
-        prod_name = cq.cln_property(producer.text)
-        cq.merge_producer(graph, name=prod_name)
-        cq.merge_published(graph, title=ref_title,
-                           name=prod_name, year=year)
-        [cq.merge_published_author(graph, name=prod_name, year=year, **a)
-         for a in author_names if a]
+    # producer = source.title
+    # if producer:
+    #     prod_name = cq.cln_property(producer.text)
+    #     cq.merge_producer(graph, name=prod_name)
+    #     cq.merge_published(graph, title=ref_title,
+    #                        name=prod_name, year=year)
+    #     [cq.merge_published_author(graph, name=prod_name, year=year, **a)
+    #      for a in author_names if a]
 
     [cq.merge_authored(graph, title=ref_title, year=year, **a)
      for a in author_names if a]
@@ -77,12 +77,12 @@ def process_biblio(graph, biblstruct, current_paper_title, cite_count,
                         ref_count=ref_count)
 
 
+# i, xml_file = next(enumerate(xml_files))
 for i, xml_file in enumerate(xml_files):
-    print(i)
     fp = Path(xml_file)
 
-    logging.info('parsing file {}'.format(fp.name))
-    with fp.open() as f:
+    logging.info('parsing file {}: {}'.format(i, fp.name))
+    with fp.open(encoding='utf-8') as f:
         xml = '\n'.join(f.readlines())
 
     soup = BeautifulSoup(xml, 'lxml')
@@ -97,17 +97,19 @@ for i, xml_file in enumerate(xml_files):
         mentioned_years = [
             int(re.findall('[0-9]{4}', d['when'])[0])
             for d in soup.find_all('date')[:36] if d.get('when')]
+        # 0 is used in a logic test below
         pub_year = max(mentioned_years) if mentioned_years else 0
     authors = header.findChildren('author')
     author_names = [grab_names(author) for author in authors]
     title = cq.cln_property(header.find('title').text)
     if not title or not pub_year or not author_names:
-        logging.warning('skipping {} - missing title'.format(fp.name))
+        logging.warning('skipping - missing title, year, or authors'.format(
+            fp.name))
         continue
 
-    # Create the authors
+    # Create the authors in neo4j
     [cq.merge_author(graph, **a) for a in author_names if a]
-    # Create paper
+    # Create paper in neo4j
     abstract = cq.cln_property(header.find('abstract').text)
     paragraph_text = '\n'.join([cq.cln_property(pi.text.strip())
                                 for pi in soup.find_all('p')])
@@ -145,5 +147,17 @@ for i, xml_file in enumerate(xml_files):
             ref_title = cq.cln_property(biblstruct.title.text)
             logging.error(e)
             logging.error('Problems with citation: {} to paper: {}'.format(
-                ref_title), title)
+                ref_title, title))
     logging.info('{} loaded to neo4j'.format(fp.name))
+
+
+cln_query = """
+MATCH (p:Paper {title: ''})
+DETACH DELETE p
+"""
+graph.run(cln_query)
+cln_query = """
+MATCH (p:Producer)
+DETACH DELETE p
+"""
+graph.run(cln_query)

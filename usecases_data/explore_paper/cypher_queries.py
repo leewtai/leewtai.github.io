@@ -195,7 +195,10 @@ def merge_paper(graph, title, content='', google_scholar_paper_id='',
 
 
 def merge_producer(graph, name):
-    name = cln_title(name)
+    name = cln_title(name).lower()
+    # TODO: need to clean up these up afterwards
+    # name = re.sub('^[^\\.]+\\.{1} ?', '', name)
+    name = re.sub('^the ', '', name)
     graph.run("""MERGE (p:Producer {{name: "{name}"}})""".format(
         name=name))
     graph.run("""MATCH (p:Producer {{name: "{name}"}})
