@@ -39,22 +39,22 @@ TBD
   |2022-09-14|[Deriving simple linear regression](https://docs.google.com/presentation/d/15m8XkAKZaDA4lsTJxvTaHekrFPXFVv22qZ6j5MDrBrg/edit?usp=sharing)|Text 2.1.1|[Homework 1](homeworks/applied/hw1_prerequisites.md)|
   |2022-09-19|[Linking regression coefficients to the data generation process](https://docs.google.com/presentation/d/1NalZQ2EWSt3Z7ojP0iPOt902VyJfRrP-MsEyc8qXoE0/edit?usp=sharing)|Text 2.7.1|Read [Global Evidence on Economic Preferences](https://doi.org/10.1093/qje/qjy013) until Chapter IV.A|
   |2022-09-21|[Linking math to simulations](https://docs.google.com/presentation/d/1-TaFO-3j1-een-w3pjExEbKQXdrJqV6ZI-AOZc9ZQHM/edit?usp=sharing)|Text 2.7.3||
-  |2022-09-26|[Properties of the regression coefficients](https://us.edstem.org/courses/182/lessons/670/slides/2979)|Text 2.7.2 + 2.7.3||
-  |2022-09-28|[Properties of the regression coefficients](https://us.edstem.org/courses/182/lessons/670/slides/2979)|Text 2.7.2 + 2.7.3|[Homework 2](homeworks/applied/hw2_optimization.md)|
+  |2022-09-26|[Properties of the regression coefficients](https://docs.google.com/presentation/d/1IpFAEOFCMSw5cP-0_ldHx4xxDCljdJCPyngexhTAMSk/edit?usp=sharing)|Text 2.7.2 + 2.7.3||
+  |2022-09-28|[Properties of the regression coefficients](https://docs.google.com/presentation/d/1IpFAEOFCMSw5cP-0_ldHx4xxDCljdJCPyngexhTAMSk/edit?usp=sharing)|Text 2.7.2 + 2.7.3|[Homework 2](homeworks/applied/hw2_optimization.md)|
   |2022-10-03|[Diagnostics of SLR](https://docs.google.com/presentation/d/1_ydaxURpK2F-YkuGXKHxYF9rJ4bRAi6B9ftnyh_LXrM/edit?usp=sharing)|Text 3.1||
-  |2022-10-05|Midterm 1|||
-  |2022-10-10|[Bootstrapping](https://us.edstem.org/courses/182/lessons/724/slides/3287)|[Stanford Notes](http://statweb.stanford.edu/~tibs/sta305files/FoxOnBootingRegInR.pdf)||
-  |2022-10-12|[Inferring the true line](https://us.edstem.org/courses/182/lessons/688/slides/3343)|Text 2.3|[Homework 3](homeworks/applied/hw3_simple_lin_reg.md)|
-  |2022-10-17|[Predicting new data points](https://us.edstem.org/courses/182/lessons/688/slides/3357)|Text 2.4||
+  |2022-10-05|[Inferring the true line](https://us.edstem.org/courses/182/lessons/688/slides/3343)|Text 2.3||
+  |2022-10-10|[Predicting new data points](https://us.edstem.org/courses/182/lessons/688/slides/3357)|Text 2.4|[Homework 3](homeworks/applied/hw3_simple_lin_reg.md)|
+  |2022-10-12|Midterm 1|||
+  |2022-10-17|[Bootstrapping](https://docs.google.com/presentation/d/1A_K6gVhFnxoh71oNSbrwIJgJO5zORxYVgv2bM2wJQjg/edit?usp=sharing)|[Stanford Notes](http://statweb.stanford.edu/~tibs/sta305files/FoxOnBootingRegInR.pdf)||
   |2022-10-19|[Linear algebra view of linear regression](https://us.edstem.org/courses/182/lessons/765/slides/3496)|Text 5.2||
   |2022-10-24|[Simultaneous inference on coefficients](https://us.edstem.org/courses/182/lessons/767/edit/slides/3504)||[Homework 4](homeworks/applied/hw4_pred_inference.md)|
   |2022-10-26|[Issues with multiple variables](https://us.edstem.org/courses/182/lessons/770/slides/3524) and [lecture - can bad features hurt](https://vimeo.com/398651931) and [lecture - collinearity](https://vimeo.com/398652055)|||
   |2022-10-31|[Cross Validation](https://us.edstem.org/courses/182/lessons/734/slides/3362) and [lecture](https://vimeo.com/398680410)|||
-  |2022-11-02|Review session||[Homework 5](homeworks/applied/hw5_adding_features.md)|
+  |2022-11-02|[Interactions, polynomials, and categorical variables for X](https://us.edstem.org/courses/182/lessons/865/slides/3953):<br>- [part1 on categorical X](https://vimeo.com/403745129)<br>- [part2 on polynomials](https://vimeo.com/403753144)<br>- [part3 on interactions](https://vimeo.com/403773071)||[Homework 5](homeworks/applied/hw5_adding_features.md)|
   |2022-11-07|US ELECTIONS - NO CLASS|||
-  |2022-11-09|Midterm 2|||
-  |2022-11-14|[Interactions, polynomials, and categorical variables for X](https://us.edstem.org/courses/182/lessons/865/slides/3953):<br>- [part1 on categorical X](https://vimeo.com/403745129)<br>- [part2 on polynomials](https://vimeo.com/403753144)<br>- [part3 on interactions](https://vimeo.com/403773071)|||
-  |2022-11-16|[Logistic regression](https://us.edstem.org/courses/182/lessons/906/slides/4169) with [vimeo link](https://vimeo.com/403816949)|Text 4.1||
+  |2022-11-09|[Logistic regression](https://us.edstem.org/courses/182/lessons/906/slides/4169) with [vimeo link](https://vimeo.com/403816949)|Text 4.1||
+  |2022-11-14|Review|||
+  |2022-11-16|Midterm 2|||
   |2022-11-21|[DAGs: Changing significance when adding/deleting features](https://us.edstem.org/courses/182/lessons/912/slides/4193) with [vimeo link](https://vimeo.com/403836156)|||
   |2022-11-23|THANKSGIVING HOLIDAY - NO CLASS||[Homework 6](homeworks/applied/hw6_challenges.md)|
   |2022-11-28|[Variable selection day 1](https://us.edstem.org/courses/182/lessons/1060/slides/5022), no video|||
