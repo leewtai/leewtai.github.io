@@ -86,7 +86,7 @@ If your final grade is in \[93-100], you will earn at least an A, \[90-93) will 
   - Please export all homeworks in PDF files following these [instructions](../../setup/math_and_code.md)
 #### - Exams (80%)
   - Midterms (15% for midterm 1 and 30% for Midterm 2)
-  - Final Exam or Project (40%)
+  - Final Exam or Project (35%)
 #### - Participation (5%)
   - This will be based on in-class online activities
 
