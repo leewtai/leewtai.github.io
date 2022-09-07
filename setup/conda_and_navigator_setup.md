@@ -36,9 +36,9 @@ There are two methods to do this depending on if you're comfortable with the com
     - on Windows, this is called "Anaconda Command Prompt"
     - on OSX, this is called "Terminal"
     <img src="images/diff_command_line_prompts.png" alt="different command line prompts" width='600'>
-3. Type in the following to create an environment called `text-mine` under Python version 3.7 (yes, even if you want R in the end!)
+3. Type in the following to create an environment called `text-mine` under Python version 3 (yes, even if you want R in the end!)
 
-    `conda create -n text-mine python=3.7`
+    `conda create -n text-mine python=3`
 
     You will likely be asked to confirm with the packages it'll install. Type in `y` then enter to accept.
 4. Type in `conda activate text-mine` and notice how your command prompt changes to `text-mine`. It's possible
