@@ -10,7 +10,7 @@ a coding class.
 You can log into Ed via your CourseWorks authentication simply by clicking on
 the "Ed Discussion" tab in CourseWorks
 
-<img src="edu_images/ed_on_canvas.png" alt="Ed discussions is on courseworks tab" width='600'>
+<img src="edu_images/ed_on_canvas.png" alt="Ed discussions is on courseworks tab" width='300'>
 
 #### Where are the homeworks?
 
@@ -23,7 +23,7 @@ to **Lessons**.
 
 For non-coding questions on the homework, they tend to be easily verifiable. 
 Once you make your selection, make sure to click "Submit" and make sure
-the button appears as a grayed out "submitted".
+the button appears as a grayed out "Submitted".
 
 <img src="edu_images/pre_submit_multi_choice.png" alt="Submit will stay blue if you have not submitted yet" width='300'>
 <img src="edu_images/post_submit_multi_choice.png" alt="Submit will turn gray after you submitted" width='300'>
@@ -36,8 +36,8 @@ For this class we'll be using the Jupyter Notebooks for coding questions.
 <img src="edu_images/coding_challenge_view.png" alt="View of Coding Challenge" width='600'>
 
 A few things to know
-- Please use **Chrome** on Ed. Certain functionalities are not working in IE.
-- All your code on the Jupyter Notebook will be ran by the autograder except cells with
+- Please use **Chrome** on Ed.
+- All your code on the Jupyter Notebook will be ran by the autograder **except** cells with
   `### SKIP` at the top.
 - Your solutions must stay entirely inside the cell with
   ```python
@@ -48,11 +48,12 @@ A few things to know
 - You can write code or notes to yourself by creating a new cell using the `+ Code`
   and `+ Text` options.
 - The `Mark` button on the right bottom is what will trigger the auto-grader.
-  - You must hit `Mark` at least once to receive credit.
+  - You must hit `Mark` **at least once** to receive credit.
   - You can regrade this as many times as you wish in Spring 2022.
   - You must **save the notebook before marking**! Ctrl-S or Cmnd+S should work.
-- If you wish to Download the notebook, you can find the `>>` on the left of the `+ Code`
+- I encourage you to Download the notebook, you can find the `>>` on the left of the `+ Code`
   button. You should be able to right-click to Download the notebook.
+  <img src="edu_images/Download_Ed_Notebook_How.png" alt="download Coding Challenge" width='600'>
 - If you wish to work on a later problem before answering an earlier one, simply comment
   out all the code by adding `#` at the front of line.
 
