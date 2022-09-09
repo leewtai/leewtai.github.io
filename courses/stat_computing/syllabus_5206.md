@@ -74,8 +74,8 @@ If your final grade is in [93-97), you will earn at least an A, [90-93) will ear
 - Please read these important things related to [submitting homeworks on Ed](ed_hw_faq.md)
 
 #### - Exams (65%)
-- Midterms (30%)
-- Final (45%)
+- Midterms
+- Final
 
 #### - Participation (10%)
 - In class participation
