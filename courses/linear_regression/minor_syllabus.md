@@ -22,12 +22,21 @@ faced in application.
     - To each other: summarize the conversation to ensure you're listening and think constructively before criticizing.
   - Academic honesty: https://www.cs.columbia.edu/education/honesty/
 
-### People
-Instructor:
-Wayne Tai Lee: wtl2109
+### Teaching team
+Wayne Tai Lee (instructor, wtl2109):
+Office hours:
+- Wed 9-11am at Watson Hall (612 W 115th St)
+- By appointment (email wtl2109) if
+  - it's personal
+  - there are 3 or more of you
+  (Remember to check Google calendar availability)
 
 Teaching Assistant:
-TBD
+Shunan Sheng (TA, ss6574):
+Office hours:
+- TBD
+
+[Statistics daily help room](https://stat.columbia.edu/help-room/)
 
 ### Timeline
   I reserve the right to change the ordering and the content for the course throughout the semester.
@@ -70,10 +79,6 @@ TBD
 Lectures:
   [MW 2:40pm - 3:55pm, Location: 702 Hamilton Hall](https://vergil.registrar.columbia.edu/#/courses/APPLIED%20LINEAR%20REG%20ANALYSIS)
 
-Office Hours:
-- TBD: TBD
-- Wayne: TBD
-
 
 ### Grading
 If your final grade is in \[93-100], you will earn at least an A, \[90-93) will earn at least an A-, \[87-90) will earn at least a B+, etc. A grading curves may occur depending on the class performance but will not curve downwards. I may not give out A+
@@ -89,6 +94,7 @@ If your final grade is in \[93-100], you will earn at least an A, \[90-93) will 
   - Final Exam or Project (35%)
 #### - Participation (5%)
   - This will be based on in-class online activities
+  - You will receive the full 5% if you obtain 75% of this.
 
 ### Prerequisites
   - Some familiarity with R or UN2102 Applied Statistical Computing
