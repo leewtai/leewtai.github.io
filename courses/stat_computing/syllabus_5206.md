@@ -1,5 +1,5 @@
 # Statistical Computing and Introduction to Data Science
-GR5206 - Spring 2022
+GR5206 - Fall 2022
 
 ## Learning outcomes
 - Understand basic programming
@@ -49,10 +49,9 @@ I reserve the right to change the ordering and the content for the course throug
 |2022-11-18|[Optimization](https://docs.google.com/presentation/d/1zcG_RxtVZMPP-ZjkovMpZwXvI-GKbifcGzuU8vMjU-E/edit?usp=sharing)<br>Objective functions|[Python concepts 19](https://leewtai.github.io/courses/stat_computing/lectures/learning_python_intro.html)|HW4 Due|
 |2022-11-25|Thanksgiving NO CLASS|||
 |2022-12-02|[Bootstrap, permutation, and other simulations](https://docs.google.com/presentation/d/1NiOdRHs7eeB94F-eS3lxJvqZGsKUll2LWwjw7bf5mqk/edit?usp=sharing)<br>Model evaluation|||
-|2022-12-09|[Validation](https://docs.google.com/presentation/d/1OO7WHa8oKpOS0HeTQqeKeWK0MqFlg70d9ytTdTZMm0s/edit?usp=sharing)||HW5 Due on 5/2|
+|2022-12-09|[Validation](https://docs.google.com/presentation/d/1OO7WHa8oKpOS0HeTQqeKeWK0MqFlg70d9ytTdTZMm0s/edit?usp=sharing) and [what we don't know](https://docs.google.com/presentation/d/1x_RDVUNHKRA_OH53BqoBpp8QLwQ62WZrk7jnzdBsegE/edit?usp=sharing)||HW5 Due on 5/2|
 |TBD|Final 9am|||
 
-[what we don't know](https://docs.google.com/presentation/d/1x_RDVUNHKRA_OH53BqoBpp8QLwQ62WZrk7jnzdBsegE/edit?usp=sharing) and Guest Speaker from Data Science
 
 ## Logistics
 Class time: [F 10:10am - 12:40pm, Location: 301 Pupin](https://vergil.registrar.columbia.edu/#/courses/STAT%20COMP%20&%20INTRO%20DATA%20SCIENCE)
@@ -62,8 +61,8 @@ Wayne Tai Lee (wtl2109)
   - Office Hours: Tu/Th 10-11am at Watson Hall (W 115th St) room 714 
     - [Zoom](https://columbiauniversity.zoom.us/j/98032760108?pwd=b0hXTjN1SjVLMTdwc29lWWFzbnpSZz09)
 
-Owen Ward (ogw2103)
-  - Office hours: Tu/Th 5-6pm at School of Social Work 10th Floor Lounge
+TBD
+  - Office hours: TBD
 
 ### Grading
 If your final grade is in [93-97), you will earn at least an A, [90-93) will earn at least an A-, [87-90) will earn at least a B+, etc. A grading curves may occur depending on the class performance but I will not curve downwards. I will not give out A+ for this class.
@@ -71,7 +70,7 @@ If your final grade is in [93-97), you will earn at least an A, [90-93) will ear
 #### - Homeworks (25%)
 - Late homeworks will receive 0 credit
 - No make-up homeworks will be granted even if you registered late to the class
-- If you want to learn how to set up Jupyter Notebooks with R, follow these [instructions](../../setup/conda_and_navigator_setup.md)
+- If you want to learn how to set up Jupyter Notebooks with Python, follow these [instructions](../../setup/conda_and_navigator_setup.md)
 - Please read these important things related to [submitting homeworks on Ed](ed_hw_faq.md)
 
 #### - Exams (65%)
