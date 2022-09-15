@@ -45,7 +45,7 @@ We often deal with variables on different scales which can make interpreting res
 - Pretending that we do not know the parameters used to generate the data, we want to test the idea whether the expectation of X is the same as the expectation of Y.
   - What is your null hypothesis?
   - Please write the code that would calculate the p-value from a 2 sample t-test that does not assume the variances are identical. Remember to report your p-value. (You can use built-in functions for this if you wish)
-- If we fail to reject the null hypothesis, why can't we say the alternative hypothesis is true? Maximum 4 sentences.
+- If we fail to reject the null hypothesis, why can't we say the null or alternative hypothesis is true? Maximum 4 sentences. (EDITED, if you answered the previous version that's fine too)
 
 
 {% include lib/mathjax.html %}
