@@ -1,8 +1,8 @@
-# Learning Python through Translation
+# Learning Python from the Data Perspective
 
-One of the key differences about these notes is that we will constantly be
-translating the programming concepts into human language and mathematics so
-you practice translating concepts into code rather than following instructions.
+In contrast to most programming tutorials, these notes will teach you Python
+from a data perspective rather than a computer science perspective. We will
+leverage examples in Tech whenever possible.
 
 The table below will have each concept, linked to a detailed explanation for
 each concept.
@@ -22,7 +22,7 @@ each concept.
   python hello.py
   </pre></td>
   <td>
-  Your files and programs are located at different "paths" on your computer.
+  Your files and programs are located on different "paths/folders" on your computer.
   Modern computer interfaces abstract this concept away which can confuse
   beginning programmers.
   </td>
@@ -38,13 +38,13 @@ each concept.
    1 + 1 # fails
   </pre></td>
   <td>
-  The rules in interacting with Python after each command
+  Expectations in interacting with Python after each command
   </td>
   <td>
   Makes sense:
   $$\sum_{i=1}^{10} i$$
   Doesn't make sense:
-  $$i \sum_{i=1}^{10} $$
+  $$i \sum_{i=1}^{10}$$
   </td>
 </tr>
 <tr>
@@ -133,7 +133,7 @@ each concept.
   if 'a' in 'Broadway':
       print('Broadway with an "a"')
   </pre></td>
-  <td>When the code changes behavior under different conditions</tdr
+  <td>When the code changes behavior under different conditions</tdr>
   <td>$$f(x)=\left\{ \begin{array}{ccc} 
         0 & x < \theta \\ 
         x & x \geq \theta \end{array} \right\} $$
@@ -257,20 +257,6 @@ each concept.
   </td>
 </tr>
 <tr>
-  <td>Bootstrapping</td>
-  <td><pre>
-  </pre></td>
-  <td></td>
-  <td>$$$$</td>
-</tr>
-<tr>
-  <td>Random functions and their uses</td>
-  <td><pre>
-  </pre></td>
-  <td></td>
-  <td>$$$$</td>
-</tr>
-<tr>
   <td>
   <a href="python_mds/optimization.html">19. Basic Optimization</a>
   </td>
@@ -279,7 +265,7 @@ each concept.
 
   min_out = minimize(obj)
   </pre></td>
-  <td></td>
+  <td>To fit a model to data, we need to define what a good model (or bad model) looks like. Finding the least bad or best model is an optimization exercise.</td>
   <td>$$$$</td>
 </tr>
 <tr>
@@ -290,6 +276,25 @@ each concept.
   ```
   </pre></td>
   <td>Data often sits in a database and SQL is one of the most popular languages we use to query data from databases. Python3 has a built-in library that allows us to interface with SQLite.</td>
+  <td>$$$$</td>
+</tr>
+<tr>
+  <td>
+  <a href="python_mds/random_functions.html">21. Random functions</a>
+  </td>
+  <td><pre>
+  import random
+  random.gauss(0, 1)
+  random.choice(['heads', 'tails'])
+  </pre></td>
+  <td>To sample from a large list of items, we need something that can generate pseudo-randomness.</td>
+  <td>$$Y \sim F$$</td>
+</tr>
+<tr>
+  <td>Bootstrapping</td>
+  <td><pre>
+  </pre></td>
+  <td></td>
   <td>$$$$</td>
 </tr>
 </table>
