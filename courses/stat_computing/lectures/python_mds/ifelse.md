@@ -148,11 +148,23 @@ for num in nums:
     if num <= 0:
         continue
     output.append(num * 10)
+print(output)
 ```
 
 `continue` will terminate the current iteration and move on the
 next iteration of the loop. `break` on the other hand will terminate
 the entire loop.
+
+```python
+nums = [1, -3, -4, 5]
+
+output = []
+for num in nums:
+    if num <= 0:
+        break
+    output.append(num * 10)
+print(output)
+```
 
 ## Catching errors with `try` and `except`
 
