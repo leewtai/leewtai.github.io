@@ -28,7 +28,9 @@ GR5206 - Fall 2022
 - [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/)
 - Basics only - [Programming with Python by Software Carpentry](https://swcarpentry.github.io/python-novice-inflammation/)
 - [LearningPython.org](https://www.learnpython.org/)
-- Designing Data-Intensive Applications by Martin Kleppmann (available in NYPL)
+- Data engineering references (not covered in this class):
+  - Designing Data-Intensive Applications by Martin Kleppmann (available in NYPL)
+  - System Design Interview - An Insider's Guide by Alex Xu
 
 
 ## Timeline
