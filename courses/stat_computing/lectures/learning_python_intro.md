@@ -272,7 +272,7 @@ each concept.
   <td><a href="python_mds/sql.html">20. SQL</a></td>
   <td><pre>
   SELECT
-    COUNT(DISTINCT(customer_id)) uniq_users
+    COUNT(DISTINCT(customer_id)) AS uniq_users
   FROM
     orders
   </pre></td>
