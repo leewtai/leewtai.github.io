@@ -271,9 +271,10 @@ each concept.
 <tr>
   <td><a href="python_mds/sql.html">20. SQL</a></td>
   <td><pre>
-  ```sql
-  SELECT COUNT(DISTINCT(customer_id)) FROM orders
-  ```
+  SELECT
+    COUNT(DISTINCT(customer_id)) uniq_users
+  FROM
+    orders
   </pre></td>
   <td>Data often sits in a database and SQL is one of the most popular languages we use to query data from databases. Python3 has a built-in library that allows us to interface with SQLite.</td>
   <td>$$$$</td>
