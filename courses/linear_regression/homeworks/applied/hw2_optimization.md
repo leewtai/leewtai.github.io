@@ -6,7 +6,7 @@ In particular, we have shown that the regression line minimizes the total square
 In this assignment, we challenge this choice by proposing to minimize the a different distance.
 
 #### Q1 - an alternative distance
-Between an arbitrary point $$(u_1, v_2)$$, and another arbitrary point $$(u_2, v_2)$$, the Euclidean distance between them can be written as $$\sqrt{(u_1 - u_2)^2 + (v_1 - v_2)^2}$$.
+Between an arbitrary point $$(u_1, v_1)$$, and another arbitrary point $$(u_2, v_2)$$, the Euclidean distance between them can be written as $$\sqrt{(u_1 - u_2)^2 + (v_1 - v_2)^2}$$.
 Given arbitrary point  $$(u, v)$$ and arbitrary line $$y = a + b * x$$, there exists a point, $$(x^*, a + b * x^*)$$, on the line that minimizes the Euclidean distance between the point $$(u, v)$$ and the line. Please solve for the expression for $$x^*$$ using $$a$$, $$b$$, $$u$$, $$v$$.
 
 Hints:
