@@ -52,18 +52,14 @@ I reserve the right to change the ordering and the content for the course throug
 |2022-11-25|Thanksgiving NO CLASS|||
 |2022-12-02|[Bootstrap, permutation, and other simulations](https://docs.google.com/presentation/d/1NiOdRHs7eeB94F-eS3lxJvqZGsKUll2LWwjw7bf5mqk/edit?usp=sharing)<br>Model evaluation|||
 |2022-12-09|[Validation](https://docs.google.com/presentation/d/1OO7WHa8oKpOS0HeTQqeKeWK0MqFlg70d9ytTdTZMm0s/edit?usp=sharing) and [what we don't know](https://docs.google.com/presentation/d/1x_RDVUNHKRA_OH53BqoBpp8QLwQ62WZrk7jnzdBsegE/edit?usp=sharing)||HW5 Due on 5/2|
-|TBD|Final 9am|||
+|TBD|Final|||
 
 
 ## Logistics
 Class time: [F 10:10am - 12:40pm, Location: 301 Pupin](https://vergil.registrar.columbia.edu/#/courses/STAT%20COMP%20&%20INTRO%20DATA%20SCIENCE)
 
 ### Teaching Team
-Wayne Tai Lee (wtl2109)
-  - Office hours: TBD
-
-TBD
-  - Office hours: TBD
+See Ed for offiec hours
 
 ### Grading
 If your final grade is in [93-97), you will earn at least an A, [90-93) will earn at least an A-, [87-90) will earn at least a B+, etc. A grading curves may occur depending on the class performance but I will not curve downwards. I will not give out A+ for this class.
