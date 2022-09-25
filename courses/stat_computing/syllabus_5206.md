@@ -28,7 +28,9 @@ GR5206 - Fall 2022
 - [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/)
 - Basics only - [Programming with Python by Software Carpentry](https://swcarpentry.github.io/python-novice-inflammation/)
 - [LearningPython.org](https://www.learnpython.org/)
-- Designing Data-Intensive Applications by Martin Kleppmann (available in NYPL)
+- Data engineering references (not covered in this class):
+  - Designing Data-Intensive Applications by Martin Kleppmann (available in NYPL)
+  - System Design Interview - An Insider's Guide by Alex Xu
 
 
 ## Timeline
@@ -36,11 +38,11 @@ I reserve the right to change the ordering and the content for the course throug
 
 |Date|Topic|Reference|Due|
 |---|---|---|---|
-|2022-09-09|[Introduction + python as a calculator](https://docs.google.com/presentation/d/1hbdEFneIriuFSxtwfH29LvJp1AX_gZ961FtG4msPL7o/edit?usp=sharing)|- [Python concepts 1, 2, 3, 4, 6, 8, 10, 11](lectures/learning_python_intro.md)<br>- [Software Carpentry - Python Fundamentals + Analyzing Patient Data](https://swcarpentry.github.io/python-novice-inflammation/)<br>- [Python Data Science Handbook Chapter 2: Understanding Data Types in Python to The Basics of Numpy Arrays](https://jakevdp.github.io/PythonDataScienceHandbook/)||
-|2022-09-16|Numpy, objects, and subsetting<br>[AB Testing](https://docs.google.com/presentation/d/1lRzWdkLiwV0_3zBNKcDF6VqOu6JGpXSCy4WZNXH69NM/edit#slide=id.p)|[Python concepts 5, 7, 9](https://leewtai.github.io/courses/stat_computing/lectures/learning_python_intro.html)|[Set up your jupyter notebook environment with the command line](https://leewtai.github.io/setup/conda_and_navigator_setup.html)|
-|2022-09-23|[For-loop, if/else, working with files,<br>AB testing assignment](https://docs.google.com/presentation/d/115mFspST_Id7c0qk1H4R2UAmUOQAp_nZO96KPQbcRyc/edit?usp=sharing)||HW1 Due|
+|2022-09-09|[Introduction + python as a calculator](https://docs.google.com/presentation/d/1hbdEFneIriuFSxtwfH29LvJp1AX_gZ961FtG4msPL7o/edit?usp=sharing)|- [Python concepts 1, 2, 3, 4](lectures/learning_python_intro.md)<br>- [Software Carpentry - Python Fundamentals + Analyzing Patient Data](https://swcarpentry.github.io/python-novice-inflammation/)<br>- [Python Data Science Handbook Chapter 2: Understanding Data Types in Python to The Basics of Numpy Arrays](https://jakevdp.github.io/PythonDataScienceHandbook/)||
+|2022-09-16|Numpy, objects, and subsetting<br>[AB Testing](https://docs.google.com/presentation/d/1lRzWdkLiwV0_3zBNKcDF6VqOu6JGpXSCy4WZNXH69NM/edit#slide=id.p)|[Python concepts 5, 6, 8, 10, 11](https://leewtai.github.io/courses/stat_computing/lectures/learning_python_intro.html)|[Set up your jupyter notebook environment with the command line](https://leewtai.github.io/setup/conda_and_navigator_setup.html)|
+|2022-09-23|[For-loop, if/else, working with files,<br>AB testing assignment](https://docs.google.com/presentation/d/115mFspST_Id7c0qk1H4R2UAmUOQAp_nZO96KPQbcRyc/edit?usp=sharing)|[Python concepts 7, 9, 21](https://leewtai.github.io/courses/stat_computing/lectures/learning_python_intro.html)|HW1 Due|
 |2022-09-30|[Pandas, summaries, and visualization<br>Exploratory data analysis](https://docs.google.com/presentation/d/1qpWNoeyzZnxuKsi4O1v4FJDc6m_V177fIRht_kAhySg/edit?usp=sharing)|[Python concepts 12, 14, 15, 16](https://leewtai.github.io/courses/stat_computing/lectures/learning_python_intro.html)||
-|2022-10-07|[Nested data and data wrangling<br>Basic data engineering](https://docs.google.com/presentation/d/1c_hbkqKo-_kqrwFSeuebhyAjaNsKvaCAZCmI3pkI2xc/edit?usp=sharing)||HW2 Due|
+|2022-10-07|[Nested data and data wrangling<br>Basic data engineering](https://docs.google.com/presentation/d/1c_hbkqKo-_kqrwFSeuebhyAjaNsKvaCAZCmI3pkI2xc/edit?usp=sharing)|All previous concepts|HW2 Due|
 |2022-10-14|Regular expression and interacting with APIs|[Python concepts 13, 17](https://leewtai.github.io/courses/stat_computing/lectures/learning_python_intro.html)||
 |2022-10-21|Designing data pipelines|All previous Python concepts|HW3 Due|
 |2022-10-28|Midterm|||
@@ -50,18 +52,14 @@ I reserve the right to change the ordering and the content for the course throug
 |2022-11-25|Thanksgiving NO CLASS|||
 |2022-12-02|[Bootstrap, permutation, and other simulations](https://docs.google.com/presentation/d/1NiOdRHs7eeB94F-eS3lxJvqZGsKUll2LWwjw7bf5mqk/edit?usp=sharing)<br>Model evaluation|||
 |2022-12-09|[Validation](https://docs.google.com/presentation/d/1OO7WHa8oKpOS0HeTQqeKeWK0MqFlg70d9ytTdTZMm0s/edit?usp=sharing) and [what we don't know](https://docs.google.com/presentation/d/1x_RDVUNHKRA_OH53BqoBpp8QLwQ62WZrk7jnzdBsegE/edit?usp=sharing)||HW5 Due on 5/2|
-|TBD|Final 9am|||
+|TBD|Final|||
 
 
 ## Logistics
 Class time: [F 10:10am - 12:40pm, Location: 301 Pupin](https://vergil.registrar.columbia.edu/#/courses/STAT%20COMP%20&%20INTRO%20DATA%20SCIENCE)
 
 ### Teaching Team
-Wayne Tai Lee (wtl2109)
-  - Office hours: TBD
-
-TBD
-  - Office hours: TBD
+See Ed for offiec hours
 
 ### Grading
 If your final grade is in [93-97), you will earn at least an A, [90-93) will earn at least an A-, [87-90) will earn at least a B+, etc. A grading curves may occur depending on the class performance but I will not curve downwards. I will not give out A+ for this class.
