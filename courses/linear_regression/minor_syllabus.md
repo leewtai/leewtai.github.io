@@ -25,7 +25,7 @@ faced in application.
 ### Teaching team
 Wayne Tai Lee (instructor, wtl2109):
 Office hours:
-- Wed 9-11am at Watson Hall (612 W 115th St)
+- Wed 9:30-11:30am at Watson Hall (612 W 115th St)
 - By appointment (email wtl2109) if
   - it's personal
   - there are 3 or more of you
@@ -50,7 +50,7 @@ Office hours:
   |2022-09-21|[Linking math to simulations](https://docs.google.com/presentation/d/1-TaFO-3j1-een-w3pjExEbKQXdrJqV6ZI-AOZc9ZQHM/edit?usp=sharing)|Text 2.7.3||
   |2022-09-26|[Properties of the regression coefficients](https://docs.google.com/presentation/d/1IpFAEOFCMSw5cP-0_ldHx4xxDCljdJCPyngexhTAMSk/edit?usp=sharing)|Text 2.7.2 + 2.7.3||
   |2022-09-28|[Properties of the regression coefficients](https://docs.google.com/presentation/d/1IpFAEOFCMSw5cP-0_ldHx4xxDCljdJCPyngexhTAMSk/edit?usp=sharing)|Text 2.7.2 + 2.7.3|[Homework 2](homeworks/applied/hw2_optimization.md)|
-  |2022-10-03|[Diagnostics of SLR](https://docs.google.com/presentation/d/1_ydaxURpK2F-YkuGXKHxYF9rJ4bRAi6B9ftnyh_LXrM/edit?usp=sharing)|Text 3.1||
+  |2022-10-03|[Diagnostics of SLR](https://docs.google.com/presentation/d/1_ydaxURpK2F-YkuGXKHxYF9rJ4bRAi6B9ftnyh_LXrM/edit?usp=sharing)|Text 3.1|Read [Statistical Models and Shoe Leather](https://psychology.okstate.edu/faculty/jgrice/psyc5314/Freedman_1991A.pdf)|
   |2022-10-05|[Inferring the true line](https://us.edstem.org/courses/182/lessons/688/slides/3343)|Text 2.3||
   |2022-10-10|[Predicting new data points](https://us.edstem.org/courses/182/lessons/688/slides/3357)|Text 2.4|[Homework 3](homeworks/applied/hw3_simple_lin_reg.md)|
   |2022-10-12|Midterm 1|||
