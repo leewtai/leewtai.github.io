@@ -28,29 +28,21 @@ Imagine that the data from Q2, $$x$$ is actually data from a well-calibrated mac
 
 Hint: what is the objective of the regression?
 
-
-#### Q4 - different ways of calculating standard error
-Please generate data as below
+#### Q4 - violating the regression assumption
+We will work with the data generation process as below:
 
 ```r
 n <- 200
 x <- runif(n, 1, 5)
-y <- 0.1 + 1.2 * x + rnorm(n, sd=0.4)
+y <- 0.1 + 1.2 * x + rnorm(n, mean=-1)
 ```
 
-We want to understand how the "SE" from the bootstrap method compares to the ideal case where we can simulate from the true distribution.
-- Calculate $$SE(\hat{\beta}_1\mid X)$$ using the true $$\sigma^2$$ and the formula given in class
-- Estimate $$SE(\hat{\beta}_1\mid X)$$ using $$\hat{SE}(\hat{\beta}_1\mid X)$$ by estimating $$\sigma^2$$ with $$\hat{\sigma}^2=\frac{1}{n-2}\sum_i e_i^2$$ (you can use built-in functionalities in R if you know what to do)
-- Estimate $$SE(\hat{\beta}_1\mid X)$$ by simulating from the true data generation and fitting `B=1000` different $$\hat{\beta}_{(1,j)}$$ (the $$j$$ index just indicate different the estimates from different simulations). Please do not overwrite your original data from above. Please do this 2 ways:
-  - Calculate this using $$\sqrt{\frac{1}{B} \sum[(\hat{\beta}_{(1,j)} - \beta_1]^2} \approx \sqrt{E([\hat{\beta}_{(1,j)} - \beta_1]^2\mid X)}$$ 
-  - Calculate this by simply using `sd()` in R over the simulated coefficients.
-- Estimate $$SE(\hat{\beta}_1\mid X)$$ by simulating bootstrap samples from our original sample and fitting `B=1000` different $$\hat{\beta}_{(1, j)}^{boot}$$. 
-  - Calculate this using $$\sqrt{\frac{1}{B} \sum[(\hat{\beta}_{(1,j)}^{boot} - \hat{\beta}_1]^2}$$, $$\hat{\beta}_1$$ is the estimated slope from the regression trained on the original data.
-  - Calculate this by simply using `sd()` in R over the bootstrapped coefficients.
-- Please calculate the "percent error" for each of these estimates above. Percent error is often calculated as $$\frac{\lvert new-base\rvert}{base}$$. Please determine what's the most sensible "base" value in this problem.
+- Which regression assumption is being violated?
+- If we were to regress `y` on `x`, please demonstrate the property that is lost from the violation above using a graph and a short paragraph explaining the visualization.
+  - Hint: write down the mathematical property that is lost first.
 
 #### Q5 - violating the regression assumption
-Please generate data as below (notice the slight change from Q4)
+Please generate data as below
 
 ```r
 n <- 200
@@ -58,13 +50,11 @@ x <- runif(n, 1, 5)
 y <- 0.1 + 1.2 * x + rnorm(n, sd=x)
 ```
 
+- Which regression assumption is being violated?
 - Please report the SE from `summary.lm()` but also comment on why the R output from `summary.lm()` may not be appropriate. 
 - Estimate $$SE(\hat{\beta}_1\mid X)$$ by simulating from the true data generation and fitting `B=1000` different $$\hat{\beta}_{(1,j)}$$ (the $$j$$ index just indicate different the estimates from different simulations). Please do not overwrite your original data from above. Please do this 2 ways:
   - Calculate this using $$\sqrt{\frac{1}{B} \sum[(\hat{\beta}_{(1,j)} - \beta_1]^2} \approx \sqrt{E([\hat{\beta}_{(1,j)} - \beta_1]^2\mid X)}$$. 
   - Calculate this by simply using `sd()` in R over the simulated coefficients.
-- Estimate $$SE(\hat{\beta}_1\mid X)$$ by simulating bootstrap samples from our original sample and fitting `B=1000` different $$\hat{\beta}_{(1, j)}^{boot}$$. 
-  - Calculate this using $$\sqrt{\frac{1}{B} \sum[(\hat{\beta}_{(1,j)}^{boot} - \hat{\beta}_1]^2}$$
-  - Calculate this by simply using `sd()` in R over the bootstrapped coefficients.
 - Please calculate the "percent error" for each of these estimates above. Percent error is often calculated as $$\frac{\lvert new-base\rvert }{base}$$. Please determine what's the most sensible "base" value in this problem.
 
 
@@ -77,5 +67,13 @@ For each of the following residual plots, please comment on which of the stateme
 - is the residual plot possible from fitting a regression line? (hint: if you are stuck, try to simulate data that will have residual plots as shown then fit a regression to it)
 
 <img src="../images/wrong_right_residuals.png" alt="bad residuals" width='600'>
+
+#### Q7 - Translating assumptions
+
+In the paper [Global Economic Preference]():
+
+- Which linear model assumption is being made with this quote?
+  "Although the evidence is correlational, the previous literature has proposed various mechanisms, ranging from biological to purely social, through which gender, age, and cognitive ability might determine preferences."
+- In Table V, there are many examples of low $$R^2$$ values corresponding to highly significant values. Please explain why this is possible then provide one toy simulation example that demonstrates this phenomenon.
 
 {% include lib/mathjax.html %}
