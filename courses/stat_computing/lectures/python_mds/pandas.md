@@ -218,7 +218,7 @@ the group.
 
 ```python
 for grp, inds in df_grp.groups.items():
-    surv_rate = df.get_group(grp).loc[:, 'Survived'].mean()
+    surv_rate = df_grp.get_group(grp).loc[:, 'Survived'].mean()
     print('Survival rate for group with Sex {} and Pclass {} is {}%'.format(
         grp[0], grp[1], round(100 * surv_rate, 2)))
     
