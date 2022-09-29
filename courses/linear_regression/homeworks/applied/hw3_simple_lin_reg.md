@@ -70,8 +70,7 @@ For each of the following residual plots, please comment on which of the stateme
 
 #### Q7 - Translating assumptions
 
-In the paper [Global Economic Preference]():
-
+From the paper [Global Evidence on Economic Preferences](https://doi.org/10.1093/qje/qjy013):
 - Which linear model assumption is being made with this quote?
   "Although the evidence is correlational, the previous literature has proposed various mechanisms, ranging from biological to purely social, through which gender, age, and cognitive ability might determine preferences."
 - In Table V, there are many examples of low $$R^2$$ values corresponding to highly significant values. Please explain why this is possible then provide one toy simulation example that demonstrates this phenomenon.
