@@ -133,7 +133,7 @@ each concept.
   if 'a' in 'Broadway':
       print('Broadway with an "a"')
   </pre></td>
-  <td>When the code changes behavior under different conditions</tdr>
+  <td>When the code changes behavior under different conditions</td>
   <td>$$f(x)=\left\{ \begin{array}{ccc} 
         0 & x < \theta \\ 
         x & x \geq \theta \end{array} \right\} $$
