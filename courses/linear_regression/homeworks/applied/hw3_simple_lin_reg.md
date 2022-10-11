@@ -47,7 +47,7 @@ We want to understand how the "SE" from the bootstrap method compares to the ide
 - Estimate $$SE(\hat{\beta}_1\mid X)$$ by simulating bootstrap samples from our original sample and fitting `B=1000` different $$\hat{\beta}_{(1, j)}^{boot}$$. 
   - Calculate this using $$\sqrt{\frac{1}{B} \sum[(\hat{\beta}_{(1,j)}^{boot} - \hat{\beta}_1]^2}$$, $$\hat{\beta}_1$$ is the estimated slope from the regression trained on the original data.
   - Calculate this by simply using `sd()` in R over the bootstrapped coefficients.
-- Please calculate the "percent error" for each of these estimates above. Percent error is often calculated as $$\frac{\lvert new-base\rvert}{base}$$. Please determine what's the most sensible "base" value in this problem.
+- Please calculate the "percent error" for the estimate above. Percent error is often calculated as $$\frac{\lvert new-base\rvert}{base}$$. Please determine what's the most sensible "base" value in this problem.
 
 #### Q5 - violating the regression assumption
 Please generate data as below (notice the slight change from Q4)
