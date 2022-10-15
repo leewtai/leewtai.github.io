@@ -298,6 +298,34 @@ each concept.
   <td></td>
   <td>$$$$</td>
 </tr>
+<tr>
+  <td>Pseudo-code</td>
+  <td><pre>
+  # For every news article
+  #   check for their 
+  </pre></td>
+  <td>Before you write code, you want to </td>
+  <td>$$$$</td>
+</tr>
+<tr>
+  <td>Wrangling</td>
+  <td><pre>
+  import pandas as pd
+  health = pd.DataFrame(
+      [{'id': 1, 'height': 180, 'weight': 80},
+       {'id': 2, 'height': 150}])
+  pd.melt(health, id_vars='id', value_vars=['height', 'weight'])
+  </pre></td>
+  <td>Storing data requires flexibility and analyzing data requires structure, e.g. every resume should have their GPA. The translation between these two to facilitate different tasks is called data wrangling.</td>
+  <td>$$$$</td>
+</tr>
+<tr>
+  <td>Bootstrapping</td>
+  <td><pre>
+  </pre></td>
+  <td></td>
+  <td>$$$$</td>
+</tr>
 </table>
 
 
