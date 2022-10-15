@@ -4,9 +4,10 @@ import pandas as pd
 
 # Need to include CTY_CODE to get data for "all countries"
 BASE_URL = "https://api.census.gov/data/timeseries/intltrade/{ie}/enduse?"
-URL = BASE_URL + ("get=CTY_NAME,{IE}_ENDUSE_LDESC,VES_VAL_MO,AIR_WGT_MO,"
-                  "CNT_WGT_MO,CNT_VAL_MO,AIR_VAL_MO,CTY_CODE,{add_vars},"
-                  "VES_WGT_MO,CC_MO,{IE}_ENDUSE&YEAR={yr}&MONTH={mo}")
+URL = BASE_URL + (
+    "get=CTY_NAME,CTY_CODE,{IE}_ENDUSE_LDESC,VES_VAL_MO,AIR_WGT_MO,"
+    "CNT_WGT_MO,CNT_VAL_MO,AIR_VAL_MO,{add_vars},"
+    "VES_WGT_MO,CC_MO,{IE}_ENDUSE&YEAR={yr}&MONTH={mo}")
 
 # See https://api.census.gov/data/timeseries/intltrade/imports/enduse/variables.html
 import_add_vars = ['CON_VAL_MO', 'GEN_VAL_MO']
