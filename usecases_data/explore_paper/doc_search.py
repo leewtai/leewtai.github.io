@@ -2,6 +2,7 @@ import json
 import logging
 from pathlib import Path
 
+import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 from py2neo import Graph
@@ -10,27 +11,41 @@ logging.basicConfig(format="%(asctime)-15s %(message)s",
                     filename='doc_search.log',
                     level=logging.INFO)
 neo4j_cred = json.load(open('neo4j_login.json', 'r'))
-graph = Graph('localhost', password=neo4j_cred['password'])
+graph = Graph('localhost:7474', password=neo4j_cred['password'])
 
 # User would start with an author then want to see their
 # Publications then citation dependence
 
-# Pull paper based on author
-target_author = {'given_name': 'John', 'family_name': 'Cunningham',
-                 'middle_name': 'P'}
-
 # Grobid by default cites the original paper as the first reference
 # so we exclude references that are identical to the paper itself.
-citations = graph.run((
-    "MATCH (:Author {{given_name: '{given_name}',"
-    "                 family_name: '{family_name}',"
-    "                 middle_name: '{middle_name}'}})"
-    "-[a:AUTHORED]->(p:Paper)-[r:REFERENCED]->(p2:Paper)"
+
+citations = graph.run(
+    "MATCH (a:Author)-[:AUTHORED]->(p:Paper)-[r:REFERENCED]->(p2:Paper)"
     " WHERE NOT id(p) = id(p2) "
-    " RETURN id(p) AS auth_id, p.title AS auth_title,"
+    " RETURN id(a) AS author_id, a.given_name AS given_name,"
+    "        a.family_name AS family_name, a.middle_name AS middle_name,"
+    "        id(p) AS auth_id, p.title AS auth_title,"
     "        id(p2) AS ref_id, p2.title AS ref_title,"
-    "        r.ref_count AS ref_count").format(
-        **target_author)).data()
+    "        r.ref_count AS ref_count").data()
+
+
+with open('auth2cite.json', 'w', encoding='utf-8') as f:
+    json.dump(citations, f)
+
+content = graph.run(
+    "MATCH (p:Paper)"
+    " RETURN id(p) AS paper_id, p.title AS paper_title,"
+    "        p.content AS content, p.last_update AS last_update").data()
+
+for c in content:
+    last_update = c.get('last_update')
+    if not last_update:
+        continue
+    c.update({'last_update': last_update.year})
+
+with open('paper_content.json', 'w', encoding='utf-8') as f:
+    json.dump(content, f)
+
 
 # Is there internal referencing?
 bad_titles = ['Preprint repository arxiv achieves milestone million uploads',
@@ -203,3 +218,19 @@ json.dump({'auth_titles': auth_titles, 'ref_titles': ref_titles},
 # Calculate connection weights
 
 # Plot based on connections
+
+total = 0
+for i in range(100):
+    if i % 2 == 0:
+        continue
+    if total > 10:
+        break
+    total = total + 1
+
+total = 0
+for i in range(100):
+    if total > 10:
+        break
+    if i % 2 == 0:
+        continue
+    total = total + 1
