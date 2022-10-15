@@ -22,13 +22,13 @@ cred = json.load(open('../credentials.json', 'r'))
 pattern = 'climat'
 
 months = list(range(1, 13))
-min_y = 2010
-max_y = 2020
+min_y = 2015
+max_y = 2022
 years = list(range(min_y, max_y + 1))
 file = Path('nytimes_{}_{}_arch.json'.format(min_y, max_y))
 
 
-relev_docs = []
+# relev_docs = []
 archive_url = 'https://api.nytimes.com/svc/archive/v1/{year}/{month}.json'
 for year, month in product(years, months):
     logging.info('Extracting archive data for year {} and month {}'.format(
@@ -42,16 +42,19 @@ for year, month in product(years, months):
     out = arch_resp.json()
     logging.info('got year {}, month {}'.format(year, month))
     docs = out.get('response').get('docs')
+    json.dump(docs, open('nyt_arch_{}_{}.json'.format(year, month),
+                         'w'))
     # only keep articles with the keyword
-    for doc in docs:
-        kws = ';'.join([kw.get('value') for kw in doc.get('keywords')])
-        hls = ';'.join([hl for hl in doc.get('headline').values() if hl])
-        search_space = (kws + ';' + hls).lower()
-        if re.search(pattern, search_space):
-            relev_docs.append(doc)
+    # for doc in docs:
+    #     kws = ';'.join([kw.get('value') for kw in doc.get('keywords')])
+    #     hls = ';'.join([hl for hl in doc.get('headline').values() if hl])
+    #     search_space = (kws + ';' + hls).lower()
+    #     if re.search(pattern, search_space):
+    #         relev_docs.append(doc)
 
     time.sleep(6.1)
 
 
-json.dump(relev_docs,
-          open('nyt_arch_{}_{}_to_{}.json'.format(pattern, min_y, max_y), 'w'))
+# json.dump(relev_docs,
+#           open('nyt_arch_{}_{}_to_{}.json'.format(pattern, min_y, max_y),
+#                'w'))
