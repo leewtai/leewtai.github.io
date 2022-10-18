@@ -52,10 +52,7 @@ Hint:
 - $$Z^{-1}$$ indicates the inverse of matrix `Z`, see `solve`
 - $$X^TX$$ performs matrix multiplication between the matrix `X^T` and `X` itself.
 - $$Cov(\epsilon)$$ denotes the covariance matrix of $$\epsilon$$, this has the definition of $$E([\epsilon - E(\epsilon)]^T[\epsilon - E(\epsilon)])$$
-Please numerically verify the formulas based on matrices match our previous formulas for SLR (e.g. those given on the midterm) for the following quantities (hint: we've shown that `summary.lm()` agrees with our formulas before). You are expected to generate your own $$n$$, $$\beta$$, $$\epsilon$$ etc.
 
-- $$\hat{SE}(\hat{\beta}_i\mid X)$$
-- $$\hat{SE}(\hat{Y}\mid X)$$
 
 #### Q4 - confidence intervals from different bootstraps
 Use the file `hw4_scatter.csv` on Canvas, please reproduce the following plot:
