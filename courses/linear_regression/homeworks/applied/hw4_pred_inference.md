@@ -1,29 +1,62 @@
 # Homework 4: Prediction vs Inference
 
-#### Q1 - linear algebra practice
-With the usual regression assumptions:
+Here are the formulas in textbooks and from our slides when all 5 assumptions are satisfied under simple linear regression:
 
-  - Linearity: $$Y=X\beta + \epsilon$$
-  - Unbiased errors: $$E(\epsilon\mid X) = 0_{n \times 1}$$
-  - I.I.D. errors: $$Cov(\epsilon\mid X) = \sigma^2 I$$
-  - Let $$X$$ be $$n\times p$$, $$X_{new}$$ be $$m \times p$$
-  - $$Y$$ is $$n\times 1$$ then $$Y_{new}$$ is $$m \times 1$$
+- $$\hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}$$
+- $$\hat{\beta}_1 = Corr_{x, y}\frac{SD_y}{SD_x}$$
+- $$Var(\hat{\beta}_1|X) = \frac{\sigma^2}{\sum (x_i - \bar{x})^2}$$
+- $$Var(\hat{\beta}_0|X) = \sigma^2\left[\frac{1}{n} + \frac{\bar{x}^2}{\sum (x_i - \bar{x})^2}\right]$$
+- $$\hat{\sigma}^2 = \frac{1}{n-2}\sum (y_i - \hat{y}_i)^2$$
+- $$\frac{\hat{\beta}_1}{\hat{SE}(\hat{\beta}_1|X)} \sim t_{df=n-2}$$
+- $$\frac{\hat{\beta}_0}{\hat{SE}(\hat{\beta}_0|X)} \sim t_{df=n-2}$$
 
-Then please show
+Recall that:>
+$$\hat{SE}(\hat{\beta}_1|X)$$ differs from $$SE(\hat{\beta}_1|X)$$ becase it estimates $$\sigma^2$$ with $$\hat{\sigma}^2$$
 
-  - Unbiased prediction: $$E(\hat{Y}_{new}\mid X, X_{new}) = X_{new}\beta$$
-  - Closed form variance for regression line at new locations: $$Cov(\hat{Y}_{new}\mid X, X_{new}) = \sigma^2 X_{new} (X^TX)^{-1}X_{new}^T$$
-  - Closed form variance for prediction error: $$Cov(Y_{new} - \hat{Y}_{new}\mid X, X_{new}) = \sigma^2 (I_{m\times m} + X_{new} (X^TX)^{-1}X_{new}^T)$$
 
-#### Q2 - generating your own examples
+#### Q1 - Verifying calculations from summary.lm()
+Please create a matrix or data frame called `summ_tab` using the formulas above that matches the output from the `coefficients` attribute under `summary.lm()`
+You may use basic functions like `pt()`, `mean()`, `sd()`, `corr()`, `sum()`, `/`, etc
+
+#### Q2 - different ways to generate data
+
+Please first generate data using the following code:
+```
+n <- 50
+x <- rnorm(n)
+z <- runif(n)
+w <- rexp(n)
+indep_vars <- cbind(x, z, w)
+
+errors <- rnorm(n, sd=10)
+betas <- c(1, 2, 3, 4)
+y <- betas[1] + betas[2] * x + betas[3] * z + betas[4] * w + errors
+# The following will produce an error
+should_be_y <- indep_vars %*% betas + errors
+```
+
+The `%*%` symbol is how we tell R to perform [matrix multiplication](https://en.wikipedia.org/wiki/Matrix_multiplication).
+The last line above should produce an error. Please modify `indep_vars` such that `y` and `should_be_y` are almost identical (within machine precision). Be sure to demonstrate
+that the two variables, after your fix, are almost identical.
+
+FYI, R implicitly treats vectors as matrices as `n` by `1` matrices when doing matrix operations.
+
+#### Q3 - Cross checking formulas
+
+Continue from Q2, to run the regression of `y` on `x`, `z`, and `w`, we can run `mod <- lm(y~x + z + w)`
+For each of the following matrix expression, write out the corresponding R code to perform the matrix operation, THEN write at most 2 sentences that describe its relationship to values within `summary(mod)$coefficients`.
+- $$\hat{\beta} = (X^TX)^{-1}X^TY$$
+- $$Cov(\hat{\beta}|X) = \sigma^2 (X^TX)^{-1}$$
+
+Hint:
+- $$X^T$$ indicates the transpose of the matrix X.
+- $$Z^{-1}$$ indicates the inverse of matrix `Z`, see `solve`
+- $$X^TX$$ performs matrix multiplication between the matrix `X^T` and `X` itself.
+- $$Cov(\epsilon)$$ denotes the covariance matrix of $$\epsilon$$, this has the definition of $$E([\epsilon - E(\epsilon)]^T[\epsilon - E(\epsilon)])$$
 Please numerically verify the formulas based on matrices match our previous formulas for SLR (e.g. those given on the midterm) for the following quantities (hint: we've shown that `summary.lm()` agrees with our formulas before). You are expected to generate your own $$n$$, $$\beta$$, $$\epsilon$$ etc.
 
 - $$\hat{SE}(\hat{\beta}_i\mid X)$$
 - $$\hat{SE}(\hat{Y}\mid X)$$
-
-#### Q3 - pro/con of numerical verification
-Continuing from Q2, numerical verifications in general do not "prove" that the matrix formulas are correct.
-What value does numerical verification provide then? Please answer as if you're explaining to a freshman why we bother with numerical verfications?
 
 #### Q4 - confidence intervals from different bootstraps
 Use the file `hw4_scatter.csv` on Canvas, please reproduce the following plot:
@@ -56,5 +89,23 @@ For each of the following, please state whether we should care about the predict
 - You have data on a specific spring between the weight placed on it vs the length it stretched (the length is measured by eye-balling, i.e. noisy). You want to guess the length of this particular spring if you give it weights you have not measured before, should you compute the confidence interval or the prediction interval for this problem?
 - The government wants to learn about the relationship between investment in education vs poverty levels to make policies that would affect many households, should they compute the confidence interval or the prediction interval?
 
+
+#### Q8 - How categorical values are treated
+
+Run the following code
+```
+n <- 50
+cat_variable <- c('A', 'B', 'C')
+group <- factor(sample(cat_variable, n, replace=TRUE), levels=cat_variable)
+y <- rnorm(n)
+
+X <- model.matrix(~group)
+mod <- lm(y ~ group)
+mod2 <- lm(y ~ X)
+```
+
+- Examine at the first few rows of `X` and explain the relationship between `X` and `group` using no more than 4 sentences.
+- `mod2` has a coefficient listed as `NA`, how can we change the code above such that this doesn't happen? Please explain why this happens using at most 2 sentences (we're looking for one keyword).
+- Please verify or disprove that `mod` and `mod2` are "the same" from a statistical perspective? Statistical here means attributes, artifacts, or behavior from the model.
 
 {% include lib/mathjax.html %}
