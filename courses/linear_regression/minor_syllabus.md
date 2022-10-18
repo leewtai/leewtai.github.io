@@ -57,20 +57,20 @@ Office hours:
   |2022-10-17|[Bootstrapping](https://docs.google.com/presentation/d/1A_K6gVhFnxoh71oNSbrwIJgJO5zORxYVgv2bM2wJQjg/edit?usp=sharing)|[Stanford Notes](http://statweb.stanford.edu/~tibs/sta305files/FoxOnBootingRegInR.pdf)||
   |2022-10-19|[Issues with multiple variables](https://docs.google.com/presentation/d/1h4NDHN1ipJ-QpAvC3GUHvEK9Wooxf9u4wB8R2RxOKgI/edit?usp=sharing) and [lecture - can bad features hurt](https://vimeo.com/398651931) and [lecture - collinearity](https://vimeo.com/398652055)|Text 5.2||
   |2022-10-24|[Simultaneous inference on coefficients](https://docs.google.com/presentation/d/1MRwyjDs-77l99HT0Mp4uFvFbzivt-fT9kmKVzSPPpPE/edit?usp=sharing)|||
-  |2022-10-26|Catch-up!||[Homework 4](homeworks/applied/hw4_pred_inference.md)|
+  |2022-10-26|Catch-up!||[Homework 4]|
   |2022-10-31|[Cross Validation](https://us.edstem.org/courses/182/lessons/734/slides/3362) and [lecture](https://vimeo.com/398680410)|||
   |2022-11-02|[Interactions, polynomials, and categorical variables for X](https://us.edstem.org/courses/182/lessons/865/slides/3953):<br>- [part1 on categorical X](https://vimeo.com/403745129)<br>- [part2 on polynomials](https://vimeo.com/403753144)<br>- [part3 on interactions](https://vimeo.com/403773071)|||
   |2022-11-07|US ELECTIONS - NO CLASS|||
-  |2022-11-09|[Logistic regression](https://us.edstem.org/courses/182/lessons/906/slides/4169) with [vimeo link](https://vimeo.com/403816949)|Text 4.1|[Homework 5](homeworks/applied/hw5_adding_features.md)|
+  |2022-11-09|[Logistic regression](https://us.edstem.org/courses/182/lessons/906/slides/4169) with [vimeo link](https://vimeo.com/403816949)|Text 4.1|[Homework 5]|
   |2022-11-14|Review|||
   |2022-11-16|Midterm 2|||
   |2022-11-21|[DAGs: Changing significance when adding/deleting features](https://us.edstem.org/courses/182/lessons/912/slides/4193) with [vimeo link](https://vimeo.com/403836156)|||
-  |2022-11-23|THANKSGIVING HOLIDAY - NO CLASS||[Homework 6](homeworks/applied/hw6_challenges.md)|
+  |2022-11-23|THANKSGIVING HOLIDAY - NO CLASS||[Homework 6]|
   |2022-11-28|[Variable selection day 1](https://us.edstem.org/courses/182/lessons/1060/slides/5022), no video|||
   |2022-11-30|[Variable selection day 2](https://us.edstem.org/courses/182/lessons/1060/slides/5031), no video|||
   |2022-12-05|[Wrong models in linear regression + instrumental variables](https://us.edstem.org/courses/182/lessons/1110/slides/5285), no video|||
   |2022-12-07|[Weighted Least squares](https://us.edstem.org/courses/182/lessons/1112/slides/5309), no video|||
-  |2022-12-12|What we don't know||[Homework 7](homeworks/applied/hw7_extended_topics.md)|
+  |2022-12-12|What we don't know||[Homework 7]|
   |TBD|Final exam|||
 
 
