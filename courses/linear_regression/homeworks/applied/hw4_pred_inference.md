@@ -10,8 +10,7 @@ Here are the formulas in textbooks and from our slides when all 5 assumptions ar
 - $$\frac{\hat{\beta}_1}{\hat{SE}(\hat{\beta}_1|X)} \sim t_{df=n-2}$$
 - $$\frac{\hat{\beta}_0}{\hat{SE}(\hat{\beta}_0|X)} \sim t_{df=n-2}$$
 
-Recall that:>
-$$\hat{SE}(\hat{\beta}_1|X)$$ differs from $$SE(\hat{\beta}_1|X)$$ becase it estimates $$\sigma^2$$ with $$\hat{\sigma}^2$$
+Recall that: $$\hat{SE}(\hat{\beta}_1|X)$$ differs from $$SE(\hat{\beta}_1|X)$$ becase it estimates $$\sigma^2$$ with $$\hat{\sigma}^2$$
 
 
 #### Q1 - Verifying calculations from summary.lm()
@@ -90,7 +89,7 @@ For each of the following, please state whether we should care about the predict
 - The government wants to learn about the relationship between investment in education vs poverty levels to make policies that would affect many households, should they compute the confidence interval or the prediction interval?
 
 
-#### Q8 - How categorical values are treated
+#### Q8 - How categorical values are turned into numbers and handled in regression
 
 Run the following code
 ```
