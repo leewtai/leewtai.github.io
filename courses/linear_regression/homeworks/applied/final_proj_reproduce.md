@@ -44,6 +44,9 @@ covered.
   - If you are reproducing a non-numeric result, you must have a quantitative assessment for whether you reproduced the result.
   - If you cannot reproduce the result, you should discuss why the difference may exist
     (parameter fitting, data quality, package version for the model, lack of access to data processing, etc)
+    - If the paper is too advanced given the limits of regression but is a topic you plan on learning next semester, you may
+      state so then use regression as a "closest approximation" to the model used in the paper. If you do this, come to office hours
+      to get pre-approved for your problem.
 - Evaluating the result by doing two or more major categories from below
   - Testing the result's sensitivity to data, e.g.
     - Removing a small fraction of points (ideally not in a random fashion)
@@ -55,10 +58,10 @@ covered.
     - Adding or removing features. This should not be the same as the data features above but features
       that change the model.
   - Creating a simulation to verify that the approach/model has desirable properties in the context of the problem, e.g.
-    - statistical power with the given sample size, feature size, and minimum detectable effect
+    - reasonable statistical power with the given sample size, feature size, and minimum detectable effect
     - unbiasedness in the parameter of interest
-    - is more robust to outliers
-    - ...
+    - is more robust to outliers than past models
+    - etc ...
   - Testing a particular assumption mentioned in the paper or required by the model that isn't explicitly verified in the paper.
   - Changing the evaluation criteria for the result
   - Improving the model based on any of the tests above
