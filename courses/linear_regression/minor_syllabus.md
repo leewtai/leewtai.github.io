@@ -71,7 +71,7 @@ Office hours:
   |2022-12-05|[Wrong models in linear regression + instrumental variables](https://us.edstem.org/courses/182/lessons/1110/slides/5285), no video|||
   |2022-12-07|[Weighted Least squares](https://us.edstem.org/courses/182/lessons/1112/slides/5309), no video|||
   |2022-12-12|What we don't know||[Homework 7]|
-  |TBD|Final exam|||
+  |TBD|[Final project](homeworks/applied/final_proj_reproduce.md)|||
 
 
 
