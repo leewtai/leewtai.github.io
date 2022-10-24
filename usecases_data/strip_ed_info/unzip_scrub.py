@@ -21,7 +21,29 @@ with Path('namespace_seed.csv').open('r') as f:
     namespace = uuid.uuid3(uuid.NAMESPACE_DNS, seed)
 
 with tarfile.open(ed_zip) as f:
-    f.extractall(unzip_loc)
+    
+    import os
+    
+    def is_within_directory(directory, target):
+        
+        abs_directory = os.path.abspath(directory)
+        abs_target = os.path.abspath(target)
+    
+        prefix = os.path.commonprefix([abs_directory, abs_target])
+        
+        return prefix == abs_directory
+    
+    def safe_extract(tar, path=".", members=None, *, numeric_owner=False):
+    
+        for member in tar.getmembers():
+            member_path = os.path.join(path, member.name)
+            if not is_within_directory(path, member_path):
+                raise Exception("Attempted Path Traversal in Tar File")
+    
+        tar.extractall(path, members, numeric_owner=numeric_owner) 
+        
+    
+    safe_extract(f, unzip_loc)
 
 
 slides = glob('{}/*'.format(zip_folder))
