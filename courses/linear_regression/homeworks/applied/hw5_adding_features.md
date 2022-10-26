@@ -54,6 +54,7 @@ Please answer the following using this dataset:
 - Please randomly choose 10% of the data for testing and 90% for training, i.e. train `mod` using only 90% of the records then see its prediction error on the records in the 10% test set. Please choose and calculate a sensible measure to summarize "prediction error" that behaves acts like an objective function for choosing good models. Prediction error is defined as $$Y - \hat{Y}$$.
 - Using the same test/train split and prediction error metric above. Articulate the impact of adding a feature called `subj_math_skills2` on `mod` where `subj_math_skills2` is simply squaring the `subj_math_skills` column.
 - Contrast this impact to adding a feature called `rand_math` to `mod` where `rand_math` is a shuffled/permuted version of `subj_math_skills`. Please repeat the generation of `rand_math` 100 times and summarize the impact.
+  NOTE: please notice that your $$R^2$$ should have only gone up from adding `rand_math`
 
 
 #### Q2 - Final project question
