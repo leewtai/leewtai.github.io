@@ -19,29 +19,48 @@ x_new <- seq(1, max_x, length.out=20)
 - Please use Bonferroni's correction (as we did for the coefficients) to make the answer from above be `90%` across the 20 different `x_new` values, how would you change the code above in `predict.lm()` to achieve this?
 - TRUE/FALSE, is it possible for the confidence intervals at `c(1, max_x)` (i.e. the 2 most extreme `x_new` values) to contain the true values, yet the confidence intervals in between to not contain the true line? No need for explanation (Hint: I do recommend you to leverage your simulation).
 
-#### Q1 - Do no harm?
-Please generate data once again, using a similar model (notice `n` is increased):
+#### Q1 - practice with real data
 
-```r
-n <- 1000
-beta0 <- -5
-beta1 <- 1.2
-max_x <- 10
-x <- runif(n, 1, max_x)
-y <- beta0 + beta1 * x + rnorm(n, sd=x)
-x_new <- seq(1, max_x, length.out=20)
-y_new <- beta0 + beta1 * x_new + rnorm(length(x_new), sd=x_new)
-```
+In CourseWorks you'll find a file called `global_pref_survey_individual.csv`.
+This is the individual survey data referenced in our reading [Global Evidence on Economic Preferences](https://academic.oup.com/qje/article/133/4/1645/5025666).
+Before you start, make sure your R's major version is at least 4.0 (you can check via `R.version`).
 
-We would like to examine how we're being hurt when we add in random features (again, this means features that do not contribute to the variability in `y`). 
-Let `m` indicate the number of random features we are adding to the problem (you can make up your own random features as long as none of them are identical to one another). For this problem, we will focus on the inference for $$\beta_1$$.
-- How can we obtain a reliable estimate for the standard error of $$\hat{\beta}_1$$? Specifically, can we use `summary.lm()`, can we bootstrap the residuals, and/or can we do classic bootstrap? (A simple yes/no to each method is sufficient, in an exam I will ask for the reasons)
-- Please numerically or graphically show that the estimated standard error of $$\hat{\beta}_1$$ (using one of the methods you recommend above) increases as you increase `m`.  Two different values of `m` is sufficient but please make the effect is very obvious while keeping $$(2 + m) < n$$ so you have enough data.
-- With "random features", is our regression estimates $$\hat{\beta}_1$$ still unbiased? How would you verify this idea, i.e. come up with a numerical/graphical example to try to falsify this idea? Please remember that statistics in general can only "reject" or "fail to reject" with these types of questions but your example should show that you know what unbiased means. 
-- Please show that your prediction accuracy for the new data points `x_new` decrease as `m` increases (again, 2 different `m` values is sufficient) as well using the following methods:
-  - calculate the percent of new data points that fall within the point-wise `95%` prediction interval
-  - calculate the average squared error between your prediction and the new data point
-  - calculate the maximum absolute error between your prediction and the new data point
-  hint: "your prediction" in a regression class means, given some independent feature, what's your best guess (a single value) for the dependent variable?
+Please answer the following using this dataset:
+
+- How many records are in the dataset?
+- What is the highest percentage of missing value across all columns in the dataset? Which column is this?
+- What percent of data is `NA` after reading in the data for the column `date`?
+  What time range does the dataset cover? (side note: the important message is that `is.na()`
+  doesn't always catch everything)
+- Please answer and show your code that verifies whether `country` and `isocode` and `iso` are redundant.
+- Why do we avoid having redundant features in modeling? (4 sentences max)
+- What is the mean and sd of all the possible response variables?
+- To "attempt" to reproduce the OLS coefficients on Table V for patience without region FE (FE = Fixed Effects),
+  please run the regression of patience against the listed variables after doing the following manipulations (we will call this regression model `mod`):
+  - Change age values that are 99 and above to something reasonable
+  - Make sure the country variable is a factor, not a character (make sure this is the last variable you add when calling `lm()`)
+  - Create a new column called `age2` from squaring the `age` column
+  - You will need to multiply the age column by a constant, figure this out after you examine the first run of regression coefficients (this is mentioned somewhere in the paper as well)
+- How did the table end up with 78501 records for this regression? Please write the code that counts the number of records that do not have `NA` in the variables used in the regression above (rather than letting `lm()` handle this for you) and see how many samples you end up with.
+- Continuing with the same regression, the wording below Table V claims the values in the parentases are standard errors. Compare these to the standard errors from your run. Do you believe the values are SE for the coefficients? (You'll likely have one number off)
+- What changes to the OLS estimates and $$R^2$$ values if we remove the `age2` variable? Let's call this model `mod_sans_age2`. 
+- Plot `patience` against `age2` and compare this to the scatter plot of residuals from `mod_sans_age2` against `age2`. HINT: check the length of the residuals before you plot. Make sure your graph handles the issue with too many overlapping points masking the relationship.
+  NOTE: the key from this and the above question is that it's not obvious why `age2` was added except its impact on interpreting `age`
+- Does removing the signal modeled from the independent variables always reduce the variability in our dependent variable? Please answer this after completing the following:
+  - What is the range of the residuals from `mod_sans_age2` and the range of `patience` in our data
+  - What is the standard deviation of these values?
+- Back to using `mod`, plot the residuals vs the fitted values, i.e. $$\hat{Y}$$, and calculate the correlation between the two.
+  - Which assumptions of our regression do you believe is violated vs not? (graded on consistent message)
+- Please randomly choose 10% of the data for testing and 90% for training, i.e. train `mod` using only 90% of the records then see its prediction error on the records in the 10% test set. Please choose and calculate a sensible measure to summarize "prediction error" that behaves acts like an objective function for choosing good models. Prediction error is defined as $$Y - \hat{Y}$$.
+- Using the same test/train split and prediction error metric above. Articulate the impact of adding a feature called `subj_math_skills2` on `mod` where `subj_math_skills2` is simply squaring the `subj_math_skills` column.
+- Contrast this impact to adding a feature called `rand_math` to `mod` where `rand_math` is a shuffled/permuted version of `subj_math_skills`. Please repeat the generation of `rand_math` 100 times and summarize the impact.
+
+
+#### Q2 - Final project question
+
+- Please link to a paper that you may be exploring for your final project and answer the following questions
+  - What is the research question of the paper (2 sentences at most)
+  - What would an ideal dataset be in your opinion?
+  - Contrast your ideal dataset with the dataset used in the paper and compare these two.
 
 {% include lib/mathjax.html %}

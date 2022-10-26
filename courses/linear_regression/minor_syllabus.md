@@ -61,7 +61,7 @@ Office hours:
   |2022-10-31|[Cross Validation](https://us.edstem.org/courses/182/lessons/734/slides/3362) and [lecture](https://vimeo.com/398680410)|||
   |2022-11-02|[Interactions, polynomials, and categorical variables for X](https://us.edstem.org/courses/182/lessons/865/slides/3953):<br>- [part1 on categorical X](https://vimeo.com/403745129)<br>- [part2 on polynomials](https://vimeo.com/403753144)<br>- [part3 on interactions](https://vimeo.com/403773071)|||
   |2022-11-07|US ELECTIONS - NO CLASS|||
-  |2022-11-09|[Logistic regression](https://us.edstem.org/courses/182/lessons/906/slides/4169) with [vimeo link](https://vimeo.com/403816949)|Text 4.1|[Homework 5]|
+  |2022-11-09|[Logistic regression](https://us.edstem.org/courses/182/lessons/906/slides/4169) with [vimeo link](https://vimeo.com/403816949)|Text 4.1|[Homework 5](homeworks/applied/hw5_adding_features.md)|
   |2022-11-14|Review|||
   |2022-11-16|Midterm 2|||
   |2022-11-21|[DAGs: Changing significance when adding/deleting features](https://us.edstem.org/courses/182/lessons/912/slides/4193) with [vimeo link](https://vimeo.com/403836156)|||
