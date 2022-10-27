@@ -23,7 +23,7 @@ x_new <- seq(1, max_x, length.out=20)
 
 In CourseWorks you'll find a file called `global_pref_survey_individual.csv`.
 This is the individual survey data referenced in our reading [Global Evidence on Economic Preferences](https://academic.oup.com/qje/article/133/4/1645/5025666).
-Before you start, make sure your R's major version is at least 4.0 (you can check via `R.version`).
+Before you start, make sure your R's major version is at least 4.0 (you can check via `R.version`). If not, it's recommended that you update R. The biggest difference is whether character columns are read in as factors or characters.
 
 Please answer the following using this dataset:
 
