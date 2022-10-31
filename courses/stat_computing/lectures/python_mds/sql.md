@@ -39,22 +39,27 @@ on [Kaggle](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) and con
 all of the CSV files into "tables" in a database. This section is less important
 because this is often done by a data engineer and not data scientists.
 There are many considerations about "usecases for the data" that will determine
-different tuning parameters for the databases.
+different choices for the databases.
 
-To do this, we will
+To create a naive relational database, we will
 - Establish a database with `sqlite3.connect()`
 - Create an empty table for each CSV with `CREATE TABLE ...`
   - `CREATE TABLE` is an SQL command which will be passed
     to the database via `sqlite3.connection.cursor.execute()`
     as a string. This allows us to write SQL queries composing
     strings via string manipulation.
+    - We specify the column name followed by its
+      data type, leveraging the data types inferred by pandas when
+      we read in the data using `pandas.read_csv`
   - This is often where one would constrain particular columns like
     allowing missing values, designating one or more primary keys,
     create a default value, specifying the data type etc.
 - Insert records into the table with `INSERT INTO {table} ... VALUES ...`
 
-To do this in Python, place the CSV files in the same directory as the
+We will relay the SQL queries to the database in Python. 
+Place the CSV files in the same directory as the
 following script. The script will perform the steps we describe above.
+Try to analyze the code in pieces and analyze each bit before moving forward.
 
 ```python
 import sqlite3
@@ -184,12 +189,13 @@ LIMIT
 
 #### Calculating summary statistics
 
-This query says: "from table `order_payments`, group the records by `order_id`, then calculate the maximum `payment_value` across those records, we will refer this result as `max_pay`, please return the variables `order_id` and `max_pay`."
+This query says: "from table `order_payments`, group the records by `order_id`; then calculate the maximum `payment_value` across those records, we will refer this result as `max_pay`; then calculate the number of records used to produce this summary statistic, referring this as `cnt`; then please return the variables `order_id`, `max_pay`, and `cnt`.
 
 ```sql
 SELECT
   order_id,
-  MAX(payment_value) as max_pay
+  MAX(payment_value) as max_pay,
+  COUNT(*) as cnt
 FROM
   order_payments
 GROUP BY
@@ -200,7 +206,49 @@ Other popular functions are:
 - the average or sum: `AVG({VARIABLE})` or `SUM({VARIABLE})`
 - the minimum: `MIN({VARIABLE})`
 - the unique count: `COUNT(DISTINCT({VARIABLE}))`
-- count the number of rows being aggregated: `COUNT()`
+- count the number of rows being aggregated: `COUNT(*)`
+
+#### Filtering based on summary statistics
+
+Sometimes we want to look at summary statistics that satisfy a certain criterion.
+For example, if the maximum is taking over a single value, that may be indicative
+of users that are relatively new on the platform and we may want to filter those out
+from our calculations.
+
+Since the `WHERE` keyword is reserved to filter records before aggregation, there's
+another keyword `HAVING` that can filter records after the aggregation.
+
+```sql
+SELECT
+  order_id,
+  MAX(payment_value) as max_pay,
+  COUNT(*) as cnt
+FROM
+  order_payments
+GROUP BY
+  order_id
+HAVING
+  COUNT(*) > 1
+```
+
+It's important to know that both `WHERE` and `HAVING` can co-exist, for example, we want
+want to limit the maxmimum to be applied on non-zero payment values only then only keep
+the maximums that had 2 or more non-zero payment.
+
+```sql
+SELECT
+  order_id,
+  MAX(payment_value) as max_pay,
+  COUNT(*) as cnt
+FROM
+  order_payments
+WHERE
+  payment_value > 0
+GROUP BY
+  order_id
+HAVING
+  COUNT(*) > 1
+``` 
 
 #### Nesting tables
 
