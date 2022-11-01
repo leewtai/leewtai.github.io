@@ -1,0 +1,22 @@
+---
+title: "issues with multi variables"
+output: html_document
+date: "2022-10-24"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Marginal relationships do not reveal everything
+
+```{r}
+n <- 100
+p <- 4
+
+x <- rnorm(n * p)
+X <- cbind(1, x)
+errors <- rnorm(n)
+betas <- runif(p + 1, -2, 2)
+y <- X %*% beta + errors
+```

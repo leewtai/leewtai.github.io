@@ -61,10 +61,10 @@ Office hours:
   |2022-10-31|[Interactions, polynomials, and categorical variables for X](https://docs.google.com/presentation/d/1Mn_XMrKua-7kJRiesSFA43zqtXSxVcsAM23P0UkwQVA/edit?usp=sharing):<br>- [part1 on categorical X](https://vimeo.com/403745129)<br>- [part2 on polynomials](https://vimeo.com/403753144)<br>- [part3 on interactions](https://vimeo.com/403773071)|||
   |2022-11-02|[Cross Validation](https://docs.google.com/presentation/d/1egvYy9Z73FTOXAIFIfP4qhldMUoAFS5-j2fozhNdd4g/edit?usp=sharing) and [lecture](https://vimeo.com/398680410)|||
   |2022-11-07|US ELECTIONS - NO CLASS|||
-  |2022-11-09|[Logistic regression](https://us.edstem.org/courses/182/lessons/906/slides/4169) with [vimeo link](https://vimeo.com/403816949)|Text 4.1|[Homework 5](homeworks/applied/hw5_adding_features.md)|
-  |2022-11-14|Review|||
-  |2022-11-16|Midterm 2|||
-  |2022-11-21|[DAGs: Changing significance when adding/deleting features](https://us.edstem.org/courses/182/lessons/912/slides/4193) with [vimeo link](https://vimeo.com/403836156)|||
+  |2022-11-09|[Logistic regression](https://docs.google.com/presentation/d/17VV5oyTYfwNl_1dKBg4DdXwB69qP3mSb9e2BNITRTtA/edit?usp=sharing) with [vimeo link](https://vimeo.com/403816949)|Text 4.1|[Homework 5](homeworks/applied/hw5_adding_features.md)|
+  |2022-11-14|[DAGs: Changing significance when adding/deleting features](https://docs.google.com/presentation/d/1N8Bm-aFaFlJ4LQ02swUOmfAcTmfuaQZTQZEgVW80b2E/edit?usp=share_link) with [vimeo link](https://vimeo.com/403836156)|||
+  |2022-11-16|Review|||
+  |2022-11-21|Midterm 2|||
   |2022-11-23|THANKSGIVING HOLIDAY - NO CLASS|||
   |2022-11-28|[Variable selection day 1](https://us.edstem.org/courses/182/lessons/1060/slides/5022), no video||[Homework 6]|
   |2022-11-30|[Variable selection day 2](https://us.edstem.org/courses/182/lessons/1060/slides/5031), no video|||
