@@ -32,7 +32,7 @@ Please answer the following using this dataset:
 - What percent of data is `NA` after reading in the data for the column `date`?
   What time range does the dataset cover? (side note: the important message is that `is.na()`
   doesn't always catch everything)
-- Please answer and show your code that verifies whether `country` and `isocode` and `iso` are redundant.
+- Please answer and show your code that verifies whether `country` and `isocode` and `ison` are redundant.
 - Why do we avoid having redundant features in modeling? (4 sentences max)
 - What is the mean and sd of all the possible response variables?
 - To "attempt" to reproduce the OLS coefficients on Table V for patience without region FE (FE = Fixed Effects),
