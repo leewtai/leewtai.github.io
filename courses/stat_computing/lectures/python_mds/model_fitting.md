@@ -91,7 +91,7 @@ one of the features to have 0 impact. Statisticians view all observed data to be
 noise or measurement error. This allows a flexible model that allows for some misspecification.
 
 #### Fitting the model
-To fit a linear regression model given the data `X` and `observed_Y`, we the model under `sklearn`:
+To fit a linear regression model given the data `X` and `observed_Y`, we use a model under `sklearn`:
 
 ```python
 from sklearn.linear_model import LinearRegression
@@ -101,7 +101,9 @@ reg = LinearRegression().fit(X, observed_Y)
 
 Overall, `LinearRegression()` creates an object with many defaults, like whether to fit an
 intercept, that can be changed. We can then immediately call the method `fit()` to find the
-best parameters that minimizes the squared loss for `Y`, i.e. $$\hat{\beta} = \arg\min_{\beta} \|Y - X\beta\|_2$$.
+best parameters for `X` that minimizes the squared loss with `Y`, i.e. $$\hat{\beta} = \arg\min_{\beta} \|Y - X\beta\|_2$$.
+
+You can view this `.fit()` step similar to passing the intercept and slope into the function factory above.
 
 #### Validating
 
@@ -142,13 +144,13 @@ our original data into training vs testing data. Then the lowest error on the te
 should coincide with the true $$\beta$$ values much better.
 
 A few common metrics you should know:
-- mean squared error (MSE) = $$\frac{1}{n}\sum_i |Y_i - \hat{Y}_i|^2$$
-- mean percent error (MPE) = $$\frac{1}{n}\sum_i |Y_i - \hat{Y}_i| / |Y_i|$$
+- mean squared error (MSE) = $$\frac{1}{n}\sum_i \mid Y_i - \hat{Y}_i\mid^2$$
+- mean percent error (MPE) = $$\frac{1}{n}\sum_i \mid Y_i - \hat{Y}_i \mid / \mid Y_i\mid$$
   - This metric is useful when values are small like probability for a rare disease
-- mean absolute error (MAE) = $$\frac{1}{n}\sum_i |Y_i - \hat{Y}_i|$$
-- Precision (for 0-1 classification) = $$\|{i: Y_i = 1 \cap \hat{Y}_i = 1}\| / \|{i: \hat{Y}_i = 1}\|$$
+- mean absolute error (MAE) = $$\frac{1}{n}\sum_i \mid Y_i - \hat{Y}_i\mid $$
+- Precision (for 0-1 classification) = $$\mid {i: Y_i = 1 \cap \hat{Y}_i = 1}\\mid  / \mid {i: \hat{Y}_i = 1}\mid$$
   - This is useful when the number of incidences, i.e. $$Y_i=1$$, is infrequent relative to $$Y_i = 0$$.
-- Recall (for 0-1 classification) = $$\|{i: Y_i = 1 \cap \hat{Y}_i = 1}\| / \|{i: Y_i = 1}\|$$
+- Recall (for 0-1 classification) = $$\mid {i: Y_i = 1 \cap \hat{Y}_i = 1}\mid / \mid{i: Y_i = 1}\mid$$
   - This is useful when the number of incidences, i.e. $$Y_i=1$$, is infrequent relative to $$Y_i = 0$$.
 
 #### Splitting data
