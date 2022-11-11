@@ -148,7 +148,7 @@ A few common metrics you should know:
 - mean percent error (MPE) = $$\frac{1}{n}\sum_i \mid Y_i - \hat{Y}_i \mid / \mid Y_i\mid$$
   - This metric is useful when values are small like probability for a rare disease
 - mean absolute error (MAE) = $$\frac{1}{n}\sum_i \mid Y_i - \hat{Y}_i\mid $$
-- Precision (for 0-1 classification) = $$\mid {i: Y_i = 1 \cap \hat{Y}_i = 1}\\mid  / \mid {i: \hat{Y}_i = 1}\mid$$
+- Precision (for 0-1 classification) = $$\mid {i: Y_i = 1 \cap \hat{Y}_i = 1}\mid  / \mid {i: \hat{Y}_i = 1}\mid$$
   - This is useful when the number of incidences, i.e. $$Y_i=1$$, is infrequent relative to $$Y_i = 0$$.
 - Recall (for 0-1 classification) = $$\mid {i: Y_i = 1 \cap \hat{Y}_i = 1}\mid / \mid{i: Y_i = 1}\mid$$
   - This is useful when the number of incidences, i.e. $$Y_i=1$$, is infrequent relative to $$Y_i = 0$$.
