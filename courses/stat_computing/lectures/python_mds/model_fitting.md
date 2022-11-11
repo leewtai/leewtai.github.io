@@ -195,7 +195,7 @@ In our example, there wasn't a need to pre-process the data given all the values
 same range, no missing values existed, and the values were numeric. However, this is only the norm for
 pre-processed data in courses or data challenges.
 
-We'll demonstrate some common caveats in our [simulated dataset - `bad_input.csv`](data/bad_input.csv)
+We'll demonstrate some common caveats in our simulated dataset - `bad_input.csv`
 ```python
 import csv
 import pandas as pd
