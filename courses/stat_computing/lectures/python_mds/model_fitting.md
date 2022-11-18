@@ -170,7 +170,7 @@ for train_ind, test_ind in kf.split(X):
            len(train_ind), len(test_ind)))
     train_x = X[train_ind, :]
     train_y = observed_Y[train_ind]
-    test_y = X[test_ind, :]
+    test_x = X[test_ind, :]
     test_y = observed_Y[test_ind]
 ```
 
