@@ -97,10 +97,11 @@ Side comment: in the future, you'll be using different components of models for 
 In question, we will highlight the impact of adding variables to your model.
 
 Imagine the following distribution of variables:
-$$S_i \sim Bernoulli(B_i)$$
-$$C_i \sim Exponential(\frac{0.1}{B_i + A_i})$$
-$$B_i \sim Unif(0, 1)$$
-$$A_i \sim Bernoulli(0.2)$$
+
+- $S_i \sim Bernoulli(B_i)$
+- $C_i \sim Exponential(\frac{0.1}{B_i + A_i})$
+- $B_i \sim Unif(0, 1)$
+- $A_i \sim Bernoulli(0.2)$
 
 You can imagine this as a simulation for **S**ubscriptions are a function of someone's **B**ackground, the number of **C**licks is a function of someone's **B**ackground whether they have been exposed to an **A**dvertisement.
 
@@ -115,9 +116,9 @@ Most advertisement campaigns are run by the marketing teams, who are interested 
 
 - Please draw out the DAG for this setting. This can be an image or you can type a sequence of edges like "B -> S" to denote the graph.
 - From the data generation process above, does the advertisement encourage users to subscribe?
-- Please generate this dataset with `n=200`, each record $i$ should have one realized value for each of the variables.
+- Please generate this dataset with `n=1000`, each record $i$ should have one realized value for each of the variables.
 - Please perform a hypothesis test on those exposed to the advertisement vs not, whether the subscription rates are significantly different.
-- The advertisement was meant to target 20% of the users, is 200 enough data to determine if the percentage of users actually exposed to the advertisement is more than 1% off from 20%?
+- The advertisement was meant to target 20% of the users, is 200 enough data to determine if the percentage of users actually exposed to the advertisement is more than 1% off from 20%? (I recommend simulating this!)
 
 
 #### Question 2.1
@@ -127,10 +128,10 @@ Remember that you do not have access to the **B**ackground variable!
 - According to the "truth", is the likelihood of subscribing a function of the clicks?
 - Please fit a logistic regression `glm(YOUR_SUB ~ YOUR_CLICKS, family=binomial(link=logit))` of the subscription probability based on the clicks. Please comment on whether you're surprised by the outcome or not.
 - Please fit a logistic regression of hte subscription probability based on the clicks AND the advertisement.
-- Comparing the 2 models above, which show graphically or numerically which model aligns with the data better?
+- Comparing the 2 models in Q2.1, please show graphically or numerically which model aligns with the data better?
 
 #### Question 2.2
 
-- You fitted 3 models so far, one on ads, one on clicks, and one with both, which one should you use given we're trying to determine if advertising works.
+- You fitted 3 models so far, one on ads, one on clicks, and one with both, which one should you use given we're trying to determine if the advertising worked or not.
 
 {% include lib/mathjax.html %}
