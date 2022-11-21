@@ -70,7 +70,7 @@ Office hours:
   |2022-11-30|[Variable selection day 2](https://us.edstem.org/courses/182/lessons/1060/slides/5031), no video||[Homework 6](homeworks/applied/hw6_final_project.md)|
   |2022-12-05|[Wrong models in linear regression + instrumental variables](https://us.edstem.org/courses/182/lessons/1110/slides/5285), no video|||
   |2022-12-07|[Weighted Least squares](https://us.edstem.org/courses/182/lessons/1112/slides/5309), no video|||
-  |2022-12-12|What we don't know||[Homework 7]|
+  |2022-12-12|What we don't know||[Homework 7](homeworks/applied/hw7_extended_topics.md)|
   |TBD|[Final project](homeworks/applied/final_proj_reproduce.md)|||
 
 

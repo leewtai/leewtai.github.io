@@ -1,8 +1,8 @@
 # Homework 7: Multivariate Regression
 
-#### Q0: Logistic Regression
-There's a dataset on Kaggle to help people detect pulsars from Dr. Robert Lyon. Please read the following post then download its corresponding dataset `pulsar_stars.csv`:
-https://www.kaggle.com/pavanraj159/predicting-a-pulsar-star
+## Q0: Logistic Regression
+There's a [dataset on Kaggle to help people detect pulsars from Dr. Robert Lyon](https://www.kaggle.com/datasets/colearninglounge/predicting-pulsar-starintermediate?select=pulsar_data_train.csv). Please read the following post then download its corresponding dataset `pulsar_data_train.csv`:
+
 
 The labels are binary whether an object is a pulsar or not and the features are continuous values. 
 
@@ -12,7 +12,7 @@ Please read the following metrics that are common in classification then answer 
 For each record, its label, $$Y$$, and our prediction for its label, $$\hat{Y}$$ will place it in one of the categories below:
 
 
-|         |$$\hat{Y} = 1$$ | $$$\hat{Y} = 0$$|
+|         |$$\hat{Y} = 1$$ | $$\hat{Y} = 0$$|
 |---------|----------------|-----------------|
 |$$Y = 1$$| A | B |
 |$$Y = 0$$| C | D |
@@ -26,7 +26,7 @@ Using the definitions above, here are the list of metrics:
 Here are the list of questions:
 - As an astronomer, the amount of images is often overwhelming so we need to allocate manual hours carefully if we decide to study a particular region of the cosmos. In other words, if we decide to study a particular region, we would like a pulsar to exist, which metric above best captures this idea? Please add a maximum 2 sentence explanation. 
 - In our dataset, what accuracies would you get if your model is a simple rule of classifying everything as not a pulsar, i.e. $$\hat{Y}_i = 0$$ for every data point? Side comment: something should look oddly good for such a terrible classifier
-- What strategy can guarantee a `100%` Recall/Sensitivity? (2 sentences max)
+- If we created an algorithm that randomly labels according to the overall percentage of labels in the training data, what is the expected value for each of the metrics? You can calculate or simulate this.
 
 #### Q0.2 - Comparing models
 A common way to compare models is to calculate the trade-off between recall and precision over different thresholds.
@@ -51,7 +51,7 @@ Please compare the linear regression model against the logistic regression model
 
 Side comment: The models should be similar but are they identical in their prediction? This answer can be different depending on the number of features!
 
-#### Q1 - Wrong models are not always wrong
+## Q1 - Wrong models are not always wrong
 
 Let's create $$n=1000$$ samples from the following data generation process. 
 Let $$X\stackrel{i.i.d.}{\sim} Normal(-5, 1)$$, let $$Y\stackrel{i.i.d.}{\sim} Normal(5, 1)$$, and let $$Z = \alpha_x X + \alpha_y Y + \epsilon$$ where $$\epsilon \stackrel{i.i.d.} Normal(0, 1)$$. Let $$\alpha_x$$ and $$\alpha_y$$ both be 1.
@@ -91,5 +91,46 @@ Please use simulation to understand if we should use $$model_{xz}$$ or $$model_{
 - Please show one visualization that justifies your answer above.
 
 Side comment: in the future, you'll be using different components of models for different purposes, to understand which is better, simulate it!
+
+## Q2 - Marketing
+
+In question, we will highlight the impact of adding variables to your model.
+
+Imagine the following distribution of variables:
+$$S_i \sim Bernoulli(B_i)$$
+$$C_i \sim Exponential(\frac{0.1}{B_i + A_i})$$
+$$B_i \sim Unif(0, 1)$$
+$$A_i \sim Bernoulli(0.2)$$
+
+You can imagine this as a simulation for **S**ubscriptions are a function of someone's **B**ackground, the number of **C**licks is a function of someone's **B**ackground whether they have been exposed to an **A**dvertisement.
+
+In general, companies often run **randomized trials** to estimate the impact of marketing campaigns. So it's not unrealistic to imagine that people exposed to the advertisement are randomly chosen.
+
+In general, you will not observe/measure someone's background but only know of their online activity (e.g. clicks) and whether they are exposed to your advertisement. The goal for many businesses is for people to subscribe to their services.
+
+
+#### Question 2.0
+
+Most advertisement campaigns are run by the marketing teams, who are interested in **estimating the impact of the campaign**.
+
+- Please draw out the DAG for this setting. This can be an image or you can type a sequence of edges like "B -> S" to denote the graph.
+- From the data generation process above, does the advertisement encourage users to subscribe?
+- Please generate this dataset with `n=200`, each record $i$ should have one realized value for each of the variables.
+- Please perform a hypothesis test on those exposed to the advertisement vs not, whether the subscription rates are significantly different.
+- The advertisement was meant to target 20% of the users, is 200 enough data to determine if the percentage of users actually exposed to the advertisement is more than 1% off from 20%?
+
+
+#### Question 2.1
+
+Remember that you do not have access to the **B**ackground variable!
+
+- According to the "truth", is the likelihood of subscribing a function of the clicks?
+- Please fit a logistic regression `glm(YOUR_SUB ~ YOUR_CLICKS, family=binomial(link=logit))` of the subscription probability based on the clicks. Please comment on whether you're surprised by the outcome or not.
+- Please fit a logistic regression of hte subscription probability based on the clicks AND the advertisement.
+- Comparing the 2 models above, which show graphically or numerically which model aligns with the data better?
+
+#### Question 2.2
+
+- You fitted 3 models so far, one on ads, one on clicks, and one with both, which one should you use given we're trying to determine if advertising works.
 
 {% include lib/mathjax.html %}
