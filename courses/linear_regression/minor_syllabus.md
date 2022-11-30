@@ -67,9 +67,9 @@ Office hours:
   |2022-11-21|Midterm 2|||
   |2022-11-23|THANKSGIVING HOLIDAY - NO CLASS|||
   |2022-11-28|[Variable selection day 1](https://docs.google.com/presentation/d/1IEdF6Q_PxcvJdlSghRR-160qsHqFNf2xg-Pyzk86xd8/edit?usp=sharing), no video|||
-  |2022-11-30|[Variable selection day 2](https://us.edstem.org/courses/182/lessons/1060/slides/5031), no video||[Homework 6](homeworks/applied/hw6_final_project.md)|
-  |2022-12-05|[Wrong models in linear regression + instrumental variables](https://us.edstem.org/courses/182/lessons/1110/slides/5285), no video|||
-  |2022-12-07|[Weighted Least squares](https://us.edstem.org/courses/182/lessons/1112/slides/5309), no video|||
+  |2022-11-30|[Variable selection day 2](https://docs.google.com/presentation/d/1IEdF6Q_PxcvJdlSghRR-160qsHqFNf2xg-Pyzk86xd8/edit?usp=sharing), no video||[Homework 6](homeworks/applied/hw6_final_project.md)|
+  |2022-12-05|Paper discussion||Read [Why do people stay poor?](https://academic.oup.com/qje/article/137/2/785/6455333)|
+  |2022-12-07|[Wrong models in linear regression + instrumental variables + panel data](https://us.edstem.org/courses/182/lessons/1110/slides/5285), no video|||
   |2022-12-12|What we don't know||[Homework 7](homeworks/applied/hw7_extended_topics.md)|
   |TBD|[Final project](homeworks/applied/final_proj_reproduce.md)|||
 
