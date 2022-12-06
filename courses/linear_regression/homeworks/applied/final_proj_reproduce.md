@@ -1,5 +1,7 @@
 # Final Project - Applied Linear Regression 2022 Fall
 
+Due 12/16/2022.
+
 The goal of the final project is to demonstrate your learnings from Applied Linear Regression and
 connect those learnings to potential future projects that benefit your career. You may request to
 substitute your final project with your own proposal as long as it achieves similar objectives.

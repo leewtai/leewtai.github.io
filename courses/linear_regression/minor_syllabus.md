@@ -71,7 +71,7 @@ Office hours:
   |2022-12-05|Paper discussion||Read [Why do people stay poor?](https://academic.oup.com/qje/article/137/2/785/6455333)|
   |2022-12-07|[Wrong models in linear regression + instrumental variables + panel data](https://us.edstem.org/courses/182/lessons/1110/slides/5285), no video|||
   |2022-12-12|What we don't know||[Homework 7](homeworks/applied/hw7_extended_topics.md)|
-  |TBD|[Final project](homeworks/applied/final_proj_reproduce.md)|||
+  |2022-12-16|[Final project](homeworks/applied/final_proj_reproduce.md)|||
 
 
 
