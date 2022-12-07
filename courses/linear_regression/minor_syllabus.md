@@ -69,8 +69,8 @@ Office hours:
   |2022-11-28|[Variable selection day 1](https://docs.google.com/presentation/d/1IEdF6Q_PxcvJdlSghRR-160qsHqFNf2xg-Pyzk86xd8/edit?usp=sharing), no video|||
   |2022-11-30|[Variable selection day 2](https://docs.google.com/presentation/d/1IEdF6Q_PxcvJdlSghRR-160qsHqFNf2xg-Pyzk86xd8/edit?usp=sharing), no video||[Homework 6](homeworks/applied/hw6_final_project.md)|
   |2022-12-05|Paper discussion||Read [Why do people stay poor?](https://academic.oup.com/qje/article/137/2/785/6455333)|
-  |2022-12-07|[Wrong models in linear regression + instrumental variables + panel data](https://us.edstem.org/courses/182/lessons/1110/slides/5285), no video|||
-  |2022-12-12|What we don't know||[Homework 7](homeworks/applied/hw7_extended_topics.md)|
+  |2022-12-07|[Wrong models in linear regression + instrumental variables + panel data](https://docs.google.com/presentation/d/1pk5hOWi1vET_QOCvlcG5PZWIJ7uPVyDV1LrQSoXrmQA/edit#slide=id.g6b9cee71ff_0_4), no video|||
+  |2022-12-12|What we know and don't know||[Homework 7](homeworks/applied/hw7_extended_topics.md)|
   |2022-12-16|[Final project](homeworks/applied/final_proj_reproduce.md)|||
 
 
