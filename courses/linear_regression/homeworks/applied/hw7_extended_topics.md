@@ -54,7 +54,10 @@ Side comment: The models should be similar but are they identical in their predi
 ## Q1 - Wrong models are not always wrong
 
 Let's create $$n=1000$$ samples from the following data generation process. 
-Let $$X\stackrel{i.i.d.}{\sim} Normal(-5, 1)$$, let $$Y\stackrel{i.i.d.}{\sim} Normal(5, 1)$$, and let $$Z = \alpha_x X + \alpha_y Y + \epsilon$$ where $$\epsilon \stackrel{i.i.d.} Normal(0, 1)$$. Let $$\alpha_x$$ and $$\alpha_y$$ both be 1.
+- Let $$X\stackrel{i.i.d.}{\sim} Normal(-5, 1)$$
+- Let $$Y\stackrel{i.i.d.}{\sim} Normal(5, 1)$$
+- Let $$Z = \alpha_x X + \alpha_y Y + \epsilon$$ where $$\epsilon \stackrel{i.i.d.}{\sim} Normal(0, 1)$$.
+- Let $$\alpha_x$$ and $$\alpha_y$$ both be 1.
 
 To give some context, you can imagine that $$X$$ is the number of seeds, $$Y$$ is the amount of fertilizer, and $$Z$$ is the amount of yield.
 
@@ -68,7 +71,7 @@ Please train 3 models (please include intercepts for all of the following):
 - regressing $$Z$$ on $$Y$$ and $$X$$ (i.e. the correct model), let's call this $$model_{true}$$
 
 Please generate 1000 new data points $$(X, Y, Z)$$ triplets from the true data generation. 
-When doing prediction, please assume the new values of $$Z$$ and $$X$$ are given but $$Y$$ is not observable (these are only observable when you're calculating the error rate). To do prediction with $$model_{true}$$, please calculate $$(Z - \hat{\alpha}_x X - \hat{\alpha}_0) / \hat{\alpha}_y$$.
+When doing prediction, please assume the new values of $$Z$$ and $$X$$ are given but $$Y$$ is not observable (these are only observable when you're calculating the error rate). To do prediction with $$model_{true}$$, please calculate $$\hat{Y}_{true} = (Z - \hat{\alpha}_x X - \hat{\alpha}_0) / \hat{\alpha}_y$$.
 
 - Please report the average squared prediction error for these 3 models on these 1000 new data points?
 - Which model would you use for predicting $$Y$$?
@@ -98,10 +101,10 @@ In question, we will highlight the impact of adding variables to your model.
 
 Imagine the following distribution of variables:
 
-- $S_i \sim Bernoulli(B_i)$
-- $C_i \sim Exponential(\frac{0.1}{B_i + A_i})$
-- $B_i \sim Unif(0, 1)$
-- $A_i \sim Bernoulli(0.2)$
+- Let $$S_i \sim Bernoulli(B_i)$$
+- Let $$C_i \sim Exponential(\frac{0.1}{B_i + A_i})$$
+- Let $$B_i \sim Unif(0, 1)$$
+- Let $$A_i \sim Bernoulli(0.2)$$
 
 You can imagine this as a simulation for **S**ubscriptions are a function of someone's **B**ackground, the number of **C**licks is a function of someone's **B**ackground whether they have been exposed to an **A**dvertisement.
 
