@@ -1,5 +1,5 @@
 ---
-title: "issues with multi variables"
+title: "issues_with_multi_var"
 output: html_document
 date: "2022-10-24"
 ---
@@ -8,15 +8,103 @@ date: "2022-10-24"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Marginal relationships do not reveal everything
+## How to simulate data for multi-variate regression
 
 ```{r}
 n <- 100
-p <- 4
+p <- 3
+x <- matrix(runif(n * (p - 1)), nrow=n)
+X <- cbind(1, x) # adds first column
+head(X)
+# In R, vectors default to behave like
+# k by 1 matrices (where length of vector is k)
+betas <- runif(p, 1, 2) # keep away from 0 to create "non-zero effect"
 
-x <- rnorm(n * p)
-X <- cbind(1, x)
 errors <- rnorm(n)
-betas <- runif(p + 1, -2, 2)
-y <- X %*% beta + errors
+# %*% means "matrix multiply"
+y <- X %*% betas + errors
+
+y[1]
+X[1, 1] * betas[1] + X[1, 2] * betas[2] + X[1, 3] * betas[3] + errors[1]
+
+# the following are equivalent!
+mod <- lm(y ~ X - 1) # removes intercept fitting!
+mod2 <- lm(y ~ x)
+# the intercept is the coefficient corresponding to the feature of all 1's
+
+# scientist view
+# df <- read.csv("MYDATA.csv")
+df <- data.frame(cbind(y, x))
+names(df) <- c("y", "feature1", "feature2")
+# "." means all features EXCEPT the one before "~"
+mod3 <- lm(y ~ ., data=df)
 ```
+
+
+# Problems with regression when it's multivariate!
+
+- Marginal relationships can hide interesting ("non-zero" effects) features
+- Useless features can hurt your regression
+- collinear features can steal the effect from the desired feature
+- multiple hypothesis testing is an issue
+
+```{r}
+n <- 100
+p <- 5
+x <- matrix(runif(n * (p - 1)), nrow=n)
+X <- cbind(1, x)
+betas <- c(1, 0.1, 2, 1, 1) 
+errors <- rnorm(n)
+y <- X %*% betas + errors
+# In real data explorations!
+plot(x[, 2], y) # marginal relationship betrween x2 and y
+mod_sans_x2 <- lm(y ~ x[, -2])
+plot(x[, 2], mod_sans_x2$residuals) # conditional relationship between residuals of y against all but x2 and x2
+
+# signals can be buried by other features when looking at marginal relationships
+
+# correct thing to look at:
+# y after explaining away other known features
+
+# y is a combination of a lot of signals and noise!
+```
+
+
+
+```{r}
+n <- 100
+p <- 50
+
+x <- matrix(runif(n * (p - 1)), nrow=n)
+X <- cbind(1, x)
+# everything but the first feature is noise/useless
+betas <- rep(0, p)
+betas[2] <- 2 # betas[1] is the intercept, so avoiding that!
+sim_num <- 500
+output <- matrix(NA, ncol=2, nrow=sim_num)
+
+for(i in seq_len(sim_num)){
+    errors <- rnorm(n)
+    y <- X %*% betas + errors
+    # examining the feature that matters!
+    tab <- summary(lm(y ~ x))$coefficients
+    tab2 <- summary(lm(y ~ x[, 1:5]))$coefficients
+    output[i, 1] <- tab[2, 2]
+    output[i, 2] <- tab2[2, 2]
+}
+
+plot(density(case5s[, 1]))
+lines(density(case50s[, 1]), col="red")
+abline(v=mean(case5s[, 1]))
+abline(v=mean(case50s[, 1]), col="red")
+
+```
+
+# Do useless features hurt?
+
+- We've changed p from 5 to 50.
+- Only 1 feature had a non-zero effect on y
+- We examined the behavior of the beta associated with the non-zero effect feature
+- the uncertainty level for the beta_hat associated with the non-zero effect feature increased!
+- This matters because there could be an effect that we miss when doing hypothesis testing, i.e. low statistical power!
+

@@ -19,7 +19,6 @@ for(i   in   seq_len(sim_num)){
     summ_tab <- summary(mod)$coefficients
 
     # fraction of features we rejected beta is 0
-
     made_a_mistake[i] <- any(summ_tab[, 4] < (0.05 / p))
 }
 mean(made_a_mistake)
@@ -63,18 +62,27 @@ sdf[['brand']] <- as.factor(sub('([^ ]+) .*', '\\1', sdf$CarName))
 mod <- lm(price ~ fueltype + carbody, sdf)
 summary(mod)
 
+# good default for newdata
+newdata <- sdf
+# To detect the effect of fueltype = gas!
+newdata[['fueltype']][newdata$fueltype != 'gas'] <- 'gas'
+yhat_gas <- predict(mod, newdata = newdata)
+newdata[['fueltype']][newdata$fueltype != 'diesel'] <- 'diesel'
+yhat_diesel <- predict(mod, newdata = newdata)
+mean(yhat_diesel - yhat_gas) # average "treatment" effect!
+# by average the difference, i'm aggregating over all possible factors not manipulated
+sd(yhat_diesel - yhat_gas)
+
+
+
+
 # the interpretation of the intercept, is the predicted value
 # for the "default" class, i.e. the class that is left out
 # by all other membership variables.
 # I recommend, to always compute y_hat
-newdata <- sdf
-newdata$fueltype[newdata$fueltype == 'gas'] <- 'diesel'
-newdata2 <- sdf
-newdata2[['fueltype']][newdata$fueltype == 'diesel'] <- 'gas'
-class(newdata$fueltype)
+newdata <- sdf[1, ]
 
-y_hat1 <- predict(mod, newdata=newdata)
-y_hat2 <- predict(mod, newdata=newdata2)
+y_hat <- predict(mod, newdata=newdata)
 # always calculate y_hat using predict() to get the effect of overall
 # impact from different coefficients
 
@@ -91,15 +99,18 @@ summary(mod2)
 ## Adding all possible interactions and "main effects"
 mod <- lm(price ~ citympg * carbody, sdf)
 summary(mod)
-
+head(model.matrix(~ citympg * carbody, sdf))
 newdata <- sdf
-newdata$carbody[newdata$carbody != 'sedan'] <- 'sedan'
-y_hat1 <- predict(mod, newdata=newdata)
-newdata2 <- sdf
-newdata2$carbody[newdata$carbody != 'convertible'] <- 'convertible'
-y_hat2 <- predict(mod, newdata=newdata2)
+newdata[['carbody']][newdata$carbody != 'convertible'] <- 'convertible'
+yhat_convt <- predict(mod, newdata)
+newdata[['carbody']][newdata$carbody != 'sedan'] <- 'sedan'
+yhat_sedan <- predict(mod, newdata)
+head(yhat_sedan - yhat_convt)
+mean(yhat_sedan - yhat_convt)
 
-mean(y_hat2 - y_hat1)
+# "counterfactual"
+original_yhat <- predict(mod, sdf)
+
 ## Adding only interactions
 mod <- lm(price ~ citympg : carbody, sdf)
 summary(mod)
