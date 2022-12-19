@@ -85,4 +85,10 @@ From the paper [Global Evidence on Economic Preferences](https://doi.org/10.1093
   "Although the evidence is correlational, the previous literature has proposed various mechanisms, ranging from biological to purely social, through which gender, age, and cognitive ability might determine preferences."
 - In Table V, there are many examples of low $$R^2$$ values corresponding to highly significant values. Please explain why this is possible then provide one toy simulation example that demonstrates this phenomenon.
 
+#### Q8 - reverse causality vs strength of correlation?
+
+- If regression Y on X has a stronger slope, i.e. away from 0, than regressing X on Y. Does it mean that Y is a function of X?
+- If regression Y on X has a smaller p-value than regressing X on Y. Does it mean that Y is a function of X?
+
+
 {% include lib/mathjax.html %}
