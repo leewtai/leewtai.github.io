@@ -308,8 +308,7 @@ each concept.
   <td>$$$$</td>
 </tr>
 <tr>
-  <td><a href="python_mds/wrangle.html">24. Wrangling</a>
-Wrangling</td>
+  <td><a href="python_mds/wrangle.html">24. Wrangling</a></td>
   <td><pre>
   import pandas as pd
   health = pd.DataFrame(
