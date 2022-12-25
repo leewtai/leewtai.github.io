@@ -308,13 +308,25 @@ each concept.
   <td>$$$$</td>
 </tr>
 <tr>
-  <td>Wrangling</td>
+  <td><a href="python_mds/wrangle.html">24. Wrangling</a>
+Wrangling</td>
   <td><pre>
   import pandas as pd
   health = pd.DataFrame(
       [{'id': 1, 'height': 180, 'weight': 80},
        {'id': 2, 'height': 150}])
   pd.melt(health, id_vars='id', value_vars=['height', 'weight'])
+  </pre></td>
+  <td>Storing data requires flexibility and analyzing data requires structure, e.g. every resume should have their GPA. The translation between these two to facilitate different tasks is called data wrangling.</td>
+  <td>$$$$</td>
+</tr>
+<tr>
+  <td>Debugging and making a minimum reproducible example</td>
+  <td><pre>
+  import re
+  demo_str = 'rawr, rawrr, rawrrr!'
+  re.sub('r{2, 3}', '?', demo_str)
+  
   </pre></td>
   <td>Storing data requires flexibility and analyzing data requires structure, e.g. every resume should have their GPA. The translation between these two to facilitate different tasks is called data wrangling.</td>
   <td>$$$$</td>

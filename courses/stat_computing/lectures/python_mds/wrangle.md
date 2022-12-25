@@ -28,9 +28,10 @@ Here we optimizing for structure in the data that allows us to perform consisten
 Wrangling is often considered something you will learn on the job. The skills required
 are a familiarity with different data types, in particular, how to construct, subset, and aggregate values from them.
 
-#### Long to wide
+#### Long to wide data frames
 
-One of the most common tasks is the translation between long and wide datasets, also known as pivoting.
+One of the most common tasks is the translation between long and wide data frames, also known as pivoting.
+
 Long and wide datasets are both rectangular data formats but long format data often stores a single
 measurement per row where a wide format would store multiple measurements per row that are related
 to the same entity. For example
@@ -45,7 +46,10 @@ Example long data:
 |1|'age'|40|'year'|
 |2|'age'|30|'year'|
 
-Contrasting this to the equivalent form of wide data where each row is an individual
+The long data is similar to a "log" where each measurement is written down so it is not
+lost while waiting for other variables to be created.
+
+Converting this long data frame to the equivalent form of wide data frame where each row is an individual would look like:
 
 |patient_id|height_cm|weight_kg|age_year|
 |1|178|80|40|
@@ -86,18 +90,23 @@ print(wide_df)
 - Resetting the index just makes sure that the `patient_id` is stored as a regular column
   rather than an index.
 
-#### Wide to long
+#### Wide to long data frames
 Continuing our example from above, we could convert the wide data frame back to its long
 format. This can be necessary either because of package requirements (e.g. "tidy data")
 or it is easier to convert into a different wide format by first converting it back to
 a long format.
 
+Overall, wrangling into the long format (where each row represents one measurement),
+so you can imagine we are "melting" the column in the wide format into 2 columns, one
+with the column name and the other with the associated value.
+
 ```python
+id_vars = ['patient_id']
 non_id_cols = [col for col in wide_df.columns
-                if col != 'patient_id']
+                if col not in id_vars]
 long_df2 = pd.melt(
     wide_df,
-    id_vars='patient_id',
+    id_vars=id_vars,
     value_vars=non_id_cols)
 long_df2['variable'] = long_df2.var_w_units.apply(lambda x: x.split('_')[0])
 long_df2['units'] = long_df2.var_w_units.apply(lambda x: x.split('_')[1])
@@ -106,18 +115,169 @@ long_df2.drop(columns='var_w_units', inplace=True)
 print(long_df2)
 ```
 
+- The `id_vars` argument are variables that shall stay 'untouched' and retain their
+  function to define unique rows. These tend to be attributes that describe a data point.
+- The `value_vars` are the ones that will be melted into a column with the column name
+  and a column with the corresponding value.
+- We split the column name using string manipulations to obtain our original data frame.
+
+
 #### Hierarchical data to tabular data
-could be a simple statistic (e.g. how many users do we have?)
-to something more complicated (e.g. please predict the lifetime value of a new customer).
 
+The most common data format on the internet is a hierarchical dataset often in a JSON format. [`nytimes_metadata_example.json`](../../data/nytimes_metadata_example.json) gives an example
+of how one could store the metadata about 10 articles. The number of authors will likely be
+different so we cannot simply have a column for "author 1", "author2", etc since this will not apply to most records. Having all authors in a single column will defeat the purpose of storing data
+in a easy-to-analyze table format.
 
-There is no way we can have a comprehensive overview of data wrangling but here are some
-examples for you to understand why this is the case.
+This is just again the conflict between formats suited for storage is not the same as formats
+suitable for analysis. Moreover, this usually results in data loss when we wrangle hierarchical data into tabular formats (not always).
 
+For example, if I wanted to do an analysis on the authors, e.g. how many articles have they
+written? This question is easy if interpreted literally. However, likely people would dig into the
+articles and maybe request to only analyze non-OptEd articles (these are articles that are mostly
+just opinions from certain people and are not generally considered journalistic). To prevent
+possible work in the future, it's better to include metadata beyond just the author/article
+information. Specifically, we should create a data frame, from 
+[`nytimes_metadata_example.json`](../../data/nytimes_metadata_example.json), where each row
+was an author/article combination and the columns correspond to
+- The author's first name
+- The author's middle name
+- The author's last name
+- The article's main headline
+- The article's URL
+- The `Section` of the article
+- The published time of the article
+Please default all values to `""` if a value does not exist. 
 
-## How to think about data wrangling?
+The implication of each row being an author/article combination implies that if we have
+3 authors for the same article, we would create 3 rows for that article.
+
+Before we wrangle the data, the most important task is the understand the JSON data format
+and the specification for the resulting data frame. The final data frame should look something like
+
+|first_name|middle_name|last_name|headline|url|section|published_time|
+|Bob|M|Doe|breaking news: ....|https://www.nytimes.com/....|OptEd|2018-05-15T05:23:11|
+|Mary||Jane|Hospitals in NYC are...|https://www.nytimes.com/....|New York|2018-05-15T06:13:20|
+
+Now to understand the JSON data we will first do
+
+```python
+import json
+
+with open('nytimes_metadata_example.json', 'r', encoding='utf-8') as f:
+  meta = json.load(f)
+
+type(meta)  # should be "list"
+len(meta)   # should be 10
+
+example_i = 0
+article = meta[example_i]
+
+type(article) # dictionary
+len(article)  # 20
+
+print(article.keys())
+# dict_keys(['abstract', 'web_url', 'snippet', 'lead_paragraph',
+#            'print_section', 'print_page', 'source', 'multimedia',
+#            'headline', 'keywords', 'pub_date', 'document_type',
+#            'news_desk', 'section_name', 'subsection_name', 'byline',
+#            'type_of_material', '_id', 'word_count', 'uri'])
+```
+
+- It's important to know the data type of `meta` because that informs us how
+  to subset an example record from the overall data, e.g. if it was a dictionary
+  we wouldn't be able to subset with positional indices.
+- We repeat the exploration with our example record, again, because we only
+  know how to operate with a piece of data after we know its type. In our case,
+  this happens to be a dictionary which allows/requires us to identify its keys.
+- It is now important to examine each relevant key because we may assume they are
+  strings but they may not be. In general I would still check the `type()` and `len()`
+  in the following step but for brevity I'll skip this.
+
+```python
+print(article['web_url'])
+print(article['section_name'])
+print(article['pub_date'])
+print(article['headline'])
+print(article['byline'])
+```
+
+- The first step is to understand cases that seem odd, e.g. `headline` and `byline`. Often this is a good time to ask the data architect for their design choices. For example,
+  - the list (instead of a string) mapped to `article['byline']['person']` would 
+    help store multiple authors (the second article confirms this).
+  - The different `'headline'` values suggest that headlines 
+    are not the same across all publications (e.g. `print_headline` vs `main`).
+- The second step is to create a single record in our desired data frame
+
+```python
+easy_keys = ['web_url', 'section_name', 'pub_date']
+record = {k: article[k] for k in easy_keys}
+
+record.update({
+  'main_headline': article['headline']['main']
+})
+
+name_vars = ['firstname', 'middlename', 'lastname']
+person = article['byline']['person'][0]
+record.update({key: person[key] if person[key] else ''
+               for key in name_vars})
+```
+
+- After getting a single record, we can now scale the code for each author!
+
+```python
+record_per_author = []
+record.update({
+  'main_headline': article['headline']['main']
+})
+
+name_vars = ['firstname', 'middlename', 'lastname']
+# person = article['byline']['person'][0]
+for person in article['byline']['person']:
+    record_copy = record.copy()
+    record_copy.update({key: person[key] if person[key] else ''
+                        for key in name_vars})
+    record_per_author.append(record_copy)
+```
+
+Do you know why we used `dictionary.copy()` in the for-loop?
+Try removing it and see what happens :)
+Now let's scale it across articles.
+
+```python
+records = []
+for article in meta:
+    record_per_author = []
+    record.update({
+      'main_headline': article['headline']['main']
+    })
+    
+    name_vars = ['firstname', 'middlename', 'lastname']
+    # person = article['byline']['person'][0]
+    for person in article['byline']['person']:
+        record_copy = record.copy()
+        record_copy.update({key: person[key] if person[key] else ''
+                            for key in name_vars})
+        record_per_author.append(record_copy)
+    records.extend(record_per_author)    
+```
+
+Finally we create the data frame from the list of dictionaries.
+
+```python
+df = pd.DataFrame(records)
+```
+
+All these different steps expand on the previous one and should be built
+iteratively. One important key is to know that we've actually decided to
+create the data frame from a list of dictionaries when we started to construct
+a single record.
+
+## General recommendation
 The best way to approach data wrangling is to have a clear picture of your data in its
-current state and its eventual state. 
+current state and its eventual state. Draw out a plan, and execute them step by step.
 
+For long to wide and wide to long data frames, you should have example code ready
+for a function you feel comfortable with.
 
 {% include lib/mathjax.html %}
