@@ -299,12 +299,13 @@ each concept.
   <td>$$$$</td>
 </tr>
 <tr>
-  <td>Pseudo-code</td>
+  <td><a href="python_mds/pseudo_code.html">23. Pseudo-code</a></td>
   <td><pre>
-  # For every news article
-  #   check for their 
+  # For every job description
+  #   - check whether it sponsors H1B 
+  #   - scrape its description
   </pre></td>
-  <td>Before you write code, you want to </td>
+  <td>Before you write code, you want to plan out your code, writing pseudo-code is a good way to start this practice</td>
   <td>$$$$</td>
 </tr>
 <tr>
