@@ -13,10 +13,10 @@ one unique application in statistical computing.
 
 ## Example approximating the value of pi
 
-We know that the area in a circle is $\pi r^2$, so if we
+We know that the area in a circle is $$\pi r^2$$, so if we
 sample 2 Uniform[0,1] random variables, we know the fraction of
-points within the unit circle is $\frac{\pi}{4}$. So we can approximate
-$\pi$ with $4 * \frac{1}{B}1[x^2 + y^2 \leq 1]$
+points within the unit circle is $$\frac{\pi}{4}$$. So we can approximate
+$$\pi$$ with $$4 * \frac{1}{B}\sum_i 1[X_i^2 + Y_i^2 \leq 1]$$
 
 ```python
 import numpy as np
@@ -39,7 +39,7 @@ plt.show()
 
 - For each simulation, we produce `B` different scenarios (we increase this
   but also create replicates!)
-- Each scenario creates an $(x, y)$ pair from 2 independent Uniform[0, 1]
+- Each scenario creates an $$(X_i, Y_i)$$ pair from 2 independent Uniform[0, 1]
 - We calculate the distance from the origin for each pair.
 - We calculate the fraction within the unit circle.
 
