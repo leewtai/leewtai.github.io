@@ -2,19 +2,19 @@
 
 <img src='images/wayne.jpg' alt='portrait photo' width='150'>
 
-I'm Wayne, a statistician with a huge passion in statistics education and modern dance.
+I'm Wayne, a statistician with a passion in statistics education.
 I've worked as a professional data scientist in agriculture, social networks, and aerospace.
 
-My current goals are to make useful statistics a mandatory subject in high school education all over the world.
+My current goals are to make statistical literacy a mandatory subject in high school.
 There are many reasons why I think this will make the world a better place. 
 [Reach out](https://www.linkedin.com/in/waynetailee/) and we can have a chat :)
 
 
 #### Teaching and Side Projects
 I teach statistics courses with an applied focus. Applied work is not
-"easier" given that real world problems are never easier than textbook problems.
+"easier" given real world problems are never easier than textbook problems.
 You will constantly be making trade-offs and learning more about how the data relates
-to other things. Also, applied work requires you to know some statistical theory. 
+to other things. Also, applied work requires you to know some statistical theory.
 This will will inform you on how certain assumption violations may impact your goals
 and provide guidance on your data exploration.
 
@@ -42,3 +42,4 @@ I have several thoughts around statistics, data science, dance, and life if you 
 - [Model like a model](https://medium.com/swlh/modeling-like-a-model-957933b55785)
 - [What does "work on a real problem" mean for prospective data scientists?](https://towardsdatascience.com/what-does-work-on-a-real-problem-mean-for-prospective-data-scientists-5c91329c2487)
 - [Data scientists - soft skills are too soft, learn how to build trust](https://link.medium.com/YemASvH0Yib)
+- [An attempt to (re?)define wokeness with statistics](https://medium.com/@leewtai/an-attempt-to-re-define-wokeness-with-statistics-290808bcf35f)
