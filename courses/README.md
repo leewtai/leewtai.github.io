@@ -1,9 +1,7 @@
 ## Courses
 
-My professional background started in research, customer-facing data science models,
-data quality, then finally consulting. My teaching philosophy is highly influenced by
-this. I believe students need to learn to turn ideas into mathematically
-definitions, then into executable code with actual data.
+I believe students need to learn to turn ideas into mathematically
+definitions, then these definitions into executable code.
 
 Here's a list of my personal belief what people with different degrees should be able to do:
 - A student with a minor in statistics should be able to **recognize problems** and
@@ -18,6 +16,10 @@ Here's a list of my personal belief what people with different degrees should be
 
 
 #### Courses Taught
+- [Introductory statistics](intro_stat/README.md)
+  - Introductory statistics provides the basic statistical literacy for students to understand
+    why and how statistics is related to every problem related to data. In a way, you'll re-learn
+    the scientific method through the lens of statistics and probability.
 - [Statistical Computing](stat_computing/README.md)
   - Statistical computing focuses on data manipulation, simulation, and data visualization.
     The goal is to develop the necessary skills for you to verify the various statistical

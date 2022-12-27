@@ -5,10 +5,10 @@ We'll give you the basic literacy to navigate your later courses and hopefully
 see the world a bit differently afterwards.
 
 ### Prerequisites
-- Algebra that cover the summation sign
+- Algebra that uses the summation sign with subscripts
 
 ### Textbooks / References
-- [Stats: Data and Models by De Veaux, Velleman, and Bock](https://clio.columbia.edu/catalog/8610380)
+- Recommended: [Stats: Data and Models by De Veaux, Velleman, and Bock](https://clio.columbia.edu/catalog/8610380)
 
 
 ### Timeline
