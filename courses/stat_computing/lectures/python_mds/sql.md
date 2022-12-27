@@ -275,6 +275,8 @@ a functionality called "JOIN".
 Below we calculate, for each customer, their largest purchase and
 the number of orders.
 
+Notice that the default `JOIN` is an inner join.
+
 ```sql
 SELECT
   orders.customer_id,
@@ -295,3 +297,4 @@ FROM
 GROUP BY
   orders.customer_id
 ```
+
