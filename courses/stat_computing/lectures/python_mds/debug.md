@@ -112,28 +112,84 @@ is_positive([-1])
 ```
 
 ## Creating test cases
-To prevent issues like the one above is to create test cases, i.e. ex con
-According to our understanding We created 
+To prevent issues like the one above is to create test cases, i.e. examples with
+known solutions to test the correctiness of the code. This unfortunately just helps
+with identifying the correctness but does not fix your code.
+
+For example
+```python
+input_output = [
+  {'input': [1, 2, 0, -1],
+   'expected_output': ['positive', 'positive', 'non-positive', 'non-positive']},
+  {'input': 1,
+   'expected_output': ['positive']},
+  {'input': 1,
+   'expected_output': ['positive']},
+  {'input': -1,
+   'expected_output': ['non-positive']},
+  {'input': 0,
+   'expected_output': ['non-positive']},
+  {'input': np.nan,
+   'expected_output': [np.nan]}]
+
+for i, case in enumerate(input_output):
+  print(i)
+  output = is_positive(case['input'])
+  try:
+      check = (output == case['expected_output']).all()
+  except AttributeError as e:
+    print('could not perform check')
+    break
+  assert check
+```
+
+The code above should show that the case with NaN values caused the except statement to trigger. This should inform us that the code should handle the case when NaN values are introduced.
+
+There is a whole framework of coding called "test driven development" if you want
+to learn more from this perspective. Python also has many testing frameworks that makes testing a lot more automated. In general, it's impossible to cover all edge
+cases.
 
 ## Identifying the location of the error
+
 The location of an error is often printed in the error message but this sometimes
-is not the true cause of the  error.
+is not the true cause of the error.
+
+For beginners, I recommend using something similar to the test cases above and double check if objects are behaving as expected when running the code line by line.
+
+To do this, often you may need to unindent your code and fix your for-loop at a specific iteration, remove the function initiation and `return` statement, or let errors pause your code so you can verify the state of all variables at certain points. 
+
+When things get complicated, when you have functions calling your other functions, it may be worthwhile to learn about the `pdb` package.
 
 ## Create a minimum reproducible example
+The test cases often require you to create example data quickly. Here are a few things to keep in mind when creating examples:
 
+- "Happy-path", this case should cover the ideal situation, e.g. no missing values, multiple records and multiple features, unified spelling, etc. After defining the happy-path, it's often more obvious what the edge cases are.
+- Missing or illegal values. In our class we will assume the data is "correct" so illegal values will be rare. Their treatment is often the same as handling missing or NaN values where you need to explicitly code up the logic when that happens (e.g. if you're expecting non-negative values, you could replace any negative values with 0 or NaN depending on the question).
+- Singular values, since data is often plural, edge cases often exist when there's only a single record (data could be represented as a single number or a list with one number), single feature (e.g. `pandas.DataFrames` becoming `pandas.Series`). In general, the best practice is to convert things to have the same structure (e.g. a single number should be a list with one number) so the same downstream code can run.
 
-## Type of debugging
+But here are some quick templates
+```python
+demo_int = -2
+demo_float = 1.1
+demo_bool = True
+demo_list = [1, 'hello']
+demo_list = ['world', 'hello']
+demo_list = [1, 2]
+demo_str = 'hello'
+demo_map = {'a': 1, 'b': [1, 2]}
+demo_map = {'a': 1, 'b': 2}
+demo_set = {1, 2}
 
-### Bugs in code
+import numpy as np
+demo_array = np.arange(10).reshape(-1, 2)
+demo_nan = np.nan
+demo_list = [1, np.nan]
 
-### Bugs in data
-
-## Identifying the source of the error
-
-
-### 
-
-
+import pandas as pd
+demo_df = pd.DataFrame({
+  'a': [1, 2, 3],
+  'b': [-4, 2, 10]})
+```
 
 
 {% include lib/mathjax.html %}
