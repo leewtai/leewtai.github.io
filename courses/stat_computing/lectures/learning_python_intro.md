@@ -292,11 +292,19 @@ each concept.
   <td>$$Y \sim F$$</td>
 </tr>
 <tr>
-  <td>Bootstrapping</td>
+  <td><a href="python_mds/monte_carlo.html">22. Monte Carlo</a></td>
   <td><pre>
+  import numpy as np
+  maxs = []
+  for _ in range(1000):
+      y = np.random.normal(size=5)
+      maxs.append(np.max(y))
+  np.mean(maxs)
   </pre></td>
-  <td></td>
-  <td>$$$$</td>
+  <td>Certain probabilistic quantities are well defined but do not have a closed form solution or its exact value
+      is not computationally feasible to perform. This is when we can approximate it using simulations.
+  </td>
+  <td>$$E(Y) \approx \frac{1}{n}\sum_i Y_i$$</td>
 </tr>
 <tr>
   <td><a href="python_mds/pseudo_code.html">23. Pseudo-code</a></td>
@@ -321,21 +329,16 @@ each concept.
   <td>$$$$</td>
 </tr>
 <tr>
-  <td>Debugging and making a minimum reproducible example</td>
+  <td><a href="python_mds/debug.html">25. Debugging and making a minimum reproducible example</a></td>
   <td><pre>
-  import re
-  demo_str = 'rawr, rawrr, rawrrr!'
-  re.sub('r{2, 3}', '?', demo_str)
-  
+  # There's an error somewhere below!
+  conditions = [True, False]
+  if conditions:
+     print('We have a True')
+  if np.array(conditions):
+     print('We detected another True')
   </pre></td>
-  <td>Storing data requires flexibility and analyzing data requires structure, e.g. every resume should have their GPA. The translation between these two to facilitate different tasks is called data wrangling.</td>
-  <td>$$$$</td>
-</tr>
-<tr>
-  <td>Bootstrapping</td>
-  <td><pre>
-  </pre></td>
-  <td></td>
+  <td>Everyone makes mistakes when coding. What are best practices to resolve bugs?</td>
   <td>$$$$</td>
 </tr>
 </table>
