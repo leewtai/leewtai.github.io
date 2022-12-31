@@ -16,7 +16,7 @@ I reserve the right to change the ordering and the content for the course throug
 
 |Date|Topic|Reference|Due|
 |---|---|---|---|
-|2023-01-17|Hello and overview|||
+|2023-01-17|[Hello and overview](https://docs.google.com/presentation/d/1rdasP5pwv0J2VxUu4xzTYL8kDJGDqH1p_V1GN4lkS9Q/edit?usp=sharing)|||
 |2023-01-19|Describing data - statistics and graphs|||
 |2023-01-24|Describing data - statistics and graphs||Homework 1|
 |2023-01-26|Describing data - statistics and graphs|||
