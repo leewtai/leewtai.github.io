@@ -18,7 +18,7 @@ I reserve the right to change the ordering and the content for the course throug
 |---|---|---|---|
 |2023-01-17|[Hello and overview](https://docs.google.com/presentation/d/1rdasP5pwv0J2VxUu4xzTYL8kDJGDqH1p_V1GN4lkS9Q/edit?usp=sharing)|||
 |2023-01-19|[Observing data - graphs](https://docs.google.com/presentation/d/1nPnmRBzZbDFz3pWJ26d0tg4e4JOirJJEnWYzWsH989g/edit?usp=sharing)|||
-|2023-01-24|[Observing data - statistics]()||Homework 1 - Prerequisites|
+|2023-01-24|[Observing data - statistics](https://docs.google.com/presentation/d/1pPfvUaBmdxmnjB3Fi30Cc2GI8qmy9aEDIFH-8P0gCS8/edit?usp=sharing)||Homework 1 - Prerequisites|
 |2023-01-26|Describing data - statistics and graphs|||
 |2023-01-31|Where data comes from - survey and sampling|||
 |2023-02-02|Where data comes from - survey and sampling||Homework 2|
