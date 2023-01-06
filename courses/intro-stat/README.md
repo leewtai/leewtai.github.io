@@ -50,7 +50,7 @@ I reserve the right to change the ordering and the content for the course throug
 
 ### Logistics
 Lectures:
-  [TuTh 10:10am - 11:25am,  TBD](https://vergil.registrar.columbia.edu/#/courses/APPLIED%20DATA%20MINING)
+  [TuTh 10:10am - 11:25am,  402 Chandler](https://vergil.registrar.columbia.edu/#/courses/APPLIED%20DATA%20MINING)
 
 ### Where to ask questions
 
