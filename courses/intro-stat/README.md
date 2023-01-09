@@ -8,7 +8,8 @@ see the world a bit differently afterwards.
 - Algebra that uses the summation sign with subscripts
 
 ### Textbooks / References
-- Recommended: [Stats: Data and Models by De Veaux, Velleman, and Bock](https://clio.columbia.edu/catalog/8610380)
+- Our main text: [SticiGui](https://www.stat.berkeley.edu/~stark/SticiGui/Text/toc.htm) from UC Berkeley by Philip Stark
+- what other sections are using: [Stats: Data and Models by De Veaux, Velleman, and Bock](https://clio.columbia.edu/catalog/8610380)
 
 
 ### Timeline
