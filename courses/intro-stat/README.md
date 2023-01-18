@@ -17,12 +17,12 @@ I reserve the right to change the ordering and the content for the course throug
 
 |Date|Topic|Reference|Due|
 |---|---|---|---|
-|2023-01-17|[Hello and overview](https://docs.google.com/presentation/d/1rdasP5pwv0J2VxUu4xzTYL8kDJGDqH1p_V1GN4lkS9Q/edit?usp=sharing)|||
-|2023-01-19|[Observing data - graphs](https://docs.google.com/presentation/d/1nPnmRBzZbDFz3pWJ26d0tg4e4JOirJJEnWYzWsH989g/edit?usp=sharing)|||
-|2023-01-24|[Observing data - statistics](https://docs.google.com/presentation/d/1pPfvUaBmdxmnjB3Fi30Cc2GI8qmy9aEDIFH-8P0gCS8/edit?usp=sharing)||Homework 1 - Prerequisites|
-|2023-01-26|[Properties of statistics and extending to 2 variables](https://docs.google.com/presentation/d/1T6SGvoVmfZiqZbSoTgHrAsQfv7nO-qv7A0A26MccifQ/edit?usp=sharing)|||
-|2023-01-31|Properties of regression|||
-|2023-02-02|Properties of regression||Homework 2|
+|2023-01-17|[Hello and overview](https://docs.google.com/presentation/d/1rdasP5pwv0J2VxUu4xzTYL8kDJGDqH1p_V1GN4lkS9Q/edit?usp=sharing)|[Chapter 3 - Types of variables](https://www.stat.berkeley.edu/~stark/SticiGui/Text/histograms.htm#variables)||
+|2023-01-19|[Observing data - graphs](https://docs.google.com/presentation/d/1nPnmRBzZbDFz3pWJ26d0tg4e4JOirJJEnWYzWsH989g/edit?usp=sharing)|[Chapter 3](https://www.stat.berkeley.edu/~stark/SticiGui/Text/histograms.htm#frequency_tables)||
+|2023-01-24|[Observing data - statistics](https://docs.google.com/presentation/d/1pPfvUaBmdxmnjB3Fi30Cc2GI8qmy9aEDIFH-8P0gCS8/edit?usp=sharing)|[Chapter 4](https://www.stat.berkeley.edu/~stark/SticiGui/Text/location.htm)|Homework 1 - Prerequisites|
+|2023-01-26|[Properties of statistics and extending to 2 variables](https://docs.google.com/presentation/d/1T6SGvoVmfZiqZbSoTgHrAsQfv7nO-qv7A0A26MccifQ/edit?usp=sharing)|[Chapter 4](https://www.stat.berkeley.edu/~stark/SticiGui/Text/location.htm) and [Chapter 5](https://www.stat.berkeley.edu/~stark/SticiGui/Text/scatterplots.htm)||
+|2023-01-31|[Regression as a summary statistic](https://docs.google.com/presentation/d/13uSf9IkqxhtwOEpmR5XJ_gUBsfGKH6R0j-flyazHRyg/edit?usp=sharing)|[Chapter 8](https://www.stat.berkeley.edu/~stark/SticiGui/Text/computeR.htm#computing_corr), [Chapter 5](https://www.stat.berkeley.edu/~stark/SticiGui/Text/scatterplots.htm), [Chapter 7](https://www.stat.berkeley.edu/~stark/SticiGui/Text/correlation.htm), and [Chapter 9](https://www.stat.berkeley.edu/~stark/SticiGui/Text/regression.htm)||
+|2023-02-02|Fallacies and other lines||Homework 2|
 |2023-02-07|Where data comes from - survey and sampling|||
 |2023-02-09|Where data comes from - survey and sampling|||
 |2023-02-14|Sampling to probability||Homework 3|
@@ -56,11 +56,11 @@ Lectures:
 ### Where to ask questions
 
 - Instructor - Wayne Tai Lee (wtl2109)
-  - OH: TBD
+  - OH: 324 Uris on Tu 1-3pm and Wed 9:30-11:30am
 - TA - Ling Chen (lc3521)
   - OH: TBD
 - Help room
-  - Hours TBD
+  - [Hours TBD](https://stat.columbia.edu/help-room/)
 - Online Discussion on Ed:
   - Login through Canvas
   - The TA + grader will only check the online discussion for 30 minutes each weekday. Do not expect an immediate response so please start your work early.
