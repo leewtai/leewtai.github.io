@@ -58,7 +58,7 @@ Lectures:
 - Instructor - Wayne Tai Lee (wtl2109)
   - OH: 324 Uris on Tu 1-3pm and Wed 9:30-11:30am
 - TA - Ling Chen (lc3521)
-  - OH: TBD
+  - OH: School of Social Works 10th Floor Lounge, M 3-5pm
 - Help room
   - [Hours TBD](https://stat.columbia.edu/help-room/)
 - Online Discussion on Ed:
