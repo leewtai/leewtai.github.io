@@ -23,8 +23,8 @@ I reserve the right to change the ordering and the content for the course throug
 |2023-01-26|[Properties of statistics and extending to 2 variables](https://docs.google.com/presentation/d/1T6SGvoVmfZiqZbSoTgHrAsQfv7nO-qv7A0A26MccifQ/edit?usp=sharing)|[Chapter 4](https://www.stat.berkeley.edu/~stark/SticiGui/Text/location.htm) and [Chapter 5](https://www.stat.berkeley.edu/~stark/SticiGui/Text/scatterplots.htm)||
 |2023-01-31|[Regression as a summary statistic](https://docs.google.com/presentation/d/13uSf9IkqxhtwOEpmR5XJ_gUBsfGKH6R0j-flyazHRyg/edit?usp=sharing)|[Chapter 8](https://www.stat.berkeley.edu/~stark/SticiGui/Text/computeR.htm#computing_corr), [Chapter 5](https://www.stat.berkeley.edu/~stark/SticiGui/Text/scatterplots.htm), [Chapter 7](https://www.stat.berkeley.edu/~stark/SticiGui/Text/correlation.htm), and [Chapter 9](https://www.stat.berkeley.edu/~stark/SticiGui/Text/regression.htm)||
 |2023-02-02|[Fallacies and paradoxes](https://docs.google.com/presentation/d/1zMXIcX3ZYtFrIr8ut5IjtLNVy3LbXIMGOwoAXzVGOeY/edit?usp=sharing)||Homework 2|
-|2023-02-07|Where data comes from - survey and sampling|||
-|2023-02-09|Where data comes from - survey and sampling|||
+|2023-02-07|[Where data comes from - survey and sampling](https://docs.google.com/presentation/d/1nnXhKCdvu63IvxDFp1ymKNExCh9BpiD_8RlxyVpzWlI/edit?usp=sharing)|||
+|2023-02-09|[Where data comes from - experiments](https://docs.google.com/presentation/d/1nnXhKCdvu63IvxDFp1ymKNExCh9BpiD_8RlxyVpzWlI/edit?usp=sharing)|||
 |2023-02-14|Sampling to probability||Homework 3|
 |2023-02-16|Midterm 1|||
 |2023-02-21|Probability axioms and counting|||
