@@ -25,9 +25,9 @@ I reserve the right to change the ordering and the content for the course throug
 |2023-02-02|[Fallacies and paradoxes](https://docs.google.com/presentation/d/1zMXIcX3ZYtFrIr8ut5IjtLNVy3LbXIMGOwoAXzVGOeY/edit?usp=sharing)||Homework 2|
 |2023-02-07|[Where data comes from - survey and sampling](https://docs.google.com/presentation/d/1nnXhKCdvu63IvxDFp1ymKNExCh9BpiD_8RlxyVpzWlI/edit?usp=sharing)|||
 |2023-02-09|[Where data comes from - experiments](https://docs.google.com/presentation/d/1nnXhKCdvu63IvxDFp1ymKNExCh9BpiD_8RlxyVpzWlI/edit?usp=sharing)|||
-|2023-02-14|Sampling to probability||Homework 3|
+|2023-02-14|Midterm review||Homework 3|
 |2023-02-16|Midterm 1|||
-|2023-02-21|Probability axioms and counting|||
+|2023-02-21|Sampling to probability|||
 |2023-02-23|Probability - well known distributions|||
 |2023-02-28|Probability - statistics and parameters||Homework 4|
 |2023-03-02|Probability buffer|||
@@ -60,7 +60,7 @@ Lectures:
 - TA - Ling Chen (lc3521)
   - OH: School of Social Works 10th Floor Lounge, M 3-5pm
 - Help room
-  - [Hours TBD](https://stat.columbia.edu/help-room/)
+  - [Hours and Location](https://stat.columbia.edu/help-room/)
 - Online Discussion on Ed:
   - Login through Canvas
   - The TA + grader will only check the online discussion for 30 minutes each weekday. Do not expect an immediate response so please start your work early.
