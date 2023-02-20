@@ -27,17 +27,17 @@ I reserve the right to change the ordering and the content for the course throug
 |2023-02-09|[Where data comes from - survey and sampling](https://docs.google.com/presentation/d/1nnXhKCdvu63IvxDFp1ymKNExCh9BpiD_8RlxyVpzWlI/edit?usp=sharing)|||
 |2023-02-14|Midterm review||Homework 3|
 |2023-02-16|Midterm 1|||
-|2023-02-21|[Where data comes from - experiments](https://docs.google.com/presentation/d/1nnXhKCdvu63IvxDFp1ymKNExCh9BpiD_8RlxyVpzWlI/edit?usp=sharing)|||
-|2023-02-23|Sampling to probability - counting|||
-|2023-02-28|Probability - well known distributions||Homework 4|
+|2023-02-21|Midterm debrief|||
+|2023-02-23|[Where data comes from - experiments](https://docs.google.com/presentation/d/1nnXhKCdvu63IvxDFp1ymKNExCh9BpiD_8RlxyVpzWlI/edit?usp=sharing)|||
+|2023-02-28|[Sampling to probability - counting](https://docs.google.com/presentation/d/1JB3OD9vkILuOyftE42Su6QSV6nqDo07IRyT5FSWVkUo/edit?usp=sharing)|[Chapter 12](https://www.stat.berkeley.edu/~stark/SticiGui/Text/counting.htm#fundamental_rule)||
 |2023-03-02|Probability - statistics and parameters|||
-|2023-03-07|Probability buffer|||
-|2023-03-09|Linking probability and statistics||Homework 5|
+|2023-03-07|Probability - well known distributions||Homework 4|
+|2023-03-09|Probability buffer|||
 |2023-03-14|Spring Recess|||
 |2023-03-16|Spring Recess|||
-|2023-03-21|Inference for one parameter - Central limit theorem||Homework 6|
+|2023-03-21|Linking probability and statistics    Inference for one parameter - Central limit theorem||Homework 5|
 |2023-03-23|Hypothesis testing|||
-|2023-03-28|Statistical power|||
+|2023-03-28|Statistical power||Homework 6|
 |2023-03-30|Midterm 2|||
 |2023-04-04|Confidence interval|||
 |2023-04-06|Inference with 2 parameters|||
