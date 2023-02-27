@@ -30,22 +30,22 @@ I reserve the right to change the ordering and the content for the course throug
 |2023-02-21|Midterm debrief|||
 |2023-02-23|[Where data comes from - experiments](https://docs.google.com/presentation/d/1nnXhKCdvu63IvxDFp1ymKNExCh9BpiD_8RlxyVpzWlI/edit?usp=sharing)|||
 |2023-02-28|[Sampling to probability - counting](https://docs.google.com/presentation/d/1JB3OD9vkILuOyftE42Su6QSV6nqDo07IRyT5FSWVkUo/edit?usp=sharing)|[Chapter 12](https://www.stat.berkeley.edu/~stark/SticiGui/Text/counting.htm#fundamental_rule)||
-|2023-03-02|Probability - statistics and parameters|||
+|2023-03-02|[Probability - fundamentals](https://docs.google.com/presentation/d/1rjFw1Toxu0r-QiFcrWVJSKv8Xos1S1TVK5pjBWg__y0/edit?usp=sharing)|[Venn diagrams and sets - Chapter 14](https://www.stat.berkeley.edu/~stark/SticiGui/Text/sets.htm), [Axioms - Chapter 17](https://www.stat.berkeley.edu/~stark/SticiGui/Text/probabilityAxioms.htm)||
 |2023-03-07|Probability - well known distributions||Homework 4|
 |2023-03-09|Probability buffer|||
 |2023-03-14|Spring Recess|||
 |2023-03-16|Spring Recess|||
-|2023-03-21|Linking probability and statistics    Inference for one parameter - Central limit theorem||Homework 5|
-|2023-03-23|Hypothesis testing|||
-|2023-03-28|Statistical power||Homework 6|
+|2023-03-21|Linking probability and statistics    ||Homework 5|
+|2023-03-23|Inference for one parameter - Central limit theorem|||
+|2023-03-28|||Homework 6|
 |2023-03-30|Midterm 2|||
-|2023-04-04|Confidence interval|||
-|2023-04-06|Inference with 2 parameters|||
-|2023-04-11|Inference with 2 parameters||Homework 7|
-|2023-04-13|Inference buffer|||
-|2023-04-18|Applying statistics|||
-|2023-04-20|Applying statistics||Homework 8|
-|2023-04-25|Applying statistics|||
+|2023-04-04|Midterm 2 debrief |||
+|2023-04-06|Hypothesis testing|||
+|2023-04-11|Statistical power||Homework 7|
+|2023-04-13|Confidence interval|||
+|2023-04-18|Inference with 2 parameters|||
+|2023-04-20|Inference with 2 parameters||Homework 8|
+|2023-04-25|Inference buffer|||
 |2023-04-27|Applying statistics|||
 |TBD|Measure understanding|Final Exam|You!|
 
