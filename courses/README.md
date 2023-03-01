@@ -16,7 +16,7 @@ Here's a list of my personal belief what people with different degrees should be
 
 
 #### Courses Taught
-- [Introductory statistics](intro_stat/README.md)
+- [Introductory statistics](intro-stat/README.md)
   - Introductory statistics provides the basic statistical literacy for students to understand
     why and how statistics is related to every problem related to data. In a way, you'll re-learn
     the scientific method through the lens of statistics and probability.
@@ -36,7 +36,7 @@ Here's a list of my personal belief what people with different degrees should be
   - Data mining aims to find insightful patterns within large amounts of data or from joining
     multiple data sources. This class will give cover some basic machine learning then dive
     into examples in data mining.
-- [Pre-Research Seminar](../pre_research/README.md)
+- [Pre-Research Seminar](pre_research/README.md)
   - This seminar is meant to give students who are interested in statistical research some basic
     experience and skills before pursuing research with research faculty (possibly non-Statistics
     faculty). The goal is for you to identify a professor and initiate research towards the end
