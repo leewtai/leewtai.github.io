@@ -22,30 +22,30 @@ I reserve the right to change the ordering and the content for the course throug
 |2023-01-24|[Observing data - statistics](https://docs.google.com/presentation/d/1pPfvUaBmdxmnjB3Fi30Cc2GI8qmy9aEDIFH-8P0gCS8/edit?usp=sharing)|[Chapter 4](https://www.stat.berkeley.edu/~stark/SticiGui/Text/location.htm)|Homework 1 - Prerequisites|
 |2023-01-26|[Properties of statistics and extending to 2 variables](https://docs.google.com/presentation/d/1T6SGvoVmfZiqZbSoTgHrAsQfv7nO-qv7A0A26MccifQ/edit?usp=sharing)|[Chapter 4](https://www.stat.berkeley.edu/~stark/SticiGui/Text/location.htm) and [Chapter 5](https://www.stat.berkeley.edu/~stark/SticiGui/Text/scatterplots.htm)||
 |2023-01-31|[Regression as a summary statistic](https://docs.google.com/presentation/d/13uSf9IkqxhtwOEpmR5XJ_gUBsfGKH6R0j-flyazHRyg/edit?usp=sharing)|[Chapter 8](https://www.stat.berkeley.edu/~stark/SticiGui/Text/computeR.htm#computing_corr), [Chapter 5](https://www.stat.berkeley.edu/~stark/SticiGui/Text/scatterplots.htm), [Chapter 7](https://www.stat.berkeley.edu/~stark/SticiGui/Text/correlation.htm), and [Chapter 9](https://www.stat.berkeley.edu/~stark/SticiGui/Text/regression.htm)||
-|2023-02-02|[Fallacies and paradoxes](https://docs.google.com/presentation/d/1zMXIcX3ZYtFrIr8ut5IjtLNVy3LbXIMGOwoAXzVGOeY/edit?usp=sharing)||Homework 2|
-|2023-02-07|[Where data comes from - survey and sampling](https://docs.google.com/presentation/d/1nnXhKCdvu63IvxDFp1ymKNExCh9BpiD_8RlxyVpzWlI/edit?usp=sharing)|||
-|2023-02-09|[Where data comes from - experiments](https://docs.google.com/presentation/d/1nnXhKCdvu63IvxDFp1ymKNExCh9BpiD_8RlxyVpzWlI/edit?usp=sharing)|||
+|2023-02-02|[Regression as a summary statistic](https://docs.google.com/presentation/d/13uSf9IkqxhtwOEpmR5XJ_gUBsfGKH6R0j-flyazHRyg/edit?usp=sharing)|[Chapter 8](https://www.stat.berkeley.edu/~stark/SticiGui/Text/computeR.htm#computing_corr), [Chapter 5](https://www.stat.berkeley.edu/~stark/SticiGui/Text/scatterplots.htm), [Chapter 7](https://www.stat.berkeley.edu/~stark/SticiGui/Text/correlation.htm), and [Chapter 9](https://www.stat.berkeley.edu/~stark/SticiGui/Text/regression.htm)|Homework 2|
+|2023-02-07|[Fallacies and paradoxes](https://docs.google.com/presentation/d/1zMXIcX3ZYtFrIr8ut5IjtLNVy3LbXIMGOwoAXzVGOeY/edit?usp=sharing)|[Regression Effect](https://www.stat.berkeley.edu/~stark/SticiGui/Text/regressionErrors.htm#regression_effect), [Ecological correlation](https://www.stat.berkeley.edu/~stark/SticiGui/Text/computeR.htm#ecological_correlation), [Confounding](https://www.stat.berkeley.edu/~stark/SticiGui/Text/experiments.htm#confounding)||
+|2023-02-09|[Where data comes from - survey and sampling](https://docs.google.com/presentation/d/1nnXhKCdvu63IvxDFp1ymKNExCh9BpiD_8RlxyVpzWlI/edit?usp=sharing)|||
 |2023-02-14|Midterm review||Homework 3|
 |2023-02-16|Midterm 1|||
-|2023-02-21|Sampling to probability|||
-|2023-02-23|Probability - well known distributions|||
-|2023-02-28|Probability - statistics and parameters||Homework 4|
-|2023-03-02|Probability buffer|||
-|2023-03-07|Linking probability and statistics|||
-|2023-03-09|Inference for one parameter - Central limit theorem||Homework 5|
+|2023-02-21|Midterm debrief|||
+|2023-02-23|[Where data comes from - experiments](https://docs.google.com/presentation/d/1nnXhKCdvu63IvxDFp1ymKNExCh9BpiD_8RlxyVpzWlI/edit?usp=sharing)|||
+|2023-02-28|[Sampling to probability - counting](https://docs.google.com/presentation/d/1JB3OD9vkILuOyftE42Su6QSV6nqDo07IRyT5FSWVkUo/edit?usp=sharing)|[Chapter 12](https://www.stat.berkeley.edu/~stark/SticiGui/Text/counting.htm#fundamental_rule)||
+|2023-03-02|[Probability - fundamentals](https://docs.google.com/presentation/d/1rjFw1Toxu0r-QiFcrWVJSKv8Xos1S1TVK5pjBWg__y0/edit?usp=sharing)|[Venn diagrams and sets - Chapter 14](https://www.stat.berkeley.edu/~stark/SticiGui/Text/sets.htm), [Axioms - Chapter 17](https://www.stat.berkeley.edu/~stark/SticiGui/Text/probabilityAxioms.htm)||
+|2023-03-07|Probability - well known distributions||Homework 4|
+|2023-03-09|Probability buffer|||
 |2023-03-14|Spring Recess|||
 |2023-03-16|Spring Recess|||
-|2023-03-21|Hypothesis testing||Homework 6|
-|2023-03-23|Statistical power|||
-|2023-03-28|Confidence interval|||
+|2023-03-21|Linking probability and statistics    ||Homework 5|
+|2023-03-23|Inference for one parameter - Central limit theorem|||
+|2023-03-28|||Homework 6|
 |2023-03-30|Midterm 2|||
-|2023-04-04|Inference with 2 parameters|||
-|2023-04-06|Inference with 2 parameters|||
-|2023-04-11|Inference buffer||Homework 7|
-|2023-04-13|Applying statistics|||
-|2023-04-18|Applying statistics|||
-|2023-04-20|Applying statistics||Homework 8|
-|2023-04-25|Applying statistics|||
+|2023-04-04|Midterm 2 debrief |||
+|2023-04-06|Hypothesis testing|||
+|2023-04-11|Statistical power||Homework 7|
+|2023-04-13|Confidence interval|||
+|2023-04-18|Inference with 2 parameters|||
+|2023-04-20|Inference with 2 parameters||Homework 8|
+|2023-04-25|Inference buffer|||
 |2023-04-27|Applying statistics|||
 |TBD|Measure understanding|Final Exam|You!|
 
