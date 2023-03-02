@@ -32,12 +32,12 @@ I reserve the right to change the ordering and the content for the course throug
 |2023-02-28|[Sampling to probability - counting](https://docs.google.com/presentation/d/1JB3OD9vkILuOyftE42Su6QSV6nqDo07IRyT5FSWVkUo/edit?usp=sharing)|[Chapter 12](https://www.stat.berkeley.edu/~stark/SticiGui/Text/counting.htm#fundamental_rule)||
 |2023-03-02|[Probability - fundamentals](https://docs.google.com/presentation/d/1rjFw1Toxu0r-QiFcrWVJSKv8Xos1S1TVK5pjBWg__y0/edit?usp=sharing)|[Venn diagrams and sets - Chapter 14](https://www.stat.berkeley.edu/~stark/SticiGui/Text/sets.htm), [Axioms - Chapter 17](https://www.stat.berkeley.edu/~stark/SticiGui/Text/probabilityAxioms.htm)||
 |2023-03-07|[Probability - the binomial and modeling data as random variables](https://docs.google.com/presentation/d/1aCa5aKa1f8COariMBK6_lNeQ3LhC_97wcbn6_6ceSXE/edit?usp=sharing)|[Chapter 19](https://www.stat.berkeley.edu/~stark/SticiGui/Text/montyHallTest.htm) and a little on [Chapter 21](https://www.stat.berkeley.edu/~stark/SticiGui/Text/expectation.htm) and [Chapter 22](https://www.stat.berkeley.edu/~stark/SticiGui/Text/standardError.htm)|Homework 4|
-|2023-03-09|Probability buffer|||
+|2023-03-09|[Probability - expectations and standard error]()||[Chapter 21](https://www.stat.berkeley.edu/~stark/SticiGui/Text/expectation.htm) and [Chapter 22](https://www.stat.berkeley.edu/~stark/SticiGui/Text/standardError.htm)|
 |2023-03-14|Spring Recess|||
 |2023-03-16|Spring Recess|||
-|2023-03-21|Linking probability and statistics    ||Homework 5|
+|2023-03-21|Linking probability and statistics||Homework 5|
 |2023-03-23|Inference for one parameter - Central limit theorem|||
-|2023-03-28|||Homework 6|
+|2023-03-28|Midterm Review||Homework 6|
 |2023-03-30|Midterm 2|||
 |2023-04-04|Midterm 2 debrief |||
 |2023-04-06|Hypothesis testing|||
