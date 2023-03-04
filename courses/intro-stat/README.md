@@ -35,18 +35,18 @@ I reserve the right to change the ordering and the content for the course throug
 |2023-03-09|[Probability - expectations and standard error](https://docs.google.com/presentation/d/1KengCQrVs8BnVBuExoDpGjAffAGL39BEyq8T0Y5-0dU/edit?usp=sharing)|[Chapter 21](https://www.stat.berkeley.edu/~stark/SticiGui/Text/expectation.htm) and [Chapter 22](https://www.stat.berkeley.edu/~stark/SticiGui/Text/standardError.htm)||
 |2023-03-14|Spring Recess|||
 |2023-03-16|Spring Recess|||
-|2023-03-21|Central Limit theorem||Homework 5|
-|2023-03-23|Inference for one parameter|||
-|2023-03-28|Midterm Review||Homework 6|
+|2023-03-21|[Central Limit theorem](https://docs.google.com/presentation/d/1CnDf1QFjhhya9gC_zW-10pCPEJCajcu71c1S3rth7uA/edit?usp=sharing)|[Chapter 23](https://www.stat.berkeley.edu/~stark/SticiGui/Text/clt.htm)||
+|2023-03-23|Inference for one parameter||Homework 5|
+|2023-03-28|Midterm Review|||
 |2023-03-30|Midterm 2|||
 |2023-04-04|Midterm 2 debrief |||
 |2023-04-06|Hypothesis testing|||
-|2023-04-11|Confidence intervals||Homework 7|
+|2023-04-11|Confidence intervals|||
 |2023-04-13|Properties of hypothesis tests and confidence intervals|||
-|2023-04-18|Permutation tests and other tests|||
-|2023-04-20|Regression and random variables||Homework 8|
+|2023-04-18|Permutation tests and other tests||Homework 6|
+|2023-04-20|Regression and random variables|||
 |2023-04-25|Regression and hypothesis testing|||
-|2023-04-27|What we know and don't know|||
+|2023-04-27|What we know and don't know||Homework 7|
 |TBD|Measure understanding|Final Exam|You!|
 
 ### Logistics
