@@ -66,7 +66,7 @@ Lectures:
   - The TA + grader will only check the online discussion for 30 minutes each weekday. Do not expect an immediate response so please start your work early.
 
 ### Grading
-If your final grade is in [93-100], you will earn at least an A, [90-93) will earn at least an A-, [87-90) will earn at least a B+, etc. A grading curves may occur depending on the class performance but I will not curve downwards. I may not give out A+'s in this class.
+If your final grade is in [93-100], you will earn at least an A, [90-93) will earn at least an A-, [87-90) will earn at least a B+, etc. A grading curves may occur depending on the class performance but I will not curve downwards. I may not give out A+'s in this class. If you can pass the final exam, you cannot fail the class (passing is not determined by a percentage but by a close reading from the instructor).
 
 #### - Homeworks (30%)
   - Late homeworks will receive 0 credit.
