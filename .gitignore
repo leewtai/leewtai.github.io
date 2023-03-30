@@ -26,3 +26,14 @@
 *.sav
 *.sas7bdat
 *.Rout
+.ruby-version
+_site/*
+*.sh
+*.sh.status
+*.sqlite
+*.xml
+*.pickle*
+*.nc
+*.do
+*.tsv
+*post_class*
