@@ -41,6 +41,8 @@ Here's a list of my personal belief what people with different degrees should be
     experience and skills before pursuing research with research faculty (possibly non-Statistics
     faculty). The goal is for you to identify a professor and initiate research towards the end
     of the semester.
+- [Consulting](consult/README.md)
+  - This course was a summer bootcamp to quickly introduce some best practices when it comes to statistical/data consulting.
 
 #### Ideas for future courses:
 - Spatial statistics
