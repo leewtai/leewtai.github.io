@@ -41,7 +41,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2023-03-30|Midterm 2|||
 |2023-04-04|Midterm 2 debrief |||
 |2023-04-06|[Hypothesis testing](https://docs.google.com/presentation/d/1WkkmMa213_-ViP42g0kNUWs3DlFSuxW6wZ-caAHZW-Y/edit?usp=sharing)|[Chapter 27](https://www.stat.berkeley.edu/~stark/SticiGui/Text/testing.htm)||
-|2023-04-11|Confidence intervals|||
+|2023-04-11|Confidence intervals|[Chapter 26](https://www.stat.berkeley.edu/~stark/SticiGui/Text/confidenceIntervals.htm)||
 |2023-04-13|Permutation tests and other tests|||
 |2023-04-18|More on other tests||Homework 6|
 |2023-04-20|Papers - Psychology/Econ|||
