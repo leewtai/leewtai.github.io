@@ -1,3 +1,5 @@
+setwd("~/repos/leewtai.github.io/courses/intro-stat/")
+
 x <- rep(c(153, 161, 170, 197, 230, 255, 280), c(10, 5, 10, 25, 25, 10, 15))
 hist(x, breaks = c(0, 154.4, 161.9, 170.7, 197.3, 230.1, 255.6, 300),
      xlab="Weight in lbs")
@@ -49,3 +51,333 @@ x <- rnorm(100)
 y <- x + rnorm(100, sd=0.7)
 plot(x, y, main=paste("Corr is", round(cor(x, y), 2)))
 points(x, )
+
+
+
+#### Demonstrating different sampling methods!
+k <- 10
+N <- k^2
+x <- 0:9
+y <- 0:9
+xy <- expand.grid(x, y)
+set.seed(18)
+cols <- sample(rep(c("white", "black"), times=c(N * 0.9, N * 0.1)))
+png("srs.png", 300, 350)
+plot(1, 1, type="n", xlim=c(0, 10), ylim=c(0, 10), xaxt="n", yaxt="n", xlab="", ylab="")
+rect(xy[, 1], xy[, 2], xy[, 1]+1, xy[, 2] + 1, col=cols)
+dev.off()
+
+png("srs_challenge.png", 300, 350)
+plot(1, 1, type="n", xlim=c(0, 10), ylim=c(0, 10), xaxt="n", yaxt="n", xlab="", ylab="")
+rect(xy[, 1], xy[, 2], xy[, 1]+1, xy[, 2] + 1, col=cols)
+subxy <- cbind(c(0, 0, 5, 5, 0), c(4, 10, 10, 4, 4))
+for(i in 1:4){
+    segments(subxy[i, 1], subxy[i, 2], subxy[i + 1, 1], subxy[i + 1, 2], col="red",
+             lwd=3)
+}
+dev.off()
+
+png("strat_prep.png", 300, 350)
+plot(1, 1, type="n", xlim=c(0, 10), ylim=c(0, 10), xaxt="n", yaxt="n", xlab="", ylab="")
+rect(xy[, 1], xy[, 2], xy[, 1]+1, xy[, 2] + 1)
+subxy <- cbind(c(0, 0, 5, 5, 0), c(4, 10, 10, 4, 4))
+for(i in 1:4){
+  segments(subxy[i, 1], subxy[i, 2], subxy[i + 1, 1], subxy[i + 1, 2], col="red",
+           lwd=3)
+}
+dev.off()
+
+set.seed(10)
+png("strat_prep1.png", 300, 350)
+sub1 <- xy[, 1] <= 4 & xy[, 2] >= 4
+cols <- rep("white", 100)
+cols[sample(which(sub1), 3)] <- "black"
+plot(1, 1, type="n", xlim=c(0, 10), ylim=c(0, 10), xaxt="n", yaxt="n", xlab="", ylab="")
+rect(xy[, 1], xy[, 2], xy[, 1]+1, xy[, 2] + 1, col=cols)
+subxy <- cbind(c(0, 0, 5, 5, 0), c(4, 10, 10, 4, 4))
+for(i in 1:4){
+  segments(subxy[i, 1], subxy[i, 2], subxy[i + 1, 1], subxy[i + 1, 2], col="red",
+           lwd=3)
+}
+dev.off()
+
+png("strat_prep2.png", 300, 350)
+sub1 <- xy[, 1] <= 4 & xy[, 2] >= 4
+cols[sample(which(!sub1), 7)] <- "black"
+plot(1, 1, type="n", xlim=c(0, 10), ylim=c(0, 10), xaxt="n", yaxt="n", xlab="", ylab="")
+rect(xy[, 1], xy[, 2], xy[, 1]+1, xy[, 2] + 1, col=cols)
+subxy <- cbind(c(0, 0, 5, 5, 0), c(4, 10, 10, 4, 4))
+for(i in 1:4){
+  segments(subxy[i, 1], subxy[i, 2], subxy[i + 1, 1], subxy[i + 1, 2], col="red",
+  lwd=3)
+}
+dev.off()
+
+
+png("clust_prep.png", 300, 350)
+plot(1, 1, type="n", xlim=c(0, 10), ylim=c(0, 10), xaxt="n", yaxt="n", xlab="", ylab="")
+rect(xy[, 1], xy[, 2], xy[, 1]+1, xy[, 2] + 1)
+for(j in 0:9){
+    subxy <- cbind(j + c(0, 0, 1, 1, 0), c(0, 10, 10, 0, 0))
+    for(i in 1:4){
+      segments(subxy[i, 1], subxy[i, 2], subxy[i + 1, 1], subxy[i + 1, 2], col="red",
+               lwd=3)
+    }
+}
+dev.off()
+
+cols <- rep("white", 100)
+png("clust_prep1.png", 300, 350)
+plot(1, 1, type="n", xlim=c(0, 10), ylim=c(0, 10), xaxt="n", yaxt="n", xlab="", ylab="")
+cols[seq(7, 100, by =10)] <- "black"
+rect(xy[, 1], xy[, 2], xy[, 1]+1, xy[, 2] + 1, col=cols)
+for(j in 0:9){
+  subxy <- cbind(j + c(0, 0, 1, 1, 0), c(0, 10, 10, 0, 0))
+  for(i in 1:4){
+    segments(subxy[i, 1], subxy[i, 2], subxy[i + 1, 1], subxy[i + 1, 2], col="red",
+             lwd=3)
+  }
+}
+dev.off()
+
+
+xx <- rnorm(10000, 50, 10) + rexp(10000, 1/50)
+png("inference-basic.png", 500, 300)
+par(mfrow=c(1, 1))
+plot(density(xx), xlab="", ylab="",yaxt="n", xlim=c(0, 500), main="Population")
+abline(v=mean(xx), col="red")
+dev.off()
+
+png("inference-basic1.png", 1000, 600)
+par(mfrow=c(2, 3))
+for(i in 1:6){
+  xxx <- sample(xx, 100)
+  hist(xxx, xlab="X", ylab="", yaxt="n", main="100 Samples from the Population", xlim=c(0, 500))
+  abline(v=mean(xxx), col="red")
+  if(i == 6){
+      legend("topright", legend="mean", fill="red")
+  }
+}
+dev.off()
+
+n <- 20
+x <- 0:n
+px <- dbinom(x, n, 0.5)
+png("binomial.png")
+plot(x, px, xlab="Possible Total", ylab="Probability", main="Binomial Distribution",
+     pch=16, col="red")
+dev.off()
+
+
+png("binomial_param.png", 1200, 600)
+par(mfrow=c(2, 4))
+for(ni in c(10, 100)){
+  for(pi in c(0.1, 0.4, 0.6, 0.9)){
+    x <- 0:ni
+    px <- dbinom(x, ni, pi)
+    plot(x, px, xlab="Possible Total", ylab="Probability",
+         main=paste0("Draws = ", ni, "; Prob(H) = ", pi),
+         pch=16, col="red",
+         cex.main=2, cex=2)
+  }
+}
+dev.off()
+
+png("expectations.png", 1000, 300)
+par(mfrow=c(1, 3))
+curve(dnorm(x), -4, 4, main="Normal(0, 1)", cex.main=2)
+abline(v=0, col="red")
+curve(dexp(x), 0, 5, main="Exponential(1)", cex.main=2)
+abline(v=1, col="red")
+curve(dbeta(x, 0.5, 0.4), 0, 1, main="Beta(0.5, 0.4)", cex.main=2)
+abline(v=0.5 / 0.9, col="red")
+dev.off()
+
+png("lln_text.png")
+par(mar=c(5, 6, 6, 1))
+plot(1, 1, type="n", xlab="Number of Trials", ylab="Sample Mean",
+     xlim=c(0, max(ns)), ylim=c(0, 1), cex.lab=2, main="LLN Demo",
+     cex.main=2)
+p <- 0.3
+for(col in c("red", "blue", "purple", "green", "grey")){
+  
+  ns <- c(1, 2, 3, 10, 50, 100, 250, 500, 1000)
+  sample_data <- rbinom(max(ns), 1, p)
+  sample_means <- sapply(ns, function(n) mean(sample_data[1:n]))
+  points(ns, sample_means, type="b", col=col, pch=16)
+
+}
+abline(h = p, col="black", lwd=2)
+dev.off()
+
+
+png("finite_bernoulli.png")
+ni <- 250
+x <- sapply(1:9000, function(x) mean(rbinom(ni, size=1, p=0.3)))
+hist(x, xlab="Possible Value")
+dev.off()
+
+
+png("lln_text_exp.png")
+par(mar=c(5, 6, 6, 1))
+plot(1, 1, type="n", xlab="Number of Trials", ylab="Sample Mean",
+     xlim=c(0, max(ns)), ylim=c(0, 0.5), cex.lab=2, main="LLN Demo",
+     cex.main=2)
+p <- 0.3
+for(col in c("red", "blue", "purple", "green", "grey")){
+  
+  ns <- c(1, 2, 3, 10, 50, 100, 250, 500, 1000)
+  sample_data <- rexp(max(ns), 1/p)
+  sample_means <- sapply(ns, function(n) mean(sample_data[1:n]))
+  points(ns, sample_means, type="b", col=col, pch=16)
+  
+}
+abline(h = p, col="black", lwd=2)
+dev.off()
+
+
+png("finite_exponential.png")
+ni <- 250
+x <- sapply(1:9000, function(x) mean(rexp(ni, 0.3)))
+hist(x, xlab="Possible Value")
+dev.off()
+
+
+ns <- c(3, 25, 100)
+png("clt.png", 1500, 800)
+par(mfrow=c(2, 4))
+curve(dexp(x, 1/20), 0, 20, main="Distr of Exponential R.V.", cex.main=2)
+for(ni in ns){
+  means <- sapply(1:1000, function(x) mean(rexp(ni, 1/20)))
+  hist(means, xlab="", ylab="", main=paste("Sample Mean of", ni, "Exp R.V."), cex.main=2)
+}
+curve(dbinom(x, 1, 0.3), 0, 1, main="Distr of Bernoulli R.V.", lwd=3, cex.main=2)
+for(ni in ns){
+  means <- sapply(1:1000, function(x) mean(rbinom(ni, 1, 0.3)))
+  hist(means, xlab="", ylab="", main=paste("Sample Mean of", ni, "Bernoulli R.V."), cex.main=2)
+}
+dev.off()
+
+png("clt2.png", 1500, 800)
+par(mfrow=c(2, 4))
+curve(dunif(x, -5, 5), -5.2, 5.2, main="Distr of Uniform R.V.", cex.main=2)
+for(ni in ns){
+  means <- sapply(1:1000, function(x) mean(runif(ni, -5, 5)))
+  hist(means, xlab="", ylab="", main=paste("Sample Mean of", ni, "Uniform R.V."), cex.main=2)
+}
+curve(dbinom(x, 50, 0.3), 0, 50, main="Distr of Binomial R.V.", lwd=3, cex.main=2)
+for(ni in ns){
+  means <- sapply(1:1000, function(x) mean(rbinom(ni, 50, 0.3)))
+  hist(means, xlab="", ylab="", main=paste("Sample Mean of", ni, "Binomial R.V."), cex.main=2)
+}
+dev.off()
+
+png("normal_density.png")
+curve(dnorm(x), -4, 4, xlab="", ylab="", xaxt="n",
+      main="Normal(E(Y), SE(Y)^2 / n)")
+dev.off()
+
+png("normal_density.png")
+plot(1, 1, type="n", xlim=c(-4, 4), ylim=c(0, 0.5))
+x <- seq(-4, -3, by=0.02)
+y <- rep(0, length(x))
+y <- c(y, dnorm(rev(x)))
+x <- c(x, rev(x))
+polygon(x, y, col="red")
+x <- seq(3, 4, by=0.02)
+y <- rep(0, length(x))
+y <- c(y, dnorm(rev(x)))
+x <- c(x, rev(x))
+polygon(x, y, col="red")
+x <- seq(2, 3, by=0.02)
+y <- rep(0, length(x))
+y <- c(y, dnorm(rev(x)))
+x <- c(x, rev(x))
+polygon(x, y, col="blue")
+x <- seq(-3, -2, by=0.02)
+y <- rep(0, length(x))
+y <- c(y, dnorm(rev(x)))
+x <- c(x, rev(x))
+polygon(x, y, col="blue")
+x <- seq(-2, -1, by=0.02)
+y <- rep(0, length(x))
+y <- c(y, dnorm(rev(x)))
+x <- c(x, rev(x))
+polygon(x, y, col="green")
+x <- seq(1, 2, by=0.02)
+y <- rep(0, length(x))
+y <- c(y, dnorm(rev(x)))
+x <- c(x, rev(x))
+polygon(x, y, col="green")
+x <- seq(-1, 1, by=0.01)
+y <- rep(0, length(x))
+y <- c(y, dnorm(rev(x)))
+x <- c(x, rev(x))
+polygon(x, y, col="grey")
+dev.off()
+
+png("sampling_dist_under_null.png", 800, 500)
+curve(dnorm(x, 0, 1.94), -6, 6,
+      ylab="", xlab="Possible Test Stat",
+      main="Null Distribution",
+      cex.main=2, cex.lab=2)
+abline(v=0, col="black", lwd=3)
+abline(v=-1.94, col="grey", lwd=3)
+abline(v=1.94, col="grey", lwd=3)
+abline(v=-1.94*2, col="green", lwd=3)
+abline(v=1.94*2, col="green", lwd=3)
+abline(v=-1.94*3, col="blue", lwd=3)
+abline(v=1.94*3, col="blue", lwd=3)
+dev.off()
+
+png("sampling_dist_under_null2.png", 800, 500)
+curve(dnorm(x, 0, 1.94), -6, 6,
+      ylab="", xlab="Possible Test Stat",
+      main="Null Distribution",
+      cex.main=2, cex.lab=2)
+abline(v=0, col="black", lwd=3)
+abline(v=-1.94, col="grey", lwd=3)
+abline(v=1.94, col="grey", lwd=3)
+abline(v=-1.94*2, col="green", lwd=3)
+abline(v=1.94*2, col="green", lwd=3)
+abline(v=-1.94*3, col="blue", lwd=3)
+abline(v=1.94*3, col="blue", lwd=3)
+abline(v=-3, col="red", lwd=3)
+legend("topleft", fill="red", legend="Observed Test Stat = -3", cex=2)
+dev.off()
+
+
+png("sampling_dist_under_null_std.png", 800, 500)
+curve(dnorm(x, 0, 1), -3, 3,
+      ylab="", xlab="Possible Std Test Stat",
+      main="Std Null Distribution",
+      cex.main=2, cex.lab=2)
+abline(v=0, col="black", lwd=3)
+abline(v=-1, col="grey", lwd=3)
+abline(v=1, col="grey", lwd=3)
+abline(v=-2, col="green", lwd=3)
+abline(v=2, col="green", lwd=3)
+abline(v=-3, col="blue", lwd=3)
+abline(v=3, col="blue", lwd=3)
+abline(v=-3 / 1.94, col="red", lwd=3)
+legend("topleft", fill="red", legend="Std Observ Test Stat = (-3 - 0) / 1.94",
+       cex=2)
+dev.off()
+
+png("sampling_dist_under_null_std_p_val.png", 800, 500)
+curve(dnorm(x, 0, 1), -3, 3,
+      ylab="", xlab="Possible Std Test Stat",
+      main="Std Null Distribution",
+      cex.main=2, cex.lab=2)
+curve(dnorm(x, 0, 1), -3, -3 / 1.94, fill="red")
+abline(v=0, col="black", lwd=3)
+abline(v=-1, col="grey", lwd=3)
+abline(v=1, col="grey", lwd=3)
+abline(v=-2, col="green", lwd=3)
+abline(v=2, col="green", lwd=3)
+abline(v=-3, col="blue", lwd=3)
+abline(v=3, col="blue", lwd=3)
+abline(v=-3 / 1.94, col="red", lwd=3)
+legend("topleft", fill="red", legend="Std Observ Test Stat = (-3 - 0) / 1.94",
+       cex=2)
+dev.off()
