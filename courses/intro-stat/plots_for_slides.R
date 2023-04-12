@@ -484,3 +484,90 @@ legend("topright", fill=c("black", "red"),
        legend=c("Expected Diff from Null", "Diff in Sample Means"),
        cex=1.5)
 dev.off()
+
+
+
+
+curve(dexp(x, .3), 0, 10, ylab="", main="Exponential(0.3)",
+      xlab="Possible Values")
+ev <- 1/.3
+abline(v=ev)
+png("confidence_interval.png", 1200, 600)
+par(mfcol=c(2, 3))
+for(n in c(5, 20, 100)){
+  for(sig_lvl in c(0.95, 0.8)){
+  sim_num <- 100
+  plot(0, 0, type="n", xlim=c(0, 10),
+       ylim=c(0, sim_num+1), ylab="", yaxt="n",
+       xlab="",
+       main=paste("n =", n, "Sig Lvl=", sig_lvl * 100, "%"),
+       cex.main=2)
+  abline(v=ev)
+  for(i in 1:sim_num){
+    #interval <- confint(lm(runif(n, -5, 5)~1))
+    interval <- confint(lm(rexp(n, .3)~1))
+    if(interval[1] > ev | interval[2] < ev){
+      col <- "red"
+    } else {
+      col <- "black"
+    }
+    segments(interval[1], i, x1=interval[2], i,
+             col=col)
+  }
+  }  
+}
+dev.off()
+
+
+dfs <- c(5, 10)
+sig_lvls <- c(0.1, 0.05, 0.01)
+i <- 1
+j <- 1
+png("chi-sq-p-vals.png", 1800, 1000)
+par(mfrow=c(2, 3))
+for(i in seq_along(dfs)){
+  for(j in seq_along(sig_lvls)){
+    curve(dchisq(x,dfs[i]), xlim=c(0, 30),
+          xlab="Chi-Square Stat", ylab="",
+          main=paste("Deg Freedom:", dfs[i], "Sig Lvl:", sig_lvls[j]),
+          cex.main=2, cex.lab=2)
+    x <- seq(qchisq(1 - sig_lvls[j], dfs[i]), 30, length.out=100)
+    y <- dchisq(x, dfs[i])
+    x <- c(x, rev(x))
+    y <- c(y, rep(0, length(y)))
+    polygon(x, y, col="red")
+    legend("topright", legend=paste("Cutoff:", round(qchisq(1 - sig_lvls[j], dfs[i]), 2)), fill="red",
+           cex=3)
+  }
+}
+dev.off()
+
+
+png("alt_is_true.png", 800, 500)
+par(mfrow=c(1, 2))
+curve(dnorm(x), -5, 5, col="red", ylab="",
+      main="Sample Avg Distr", xlab="Possible Sample Avg")
+curve(dnorm(x, mean=0.1), -5, 5, col="blue", add=TRUE)
+legend("topleft", legend=c("Treatment", "Control"),
+       fill=c("red", "blue"),
+       cex=1)
+curve(dnorm(x), -5, 5, col="red", ylab="",
+      main="Sample Avg Distr", xlab="Possible Sample Avg")
+curve(dnorm(x, mean=3), -5, 5, col="blue", add=TRUE)
+legend("topleft", legend=c("Treatment", "Control"),
+       fill=c("red", "blue"),
+       cex=1)
+dev.off()
+
+
+theta1 <- 0.5
+theta2 <- 0.2
+x_max <- 5
+y1 <- rexp(100, rate = theta1)
+y2 <- rexp(100, rate = theta2)
+par(mfrow=c(1, 2))
+curve(dexp(x, rate=1/theta1), xlim=c(0, x_max))
+curve(dexp(x, rate=1/theta2), xlim=c(0, x_max))
+
+curve(dnorm(x, rate=1/theta1), xlim=c(0, x_max))
+curve(dexp(x, rate=1/theta2), xlim=c(0, x_max))
