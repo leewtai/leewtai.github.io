@@ -37,3 +37,11 @@ _site/*
 *.do
 *.tsv
 *post_class*
+*.cpg
+*.dbf
+*.prj
+*.sbn
+*.sbx
+*.shp
+*.shx
+*.tif
