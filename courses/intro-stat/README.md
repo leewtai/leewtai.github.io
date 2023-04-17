@@ -42,8 +42,8 @@ I reserve the right to change the ordering and the content for the course throug
 |2023-04-04|Midterm 2 debrief |||
 |2023-04-06|[Confidence intervals](https://docs.google.com/presentation/d/1WMpq9sgu7gYh4fjaJqrVCMzRMe1GW5oXVwhAjB_iRGY/edit?usp=sharing)|[Chapter 26](https://www.stat.berkeley.edu/~stark/SticiGui/Text/confidenceIntervals.htm)||
 |2023-04-11|[Hypothesis testing](https://docs.google.com/presentation/d/1WkkmMa213_-ViP42g0kNUWs3DlFSuxW6wZ-caAHZW-Y/edit?usp=sharing)|[Chapter 27](https://www.stat.berkeley.edu/~stark/SticiGui/Text/testing.htm)||
-|2023-04-13|[Permutation tests and other tests](https://docs.google.com/presentation/d/1YGEAO_cOKGPc-z3Gx3eqGAScc_5cfV_Qw3rT7qlkCTg/edit?usp=sharing)|||
-|2023-04-18|More on other tests||Homework 6|
+|2023-04-13|[Permutation tests and other tests](https://docs.google.com/presentation/d/1YGEAO_cOKGPc-z3Gx3eqGAScc_5cfV_Qw3rT7qlkCTg/edit?usp=sharing)||[Chapter 31](https://www.stat.berkeley.edu/~stark/SticiGui/Text/chiSquare.htm)||
+|2023-04-18|[Statistical Power](https://docs.google.com/presentation/d/1Ps9Apg6i_S70GVXIePKvAdC-YdEmY1sdhGTmT9M5_Bg/edit?usp=sharing)|[Chapter 27](https://www.stat.berkeley.edu/~stark/SticiGui/Text/testing.htm#significance)|Homework 6|
 |2023-04-20|Papers - Psychology/Econ|||
 |2023-04-25|Papers - Government/Industry|||
 |2023-04-27|What we know and don't know||Homework 7|
