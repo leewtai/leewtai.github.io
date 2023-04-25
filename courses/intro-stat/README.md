@@ -45,7 +45,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2023-04-13|[Permutation tests and other tests](https://docs.google.com/presentation/d/1YGEAO_cOKGPc-z3Gx3eqGAScc_5cfV_Qw3rT7qlkCTg/edit?usp=sharing)||[Chapter 31](https://www.stat.berkeley.edu/~stark/SticiGui/Text/chiSquare.htm)||
 |2023-04-18|[Statistical Power](https://docs.google.com/presentation/d/1Ps9Apg6i_S70GVXIePKvAdC-YdEmY1sdhGTmT9M5_Bg/edit?usp=sharing)|[Chapter 27](https://www.stat.berkeley.edu/~stark/SticiGui/Text/testing.htm#significance)|Homework 6|
 |2023-04-20|Papers - Psychology/Econ|||
-|2023-04-25|Papers - Government/Industry|||
+|2023-04-25|[Papers - Government/Industry](https://docs.google.com/presentation/d/1iu6vJKxYV6WPDJpjkAYlaVdSDd0iNHsf3cI3tCb32Ik/edit?usp=sharing)|||
 |2023-04-27|What we know and don't know||Homework 7|
 |TBD|Measure understanding|Final Exam|You!|
 
