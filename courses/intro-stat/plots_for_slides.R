@@ -560,8 +560,8 @@ legend("topleft", legend=c("Treatment", "Control"),
 dev.off()
 
 
-theta1 <- 0.5
-theta2 <- 0.2
+theta1 <- 0
+theta2 <- 0.1
 x_max <- 5
 y1 <- rexp(100, rate = theta1)
 y2 <- rexp(100, rate = theta2)
@@ -569,5 +569,162 @@ par(mfrow=c(1, 2))
 curve(dexp(x, rate=1/theta1), xlim=c(0, x_max))
 curve(dexp(x, rate=1/theta2), xlim=c(0, x_max))
 
-curve(dnorm(x, rate=1/theta1), xlim=c(0, x_max))
-curve(dexp(x, rate=1/theta2), xlim=c(0, x_max))
+
+x_max <- 5
+png("power1.png", 800, 600)
+curve(dnorm(x, 0), xlim=c(-x_max, x_max), col="purple",
+      xlab="Possible Std Diff in Avg", ylab="",
+      main="Null Distr",
+      cex.main=2, cex.lab=2)
+x <- seq(-5, -2.5, length.out = 100)
+y <- dnorm(x)
+y <- c(y, rep(0, length(x)))
+x <- c(x, rev(x))
+polygon(x, y, col="red")
+x <- seq(2.5, 5, length.out = 100)
+y <- dnorm(x)
+y <- c(y, rep(0, length(x)))
+x <- c(x, rev(x))
+polygon(x, y, col="red")
+legend("topright", legend="< 0.05 ?", fill="red", cex=2)
+dev.off()
+
+x_max <- 5
+png("power2.png", 800, 600)
+curve(dnorm(x, 0), xlim=c(-x_max, x_max), col="purple",
+      xlab="Possible Std Diff in Avg", ylab="",
+      main="Null Distr",
+      cex.main=2, cex.lab=2)
+abline(v=2.5, col="red", lwd=3)
+abline(v=-2, col="black", lwd=3)
+abline(v=2, col="black", lwd=3)
+legend("topleft", legend=c("Obs Std Test Stat", "k cutoff"),
+       fill=c("red", "black"))
+dev.off()
+
+
+x_max <- 5
+png("mde_demo.png", 1300, 400)
+par(mfrow=c(1, 3))
+curve(dnorm(x, 0), xlim=c(-x_max, x_max), col="purple",
+      xlab="Possible Samp Avg", ylab="",
+      main="Null Distr",
+      cex.main=2)
+curve(dnorm(x, 0), xlim=c(-x_max, x_max), col="blue",
+      xlab="Possible Samp Avg", ylab="",
+      main="Difference in Mean = MDE",
+      cex.main=2)
+curve(dnorm(x, 1), add=TRUE, col="red")
+curve(dnorm(x, 0), xlim=c(-x_max, x_max), col="blue",
+      xlab="Possible Samp Avg", ylab="",
+      main="Difference in Mean > MDE",
+      cex.main=2)
+curve(dnorm(x, 2), add=TRUE, col="red")
+dev.off()
+
+d <- 3
+png("p-val-vs-power.png", 1200, 500)
+par(mfrow=c(1, 2))
+curve(dnorm(x, 0), xlim=c(-x_max, x_max), col="purple",
+      xlab="Std Diff in Samp Avg", ylab="",
+      main="Getting p-values",
+      cex.main=2, lwd=3)
+curve(dnorm(x, d), col="orange", add=TRUE)
+x <- seq(-5, -2, length.out = 100)
+y <- dnorm(x)
+y <- c(y, rep(0, length(x)))
+x <- c(x, rev(x))
+polygon(x, y, col="red")
+x <- seq(2, 5, length.out = 100)
+y <- dnorm(x)
+y <- c(y, rep(0, length(x)))
+x <- c(x, rev(x))
+polygon(x, y, col="red")
+legend("topleft", legend=c("Null", "MDE"),
+       fill=c("purple", "orange"), cex=2)
+
+curve(dnorm(x, 0), xlim=c(-x_max, x_max), col="purple",
+      xlab="Std Diff in Samp Avg", ylab="",
+      main="Getting Stat Power",
+      cex.main=2)
+curve(dnorm(x, d), col="orange", add=TRUE, lwd=3)
+x <- seq(-5, -2, length.out = 100)
+y <- dnorm(x, d)
+y <- c(y, rep(0, length(x)))
+x <- c(x, rev(x))
+polygon(x, y, col="blue")
+x <- seq(2, 5, length.out = 100)
+y <- dnorm(x, d)
+y <- c(y, rep(0, length(x)))
+x <- c(x, rev(x))
+polygon(x, y, col="blue")
+legend("topleft", legend=c("Null", "MDE"),
+       fill=c("purple", "orange"), cex=2)
+dev.off()
+
+png("power2.png", 800, 600)
+curve(dnorm(x, 0), xlim=c(-x_max, x_max), col="purple",
+      xlab="Std Diff in Samp Avg", ylab="",
+      main="Determine Cutoff Using the Null",
+      cex.main=2, lwd=3)
+abline(v=2, lwd=3)
+abline(v=-2, lwd=3)
+legend("topleft", legend=c("Cutoff k"),
+       fill="black")
+dev.off()
+
+png("power3.png", 800, 600)
+curve(dnorm(x, 0), xlim=c(-x_max, x_max), col="purple",
+      xlab="Std Diff in Samp Avg", ylab="",
+      main="Get Stat Power by Area Under Altern Distr",
+      cex.main=2, lwd=3)
+abline(v=2, lwd=3)
+abline(v=-2, lwd=3)
+legend("topleft", legend=c("Cutoff k"),
+       fill="black")
+curve(dnorm(x, d), col="orange", add=TRUE, lwd=3)
+x <- seq(-5, -2, length.out = 100)
+y <- dnorm(x, d)
+y <- c(y, rep(0, length(x)))
+x <- c(x, rev(x))
+polygon(x, y, col="blue")
+x <- seq(2, 5, length.out = 100)
+y <- dnorm(x, d)
+y <- c(y, rep(0, length(x)))
+x <- c(x, rev(x))
+polygon(x, y, col="blue")
+legend("topleft", legend=c("Cutoff k", "Stat Power"),
+       fill=c("black", "blue"),
+       cex=2)
+dev.off()
+
+x_min = -5
+x_max = 8
+d = 5
+png("power-example3.png", 800, 600)
+curve(dnorm(x, 0), xlim=c(x_min, x_max), col="purple",
+      xlab="Std Diff in Samp Avg", ylab="",
+      main="Fix Cutoff, Identify Altern Distr",
+      cex.main=2, lwd=3)
+abline(v=2, lwd=3)
+abline(v=-2, lwd=3)
+legend("topleft", legend=c("Cutoff k"),
+       fill="black")
+curve(dnorm(x, d / 0.95), col="orange", add=TRUE, lwd=3)
+
+x <- seq(x_min, -2, length.out = 100)
+y <- dnorm(x, d / 0.95)
+y <- c(y, rep(0, length(x)))
+x <- c(x, rev(x))
+polygon(x, y, col="blue")
+x <- seq(2, x_max, length.out = 100)
+y <- dnorm(x, d/0.95)
+y <- c(y, rep(0, length(x)))
+x <- c(x, rev(x))
+polygon(x, y, col="blue")
+legend("topleft", legend=c("Cutoff k", "Stat Power"),
+       fill=c("black", "blue"),
+       cex=2)
+abline(v=d/0.95, lwd=3, col="orange")
+
+dev.off()
