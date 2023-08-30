@@ -1,10 +1,12 @@
-# Simulation-based linear regression (without calculus)
-  
+# Simulation-based linear regression (with calculus shown but not used)
+
 Simulation-based linear regression is an undergraduate "text" that
-walks through the ususal introductory linear regression theorems
+walks through the usual introductory linear regression theorems
 through simulations rather than mathematical proofs. We will generally
-take the approach of "observing" the behavior of the regression model
-under different context before motivating the theoretical interpretations.
+take the 1-2 step approach of
+- "observing" the behavior of the regression model (and code) under different context
+- Talk about its implication in practice
+- Motivating the theoretical notation
 We will also help you translate between problems, simulation code, and
 mathematical expressions of a model.
 
@@ -16,8 +18,8 @@ mathematical expressions of a model.
     run. There are many modern papers that understand the behavior of deep learning
     models via linear regression.
 - What to expect from this text?
-  - How is the regression line defined?
   - What question does it answer vs not?
+  - What is linear regression, a summary, an algorithm, or a model?
   - How should I evaluate someone's regression model?
   - How should I create my own regression model?
 
@@ -26,54 +28,157 @@ mathematical expressions of a model.
 
 Before divining into linear regression, it is important to have some background
 in **elementary statistics** and **programming**.
+### [Prerequisites - Introductory Statistics](modules/prereq-intro-stat.md)
+### [Prerequisites - Basic Programming]
 
-### Prerequisites - Introductory Statistics 
+## Why do we need linear regression?
 
-You should understand the role statistics plays in the scientific method.
-- **Observe** the world through summary statistics
-- Formulating a **hypothesis** by abstracting and decomposing the problem
-- Collecting the relevant **data** for the question at hand (sampling and experiments)
-- **Analyzing** the relevant data with respect to randomness (hypothesis testing)
-- **Decide** to reject or fail to reject our null hypothesis (understand type 1 vs type 2 errors)
+Imagine this question, do men and women make different salaries? Let's take a look, with the tools from your prerequisites, at New York City's annual salaries given to different civil servants in 2022.
 
-#### Observations via summary statistics or graphs
+```R
+library(tidyverse)
+salaries <- read.csv("clean_police_salaries_2022.csv")
 
-When observing data, we often visualize different types
-of data differently, e.g. histograms for quantitative vs bar charts for qualitative data.
-But ultimately we care about the **distribution** of the data, i.e. the different
-possible values and the associated relative frequencies (we care about the absolute frequency
-if the occurrence for the smallest category is small).
+salaries %>% groupby(gender_from_name) %>% select(mean_salary = mean(salary))
+# 
+#
+```
 
-An example of **distributions** are:
-- The distribution of grades in a class could be 35% A's, 50% B's, 13% C's, and 2% F's.
-- The distribution of male vs female in your city could be 49% to 51%.
-- The distribution of number of children could be 0, 1, 2, 3, and 4+.
+Do you have your answer? Do you have any follow-up questions? Hopefully you believe that New York City (NYC) has fair compensation practices so some piece(s) of the puzzle is likely missing. 
+
+If you take a deeper look, the compensation data is much more complicated, part-time vs full-time, overtime vs salaried individuals, different departments, different titles etc. How can we make the men and women in our data comparable given all these factors?
+
+But before we dive too deep, what information would you need to trust the data first? What do we expect to be true or not true in our data?
+
+Also, if someone worked in the police department for 5 years, what should their expected salary be?
+
+These are very different questions, but can all be solved with linear regression! However, how we use linear regression will differ.
+
+### Should I just learn AI or deep learning instead?
+
+Learning linear regression is not a waste of time because:
+- Linear regression can help us understand complicated models and the typical challenges when models interact with data.
+- Many scholars still study AI models using our understanding with linear regression
+- Regression can still solve some problems faster and better relative to AI
+
+#### One sentence please, what is linear regression?
+
+Linear regression is an algorithm that fits a "best" line to the data. 
+
+Let's look at the scatter plot of the salary vs tenure (your inputs) and place a line through the data. Different people may place a slightly different line, but linear regression unifies some aspects of what best means. We will make this concrete soon but you should think about data being your input and the line (specifically the slope(s) and intercept) as the output of this algorithm.
+
+##### What problems are solved with a line?
+This is the **most important** lesson, knowing when and how to apply linear regression will be a key focus here. Overall, a line can:
+- **Summarize** data (is there a correlation between "manager" in your title and being "full-time"?)
+- **Predict** within and beyond the data at hand (If one works for what about 3 years as a police officer, how much would their salary be? What about 10 years?)
+- **Model** the relationship between different variables (how much does gender impact salary?)
+
+We will dive deeper into each of these later.
+
+##### How do I run regression?
+
+There is a built-in function in R called `lm()`, ("lm" stands for linear models), here's an example of fitting the regression line
+```R
+# Define some fake data
+df <- read.csv("demo.csv")
+x2 <- c(1, 2, 3)
+y2 <- c(-3, -2, -1)
+
+# R will first look for "y" and "x" among the columns of df
+demo_lm <- lm(y ~ x, data=df)
+# If the variables are not among the columns of df, R will find them in your global name space
+demo2_lm <- lm(y2 ~ x2, data=df) # data=df is redundant, try it out!
+# This should throw an error
+demo3_lm <- lm(y3 ~ x3, data=df)
+
+# To "see" the line
+plot(demo_lm)
+summ_tab <- summary(demo2_lm)
+summ_tab
+```
+
+Easy? Yes! But the challenge is not in calling the function on the data, but knowing what questions to ask, when to fit the regression, how to improve the regression, and knowing the pitfalls of the regression line.
+
+For Python users, a good package called `statmodels.OLS` behaves very similarly to R's `lm()` if you want to stick in Python. We will only show the code in R.
+
+## Revisiting some introductory statistics through simulations
+
+Here we will cover some new applications of programming onto some old concepts that will be useful in understanding regression later.
+
+### Optimization - finding the best
+
+Imagine finding the "best" number to represent the NYC police salaries in our data. What would we need to fix so there's only one solution? 
+
+This is somewhat unintuitive at first but a convenient way to think about the best is to think about the least bad option. This is called the objective function, it takes in a candidate solution and reports how bad the candidate value was. By trying out different candidates, we'll then arrive at the best one. We'll walk through this below:
+
+Pretend you pick an arbitrary number `loc` to represent all of the salaries in our data, the further this value is from an individual data point $i$, the worse it is representing data point $i$. This concept can be expressed as
+
+|Idea |Programming | Math|
+|---|---|---|
+|How far is the $i$th salary from arbitrary `loc`|`abs(salaries[i] - loc)`|$\|X_i - loc\|$|
+
+So now imagine all $n$ data points in our data, a natural way to aggregate the numbers is to add them together, i.e.
+
+|Idea |Programming | Math|
+|---|---|---|
+|How to aggregate the "far-ness" across all data points|`sum(abs(salaries - loc))`|$\sum_{i=1}^n\|X_i - loc\|$|
+
+So how can we assess different values of `loc`? Well, let's try to plot it!
+```R
+k <- 1000
+locs <- seq(min(salaries), max(salaries), length.out=k)
+
+obj <- function(loc){
+    return(sum(abs(salaries - loc)))
+}
+
+df_holder <- matrix(0, nrow=k, 2)
+for(i in seq_along(locs)){
+    df_holder[i, ] <- c(locs[i], obj(locs[i]))
+}
+
+plot(df_holder[, 1], df_holder[, 2],
+	 xlab="Candidate loc values", ylab="Objective function")
+abline(v=mean(salaries), col="red")
+abline(v=median(salaries), col="blue")
+legends("topright", legends=c("Mean", "Median"), fill=c("red", "blue"))
+```
+So is the median or mean better in this case?
+
+#### Different objective functions
+
+What if instead of $\sum_{i=1}^n \|X_i - loc\|$ , I preferred $\sum_{i=1}^n \|X_i - loc\|^2$?
+Would our answer change? Turns out both are legitimate objective functions but the latter one penalizes extreme values more than the former one.
+
+##### Verification - squaring penalizes extreme values
+How could we verify this statement?
+```R
+library(tidyverse)
+# Pick an arbitrary loc
+loc <- salaries[100]
+
+salary_diff <- salaries - loc
+badness1 <- abs(salary_diff)
+badness2 <- abs(salary_diff)^2
+
+df <- cbind(salary_diff, badness1, badness2)
+# ggplot2.point_geom / facet
+```
+
+##### Optimization through calculus
+Turns out when we use the squared penalty, we can rephrase this in terms of math:
+$$\arg\min_{loc} \sum_i \|X_i - loc\|^p$$
+And by doing some calculus, i.e. differentiate by $loc$ then setting that to 0, we can find that the optimal number to represent all the data points is the mean, the algorithm that adds all the numbers then divides the total by the number of values added.
+
+#### Review
+In review, we tried to find the best number by defining the least bad 
 
 
-|Feature | Significance of feature | common statistics used to quantify the feature| 
-|-------|--------|---------|
-|Uni-modal vs multi-modal distribution| multi-modal distributions could imply multiple populations, e.g. children and adults, in the same dataset. Most summary statistics below often assume the distribution is uni-modal.| None. This is often eye-balled from graphs|
-|Location| Where is data, e.g. are regrets with college majors around 10% (not bad) or 50% (yikes!)| mean, median, mode|
-|Spread| Relative to the location statistic, how spread-out/variable is the data? e.g. 50% regret $\pm$ 30% is very different from 50% $\pm$ 5%| standard deviation, inter-quartile range (IQR), range|
-|Skew|Are data values symmetrically distributed about the center? Long tails imply a small fraction of values are vastly different from the majority|This is often eye-balled in introductory statistics|
+### [What is a model?]
+A model is a mathematical description for a process. An example process is how the measured weights for a group of sampled Americans in 2016 could be?
 
-How can there be multiple values that serve the same purpose, i.e. different quantities that
-reflect the same feature in a distribution? This is because different statistics have different
-properties, these properties result from the different calculations, and for different problems
-we desire different properties.
 
-The most popular property is the sensitivity to extreme values in the distribution. Means are
-sensitive to values in the tail where medians are less so. An example is income where adding a
-billionaire to your neighborhood would increase the mean income a lot but not impact the median
-income of your neighborhood.
-
-This sensitivity is not always bad, different problems may want to be sensitive to the tail,
-e.g. housing prices are similar to income data where there
-is a long right tail. A policy maker would be interested in the median housing price
-to understand the typical cost of living where a realtor would be interested in the
-mean housing price because they earn commission as a fraction of the selling price and one
-big sale could suffice for one's annual income.
-
+#### Example of "show, observe, then mathematize"
 For statistics that describe the location, a mathematical way to describe "desirable properties
 for a statistic" is to define objective functions for the statistic. An objective function
 compares the statistic, a single number,
@@ -87,39 +192,6 @@ the different "lack of fits" to the data.
 |$$\sum_{i=1}^{n} \|Y_i - \alpha\|^2$$ |A bad representative value $$\alpha$$ is one that is far (in a squared distance) from the data points| $$\beta_0 = \frac{1}{n} Y_i$$|
 
 The mean's sensitivity to the tails is a direct result of minimizing the squared distance. A data point that is far away will have its distance squared.
-
-The spread statistics allow us to know how much data is within a certain range. For example, the amount of data that is $k$ SD's away from the average is upper-bounded by $$\frac{1}{k^2}$$. The amount of data within one IQR from the median is at least 50%. In some sense, it allows us to know the quality of the location statistic.
-
-#### Formulating a hypothesis
-
-A simple idea like "Does a drug work?" requires several considerations:
-- Define "work"
-  When evaluating the effects of vitamin C on the common cold, it was determined that vitamin C does not prevent be lessens the severity of the common cold but the effects are not strong. Severity, however, can be difficult to measure, e.g. highest fever, number of sick-leaves taken, etc.
-- Define "using the drug"
-  The ability to follow a regiment is difficult. Most experiments compromise with the "intent to treat" rather than focusing on those who actually use the drug properly. 
-- Model the relationship between the 2 quantities above?
-  If the drug had no effect, the health outcomes should be indistinquishable between the two groups, holding all other variables constant. Specifically, the health outcomes should be like drawing tickets from the same box without replacement.
-
-These considerations are formalizing our intuition with abstraction and decomposition.
-Decomposing the different aspects of "work" into different measurable outcomes and different aspects of health. The abstraction from our variables into the standard "box model" is how we relate different problems back to familiar probability examples.
-
-#### Collecting the relevant data
-
-There are two main questions studied in introductory statistics: how to estimate population parameters properly with sample statistics and how to estimate the impact of a treatment? The formal is concerned with sampling bias and the latter is concerned mostly with confounding. To address these biases, statisticians propose random sampling and random assignment (for treatment vs control) to turn the biases into chance-like error.
-
-In regression we won't talk much about sampling but you should know that the absolute sample size (not the sample size relative to the population) and proper randomization are keys to a quality sample.
-
-In experiments, the reason we cannot simply study people who are using a drug today vs not and measure their outcomes is that confounding variables could explain someone's behavior and their health outcome rather than the drug having an impact on someone's health. The classic example is life style where people with healthy life styles tend to take supplements and also have better health outcomes. Attributing the outcomes to the supplements is ignoring the alternative explanation from the life style. There also may be unknown confounders.
-
-To address this confounding, the most natural approach is to match people with similar life styles, then randomly assign people into treatment vs control. The first step is called "matching" which can handle known confounding issues where the second step can deal with both known and unknown confounding.
-
-
-In general it's good to think about 3 sources of variability
-
-### Prerequisites - Basic Programming
-
-
-### What is a model?
 
   - Using statistics like mean/median
   - Statistics
