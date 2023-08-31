@@ -7,9 +7,10 @@ faced in application.
 ### Expectations
 #### - Learning outcomes
 - Transition from learning via imitation to working backwards from the question
-- Understand when to use linear regression for prediction vs inference
+- Understand when to use linear regression for data mining, prediction, or inference
 - Be able to articulate counter examples for linear regression to "fail"
-- Be able to simulate and confirm basic mathematical results for regression
+- Be able to fit, evaluate, and improve models
+- Learn to simulate and confirm basic mathematical results
 
 #### - Your Job
   - Come to class, bring your laptop, take chances!
