@@ -7,9 +7,10 @@ faced in application.
 ### Expectations
 #### - Learning outcomes
 - Transition from learning via imitation to working backwards from the question
-- Understand when to use linear regression for prediction vs inference
+- Understand when to use linear regression for data mining, prediction, or inference
 - Be able to articulate counter examples for linear regression to "fail"
-- Be able to simulate and confirm basic mathematical results for regression
+- Be able to fit, evaluate, and improve models
+- Learn to simulate and confirm basic mathematical results
 
 #### - Your Job
   - Come to class, bring your laptop, take chances!
@@ -22,21 +23,11 @@ faced in application.
     - To each other: summarize the conversation to ensure you're listening and think constructively before criticizing.
   - Academic honesty: https://www.cs.columbia.edu/education/honesty/
 
-### Teaching team
-Wayne Tai Lee (instructor, wtl2109):
-Office hours:
-- Wed 9:30-11:30am at Watson Hall (612 W 115th St)
-- By appointment (email wtl2109) if
-  - it's personal
-  - there are 3 or more of you
-  (Remember to check Google calendar availability)
-
-Teaching Assistant:
-Shunan Sheng (TA, ss6574):
-Office hours:
-- TBD
-
-[Statistics daily help room](https://stat.columbia.edu/help-room/)
+### How to get help
+- Office hours:
+  - Wed 10-Noon with Wayne Tai Lee (wtl2109) at 324 Uris Hall
+  - TBD with Jon Huml (jrh2274) at TBD
+- [Statistics daily help room](https://stat.columbia.edu/help-room/)
 
 ### Timeline
   I reserve the right to change the ordering and the content for the course throughout the semester.
@@ -77,7 +68,7 @@ Office hours:
 
 ### Logistics
 Lectures:
-  [MW 2:40pm - 3:55pm, Location: 702 Hamilton Hall](https://vergil.registrar.columbia.edu/#/courses/APPLIED%20LINEAR%20REG%20ANALYSIS)
+  [MW 2:40pm - 3:55pm, Location: 517 Hamilton Hall](https://vergil.registrar.columbia.edu/#/courses/APPLIED%20LINEAR%20REG%20ANALYSIS)
 
 
 ### Grading
@@ -89,6 +80,7 @@ If your final grade is in \[93-100], you will earn at least an A, \[90-93) will 
   - Your lowest homework grade will be dropped
   - No make-up homeworks will be granted even if you registered late to the class
   - Please export all homeworks in PDF files following these [instructions](../../setup/math_and_code.md)
+  - If you are not comfortable with LaTex, you can "write-in" the math afterwards.
 #### - Exams (80%)
   - Midterms (15% for midterm 1 and 30% for Midterm 2)
   - Final Exam or Project (35%)
@@ -97,15 +89,15 @@ If your final grade is in \[93-100], you will earn at least an A, \[90-93) will 
   - You will receive the full 5% if you obtain 75% of this.
 
 ### Prerequisites
-  - Some familiarity with R or UN2102 Applied Statistical Computing
-    - Need to know how to write a loop and simulate data from known distributions
   - An introductory statistics class
     - Basic probability distributions (e.g. Gaussian, binomial distributions and their likelihoods)
     - Basic hypothesis testing (e.g. t-test)
     - Properties of summary statistics
+  - Co-requisite: some familiarity with computing or UN2102 Applied Statistical Computing
 
 ### Textbooks / Supplies
-- Our text: [A modern approach to regression with R by Simon J. Sheather, available via CLIO](https://clio.columbia.edu/catalog/7900489)
+- I'm hoping to write up some notes [here](lectures/README.md)
+- Free text: [A modern approach to regression with R by Simon J. Sheather, available via CLIO](https://clio.columbia.edu/catalog/7900489)
 - For mathematically curious students: [Statistical models: theory and practice](https://clio.columbia.edu/catalog/10285295)
 
 ### Acknowledgement
