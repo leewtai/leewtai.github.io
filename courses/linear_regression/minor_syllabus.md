@@ -34,13 +34,14 @@ faced in application.
 
   |Date|Topic|Reference|Due|
   |---|---|---|---|
+<<<<<<< HEAD
   |2022-09-06|[Introduction, expectations, and transitions oh my!](https://drive.google.com/open?id=12GIwf8KVtYc7KN7C6eVC8c3R41LiQNtQlVBHTNv4HmA)|||
   |2022-09-11|[Intro Stat Review Slides](https://docs.google.com/presentation/d/1XOCRjs4RgbjKfUD07R7cXZJ-CjZ1mnC0FRzUDwdR3Y0/edit?usp=sharing)|[Intro Stat Review Notes](lectures/modules/prereq-intro-stat.md)||
-  |2022-09-13|[Reviewing Hypothesis Testing with R Simulations](https://drive.google.com/open?id=1zBjQ9G508s4PBlmMWR2_fofictjvj3Achw30BBCVmnc)|[How to simulate the LLN](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_lln.html)|[Homework 1](homeworks/applied/hw1_prerequisites.md)|
+  |2022-09-13|[Reviewing Hypothesis Testing with R Simulations](https://drive.google.com/open?id=1zBjQ9G508s4PBlmMWR2_fofictjvj3Achw30BBCVmnc)|[How to simulate the LLN](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_lln.html)|[Homework 0](homeworks/applied/hw0_prerequisites_stat.md)|
   |2022-09-18|[Deriving simple linear regression](https://docs.google.com/presentation/d/15m8XkAKZaDA4lsTJxvTaHekrFPXFVv22qZ6j5MDrBrg/edit?usp=sharing)|Text 2.1.1; Text 2.7.1|Read [Global Evidence on Economic Preferences](https://doi.org/10.1093/qje/qjy013) until Chapter IV.A|
   |2022-09-20|[Linking regression coefficients to the data generation process](https://docs.google.com/presentation/d/1NalZQ2EWSt3Z7ojP0iPOt902VyJfRrP-MsEyc8qXoE0/edit?usp=sharing)|Text 2.7.3||
   |2022-09-25|[Linking math to simulations](https://docs.google.com/presentation/d/1-TaFO-3j1-een-w3pjExEbKQXdrJqV6ZI-AOZc9ZQHM/edit?usp=sharing)|Text 2.7.2 + 2.7.3||
-  |2022-09-27|[Properties of the regression coefficients](https://docs.google.com/presentation/d/1IpFAEOFCMSw5cP-0_ldHx4xxDCljdJCPyngexhTAMSk/edit?usp=sharing)|Text 2.7.2 + 2.7.3|[Homework 2](homeworks/applied/hw2_optimization.md)|
+  |2022-09-27|[Properties of the regression coefficients](https://docs.google.com/presentation/d/1IpFAEOFCMSw5cP-0_ldHx4xxDCljdJCPyngexhTAMSk/edit?usp=sharing)|Text 2.7.2 + 2.7.3|[Homework 1](homeworks/applied/hw1_prerequisites.md)[Homework 2](homeworks/applied/hw2_optimization.md)|
   |2022-10-02|[Diagnostics of SLR](https://docs.google.com/presentation/d/1_ydaxURpK2F-YkuGXKHxYF9rJ4bRAi6B9ftnyh_LXrM/edit?usp=sharing)|Text 3.1|Read [Statistical Models and Shoe Leather](https://psychology.okstate.edu/faculty/jgrice/psyc5314/Freedman_1991A.pdf)|
   |2022-10-04|[Inferring the true line](https://docs.google.com/presentation/d/1FvUqbEnp21BQuWU3I0UaeeL5qG7EBoTirjVlTxckYXY/edit?usp=sharing)|Text 2.3||
   |2022-10-09|[Predicting new data points](https://docs.google.com/presentation/d/1FvUqbEnp21BQuWU3I0UaeeL5qG7EBoTirjVlTxckYXY/edit?usp=sharing)|Text 2.4|[Homework 3](homeworks/applied/hw3_simple_lin_reg.md)|
@@ -62,8 +63,7 @@ faced in application.
   |2022-12-04|Paper discussion||Read [Why do people stay poor?](https://academic.oup.com/qje/article/137/2/785/6455333)|
   |2022-12-06|[Wrong models in linear regression + instrumental variables + panel data](https://docs.google.com/presentation/d/1pk5hOWi1vET_QOCvlcG5PZWIJ7uPVyDV1LrQSoXrmQA/edit#slide=id.g6b9cee71ff_0_4), no video|||
   |2022-12-11|What we know and don't know||[Homework 7](homeworks/applied/hw7_extended_topics.md)|
-  |2022-12-15|[Final project](homeworks/applied/final_proj_reproduce.md)|||
-
+  |2022-12-15|Final project or exam|||
 
 
 ### Logistics
