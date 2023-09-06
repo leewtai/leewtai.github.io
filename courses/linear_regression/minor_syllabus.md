@@ -25,8 +25,8 @@ faced in application.
 
 ### How to get help
 - Office hours:
-  - Wed 10-Noon with Wayne Tai Lee (wtl2109) at 324 Uris Hall
-  - TBD with Jon Huml (jrh2274) at TBD
+  - Mon/Wed 10-Noon with Wayne Tai Lee (wtl2109) at 324 Uris Hall (except 11/1)
+  - TBD with TA
 - [Statistics daily help room](https://stat.columbia.edu/help-room/)
 
 ### Timeline
@@ -34,7 +34,6 @@ faced in application.
 
   |Date|Topic|Reference|Due|
   |---|---|---|---|
-<<<<<<< HEAD
   |2022-09-06|[Introduction, expectations, and transitions oh my!](https://drive.google.com/open?id=12GIwf8KVtYc7KN7C6eVC8c3R41LiQNtQlVBHTNv4HmA)|||
   |2022-09-11|[Intro Stat Review Slides](https://docs.google.com/presentation/d/1XOCRjs4RgbjKfUD07R7cXZJ-CjZ1mnC0FRzUDwdR3Y0/edit?usp=sharing)|[Intro Stat Review Notes](lectures/modules/prereq-intro-stat.md)||
   |2022-09-13|[Reviewing Hypothesis Testing with R Simulations](https://drive.google.com/open?id=1zBjQ9G508s4PBlmMWR2_fofictjvj3Achw30BBCVmnc)|[How to simulate the LLN](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_lln.html)|[Homework 0](homeworks/applied/hw0_prerequisites_stat.md)|
