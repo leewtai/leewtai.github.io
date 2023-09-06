@@ -1,0 +1,37 @@
+---
+title: "NYC Payroll 2022"
+output: html_document
+date: "2023-09-01"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir="~/repos/leewtai.github.io/usecases_data/nyc_opendata/")
+```
+
+## 
+
+```{r}
+df <- read.csv("processed_nyc_payroll_2022.csv")
+df$tenure_days <- as.numeric(sub(" days", "", df$tenure_days))
+
+# Look at the possible variables
+names(df)
+# Look at the first few rows
+head(df)
+```
+
+## 
+
+```{r echo=FALSE}
+hist(df$base_salary, main="Base Salary", xlab="Base Salary ($)")
+```
+
+```{r echo=FALSE}
+dd <- df[df$title_description == "POLICE OFFICER", ]
+dd["total_pay"] <- dd$regular_gross_paid + dd$total_ot_paid + dd$total_other_pay
+boxplot(dd$total_pay ~ dd$gender_from_name, main="Total Pay by Gender", ylab="Total Pay ($)", xlab="Gender derived from Name")
+boxplot(dd$base_salary ~ dd$gender_from_name, main="Base Salary by Gender", ylab="Base Salary ($)", xlab="Gender derived from Name")
+boxplot(dd$base_salary ~ round(dd$tenure_days / 365), xlab="Tenure (years)", ylab="Base Salary")
+
+```
