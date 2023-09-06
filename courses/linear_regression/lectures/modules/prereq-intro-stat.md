@@ -26,7 +26,7 @@ An example of **distributions** are:
 |-------|--------|---------|
 |Uni-modal vs multi-modal distribution| multi-modal distributions could imply multiple populations, e.g. children and adults, in the same dataset. Most summary statistics below often assume the distribution is uni-modal.| This is often eye-balled from graphs of the data.|
 |Location| Where is data, e.g. are regrets with college majors around 10% (not bad) or 50% (yikes!)| mean, median, mode|
-|Spread| Relative to the location statistic, how spread-out/variable is the data? e.g. 50% regret $\pm$ 30% is very different from 50% $\pm$ 5%| standard deviation, inter-quartile range (IQR), range|
+|Spread| Relative to the location statistic, how spread-out/variable is the data? e.g. 50% regret $$\pm$$ 30% is very different from 50% $$\pm$$ 5%| standard deviation, inter-quartile range (IQR), range|
 |Skew|Are data values symmetrically distributed about the location statistic? Long tails imply a small fraction of values are vastly different from the majority|This is often eye-balled in introductory statistics|
 
 How can there be multiple values that serve the same purpose, i.e. different quantities that
@@ -46,7 +46,7 @@ to understand the typical cost of living (i.e. they wouldn't want their location
 mean housing price because they earn commission as a fraction of the selling price and one
 big sale could suffice for one's annual income (i.e. they want to be sensitive to the presence of rich buyers).
 
-The spread statistics allow us to know how much data is within a certain range. For example, the fraction of data that is $k$ SD's away from the average is upper-bounded by $$\frac{1}{k^2}$$. So there can be at most $\frac{1}{2^2}$ , i.e. 25% of the data that is away from the average beyond 2 SDs (see Chebyshev's inequality). The amount of data within one IQR from the median is at least 50%. In some sense, it allows us to know the quality of the location statistic. 
+The spread statistics allow us to know how much data is within a certain range. For example, the fraction of data that is $$k$$ SD's away from the average is upper-bounded by $$\frac{1}{k^2}$$ . So there can be at most $$\frac{1}{2^2}$$ , i.e. 25% of the data that is away from the average beyond 2 SDs (see Chebyshev's inequality). The amount of data within one IQR from the median is at least 50%. In some sense, it allows us to know the quality of the location statistic. 
 
 Overall, these statistics are helpful because they give us a picture of the distribution of the data without plotting and later provide a concrete number that we can measure change. 
 
@@ -130,11 +130,11 @@ The question then becomes, what sample size will make the statistic "predictable
 
 Small enough is often defined half of your expected treatment effect, i.e. if you believe a new drug will make your smarter by 3 points, you want your SE to be around 1.5 points. Since introductory statistics only deals with averages, we only have two formulas:
 
-- If $X_i$ are independent from each other, then $SE(\frac{1}{n}\sum_i X_i) = \frac{1}{n}\sqrt{\sum_i SE(X_i)}=\frac{\sigma}{\sqrt{n}}$
-- If $X_i$ are draw without replacement from a population, then $SE(\frac{1}{n}\sum_i X_i) =\sqrt{\frac{N-n}{N-1}}\frac{\sigma}{\sqrt{n}}$
-Notice that both of these decrease as $n$ increases.
+- If $$X_i$$ are independent from each other, then $$SE(\frac{1}{n}\sum_i X_i) = \frac{1}{n}\sqrt{\sum_i SE(X_i)}=\frac{\sigma}{\sqrt{n}}$$
+- If $$X_i$$ are draw without replacement from a population, then $$SE(\frac{1}{n}\sum_i X_i) =\sqrt{\frac{N-n}{N-1}}\frac{\sigma}{\sqrt{n}}$$
+Notice that both of these decrease as $$n$$ increases.
 
-In the formulas above, $n$ is the variable we need to solve, half of the treatment effect (e.g. our 1.5 points) should come from understanding the domain, and $\sigma$ should come from some pilot study that understands the general variability and reliability in the measurements.
+In the formulas above, $$n$$ is the variable we need to solve, half of the treatment effect (e.g. our 1.5 points) should come from understanding the domain, and $$\sigma$$ should come from some pilot study that understands the general variability and reliability in the measurements.
 
 The calculation above, however, does not factor in statistical power, this is a concept we'll cover below. In practice, statistical power is often what sets the sample size.
 
@@ -142,13 +142,13 @@ Where does this "half" come from? It'll come from the fact that the average foll
 
 A distribution is, again, the possible values and their respective frequency. A Normal distribution has the property:
 
-|$k$| $P(-k SD\leq$Normal $- Avg \leq k SD)$|
+|$$k$$| $$P(-k SD\leq$$Normal Random Variable$$- Avg \leq k SD)$$|
 |---|---|
-|1|$\leq 0.68$|
-|2|$\leq 0.95$|
-|3|$\leq0.997$|
+|1|$$\leq 0.68$$|
+|2|$$\leq 0.95$$|
+|3|$$\leq0.997$$|
 
-This $k=2$ case is where the "half" above came from because we set "Effect Size = 2 * SE", so "SE = Effect Size / 2".
+This $$k=2$$ case is where the "half" above came from because we set "Effect Size = 2 * SE", so "SE = Effect Size / 2".
 
 
 #### Analyzing the data
@@ -158,8 +158,8 @@ Hopefully you suspected that the work for analyzing the data has already been do
 In introductory statistics, we rarely talk about the verifications needed to be done but a simple one is whether the data is what you expected? For example, if your psychology experiment has a lot more women than men, you might question the sampling procedure. Failing these verifications often means you should re-assess your data collection and delay any decision making.
 
 But assuming the verification goes by smoothly, the analysis steps often just involve calculating the summary statistics: averages, SD, then calculating the z-test-statistic, i.e. the effect normalized by the variability in the data:
-- For a population parameter this would be  $\frac{\bar{Y} - CONSTANT}{SE_Y}$
-- For an experiment this might be $\frac{(\bar{Y}-\bar{X}) - CONSTANT}{SE_{\bar{Y}-\bar{X}}}$
+- For a population parameter this would be  $$\frac{\bar{Y} - CONSTANT}{SE_{\bar{Y}}}$$
+- For an experiment this might be $$\frac{(\bar{Y}-\bar{X}) - CONSTANT}{SE_{\bar{Y}-\bar{X}}}$$
 The constant depends on what your null hypothesis states, e.g. "the drug has no effect" would imply the constant is 0.
 
 With our large samples, the z-test-statistic should follow a Normal(0, 1), i.e. Normal distribution with mean=0 and SD=1. Therefore, if the z-test-statistic is beyond 2, we would find that to be surprising under the null hypothesis, specifically, we've encountered an event, where seeing our data or something more extreme, only happens less than 5% of the time. The specific probability here is called the p-value.
@@ -170,7 +170,7 @@ The p-value can be thought as a surprise level (the smaller the more surprised),
 - Type 1 error, false positive, calling something useful that is in fact not useful
 - Type 2 error, false negative, calling something not useful that is in fact useful
 
-It turns out that following the hypothesis testing procedure, i.e. rejecting the null when the p-value is less than 5% will ensure your type 1 error is at most 5%. So the p-value is compared to your Type 1 error tolerance, i.e. your significance level $\alpha$. If the p-value is lower than $\alpha$, we reject the null hypothesis, otherwise we fail to reject the null hypothesis.
+It turns out that following the hypothesis testing procedure, i.e. rejecting the null when the p-value is less than 5% will ensure your type 1 error is at most 5%. So the p-value is compared to your Type 1 error tolerance, i.e. your significance level $$\alpha$$. If the p-value is lower than $$\alpha$$, we reject the null hypothesis, otherwise we fail to reject the null hypothesis.
 
 However, most tests fail to reject the null hypothesis. This phrasing instead of "accepting the null" is to encourage us to think about the other reasons we might fail to reject: 
 - The null is true, e.g. the drug had no effect for this measurement
@@ -178,7 +178,7 @@ However, most tests fail to reject the null hypothesis. This phrasing instead of
 - Some error occurred in the analysis
 - We should be tracking some other metric instead
 
-To control for type 2 error, we often rely on something called statistical power. This is the probability of correctly rejecting the null when the alternative hypothesis is correct, P(Seeing our z-test-statistic or more extreme | Alternative Hypothesis is True). Calculating this requires us to create a minimum detectable effect (MDE) from the domain science, this is often the same or slightly smaller than the expected treatment effect. We then calculate what's the chance of rejecting the null when the alternative is true.
+To control for type 2 error, we often rely on something called statistical power. This is the probability of correctly rejecting the null when the alternative hypothesis is correct, P(Seeing our z-test-statistic or more extreme \| Alternative Hypothesis is True). Calculating this requires us to create a minimum detectable effect (MDE) from the domain science, this is often the same or slightly smaller than the expected treatment effect. We then calculate what's the chance of rejecting the null when the alternative is true.
 
 It's important to note that the Type 1 and Type 2 errors here are referring to errors over many experiments, not the individual experiment being conducted. So the hypothesis testing framework is only appropriate for decisions that will happen many many times.
 
@@ -186,7 +186,8 @@ It's important to note that the Type 1 and Type 2 errors here are referring to e
 Introductory statistic courses often also teach:
 - Basic logic
 - Probability / Counting
-- 
+- ....
 
 In regression we won't talk much about sampling but you should know that the absolute sample size (not the sample size relative to the population) and proper randomization are keys to a quality sample.
 
+{% include lib/mathjax.html %}
