@@ -29,8 +29,4 @@
     <img src="images/colab_copy_path.png" alt="copy path" width='400'>
 - You should be able to read in this file using this copied path, for example if you had a Comma Separated Values (CSV) file, then it'll look like the below
   <img src="images/read_csv.png" alt="use copied path" width='400'>
- 
-    
-
-```python
-```
+- You can download created files using the Files on the right. It is important to know that the files outside of the MyDrive folder will be erased!
