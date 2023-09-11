@@ -26,7 +26,7 @@ faced in application.
 ### How to get help
 - Office hours:
   - Mon/Wed 10-Noon with Wayne Tai Lee (wtl2109) at 324 Uris Hall (except 11/1)
-  - TBD with TA
+  - Th 10-noon with Irene Chang (bnc2119) at 309 Uris Hall
 - [Statistics daily help room](https://stat.columbia.edu/help-room/)
 
 ### Timeline
