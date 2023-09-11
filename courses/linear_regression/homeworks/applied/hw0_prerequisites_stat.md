@@ -12,7 +12,7 @@ For your grpahs, please make sure to explain what each axis is. You can draw you
   total clicks divided by the total emails sent for each hour. How should they visualize this? 
 - Arizona is interested in learning whether the extreme heat has hurt their tourism. Someone has collected
   some data on the daily maximum temperature each time and the number of visitors to the national parks in the
-  following week. How should they visualize these? Please make 
+  following week. How should they visualize these?
 - Someone wants to understand if the banks prefer schools from NYC (because NYC has a high concentration
   of financial firms). They have some data on whether the candidate's school is from NYC, and also
   whether the candidate was offered an interview. How should they visualize this?
