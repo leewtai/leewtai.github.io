@@ -36,7 +36,7 @@ faced in application.
   |---|---|---|---|
   |2023-09-06|[Introduction, expectations, and transitions oh my!](https://drive.google.com/open?id=12GIwf8KVtYc7KN7C6eVC8c3R41LiQNtQlVBHTNv4HmA)|||
   |2023-09-11|[Intro Stat Review Slides](https://docs.google.com/presentation/d/1XOCRjs4RgbjKfUD07R7cXZJ-CjZ1mnC0FRzUDwdR3Y0/edit?usp=sharing)|[Intro Stat Review Notes](lectures/modules/prereq-intro-stat.md)||
-  |2023-09-13|Quick R crash course (if you've taken 2102 you can skip)|[How to simulate the LLN](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_lln.html)|[Homework 0](homeworks/applied/hw0_prerequisites_stat.md)|
+  |2023-09-13|[Quick R crash course](lectures/intro_R_crash.Rmd) (if you've taken 2102 you can skip)|[How to simulate the LLN](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_lln.html)|[Homework 0](homeworks/applied/hw0_prerequisites_stat.md)|
   |2023-09-18|[Reviewing Hypothesis Testing with R Simulations](https://drive.google.com/open?id=1zBjQ9G508s4PBlmMWR2_fofictjvj3Achw30BBCVmnc)|[How to simulate the LLN](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_lln.html)||
   |2023-09-20|[Deriving simple linear regression](https://docs.google.com/presentation/d/15m8XkAKZaDA4lsTJxvTaHekrFPXFVv22qZ6j5MDrBrg/edit?usp=sharing)|Text 2.1.1|Read [Global Evidence on Economic Preferences](https://doi.org/10.1093/qje/qjy013) until Chapter IV.A|
   |2023-09-25|[Linking regression coefficients to the data generation process](https://docs.google.com/presentation/d/1NalZQ2EWSt3Z7ojP0iPOt902VyJfRrP-MsEyc8qXoE0/edit?usp=sharing)|Text 2.7.1 + 2.7.2|Homework 1|

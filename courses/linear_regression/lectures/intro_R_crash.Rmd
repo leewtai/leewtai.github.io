@@ -1,0 +1,236 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+A lot of this material is referenced in the [tutorial](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_lln.html).
+
+## R can replace a calculator
+
+Try to run the code below in different ways:
+- Line by line (Place your cursor at desired line then Ctrl + ENTER)
+- A section (highlighting the section then Ctrl + ENTER)
+
+```{r}
+1
+2*3
+3 +4
+3 + 4 * -1
+(3 + 4) * -1
+3 + 4 * - 1
+```
+
+
+#### Calculator functions
+
+Functions allow us to perform complex tasks! They have
+```{r}
+sin(3.1415926)
+
+sqrt(100)
+
+log(10)
+
+log(10, base=10)
+
+```
+
+## Dealing with errors
+
+Making mistakes and learning to deal with them:
+- What happens when you forget an opening parentheses?
+- What happens when you forget a closing parentheses? (you can escape by triggering an error, e.g. enter 5)
+- What happens when you enter non-sensible information
+- What is a warning vs an error?
+
+Components of an error message:
+- 
+- 
+
+What to do when we see an error?
+- 
+- 
+
+```{r, eval=FALSE}
+log2)
+
+log(2
+
+log("hello")
+
+mean("hello")
+```
+
+
+## Variable names
+
+Variables solve the problem of:
+- Similar numbers having different meanings
+- Keep updates consistent 
+
+```{r}
+my_name <- "captain sparkle"
+pro_noun <- "captain sparkle"
+
+paste("Hello, my name is", my_name)
+paste(pro_noun, "just said hi.")
+paste("how did yuo get named", my_name)
+```
+
+## Simple data types
+
+You need to know data types because the same function does different things
+when given different data types!
+
+```{r}
+demo_logi <- TRUE
+demo_num <- 123
+demo_char <- "hello"
+
+demo_logi * 2
+demo_num * 2
+demo_char * 2
+```
+
+## Creating data
+
+```{r}
+# Create a vector with c()
+die <- c(1, 2, 3, 4, 5, 6)
+# Create consecutive integers with ":"
+die2 <- 1:6
+# Create random variables with r???? functions
+normals <- rnorm(1)
+right_tail_stuff <- rexp(1)
+```
+
+## "vectorized" operations
+
+```{r}
+die * 2
+die + die
+
+# Can you explain this one?
+c(1, 2, 3, 4) + c(1, 2)
+```
+
+
+## Functions on vectors
+```{r}
+mean(die)
+sd(die)
+
+```
+
+## Subsetting and overwriting
+```{r}
+# oops there are two 5's!
+die <- c(1, 2, 3, 4, 5, 5)
+
+die[5] <- 6
+die
+```
+
+## Nesting function calls or "the stack"
+
+The functions always start with the innermost
+```{r}
+abs(die - median(die))
+
+```
+
+#### Exercise
+
+How can you execute the formula below, assuming $X_1, \dots, X_6$ are the values on a die.
+
+$$\sqrt{\frac{1}{n}\sum_i (X_i - \bar{X})^2}$$
+
+where $\bar{X}$ is just the mean of X.
+Try to use:
+- vectorized operations
+- the `mean()` or `sum()` function
+- the `sqrt()` function
+
+```{r}
+# TYPE YOUR CODE HERE
+# TYPE YOUR CODE HERE
+# TYPE YOUR CODE HERE
+
+```
+
+
+## Plotting
+```{r}
+normals <- rnorm(100)
+hist(normals)
+```
+
+## Subsetting with booleans
+
+```{r}
+normals <- rnorm(100)
+is_extremes <- abs(normal) > 2
+extreme_vals <- normals[is_extremes]
+```
+
+## Avoid repetition: for-loops
+
+This happens a lot: only one value changes in the simulation!
+
+```{r}
+print("99 bottles on the wall")
+print("98 bottles on the wall")
+print("97 bottles on the wall")
+```
+
+Separate the changing part from the static part!
+
+```{r}
+num_bottle <- 99
+paste(num_bottle, "bottles on the wall")
+num_bottle <- 98
+paste(num_bottle, "bottles on the wall")
+num_bottle <- 97
+paste(num_bottle, "bottles on the wall")
+```
+
+For-loops:
+
+- Static code goes into the "body", i.e. between the curly brackets `{...}`
+- Changing variable goes into the `for()` statement
+
+```{r}
+num_bottles <- c(99, 98, 97)
+for(num_bottle in num_bottles){
+  lyric <- paste(num_bottle, "bottles on the wall")
+  print(lyric)
+}
+```
+
+Often people like to loop over the index rather than the actual value
+
+```{r}
+num_bottles <- c(99, 98, 97)
+for(i in seq_along(num_bottles)){
+  print(i)
+  num_bottle <- num_bottles[i]
+  print(num_bottle)
+  #lyric <- paste(num_bottle, "bottles on the wall")
+  #print(lyric)
+}
+```
+
+How to store the output from a for-loop
+
+```{r}
+lyrics <- c()
+num_bottles <- c(99, 98, 97)
+for(i in seq_along(num_bottles)){
+  num_bottle <- num_bottles[i]
+  lyric <- paste(num_bottle, "bottles on the wall")
+  lyrics[i] <- lyric
+}
+print(lyrics)
+
+```
+
