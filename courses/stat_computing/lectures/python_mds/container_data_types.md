@@ -210,7 +210,7 @@ With integers, changing the value in `y` didn't affect `x`, but the behavior
 changed once we switched to lists.
 
 For the integer case, notice that `y` is being completely re-assigned to a new
-value. Overwriting the original `y=x` with `y=2` severes the relationship between `y=x`.
+value. Overwriting the original `y=x` with `y=2` severs the relationship between `y=x`.
 
 In the second case, it's easier to think of `[1, -2, 3]` as a set of Google slides
 with a shared link called `x`. Now imagine if you created another shared link
