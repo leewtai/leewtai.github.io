@@ -39,8 +39,9 @@ faced in application.
   |2023-09-13|[Quick R crash course](lectures/intro_R_crash.Rmd) (if you've taken 2102 you can skip)|[How to simulate the LLN](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_lln.html)|[Homework 0](homeworks/applied/hw0_prerequisites_stat.md)|
   |2023-09-18|[Reviewing Hypothesis Testing with R Simulations](https://drive.google.com/open?id=1zBjQ9G508s4PBlmMWR2_fofictjvj3Achw30BBCVmnc)|[How to simulate the LLN](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_lln.html)||
   |2023-09-20|[Deriving simple linear regression](https://docs.google.com/presentation/d/15m8XkAKZaDA4lsTJxvTaHekrFPXFVv22qZ6j5MDrBrg/edit?usp=sharing)|Text 2.1.1||
-  |2023-09-25|[Linking regression coefficients to the data generation process](https://docs.google.com/presentation/d/1NalZQ2EWSt3Z7ojP0iPOt902VyJfRrP-MsEyc8qXoE0/edit?usp=sharing)|Text 2.7.1 + 2.7.2|Homework 1|
+  |2023-09-25|[Linking regression coefficients to the data generation process](https://docs.google.com/presentation/d/1NalZQ2EWSt3Z7ojP0iPOt902VyJfRrP-MsEyc8qXoE0/edit?usp=sharing)|Text 2.7.1 + 2.7.2|[Homework 1](homeworks/applied/hw1_prerequisites.md)|
   |2023-09-27|[Linking math to simulations](https://docs.google.com/presentation/d/1-TaFO-3j1-een-w3pjExEbKQXdrJqV6ZI-AOZc9ZQHM/edit?usp=sharing)|Text 2.7.2 + 2.7.3|Read [Global Evidence on Economic Preferences](https://doi.org/10.1093/qje/qjy013) until Chapter IV.A|
+>>>>>>> 73d1b0d15e32cad3f22727b7eeada5ade74ec7be
   |2023-10-02|[Properties of the regression coefficients](https://docs.google.com/presentation/d/1IpFAEOFCMSw5cP-0_ldHx4xxDCljdJCPyngexhTAMSk/edit?usp=sharing)|Text 2.7.2 + 2.7.3|Read [Statistical Models and Shoe Leather](https://psychology.okstate.edu/faculty/jgrice/psyc5314/Freedman_1991A.pdf)|
   |2023-10-04|[Diagnostics of SLR](https://docs.google.com/presentation/d/1_ydaxURpK2F-YkuGXKHxYF9rJ4bRAi6B9ftnyh_LXrM/edit?usp=sharing)|Text 3.1|Homework 2|
   |2023-10-09|[Inferring the true line](https://docs.google.com/presentation/d/1FvUqbEnp21BQuWU3I0UaeeL5qG7EBoTirjVlTxckYXY/edit?usp=sharing)|Text 2.3||
