@@ -1,0 +1,51 @@
+---
+title: "hypoth_with_r_sim"
+output: html_document
+date: "2023-09-18"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Simulating from known distributions
+
+```{r}
+n <- 1000
+
+# Normals natually occur given the CLT; symmetric (i.e. same prob to be on the left and right of the mean)
+normals <- rnorm(n)
+# most random random variable; symmetric
+uniforms <- runif(n, min=-100, max=100)
+# This is how we get tails/extremes!~
+exponentials <- rexp(n)
+
+hist(uniforms)
+```
+
+## Bootstrapping by sampling from existing data
+
+```{r}
+dice_outcomes <- 1:6
+
+sim_die_rolls <- sample(dice_outcomes,
+                        size=100,
+                        replace=TRUE)
+```
+
+
+## Simulations for the sample average
+
+  
+```{r}
+
+```
+
+How would we verify Law of Large Numbers?
+
+```{r}
+
+
+
+```
+

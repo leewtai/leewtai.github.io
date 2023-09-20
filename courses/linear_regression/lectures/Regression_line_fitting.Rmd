@@ -1,0 +1,84 @@
+---
+title: "regression"
+output: html_document
+date: "2023-09-19"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## What is a line?
+
+Below is an example of the function
+
+$$f(X) = 2 - 3 * X$$
+
+```{r cars}
+f <- function(x) {
+  return(2 - 3 * x)
+}
+f(1)
+```
+
+- Body of the function is in "{}"
+- "function" is a keyword in R to expect a function definition
+- Inputs to the function are in "()"
+- The variable assigned is the function name
+
+## Vectorized operations with vectors and functions
+
+How do we plot this?
+
+```{r}
+Xs <- -5:5
+fXs <- f(Xs)
+plot(Xs, fXs)
+```
+
+## What is the distance from a dot to a line?
+
+```{r}
+xy <- c(3.5, 5)
+plot(Xs, fXs)
+points(xy[1], xy[2], col="red")
+
+```
+
+## Regression's objective function
+
+The very general "least square" objective function:
+$$\sum_i (Y_i - f(X_i))^2$$
+If we restrict regression to "lines" then:
+$$\sum_i (Y_i - (\beta_0 + \beta_1 X_{1,i} + \beta_2 X_{2,i} + \dots))^2$$
+If we restrict regression to simple regression then:
+$$\sum_i (Y_i - (\beta_0 + \beta_1 X_{1,i}))^2$$
+Let's try to code this last case up!
+```{r}
+
+least_squares <- function(x, y, intercept, slope){
+  
+  
+}
+```
+
+How can we look at this?
+```{r}
+
+```
+
+## lm() the regression function
+```{r}
+best_line <- lm(fXs ~ Xs)
+best_line
+summary(best_line)
+```
+
+
+## Using lm with data frames
+
+```{r}
+df <- read.csv("~/Downloads/processed_nyc_payroll_2022.csv")
+best_line <- lm(regular_gross_paid ~ regular_hours, df)
+summary(best_line)
+```
