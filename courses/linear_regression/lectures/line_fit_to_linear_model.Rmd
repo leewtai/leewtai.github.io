@@ -1,0 +1,70 @@
+---
+title: "line_fitting_to_linear_model"
+output: html_document
+date: "2023-09-25"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Review
+
+```{r}
+df <- read.csv("~/Downloads/processed_nyc_payroll_2022.csv")
+df['tenure_days'] <- as.numeric(sub(" days", "", df$tenure_days))
+summary(df$tenure_days)
+police <- df[df$title_description == "POLICE OFFICER",]
+plot(police$tenure_days, police$base_salary)
+my_mod <- lm(base_salary ~ tenure_days, police)
+abline(my_mod, col="red")
+
+```
+## How would I explore the data with this?
+
+```{r}
+summary(my_mod)
+```
+
+## How would I make a prediction?
+```{r}
+# Use the coefficients directly!
+my_mod$coefficients
+
+# Create a new data frame
+new_df <- data.frame(tenure_days=c(0, 365, 730))
+new_df
+predict(my_mod, new_df)
+```
+
+## Linear model - a model for how data is generated
+
+Imagine the data for a drug trial.
+
+```{r}
+n <- 2 * 50
+# "God-mode"
+base_health <- runif(1)
+drug_impact <- runif(1, -0.5, 0.5)
+
+error <- rnorm(n)
+dosage <- sample(rep(c(0, 1), n / 2))
+health <- base_health + drug_impact * dosage + error
+
+# "mortal-mode"
+df <- data.frame(dosage, health)
+plot(df$dosage, df$health)
+lm(df$health ~ df$dosage)
+```
+
+## When is `reg_line` "good" if we want to understand the parameters
+
+Science is often about understanding the "parameters" behind the data
+generation.
+
+Main question: how would you define good when we want to understand the data-generation process?
+
+```{r}
+
+
+```
