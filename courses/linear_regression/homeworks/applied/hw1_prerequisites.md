@@ -33,7 +33,7 @@ Please calculate the following statistics for the police payroll dataset `proces
 If you have not worked with data frames, the [notes here](https://leewtai.github.io/courses/stat_computing/lectures/learning_r_data_viz.html) may be useful.
 
 - Calculate a new variable called `total_pay`, where `total_pay` is the sum of the 3 columns that correspond to pay (recall that salary is not the same as pay).
-- Are there any missing values or negative values in the data? One sentence answer please. Do not 
+- Are there any missing values or negative values in the data? One sentence answer please.
 - Please calculate the minimum, maximum, 25th percentile, 50th percentile, and 75th percentile of `total_pay`. Treat missing values as 0 if there are any. You should make sure it's obvious to the grader which value corresponds to which statistic.
 - Please repeat the above calculation for each gender category in the dataset.
 - Please print out **one** name that has gender `'other'` or `'both'` that you would consider it obviously male or female. Please write out which gender you believe this name should be associated with. Your code does not need to show how you made this discovery.
