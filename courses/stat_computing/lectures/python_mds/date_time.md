@@ -56,4 +56,14 @@ covered.
   odd_time = datetime.strptime(timestamp + " UTC-0500",
                                "%Y-%m-%d %H:%M:%S UTC%z")
   ```
+- Often in data you'll see UNIX timestamps, i.e. the seconds since 1970, January 1st, 00:00:00.
+  This looks like a 10 digit value like 1695965380. You can work with these using the 
+  `datetime.datetime.timestamp()` method.
 
+  ```python
+  from datetime import datetime
+
+  start_of_unix_time = datetime(year=1970, month=1, day=1, hour=0, minute=0, second=0)
+  # Depending on your time zone, the following may not be 0
+  start_of_unix_time.timestamp()
+  ```
