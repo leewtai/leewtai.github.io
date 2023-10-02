@@ -1,0 +1,40 @@
+---
+title: "clt_coefficients"
+output: html_document
+date: "2023-09-27"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Calculate the SE of the coefficients
+
+We want to quantify the SE of the coefficients from regression.
+
+```{r}
+n <- 100
+x <- runif(n, -1, 1)
+
+b0 <- 3
+b1 <- 3.14
+
+error <- rnorm(n, sd = 2)
+
+y <- b0 + b1 * x + error
+
+slr <- lm(y ~ x)
+```
+
+
+How would we do it? Copy parts of the code above that needs to be simulated!
+Hint: how did we do it for the average?
+
+```{r}
+
+
+```
+
+
+## What would happen if we changed the error distribution?
+

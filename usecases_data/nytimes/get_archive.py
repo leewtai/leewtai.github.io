@@ -1,4 +1,5 @@
 from itertools import product
+from datetime import datetime
 import json
 import logging
 import re
@@ -21,16 +22,18 @@ cred = json.load(open('../credentials.json', 'r'))
 # NYTImes limits to 4000 calls a day
 pattern = 'climat'
 
-months = list(range(1, 13))
-min_y = 2015
-max_y = 2022
-years = list(range(min_y, max_y + 1))
-file = Path('nytimes_{}_{}_arch.json'.format(min_y, max_y))
+months = range(1, 13)
+min_y = 2022
+max_y = 2023
+years = range(min_y, max_y + 1)
+today = datetime.today()
 
 
 # relev_docs = []
 archive_url = 'https://api.nytimes.com/svc/archive/v1/{year}/{month}.json'
 for year, month in product(years, months):
+    if year == today.year or month == today.month:
+        break
     logging.info('Extracting archive data for year {} and month {}'.format(
                  year, month))
     arch_url = archive_url.format(year=year, month=month)
@@ -42,7 +45,7 @@ for year, month in product(years, months):
     out = arch_resp.json()
     logging.info('got year {}, month {}'.format(year, month))
     docs = out.get('response').get('docs')
-    json.dump(docs, open('nyt_arch_{}_{}.json'.format(year, month),
+    json.dump(docs, open('archive/nyt_arch_{}_{}.json'.format(year, month),
                          'w'))
     # only keep articles with the keyword
     # for doc in docs:
