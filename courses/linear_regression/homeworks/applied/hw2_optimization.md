@@ -39,7 +39,7 @@ Let's perform a grid search for the best value of `a` and `b` by doing the follo
 There are packages that can find the best value for `a` and `b` for us that does not perform a grid search. Let `u` and `v` respectively indicate the columns in the file `hw2_q2.csv`and let's call the function you wrote in Q1, `q1_fun`, then the follow code should return the best values for `a` and `b` (EDIT: this was previously `q2_fun` in last year's version, the intent is clear to your grader):
 
 ```r
-opt_ab <- optim(par=c(2, -2), q2_fun, u=u, v=v, method="BFGS")
+opt_ab <- optim(par=c(2, -2), q1_fun, u=u, v=v, method="BFGS")
 best_a <- opt_ab$par[1]
 best_b <- opt_ab$par[2]
 ```
