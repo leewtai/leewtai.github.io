@@ -1,0 +1,95 @@
+---
+title: "diagnostics"
+output: html_document
+date: "2023-10-04"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+beta0 <- -2
+beta1 <- 2
+sigma <- 5
+n <- 100
+x <- runif(n, -5, 5)
+noise <- rnorm(n, sd=sigma)
+```
+
+## Standard model
+
+```{r}
+y <- beta0 + beta1 * x + noise
+mod <- lm(y ~ x)
+
+```
+
+What were our formulas for $SE(\hat{\beta})$?
+
+- $SE(\hat{\beta_1}) = \sqrt{\frac{\sigma^2}{\sum_i (x_i - \bar{X})^2}}$
+- $SE(\hat{\beta_0}) = \sqrt{\sigma^2\left(\frac{1}{n} + \frac{\bar{X}^2}{\sum_i (x_i - \bar{X})^2}\right)}$
+- $\hat{\sigma} = \sqrt{\frac{1}{n-2}\sum_i (Y_i - \hat{Y})^2} = \sqrt{\frac{1}{n-2}\sum_i (Y_i - (\hat{\beta_0} + \hat{\beta1} * x_i))^2}$
+
+```{r}
+
+
+```
+
+
+## Diagnostics for Inference - not linear
+
+```{r}
+y <- beta0 + x^(beta1) + noise
+mod <- lm(y ~ x)
+```
+
+## Diagnostics for Inference - noise not mean 0
+
+```{r}
+noise_odd <- rexp(n)
+y <- beta0 + beta1 * x + noise_odd
+mod <- lm(y ~ x)
+
+```
+
+## Diagnostics for inference - not independent
+
+```{r}
+noise_dep <- rnorm(1)
+for(i in seq_len(n - 1)){
+  noise_dep[i + 1] <- noise_dep[i] + rnorm(1, sd=0.5)
+}
+# sorting of x is NOT necessary for the counter example, it just makes the plots more clear
+x_sorted <- sort(x)
+
+y <- beta0 + beta1 * x_sorted + noise_dep
+mod <- lm(y ~ x_sorted)
+
+```
+
+
+## Diagnostics for inference - heteroscedastic
+
+```{r}
+noise_heter <- rnorm(n, sd=sigma * abs(x / 5))
+y <- beta0 + beta1 * x + noise_heter
+mod <- lm(y ~ x)
+
+```
+
+
+## Prediction diagnostics - R^2
+
+```{r}
+y <- beta0 + beta1 * x + noise
+mod <- lm(y ~ x)
+
+```
+
+## Prediction diagnostics - Cross validation
+
+```{r}
+folds <- sample(rep(1:10, 10))
+
+```
