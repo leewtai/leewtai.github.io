@@ -19,7 +19,7 @@ Numpy arrays can be created manually or sourced from a file.
 
   demo1 = np.array([[1, 2], [3, 4], [5, 6]])
   demo1.shape
-  print(demo)
+  print(demo1)
   ```
 - Generating 2D numpy arrays with $$X_1, \dots, X_{200} \sim Normal(0, 1)$$ random numbers
   to simulate data.
