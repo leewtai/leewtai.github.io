@@ -1,5 +1,5 @@
 # Statistical Computing and Introduction to Data Science
-GR5206 - Fall 2022
+GR5206 - Fall 2023
 
 ## Learning outcomes
 - Understand basic programming
