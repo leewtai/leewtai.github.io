@@ -1,0 +1,54 @@
+---
+title: "confidence vs prediction intervals"
+output: html_document
+date: "2023-10-16"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+We may also be interested in other things besides the coefficients.
+- We could be interested in the true line itself, i.e. $\beta_0 + \beta_1 * X$
+- We could be interested in the next measured value, i.e. $\beta_0 + \beta_1 * X + \epsilon_{new}$
+
+Both of these would be predicted using:
+$\hat{Y} = \hat{\beta}_0 + \hat{\beta}_1 * X$
+
+
+But they have different uncertainties associated with them.
+- For predicting the true line
+  $SE(\hat{Y}) = \sigma^2 (\frac{1}{n} + \frac{(X - \bar{X})^2}{\sum_i (x_i - \bar{X})^2})$
+- For predicting the next measurement
+  $SE(\hat{Y}) = \sigma^2 (\frac{n + 1}{n} + \frac{(X - \bar{X})^2}{\sum_i (x_i - \bar{X})^2})$
+
+## What does that mean?
+
+```{r}
+beta0 <- runif(1)
+beta1 <- runif(1, -5, 5)
+
+n <- 500
+x <- rexp(n, 1)
+y <- beta0 + beta1 * x + rnorm(n)
+plot(x, y)
+```
+
+```{r}
+mod <- lm(y ~ x)
+
+pred_loc <- seq(min(x), max(x), length.out=20)
+pred_y <- predict(mod, newdata = data.frame(x = pred_loc))
+
+
+plot(x, y, type="n")
+abline(a=beta0, b=beta1, col="blue")
+points(pred_loc, pred_y, col="red")
+
+k <- 100
+new_measurements <- sapply(pred_loc, function(x) beta0 + beta1 * x + rnorm(k))
+plot(x, y, type="n", ylim=range(new_measurements))
+# matrix will be stacked column-wise
+points(rep(pred_loc, each=k), c(new_measurements), col="#00000055", pch=16)
+points(pred_loc, pred_y, col="red")
+```
