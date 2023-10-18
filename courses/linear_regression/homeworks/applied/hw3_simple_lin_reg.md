@@ -41,11 +41,10 @@ y <- 0.1 + 1.2 * x + rnorm(n, sd=x)
 ```
 
 - Which regression assumption is being violated?
-- Please report the SE from `summary.lm()` but also comment on why the R output from `summary.lm()` may not be appropriate. 
-- Estimate $$SE(\hat{\beta}_1\mid X)$$ by simulating from the true data generation and fitting `B=1000` different $$\hat{\beta}_{(1,j)}$$ (the $$j$$ index just indicate different the estimates from different simulations). Please do not overwrite your original data from above. Please do this 2 ways:
-  - Calculate this using $$\sqrt{\frac{1}{B} \sum[(\hat{\beta}_{(1,j)} - \beta_1]^2} \approx \sqrt{E([\hat{\beta}_{(1,j)} - \beta_1]^2\mid X)}$$. 
-  - Calculate this by simply using `sd()` in R over the simulated coefficients.
-- Please calculate the "percent error" for each of these estimates above. Percent error is often calculated as $$\frac{\lvert new-base\rvert }{base}$$. Please determine what's the most sensible "base" value in this problem.
+We will have 2 estimates for the $$SE(\hat{\beta}_1 \mid X)$$:
+- The first estimate is the SE from `summary.lm()`
+- The second estimate $$SE(\hat{\beta}_1\mid X)$$ is by simulating from the true data generation and fitting `B=1000` different $$\hat{\beta}_{(1,j)}$$ (the $$j$$ index just indicate different the estimates from different simulations). Please do not overwrite your original data from above. Calculate this by simply using `sd()` in R over the simulated coefficients.
+- Please calculate the "percent error" for each of these estimates above. Percent error is often calculated as $$\frac{\lvert new-base\rvert }{base}$$. The "base" value in this problem should be $$\sqrt{\frac{1}{B} \sum[(\hat{\beta}_{(1,j)} - \beta_1]^2} \approx \sqrt{E([\hat{\beta}_{(1,j)} - \beta_1]^2\mid X)}$$. Please have one sentence explaining the difference between this and the second estimate.
 
 
 #### Q5 - Evaluating residual plots
