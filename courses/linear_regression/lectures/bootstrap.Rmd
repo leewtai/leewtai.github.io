@@ -1,0 +1,79 @@
+---
+title: "bootstrap"
+output: html_document
+date: "2022-10-17"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+#### Percentile method for confidence intervals
+
+$$(\bar{Y}_{\lfloor 2.5 \rfloor}, \bar{Y}_{\lfloor 97.5 \rfloor})$$
+```{r}
+n <- 100
+x <- runif(n)
+y <- rnorm(n)
+mod <- lm(y~ x)
+mod$coefficients[2]
+
+stat_boots <- c()
+sim_num <- 5000
+for(i in seq_len(sim_num)){
+    boot_ind <- sample(n, n, replace=TRUE)
+    y_boot <- y[boot_ind]
+    x_boot <- x[boot_ind]
+    mod_boot <- lm(y_boot ~ x_boot)
+    
+    stat_boots[i] <- mod_boot$coefficients[2]
+}
+quantile(stat_boots, c(0.025, 0.975))
+
+
+x <- runif(n)
+y <- 2 * x + rnorm(n, sd=0.3)
+# Wrong
+boot_ind <- sample(n, n, replace=TRUE)
+y_boot <- y[boot_ind]
+x_boot <- x[boot_ind]
+plot(x_boot, y_boot)
+```
+
+#### Basic method for confidence intervals
+
+$$\bar{Y}_{\lfloor 2.5 \rfloor} - \bar{Y} < \bar{Y}^{boot} - \bar{Y} < \bar{Y}_{\lfloor 97.5 \rfloor} - \bar{Y}$$
+$$\approx \bar{Y}_{\lfloor 2.5 \rfloor} - \bar{Y} < \bar{Y} - E(Y) < \bar{Y}_{\lfloor 97.5 \rfloor} - \bar{Y}$$
+$$- \bar{Y}_{\lfloor 2.5 \rfloor} + \bar{Y} > -\bar{Y} + E(Y) > - \bar{Y}_{\lfloor 97.5 \rfloor} + \bar{Y}$$
+$$- \bar{Y}_{\lfloor 2.5 \rfloor} + 2\bar{Y} >  E(Y) > - \bar{Y}_{\lfloor 97.5 \rfloor} + 2\bar{Y}$$
+$$(2\bar{Y}- \bar{Y}_{\lfloor 97.5 \rfloor},2\bar{Y} - \bar{Y}_{\lfloor 2.5 \rfloor})$$
+```{r}
+n <- 100
+
+
+```
+
+
+#### bootstrap the residuals
+
+
+```{r}
+n <- 100
+x <- runif(n)
+y <- 3 - 2 * x + rnorm(n)
+
+mod <- lm(y ~ x)
+sim_num <- 5000
+stat_boots <- c()
+for(i in seq_len(sim_num)){
+    error_boot <- sample(mod$residuals,
+                         n, replace=TRUE)
+    y_boot <- mod$fitted.values + error_boot
+    # Not resampling x values!
+    mod_boot <- lm(y_boot ~ x)
+    stat_boots[i] <- mod_boot$coefficients[2]
+}
+quantile(stat_boots, c(0.025, 0.975))
+
+```
