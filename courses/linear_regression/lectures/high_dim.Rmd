@@ -1,0 +1,47 @@
+---
+title: "high_dim"
+output: html_document
+date: "2023-10-25"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Marginal relationships vs joint relationships
+
+```{r}
+n <- 1000
+
+z <- runif(n)
+x <- 2 * z + rexp(n)
+y <- 1 - 0.5 * z + 2 * x + rnorm(n)
+
+# What happens between regressing y on Z alone vs y on Z and X?
+
+```
+
+
+## Do no harm (with random features)?
+```{r}
+n <- 100
+x <- runif(n)
+y <- 2 * x + rnorm(n)
+plot(x, y)
+summary(y ~ x)
+# How would I create p random features?
+p <- 3
+
+```
+
+
+## Extreme collinearity
+
+```{r}
+n <- 100
+x <- runif(n)
+y <- 2 * x + rnorm(n)
+z <- x
+z[1] <- runif(1)
+summary(lm(y ~ x + z))
+```
