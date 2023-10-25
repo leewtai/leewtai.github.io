@@ -74,6 +74,8 @@ Use the file [hw4_scatter.csv](./hw4_scatter.csv), please reproduce the followin
 
 <img src="../images/hw4_conf_inter_boot.png" alt="conf_inter_boot" width='600'>
 
+Hint:
+- Each regression fitted from a bootstrap will produce a value at any "X" location. The width of the inner 95% of these fitted values should be a good estimate for the width of your confidence interval!
 
 #### Q5 - intuition practice
 
