@@ -1,0 +1,79 @@
+---
+title: "simultaneous_inference"
+output: html_document
+date: "2023-10-30"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Multiple Testing in Regression
+
+The issue of doing hypothesis tests multiple times.
+
+The probability of "making a type 1 error mistake" becomes high!
+
+#### Let's estimate the probability
+
+```{r}
+n <- 1000
+p <- 2
+x <- matrix(rnorm((p - 1) * n),
+            nrow = n)
+
+sim_num <- 1000
+coeffs <- matrix(NA, nrow=sim_num,
+                 ncol=2)
+for(i in seq_len(sim_num)){
+  y <- rnorm(n)
+  
+  mod <- lm(y ~ x)
+  coeffs[i, ] <- mod$coefficients
+}
+plot(coeffs[, 1],
+     coeffs[, 2])
+X <- cbind(1, x)
+se <- sqrt(diag(solve(t(X) %*% X)))
+abline(v = c(2, -2) * se[1], h = c(2, -2) * se[2])
+
+```
+
+#### One regression, each parameter is tested!
+
+```{r}
+n <- 1000
+p <- 100
+x <- matrix(rnorm((p - 1) * n),
+            nrow = n)
+y <- rnorm(n)
+
+mod <- lm(y ~ x)
+p_vals <- summary(mod)$coefficients[, 4]
+```
+
+
+## Easy Fix that's not realistic - Bonferroni
+
+If you're testing $m$ hypotheses, lower the type1 error threshold by $k$.
+
+$\alpha = \frac{\alpha}{m}$
+
+```{r}
+
+
+```
+
+## A slightly better approach - Simes' procedure
+
+If you want a [reference](http://stat.wharton.upenn.edu/~steele/Courses/956/ResourceDetails/MultipleComparision/Simes86pdf.pdf):
+Reject the p-value such that 
+
+$p_j \leq \alpha \frac{j}{m}$
+
+```{r}
+
+
+```
+
+
