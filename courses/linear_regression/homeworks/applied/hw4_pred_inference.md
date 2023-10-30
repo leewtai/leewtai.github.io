@@ -19,6 +19,8 @@ $$\hat{SE}(\hat{\beta}_1 \vert X)$$ differs from $$SE(\hat{\beta}_1 \vert X)$$ b
 Please create a matrix or data frame called `summ_tab` using the formulas above that matches the output from the `coefficients` attribute under `summary.lm()`
 You may use basic functions like `pt()`, `mean()`, `sd()`, `corr()`, `sum()`, `/`, etc
 
+Please generate your own random dataset to demonstrate this.
+
 Hint: `df` stands for degrees of freedom.
 
 #### Q2 - different ways to generate data
