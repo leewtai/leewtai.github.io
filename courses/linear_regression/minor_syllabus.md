@@ -49,12 +49,12 @@ faced in application.
   |2023-10-18|[Bootstrapping](https://docs.google.com/presentation/d/1A_K6gVhFnxoh71oNSbrwIJgJO5zORxYVgv2bM2wJQjg/edit?usp=sharing) and [code template](lectures/bootstrap.Rmd)|[Stanford Notes](http://statweb.stanford.edu/~tibs/sta305files/FoxOnBootingRegInR.pdf)||
   |2023-10-23|[Interactions, polynomials, and categorical variables for X](https://docs.google.com/presentation/d/1Mn_XMrKua-7kJRiesSFA43zqtXSxVcsAM23P0UkwQVA/edit?usp=sharing):<br>- [part1 on categorical X](https://vimeo.com/403745129)<br>- [part2 on polynomials](https://vimeo.com/403753144)<br>- [part3 on interactions](https://vimeo.com/403773071); [code_template](lectures/common_multivar.R)||[Homework 3](homeworks/applied/hw3_simple_lin_reg.md)|
   |2023-10-25|[Issues with multiple variables](https://docs.google.com/presentation/d/1h4NDHN1ipJ-QpAvC3GUHvEK9Wooxf9u4wB8R2RxOKgI/edit?usp=sharing) and [lecture - can bad features hurt](https://vimeo.com/398651931) and [lecture - collinearity](https://vimeo.com/398652055); [code template](lectures/high_dim.Rmd)|Text 2.6 + Text 5.2||
-  |2023-10-30|[Simultaneous inference on coefficients](https://docs.google.com/presentation/d/1MRwyjDs-77l99HT0Mp4uFvFbzivt-fT9kmKVzSPPpPE/edit?usp=sharing)|||
+  |2023-10-30|[Simultaneous inference on coefficients](https://docs.google.com/presentation/d/1MRwyjDs-77l99HT0Mp4uFvFbzivt-fT9kmKVzSPPpPE/edit?usp=sharing); [code template](lectures/simultaneous_inference.Rmd)|||
   |2023-11-01|[Cross Validation](https://docs.google.com/presentation/d/1egvYy9Z73FTOXAIFIfP4qhldMUoAFS5-j2fozhNdd4g/edit?usp=sharing) and [lecture](https://vimeo.com/398680410)||[Homework 4](homeworks/applied/hw4_pred_inference.md)|
   |2023-11-06|US ELECTIONS - NO CLASS|||
-  |2023-11-08|Guest Speaker: John Andrew Chwe from Psychology [Logistic regression](https://docs.google.com/presentation/d/17VV5oyTYfwNl_1dKBg4DdXwB69qP3mSb9e2BNITRTtA/edit?usp=sharing) with [vimeo link](https://vimeo.com/403816949)|Text 4.1|[Trustworthiness of crowds is gleaned in half a second](https://static1.squarespace.com/static/5daf65330e17a4220c7707ce/t/64378dd57efb4b7d3b265a54/1681362389720/ChweFreemanSPPS.pdf); |
+  |2023-11-08|Guest Speaker: John Andrew Chwe from Psychology & [Logistic regression](https://docs.google.com/presentation/d/17VV5oyTYfwNl_1dKBg4DdXwB69qP3mSb9e2BNITRTtA/edit?usp=sharing) with [vimeo link](https://vimeo.com/403816949)|Text 4.1|[Trustworthiness of crowds is gleaned in half a second](https://static1.squarespace.com/static/5daf65330e17a4220c7707ce/t/64378dd57efb4b7d3b265a54/1681362389720/ChweFreemanSPPS.pdf); |
   |2023-11-13|[DAGs: Changing significance when adding/deleting features](https://docs.google.com/presentation/d/1N8Bm-aFaFlJ4LQ02swUOmfAcTmfuaQZTQZEgVW80b2E/edit?usp=share_link) with [vimeo link](https://vimeo.com/403836156)|||
-  |2023-11-15|Review||Homework 5|
+  |2023-11-15|Review||[Homework 5](homeworks/applied/hw5_applied.md)|
   |2023-11-20|Midterm 2|||
   |2023-11-22|THANKSGIVING HOLIDAY - NO CLASS|||
   |2023-11-27|[Variable selection day 1](https://docs.google.com/presentation/d/1IEdF6Q_PxcvJdlSghRR-160qsHqFNf2xg-Pyzk86xd8/edit?usp=sharing), no video|||
