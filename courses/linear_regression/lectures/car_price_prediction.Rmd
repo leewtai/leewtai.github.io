@@ -1,0 +1,28 @@
+---
+title: "car price prediction"
+output: html_document
+date: "2023-11-01"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Why not r^2 and why cross validation is better
+
+$r^2$ will only increase with more features!
+
+```{r}
+df <- read.csv("~/Downloads/CarPrice_Assignment.csv")
+
+
+```
+
+
+## What would you do if you were to model this?
+
+```{r}
+
+```
+
+
