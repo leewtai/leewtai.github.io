@@ -57,7 +57,7 @@ faced in application.
   |2023-11-15|Review||[Homework 5](homeworks/applied/hw5_applied.md)|
   |2023-11-20|Midterm 2|||
   |2023-11-22|THANKSGIVING HOLIDAY - NO CLASS|||
-  |2023-11-27|[Variable selection day 1](https://docs.google.com/presentation/d/1IEdF6Q_PxcvJdlSghRR-160qsHqFNf2xg-Pyzk86xd8/edit?usp=sharing), no video|||
+  |2023-11-27|Midterm retro & [WLS](https://docs.google.com/presentation/d/1Y5qLYXVuSUyTBjvP9UWLkIkAIW7jQRfTu4chjj8VJrA/edit?usp=sharing) with [code template](lectures/wls.R)|Special case of chapter 9||
   |2023-11-29|[Variable selection day 2](https://docs.google.com/presentation/d/1IEdF6Q_PxcvJdlSghRR-160qsHqFNf2xg-Pyzk86xd8/edit?usp=sharing), no video|||
   |2023-12-04|Paper discussion||Read [Why do people stay poor?](https://academic.oup.com/qje/article/137/2/785/6455333); Homework 6|
   |2023-12-06|[Wrong models in linear regression + instrumental variables + panel data](https://docs.google.com/presentation/d/1pk5hOWi1vET_QOCvlcG5PZWIJ7uPVyDV1LrQSoXrmQA/edit#slide=id.g6b9cee71ff_0_4), no video|||
