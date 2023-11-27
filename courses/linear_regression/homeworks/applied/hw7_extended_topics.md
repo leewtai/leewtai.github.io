@@ -1,4 +1,4 @@
-# Homework 7: Multivariate Regression
+# Homework 6: Multivariate Regression, Logistic Regression, and DAGs
 
 ## Q0: Logistic Regression
 There's a [dataset on Kaggle to help people detect pulsars from Dr. Robert Lyon](https://www.kaggle.com/datasets/colearninglounge/predicting-pulsar-starintermediate?select=pulsar_data_train.csv). Please read the following post then download its corresponding dataset `pulsar_data_train.csv`:
@@ -33,7 +33,7 @@ A common way to compare models is to calculate the trade-off between recall and 
 In our setting, the thresholds, $$\alpha$$, would be the cutoff used to convert $$\hat{p}(X)$$ to $$\hat{Y}$$, i.e.
 
 $$\hat{Y}|X = \begin{cases}
-              1 & \text{if } p(X) \geq \alpha \\
+              1 & \text{if } \hat{p}(X) \geq \alpha \\
               0 & \text{otherwise}\\
 \end{cases}
 $$
@@ -45,7 +45,7 @@ Please compare the linear regression model against the logistic regression model
 - the test set should be the same for the 2 models (side comment: why is this important?)
 - the two models will have different thresholds to create the different values of precision and recall, please choose what these should be!
 - Please decide what features you decide to include into the models but keep those features the same (no unique solution here) between the models
-- Please create a graph that shows the precision and recall on different axes (labeled)
+- Please create a graph that shows the precision and recall across different cutoff values (each cutoff will produce one precision and one recall) on different axes (labeled)
   - The range of the axes should be at their maximum ranges possible (side comment: why is this important?)
   - Please add a line to your plot that represents a third model: $$\hat{Y}=1$$ for every record.
 
