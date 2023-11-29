@@ -1,0 +1,65 @@
+---
+title: "mixed_models"
+output: html_document
+date: "2023-11-27"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Recall the trustworthiness problem in Study 3.
+
+- The main dependent variable is the "highlighted response" which is `Response.bordered` in our data.
+- `avg_trust` is the average trustworthiness rating for the single-faced photos.
+- `Response.single` is the response for the single face
+- `Response` is the response for the ensemble
+
+
+## Do we see evidence of an individual effect?
+
+E.g. are certain individuals biased in terms of ratings? (What does this mean?)
+
+
+```{r}
+df <- read.csv("~/repos/leewtai.github.io/courses/linear_regression/section/rep_papers/trustworthiness/data/S3/trusthworthiness.csv")
+
+drop_cols <- c("X", "attention_check_response", "attention_check_response.bordered", "attention_check_response.single", "zip", "IP", "Study", "Trial_Component")
+df[drop_cols] <- NULL
+
+head(df)
+
+```
+
+
+## Different model choices
+
+Sticking with lm(), let's fit the model against:
+
+- `Response.single` and `Response`
+- Above + `pic_id`
+- Above + `subjID`
+
+```{r}
+mod <- lm(Response.bordered ~ Response.single + Response, df)
+head(summary(mod)$coefficients)
+
+
+mod2 <- lm(Response.bordered ~ Response.single + Response + pic_id, df)
+head(summary(mod2)$coefficients)
+
+df["subjID"] <- as.factor(df$subjID)
+mod3 <- lm(Response.bordered ~ Response.single + Response + subjID, df)
+head(summary(mod3)$coefficients)
+```
+
+
+
+```{r}
+library(lme4)
+library(Matrix)
+
+# copied from Chwe's code
+# s3_main = lmer(Response.bordered ~ Response.single * Response + (1 + Response.single + Response|subjID) + (1|pic_id), data = df, control = lmerControl(optimizer = 'bobyqa'))
+
+```
