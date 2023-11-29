@@ -58,7 +58,7 @@ faced in application.
   |2023-11-20|Midterm 2|||
   |2023-11-22|THANKSGIVING HOLIDAY - NO CLASS|||
   |2023-11-27|Midterm retro & [WLS](https://docs.google.com/presentation/d/1Y5qLYXVuSUyTBjvP9UWLkIkAIW7jQRfTu4chjj8VJrA/edit?usp=sharing) with [code template](lectures/wls.R)|Special case of chapter 9||
-  |2023-11-29|Mixed models, [code template](lectures/mixed_models.Rmd)|||
+  |2023-11-29|[Mixed models](https://docs.google.com/presentation/d/1O88kkbbnORjARW2ulNGEa9FjCV81IqmeKejbmdQzSek/edit?usp=sharing), [code template](lectures/mixed_models.Rmd)|Chapter 10||
   |2023-12-04|Paper discussion||Read [Why do people stay poor?](https://academic.oup.com/qje/article/137/2/785/6455333); [Homework 6](homeworks/applied/hw7_extended_topics.md)|
   |2023-12-06|[Wrong models in linear regression + instrumental variables + panel data](https://docs.google.com/presentation/d/1pk5hOWi1vET_QOCvlcG5PZWIJ7uPVyDV1LrQSoXrmQA/edit#slide=id.g6b9cee71ff_0_4), no video|||
   |2023-12-11|What we know and don't know||Homework 7 (due 12/13)|
