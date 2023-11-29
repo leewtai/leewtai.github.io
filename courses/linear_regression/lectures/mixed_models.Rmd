@@ -40,26 +40,24 @@ Sticking with lm(), let's fit the model against:
 - Above + `pic_id`
 - Above + `subjID`
 
+How would you compare the models?
+
 ```{r}
 mod <- lm(Response.bordered ~ Response.single + Response, df)
 head(summary(mod)$coefficients)
 
-
-mod2 <- lm(Response.bordered ~ Response.single + Response + pic_id, df)
-head(summary(mod2)$coefficients)
-
-df["subjID"] <- as.factor(df$subjID)
-mod3 <- lm(Response.bordered ~ Response.single + Response + subjID, df)
-head(summary(mod3)$coefficients)
+mod1 <- lmer(Response.bordered ~ Response.single + Response + (1 | subjID), df)
 ```
 
+## Given a researcher's code, how would you start understanding it?
 
+Caveat! The reseacher centered their data first!
 
 ```{r}
 library(lme4)
-library(Matrix)
 
-# copied from Chwe's code
+# copied from Chwe's code with some variable switches
+
 # s3_main = lmer(Response.bordered ~ Response.single * Response + (1 + Response.single + Response|subjID) + (1|pic_id), data = df, control = lmerControl(optimizer = 'bobyqa'))
 
 ```
