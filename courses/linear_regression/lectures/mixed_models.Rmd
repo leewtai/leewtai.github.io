@@ -29,6 +29,8 @@ df[drop_cols] <- NULL
 
 head(df)
 
+boxplot(df$Response.single ~ df$subjID)
+
 ```
 
 
@@ -46,7 +48,16 @@ How would you compare the models?
 mod <- lm(Response.bordered ~ Response.single + Response, df)
 head(summary(mod)$coefficients)
 
-mod1 <- lmer(Response.bordered ~ Response.single + Response + (1 | subjID), df)
+# R is interpreting subjID as a numeric feature
+mod1 <- lm(Response.bordered ~ Response.single + Response + subjID, df)
+df["subjID"] <- as.factor(df$subjID)
+mod1 <- lm(Response.bordered ~ Response.single + Response + subjID, df)
+length(mod1$coefficients)
+head(summary(mod1)$coefficients, 3)
+head(summary(mod)$coefficients)
+
+mod2 <- lm(Response.bordered ~ Response.single * Response + pic_id, df)
+head(summary(mod2)$coefficients, 3)
 ```
 
 ## Given a researcher's code, how would you start understanding it?
@@ -59,5 +70,11 @@ library(lme4)
 # copied from Chwe's code with some variable switches
 
 # s3_main = lmer(Response.bordered ~ Response.single * Response + (1 + Response.single + Response|subjID) + (1|pic_id), data = df, control = lmerControl(optimizer = 'bobyqa'))
+
+mod_mix = lmer(Response.bordered ~ Response.single * Response + (1 | pic_id), data = df, control = lmerControl(optimizer = 'bobyqa'))
+summary(mod_mix)
+
+mod_mix1 = lmer(Response.bordered ~ Response.single * Response + (1 | subjID), data = df, control = lmerControl(optimizer = 'bobyqa'))
+summary(mod_mix)
 
 ```
