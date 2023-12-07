@@ -61,7 +61,7 @@ faced in application.
   |2023-11-29|[Mixed models](https://docs.google.com/presentation/d/1O88kkbbnORjARW2ulNGEa9FjCV81IqmeKejbmdQzSek/edit?usp=sharing), [code template](lectures/mixed_models.Rmd)|Chapter 10||
   |2023-12-04|Paper discussion||Read [Why do people stay poor?](https://academic.oup.com/qje/article/137/2/785/6455333); [Homework 6](homeworks/applied/hw7_extended_topics.md)|
   |2023-12-06|Controlling for variables [code template](lectures/control_and_ivls.R)|||
-  |2023-12-11|What we know and don't know||Homework 7 (due 12/13)|
+  |2023-12-11|What we know and don't know||[Homework 7](homeworks/applied/hw7_find_a_paper.md) (due 12/13)|
   |2023-12-15|Final project or exam|||
 
 
