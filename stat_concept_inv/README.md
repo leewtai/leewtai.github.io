@@ -13,8 +13,13 @@ In other words, the combinatorial nature of these problems should deter students
 from pattern matching problems and actually understanding the concepts.
 
 ## Concepts
-- [Summarizing data](summ/README.md)
-- [Standard Error](se/README.md)
+
+These are organized mostly following the scientific method:
+- Observe by [summarizing data with graphs and models](summ/README.md)
+- Hypothesize by [modeling][model/README.md]
+- Collect [the right kind of data to rule the question](data/README.md)
+- Analyze by [quantifying the uncertainty in data we collect](prob/README.md)
+- Decide and [report with uncertainty](decide/README.md)
 
 ### How to make concept change?
 - dissatisfaction with the old concept

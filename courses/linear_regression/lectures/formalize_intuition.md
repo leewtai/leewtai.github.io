@@ -5,7 +5,7 @@ ability to formalize, mathematically and programmatically, people's intuition.
 
 This sounds complicated but its application is quite familiar
 to the general public. When we go for a physical exam, there's an abstract concept of health that
-we often formalize into statistics like Body-Weight-Index, blood pressure,
+we often formalize into statistics like Body-Mass-Index, blood pressure,
 lung capacity, etc. In gymnastics, there are judges who score the
 completion of the different routines. In a tech company, there are metrics
 like pageviews, likes, numebr of followers etc. The goal of these

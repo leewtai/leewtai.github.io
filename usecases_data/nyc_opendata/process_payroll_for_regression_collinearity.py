@@ -5,7 +5,7 @@ from nltk.corpus import names
 male_names = [n.lower() for n in names.words('male.txt')]
 female_names = [n.lower() for n in names.words('female.txt')]
 
-df = pd.read_csv("nyc_payroll_201901.csv")
+df = pd.read_csv("nyc_payroll_2021.csv")
 df.first_name = df.first_name.astype(str)
 
 
@@ -38,4 +38,4 @@ titles = df.title_description.value_counts()
 rare_title = titles.loc[titles < 50].index
 df['rare_title'] = df.apply(lambda x: x['title_description'] in rare_title, 1)
 
-df.to_csv('processed_nyc_payroll_201901.csv', index=False)
+df.to_csv('processed_nyc_payroll_2021.csv', index=False)

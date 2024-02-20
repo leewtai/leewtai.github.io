@@ -3,7 +3,9 @@ import re
 import matplotlib.pyplot as plt
 import pandas as pd
 
-canvas = pd.read_csv('data/2021-04-28T1108_Grades-STATUN3106_001_2021_1_-_APPLIED_DATA_MINING.csv')
+midterm_skip = ["mjd2283"]
+
+canvas = pd.read_csv('courses/intro-stat/grades/2023-05-13T0142_Grades-STAT1101_Sec_2.csv')
 # Remove placeholder row that indicates whether data was manually entered
 canvas = canvas.loc[1:, :]
 
@@ -20,44 +22,95 @@ def calc_hw_avg(x):
 
 hw_perc = hw_norm.apply(calc_hw_avg, 1)
 
-
-projs_cols = [col for col in canvas.columns if re.search('proj.*', col.lower())]
-projs = canvas[projs_cols].astype(float)
-projs_perc = projs.apply(lambda x: x/x.max(), axis=0)
-
-partic_cols = [col for col in canvas.columns if re.search('.*lec.*', col.lower())]
+partic_cols = [col for col in canvas.columns if re.search('.*(survey|quiz).*', col.lower())]
+len(partic_cols)
 partic = canvas[partic_cols].astype(float)
 partic_norm = partic.apply(lambda x: x/x.max(), axis=0)
 partic_norm.fillna(value=0, inplace=True)
 partic_perc = partic_norm.apply(lambda x: x.mean(), axis=1)
-partic_perc.loc[partic_perc >= 0.48] = 1
+partic_perc.loc[partic_perc >= 0.75] = 1
+
+mid_cols = [col for col in canvas.columns if re.search('.*midterm.*', col.lower())]
+mid = canvas[mid_cols].astype(float)
+mid_norm = mid.apply(lambda x: x/x.max(), axis=0)
+mid1 = mid_norm[mid_cols[0]]
+mid2 = mid_norm[mid_cols[1]]
+
+final = canvas[['Final (1052258)']].astype(float)
+final_norm = final.apply(lambda x: x/x.max(), axis=0)
+final = final_norm['Final (1052258)']
 
 grades = pd.concat((hw_perc,
                     partic_perc,
-                    projs_perc,
+                    mid1,
+                    mid2,
+                    final,
                     canvas[['SIS User ID', 'Student']]), axis=1)
-grades.columns = ['hw', 'partic', 'proj1', 'proj2', 'proj3', 'uni', 'name']
+grades.columns = ['hw', 'partic', 'mid1', 'mid2', 'final', 'uni', 'name']
 
 grades['grades'] = grades.apply(lambda x:
-    x['hw'] * 0.2 + x['proj2'] * 0.7 / 3
-    + x['proj1'] * 0.7 / 3 + x['proj3'] * 0.7 / 3
-    + x['partic'] * 0.1, axis=1)
+    x['hw'] * 0.3 + x['mid1'] * 0.15
+    + x['mid2'] * 0.15 + x['final'] * 0.35
+    + x['partic'] * 0.05, axis=1)
+grades['grades1'] = grades.apply(lambda x:
+    x['hw'] * 0.3 + x['mid1'] * 0.075
+    + x['mid2'] * 0.15 + x['final'] * 0.425
+    + x['partic'] * 0.05, axis=1)
+grades['grades2'] = grades.apply(lambda x:
+    x['hw'] * 0.3 + x['mid1'] * 0.15
+    + x['mid2'] * 0.075 + x['final'] * 0.425
+    + x['partic'] * 0.05, axis=1)
+special = grades.uni.isin(midterm_skip)
+grades.loc[special, 'grades'] = grades[special].apply(lambda x:
+    x['hw'] * 0.3 + x['mid1'] * 0
+    + x['mid2'] * 0.15 + x['final'] * 0.5
+    + x['partic'] * 0.05, axis=1)
 
-grades.sort_values(by='grades', inplace=True)
 
-cumden = [(grades.grades <= i).mean() for i in grades.grades]
-plt.scatter(grades.grades, cumden)
-plt.axvline(0.88)
-plt.axvline(0.88)
-plt.savefig('grade_cumdistr.png')
-plt.close()
+grade_cols = [col for col in grades.columns if re.search('^grade.*', col)]
+assert len(grade_cols) == 3
 
-grades['diff'] = grades.grades.diff()
-grades[['grades', 'diff']]
+for gcol in grade_cols:
+    grades.sort_values(by=gcol, inplace=True)
 
-grades['letters'] = ''
-cutoffs2019 = [1, 0.9, 0.86, 0.8, 0.75, 0.7, 0.5, 0]
-letters = ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C']
-for i, (t, b) in enumerate(zip(cutoffs2019[:-1], cutoffs2019[1:])):
-    grades['letters'][(grades.grades <= t) & (grades.grades > b)] = letters[i]
+    cumden = [(grades[gcol] <= i).mean() for i in grades[gcol]]
+    plt.scatter(grades[gcol], cumden)
+    plt.axvline(0.805)
+    plt.axvline(0.78)
+    plt.axvline(0.71)
+    # plt.axvline(0.7)
+    # plt.axvline(0.6)
+    # plt.axvline(0.5)
+    plt.savefig(f'courses/intro-stat/grades/{gcol}_cumdistr.png')
+    plt.close()
+    grades[f'diff_{gcol}'] = grades[gcol].diff()
 
+# Manual inspection
+gcol = 'grades2'
+grades.sort_values(by=gcol, inplace=True, ascending=False)
+grades[['final', gcol, f'diff_{gcol}', 'name']].tail(30)
+
+(grades[gcol] > 0.805).mean()
+(grades[gcol] > 0.807).mean()
+(grades[gcol] > 0.75).mean()
+(grades[gcol] > 0.6).mean()
+letters = {'0': 'A', '1': 'A-', '2': 'B+',
+           '3': 'B', '4': 'B-', '5': 'C+',
+           '6': 'C', '7': 'F', '': ''}
+cutoffs2023 = {
+    'grades': [1, 0.807, 0.77, 0.73, 0.7, 0.6, 0.5, 0],
+    'grades1': [1, 0.807, 0.77, 0.74, 0.69, 0.6, 0.5, 0],
+    'grades2': [1, 0.805, 0.78, 0.75, 0.7, 0.63, 0.57, 0.5, 0]
+}
+
+for gcol in grade_cols:
+    grades[f'letters_{gcol}'] = ''
+    for i, (t, b) in enumerate(zip(cutoffs2023[gcol][:-1], cutoffs2023[gcol][1:])):
+        grades[f'letters_{gcol}'].loc[(grades[gcol] <= t) & (grades[gcol] > b)] = str(i)
+
+ggcols = [f'letters_{col}' for col in grade_cols]
+grades['best_letter'] = grades[ggcols].apply(lambda x: letters[x.min()], axis=1)
+grades[['name', 'best_letter']]
+
+grades['best_letter'].value_counts() / grades.shape[0]
+grades.to_csv('courses/intro-stat/grades/best_grades.csv')

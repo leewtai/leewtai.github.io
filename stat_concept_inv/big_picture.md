@@ -55,3 +55,8 @@
 - Formalizing abstract concepts into definitions
 
 ## Human-in-the-loop
+
+## Common interpretation issues
+- p-value is not the probability Null is TRUE
+- Fail to reject is like "failed to show someone was cheating"
+- hypothesis testing as a gardar exercise

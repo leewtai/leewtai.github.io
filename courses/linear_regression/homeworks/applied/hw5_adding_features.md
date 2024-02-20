@@ -1,27 +1,8 @@
 # Homework 5: issues with more features in regression
 
-#### Q0 - Multiple Hypothesis Testing
-We've shown that multiple hypothesis testing is an issue when we are testing multiple features (i.e. multiple $$\hat{\beta}_i$$.
-Turns out it appears when we're inferring for the true line at multiple points as well. Please generate the following data
-
-```r
-n <- 50
-beta0 <- -5
-beta1 <- 1.2
-max_x <- 10
-x <- runif(n, 1, max_x)
-y <- beta0 + beta1 * x + rnorm(n)
-x_new <- seq(1, max_x, length.out=20)
-```
-
-- If we use the `90%` confidence intervals from `predict.lm()` to infer the true line at each of the values in `x_new`, what percentage of the confidence intervals contain the true line? Please write the code that will compute this percentage. (side comment: each of these confidence intervals are also called "point-wise confidence intervals" instead of a "joint confidence interval")
-- Keep your `x_new` and `x` values fixed, please perform `B=1000` simulations that generate new realizations of `y` under the true model.  Please calculate the fraction of simulations where the `90%` confidence intervals contains the true line across all values of `x_new`.  (Side comment: the collective interval can be considered an "confidence envelope" that tries to contain the true line at all points. I recommend plotting the true line vs the interval for a case that has less than `100%` coverage if you're having a hard time visualizing this). 
-- Please use Bonferroni's correction (as we did for the coefficients) to make the answer from above be `90%` across the 20 different `x_new` values, how would you change the code above in `predict.lm()` to achieve this?
-- TRUE/FALSE, is it possible for the confidence intervals at `c(1, max_x)` (i.e. the 2 most extreme `x_new` values) to contain the true values, yet the confidence intervals in between to not contain the true line? No need for explanation (Hint: I do recommend you to leverage your simulation).
-
 #### Q1 - practice with real data
 
-In CourseWorks you'll find a file called `global_pref_survey_individual.csv`.
+On Ed Resources, you'll find a file called `global_pref_survey_individual.csv`.
 This is the individual survey data referenced in our reading [Global Evidence on Economic Preferences](https://academic.oup.com/qje/article/133/4/1645/5025666).
 Before you start, make sure your R's major version is at least 4.0 (you can check via `R.version`). If not, it's recommended that you update R. The biggest difference is whether character columns are read in as factors or characters.
 

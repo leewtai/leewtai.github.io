@@ -519,7 +519,7 @@ for(n in c(5, 20, 100)){
 dev.off()
 
 
-dfs <- c(5, 10)
+dfs <- c(1, 3)
 sig_lvls <- c(0.1, 0.05, 0.01)
 i <- 1
 j <- 1
@@ -530,7 +530,7 @@ for(i in seq_along(dfs)){
     curve(dchisq(x,dfs[i]), xlim=c(0, 30),
           xlab="Chi-Square Stat", ylab="",
           main=paste("Deg Freedom:", dfs[i], "Sig Lvl:", sig_lvls[j]),
-          cex.main=2, cex.lab=2)
+          cex.main=3.5, cex.lab=2)
     x <- seq(qchisq(1 - sig_lvls[j], dfs[i]), 30, length.out=100)
     y <- dchisq(x, dfs[i])
     x <- c(x, rev(x))
@@ -541,7 +541,6 @@ for(i in seq_along(dfs)){
   }
 }
 dev.off()
-
 
 png("alt_is_true.png", 800, 500)
 par(mfrow=c(1, 2))
@@ -727,4 +726,59 @@ legend("topleft", legend=c("Cutoff k", "Stat Power"),
        cex=2)
 abline(v=d/0.95, lwd=3, col="orange")
 
+dev.off()
+
+setwd("repos/leewtai.github.io/usecases_data/social_vulnerability/")
+df <- read.csv("svi_census.csv")
+df <- df[!is.na(df$pop_2014_20_24), ]
+names(df)[1:5] <- c("geo_id", "pop_2014_20_24",
+                    "pop_2018_20_24", "pop_2014_20_24_moe",
+                    "pop_2018_20_24_moe")
+df["pop_diff"] <- (df$pop_2018_20_24 - df$pop_2014_20_24) / df$pop_2014_20_24
+
+setwd("~/repos/leewtai.github.io/courses/intro-stat/")
+df <- read.csv("attempts_vs_midterm1.csv")
+df <- df[df$pet != "Neither", ]
+boxplot(df$Total ~ df$fame)
+head(df)
+df["diff"] <- df$count_post - df$count_pre
+cond <- df$Total > 50
+plot(df$Total[cond], df$diff[cond],
+     pch=16, col="#00000055")
+x2 <- df$Total^2
+
+boxplot(df$Total ~ df$pet)
+summary(lm(df$diff ~ df$Total + x2, subset=cond))
+
+plot(df$count_pre, df$count_post,
+     xlab=expression("Y_b"), ylab=expression("Y_a"),
+     xlim=c(0, 10), ylim=c(0, 10),
+     pch=16, col="#00000055",
+     main="Attempts Before and After Midterm")
+png("midterm.png")
+hist(df$Total, xlab="Midterm Score %",
+     main="Midterm Distribution")
+dev.off()
+
+png("midterm_by_fame.png")
+boxplot(df$Total ~ df$fame,
+        main="Midterm by Fame Preference", xlab="Preference for Fame",
+        ylab="Midterm Score",
+        cex=1.5)
+dev.off()
+
+png("fame_pet.png")
+mosaicplot(table(df$fame, df$pet),
+           main="Pet vs Fame Preference",
+           cex=1.5)
+dev.off()
+
+png("hist3.png", 1200, 400)
+par(mfrow=c(1, 3))
+hist(df$count_post, xlab="Y_a", main="Distri of Y_a",
+     cex.main=2)
+hist(df$diff, xlab="Y_a - Y_b", main="Distri of Y_a - Y_b",
+     cex.main=2)
+hist(df$diff2, xlab="(Y_a - Y_b) / Y_b", main="Distri of (Y_a - Y_b) / Y_b",
+     cex.main=2)
 dev.off()
