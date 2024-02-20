@@ -5,7 +5,7 @@ import os
 import pandas as pd
 import openai
 
-embed_model = 'gpt-4-0314'
+embed_model = 'gpt-4-0613'
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
 
