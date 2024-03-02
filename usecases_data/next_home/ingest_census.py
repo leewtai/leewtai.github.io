@@ -90,18 +90,47 @@ del dfs, df_states, df_base, df
 bdf.to_csv('census_data_19_22.csv', index=False)
 
 breaks = {
-    'edu': {'male over 25 max schooling': {
+    'age': {
+      'male age dist': {
+        'total' : 'B01001_002E',
+        'breaks': [
+          'B01001_005E',  # male 9-14
+          'B01001_006E', # male 15-17
+          'B01001_009E',  # male 21
+          'B01001_012E',  # male -29
+          'B01001_015E',  # male -49
+          'B01001_019E',  # male -64
+          'B01001_024E',  # male -85
+          'B01001_025E',  # male over 85
+          ]},
+      'female age dist': {
+        'total' : 'B01001_026E',
+        'breaks': [
+          'B01001_029E',  # female 9-14
+          'B01001_030E', # male 15-17
+          'B01001_033E',  # female 21
+          'B01001_036E', # female -29
+          'B01001_039E', # female -49
+          'B01001_043E', # female -64
+          'B01001_048E', # female -85
+          'B01001_049E',
+          ]}}
+    'edu': {
+      'male over 25 max schooling': {
         'total' : 'B15002_002E',
-        'breaks' = [
-    'B15002_003E'  # male over 25 no school
-    'B15002_011E'  # male over 25 high school graduate
-    'B15002_015E'  # male over 25 with Bachelors
-    'B15002_018E'  # male over 25 with Doctorate
-    None,
-    'B15002_020E'  # female over 25 with no school
-    'B15002_028E'
-    'B15002_032E'
-    'B15002_035E']
+        'breaks': [
+          'B15002_003E',  # male over 25 no school
+          'B15002_011E', # male over 25 high school graduate
+          'B15002_015E',  # male over 25 with Bachelors
+          'B15002_018E'  # male over 25 with Doctorate
+          ]},
+      'female over 25 max schooling': {
+        'total' : 'B15002_019E',
+        'breaks': [
+          'B15002_020E',  # female over 25 with no school
+          'B15002_028E',
+          'B15002_032E',
+          'B15002_035E']}}
+        }
 
 
-def 
