@@ -1,0 +1,174 @@
+---
+title: "Mental Health Exercise"
+output: html_notebook
+---
+
+## Mental Health
+
+Mental health in young adults are receiving more and more attention. A NYTimes opinion piece, [People in Their 20's Aren't Supposed to Be This Unhappy](https://www.nytimes.com/2023/09/27/opinion/mental-health-20s-wellness.html) claims that younger adults are experiencing a bigger decrease in happiness than other age groups.
+
+## Task 0 - Problem identification
+
+How would you measure unhappiness in a population?
+
+## Taks 1 - Obtain initial dataset
+
+[Behavior Risk Factor Surveillance System (BRFSS)](https://www.cdc.gov/brfss/index.html) includes an annual survey that tracks the number of days (out of 30) where people's "mental health was not good".
+
+
+```{r}
+year <- 2021
+URL <- paste0("https://www.cdc.gov/brfss/annual_data/", year, "/files/LLCP", year, "ASC.zip")
+URL
+```
+
+Code snippet that downloads and unzips a file (thanks OpenAI/ChatGPT 4)!
+
+```{r}
+library(httr)
+
+resp <- httr::GET(URL)
+
+temp_zip_path <- tempfile()
+writeBin(content(resp, "raw"), temp_zip_path)
+
+temp_dir <- tempdir()
+unzipped_files <- unzip(temp_zip_path, exdir = temp_dir)
+text_file_path <- unzipped_files[1]
+
+dat <- readLines(text_file_path)
+
+unlink(temp_zip_path)
+```
+
+```{r}
+print(length(dat))
+print(class(dat))
+print(unique(sapply(dat, nchar)))
+```
+
+How would you describe this record of data?
+```{r}
+print(dat[1])
+```
+
+#### File format - Not CSV!
+
+Each line has the same number of characters. The data is encoded into fixed length values:
+
+See https://www.cdc.gov/brfss/annual_data/2021/llcp_varlayout_21_onecolumn.html
+
+```{r}
+layout_url <- "https://www.cdc.gov/brfss/annual_data/2021/llcp_varlayout_21_onecolumn.html"
+resp <- httr::GET(layout_url)
+layout_source <- httr::content(resp, "text")
+```
+
+Some quick regular expression to extract the data of interest!
+
+```{r}
+pattern <- '<td class="c data">([0-9]+)</td>\n.{0,20}MENTHLTH.{0,20}<td class="c data">([0-9]+)</td>'
+dat_start <- regexpr(pattern, layout_source)
+start_char <- as.numeric(sub(paste0(".*", pattern, ".*"), "\\1", layout_source))
+dat_len <- as.numeric(sub(paste0(".*", pattern, ".*"), "\\2", layout_source))
+stop_char <- start_char + dat_len - 1
+```
+
+```{r}
+print(start_char)
+print(stop_char)
+```
+
+
+```{r}
+substr(dat[666], start_char, stop_char)
+menthlth <- sapply(dat, substr, start_char, stop_char)
+menthlth <- as.numeric(menthlth)
+head(menthlth)
+```
+
+
+## Task 2 - explore initial dataset
+
+How?
+
+```{r}
+table(menthlth)
+```
+
+### Any surprises?
+
+Always checkout the [codebook](https://www.cdc.gov/brfss/annual_data/2019/pdf/codebook19_llcp-v2-508.HTML)!
+
+```{r}
+
+```
+
+
+## Task 3 - Age data
+
+- Write a function, `get_var()` using the code snippets above to get the age data.
+  - Hint: with BRFSS, demographic data is starts with an underscore, e.g. "_AGE*"
+  
+  
+```{r}
+get_var <- function(var_name, layout_source){
+
+}
+```
+
+## Task 4 - Quality check
+
+- Check if we have the same number of values as the mental health variable
+- Check if the prevalence matches those shown in the code book
+  - To get the weighted percentages, you'll need `"_LLCPWT"`
+  
+```{r}
+
+```
+
+```{r}
+w_loc <- get_var("_LLCPWT", layout_source)
+weights <- as.numeric(sapply(dat, substr, w_loc[1], w_loc[2]))
+
+table(age) / length(age)
+
+print(tapply(weights, ages, sum, na.rm=TRUE) / sum(weights))
+```
+
+## Task 5 - Recreate the graph
+
+We want age in the x-axis, % of despair within the group on the y-axis.
+
+```{r}
+despair <- menthlth == 30
+summary(despair)
+```
+
+## Task 5 - Scale/clean the code above to get 2019-2022 data
+
+We'll split into groups! Each group will:
+- Work with one or two different year(s) (2015-2022)
+- Enter your weighted despair percentages [here](https://docs.google.com/spreadsheets/d/1eqmO2gM-6x_P59J-aXpAe-6gvpVzq6xNYeXpeH00Hns/edit?usp=sharing)
+- Ask yourself
+  - Did anything change over the years in terms of handling the data?
+  - How could you tell the data is "correct"
+  - How can you generalize the code a bit?
+  
+```{r}
+
+```
+
+## Task 6 - How would you model the data? (Statistics - No code)
+
+- Now you know how the data is collected, how would you model the data?
+  - How will you fit the model?
+- Are there alternative hypotheses to the story besides "young people are unhappy?"
+
+## Task 7 (data science) - what will you do with this?
+
+- What exactly will you do with the model?
+- Who will you show it to
+- what would you show
+- what is your recommendation
+- how will you show it?
