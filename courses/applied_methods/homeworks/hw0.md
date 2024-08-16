@@ -35,10 +35,12 @@ Please read in the JSON data and export a CSV file with the following columns:
 - cpi: this shouldn't need much processing
 
 Hint: if you haven't seen a JSON file before, here's some sample code for R:
-```
+
+```r
 library(jsonlite)
 data <- read_json("MYFILE.json")
 class(data)
+print(data[[1]])
 ```
 
 #### Q1 - Calculate the inflation
@@ -65,7 +67,15 @@ Please write the code for the following:
 - Please plot the histogram of these recalculated correlations against the original correlation.
 - Please comment on what you can infer from the histogram
 
-#### Q6 (not graded)
-- Please setup your Zoom account so your headshot photo will be displayed even when your camera is off.
+#### Q6 - Simulation
+
+This is not related to the quesitons above.
+Please create a simulation in R that demonstrates the unbiasedness property for estimating the parameter of the linear model can be violated if one of the linear regression assumptions are violated.
+
+Your solution should clearly state:
+- What is the parameter you are estimating
+- Which assumption are you violating
+- What is unbiasedness and how it is not observed in your simulation (this should be a visualization)
+
 
 {% include lib/mathjax.html %}
