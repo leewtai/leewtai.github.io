@@ -1,44 +1,49 @@
 # Applied Statistical Methods
-UN3105 - Fall 2020
+UN3105 - Fall 2024
 
-This course is meant to give you a survey of various applied statistic methods. This can
-vary drastically depending on the instructor's background.
+This course is meant to give you a survey of various applied statistic methods beyond linear regression.
+This can vary drastically depending on the instructor's background.
 
 |Topic|What Problems Does It Solve?|
 |---|---|
-|Sampling and data quality |How do you get the data relevant to your problem?|
 |Bayesian Statistics|How do we introduce prior knowledge into modeling?|
+|Sampling and data quality |How do you get relevant data to your problem?|
 |Kalman Filters + Kriging |How do we deal with temporally or spatially dependent data?|
 |Survival analysis |How do we deal with censored data?|
 |Causal inference|What else can quantify the impact besides randomized controlled trials?|
 |(if time allows) Sequential analysis|Can we use the data sequentially without cheating?|
 
 ### Expectations
-#### - Learning outcomes
-- Students should be able to critique data-based studies
-- Students should be able to articulate the difference between their ideal dataset and feasible dataset
-- Students should be able to collect/wrangle/clean/transform their data
-- Students should be able to diagnose models and understand their strength/weaknesses
-- Students should be able to identify the classic models for certain types of data/problem
-- Students should be able to simulate/hypothesize alternative scenarios that can explain the same patterns in the data
 
-
-#### - Your Job
-  - Come to class, bring your laptop, take chances!
+## - Your Job
+  - AI tools like ChatGPT are generally allowed unless explicitly banned for the assignment.
+    However, it is best that you prompt ChatGPT to ask you questions rather than having it provide you
+    with solutions. Here's an example prompt you could try:
+    """
+    You are a college instructor helping students with an assignment. Your job is to help clarify
+    and guide my thinking by asking questions back without giving me the answers to the problem.
+    Here are 2 examples:
+    Question: create a simulation that demonstrates the sample average is unbiased for estimating the population mean.
+    Your answer: What does unbiased mean? Would you expect a single sample average to be exactly the same as the population mean?
+    
+    Question: how should we evaluate a model?
+    Answer: What is the purpose of the model? How would you know if the model was bad? What is the model being compared to?
+    """
+  - Bring your laptop, take notes!
   - Give feedback in office hours or e-mail, I don't want to waste your time.
   - Avoid e-mailing if possible, share your thoughts on the discussion board instead.
   - Participate and ask questions, this is not easy!
     - In class: forecast what should be done, compare with what is happening, then summarize the difference.
     - Canvas: describe what you observe then describe what you expect.
     - To each other: summarize the conversation to ensure you're listening and think constructively before criticizing.
-  - Academic honesty: https://www.cs.columbia.edu/education/honesty/
+  - Upholding the honor code: https://www.cs.columbia.edu/education/honesty/
 
 ### People
 Instructor:
 Wayne Tai Lee (wtl2109)
 
-Teaching Assistant(s):
-Navid Ardeshir (na2844)
+Teaching Assistant:
+TBD ()
 
 ### Timeline
 I reserve the right to change the ordering and the content for the course throughout the semester.
@@ -46,28 +51,28 @@ I reserve the right to change the ordering and the content for the course throug
 |Date|Topic|Follow-up|Before-Class|
 |---|---|---|---|
 |2024-09-04|[Introductions and expectations](https://docs.google.com/presentation/d/15cUnejYtpbJF0fm7oPUj1gW16BoGw4WKl59J5ktfnX0/edit?usp=sharing)|syllabus||
-|2024-09-09|[Revisiting data collection and common errors](https://docs.google.com/presentation/d/11m03-LRNIH53WvOVrVeXbk9NIzHw5DdnCKxgJayg50Q/edit?usp=sharing)|[Sampling: Design and Analysis](https://clio.columbia.edu/catalog/2402697) Chap 1-2.2||
-|2024-09-11|[Sampling](https://docs.google.com/presentation/d/11m03-LRNIH53WvOVrVeXbk9NIzHw5DdnCKxgJayg50Q/edit?usp=sharing) and practice with [NHANES](https://wwwn.cdc.gov/nchs/nhanes/tutorials/module3.aspx) and Discussion on Paper|[Sampling: Design and Analysis](https://clio.columbia.edu/catalog/2402697) Chap 1-2.2|[Homework 0](homeworks/hw0.md) due|
-|2024-09-16|[Introduction to Data Quality](https://docs.google.com/presentation/d/19IId2fnQ9dtqfA7uvwWDeIW4cHPjD-emYHY00yvI6bM/edit?usp=sharing)||Read [Modeling Ideology and Predicting Policy Change with Social Media](https://dl-acm-org.ezproxy.cul.columbia.edu/doi/10.1145/2702123.2702193) by Zhang and Counts|
-|2024-09-18|How to start a problem? discussion on reading||[The Silent Sex: Gender, Deliberation, and Institutions, Mendelberg and Karpowitz, Chapter 3](https://www-jstor-org.ezproxy.cul.columbia.edu/stable/j.ctt7zvffd)|
-|2024-09-23|Discussion on [EDA](https://docs.google.com/presentation/d/1MqQaUIA4Fkwsu7JlWTm1R7205OQtoQB5UrqMQjgU9cU/edit?usp=sharing) with focus on NYTimes Comments||[Homework 1 - NYTimes EDA](homeworks/hw1.md)|
-|2024-09-25|[Regression Refresher with R](https://docs.google.com/presentation/d/1FPe7kA40qkHUSP2ZJeU1CdofNsYZplD8V4RkS4tGu7Y/edit?usp=sharing)|A Modern Approach to Regression with R||
-|2024-09-30|Regression with NYTimes based on Reading||Exploring characteristics of online news comments and commenters with machine learning approaches by Lee and Ryu|
-|2024-10-02|[Crash course in Bayesian Statistics](https://docs.google.com/presentation/d/1xHXP7YkbhTw_aHWJS4CKhQwOE1sFZPKL1FvnJxhSpWk/edit?usp=sharing)|Doing Bayesian Data Analysis by John Kruschke|[Project 1](homeworks/proj1.md) Due|
-|2024-10-07|[Contrasting Bayesian Methods with Classical Methods](https://docs.google.com/presentation/d/14r8G-DP_P_m6aqcml_EFMFb2De2BKVYs9nIPCDDadio/edit?usp=sharing)|||
-|2024-10-09|[Dependent Data - Problems with Temporal Data](https://docs.google.com/presentation/d/1LmREGERJCS5GzmmvR0WFLTxILFC_NBsyugsbCeHdptc/edit?usp=sharing)||[Homework 2](homeworks/hw2.md)|
-|2024-10-14|[Dependent Data Continued - Time Series and Kalman Filters](https://docs.google.com/presentation/d/1LmREGERJCS5GzmmvR0WFLTxILFC_NBsyugsbCeHdptc/edit?usp=sharing)|[Chapter 1 on this dissertation](https://escholarship.org/uc/item/89f9z0tj)||
-|2024-10-16|Practice - Forecasting Temperature|For manipulating spatial data in R: [rspatial.org](https://rspatial.org/)||
-|2024-10-21|[Dependent Data - GIS View of Spatial Data](https://docs.google.com/presentation/d/1p2niILw17C0aN4Jmn7LjJRb8qClX-_QLc58dBAkpZzY/edit?usp=sharing)|||
-|2024-10-23|[Dependent Data continued - Spatial Statistics](https://docs.google.com/presentation/d/1p2niILw17C0aN4Jmn7LjJRb8qClX-_QLc58dBAkpZzY/edit?usp=sharing)|[Interpolation of Spatial Data: Some Theory for Kriging - Ch 1.2](https://clio.columbia.edu/catalog/11310671)|[Homework3](homeworks/hw3.md)|
-|2024-10-28|Practice with Kriging|||
-|2024-10-30|Discussion on spatial data privacy||[Twelve Million Phones, One Dataset, Zero Privacy](https://www.nytimes.com/interactive/2019/12/19/opinion/location-tracking-cell-phone.html)|
+|2024-09-09|[Regression Refresher with R](https://docs.google.com/presentation/d/1FPe7kA40qkHUSP2ZJeU1CdofNsYZplD8V4RkS4tGu7Y/edit?usp=sharing) |A Modern Approach to Regression with R||
+|2024-09-11|[Challenges for regression] ||[Homework 0](homeworks/hw0.md) due|
+|2024-09-16|[Crash course in Bayesian Statistics](https://docs.google.com/presentation/d/1xHXP7YkbhTw_aHWJS4CKhQwOE1sFZPKL1FvnJxhSpWk/edit?usp=sharing)     |Doing Bayesian Data Analysis by John Kruschke|Read [Modeling Ideology and Predicting Policy Change with Social Media](https://dl-acm-org.ezproxy.cul.columbia.edu/doi/10.1145/2702123.2702193) by Zhang and Counts|
+|2024-09-18|[Contrasting Bayesian Methods with Classical Methods](https://docs.google.com/presentation/d/14r8G-DP_P_m6aqcml_EFMFb2De2BKVYs9nIPCDDadio/edit?usp=sharing)|||
+|2024-09-23|[Introduction to Data Quality](https://docs.google.com/presentation/d/19IId2fnQ9dtqfA7uvwWDeIW4cHPjD-emYHY00yvI6bM/edit?usp=sharing)       ||[Homework 1 - NYTimes EDA](homeworks/hw1.md)|
+|2024-09-25|[Introduction to Data Quality Part 2]   |[Chapter 1 on this dissertation](https://escholarship.org/uc/item/89f9z0tj)||
+|2024-09-30|[Dependent Data - Problems with Temporal Data](https://docs.google.com/presentation/d/1LmREGERJCS5GzmmvR0WFLTxILFC_NBsyugsbCeHdptc/edit?usp=sharing)   |For manipulating spatial data in R: [rspatial.org](https://rspatial.org/)||
+|2024-10-02|[Dependent Data Continued - Time Series and Kalman Filters](https://docs.google.com/presentation/d/1LmREGERJCS5GzmmvR0WFLTxILFC_NBsyugsbCeHdptc/edit?usp=sharing)    ||[Project 1](homeworks/proj1.md) Due|
+|2024-10-07|Practice - Forecasting Temperature|||
+|2024-10-09|[Dependent Data - GIS View of Spatial Data](https://docs.google.com/presentation/d/1p2niILw17C0aN4Jmn7LjJRb8qClX-_QLc58dBAkpZzY/edit?usp=sharing)||[Homework 2](homeworks/hw2.md)|
+|2024-10-14|[Dependent Data continued - Spatial Statistics](https://docs.google.com/presentation/d/1p2niILw17C0aN4Jmn7LjJRb8qClX-_QLc58dBAkpZzY/edit?usp=sharing)|||
+|2024-10-16|[Interpolation of Spatial Data: Some Theory for Kriging - Ch 1.2](https://clio.columbia.edu/catalog/11310671)|||
+|2024-10-21|Practice with Kriging|||
+|2024-10-23|Discussion on spatial data privacy||[Twelve Million Phones, One Dataset, Zero Privacy](https://www.nytimes.com/interactive/2019/12/19/opinion/location-tracking-cell-phone.html)<br>[Homework3](homeworks/hw3.md)|
+|2024-10-28|[Sampling](https://docs.google.com/presentation/d/11m03-LRNIH53WvOVrVeXbk9NIzHw5DdnCKxgJayg50Q/edit?usp=sharing) and practice with [NHANES](https://wwwn.cdc.gov/nchs/nhanes/tutorials/module3.aspx) and Discussion on Paper|[Sampling: Design and Analysis](https://clio.columbia.edu/catalog/2402697) Chap 1-2.2||
+|2024-10-30|[Revisiting data collection and common errors](https://docs.google.com/presentation/d/11m03-LRNIH53WvOVrVeXbk9NIzHw5DdnCKxgJayg50Q/edit?usp=sharing)||[The Silent Sex: Gender, Deliberation, and Institutions, Mendelberg and Karpowitz, Chapter 3](https://www-jstor-org.ezproxy.cul.columbia.edu/stable/j.ctt7zvffd)|
 |2024-11-04|**NO CLASS - Election day**|||
-|2024-11-06|[Survival data and the issue of censoring](https://docs.google.com/presentation/d/1Wdn8OYMl7D2r969LBHCRZU8zQN3APpXW3CBGtvPfiow/edit?usp=sharing)|[Survival analysis: models and applications Chapter 1](https://clio.columbia.edu/catalog/10052476?counter=2)||
-|2024-11-11|Simulating challenges from censored data|[Vignette on R package survival](https://cran.r-project.org/web/packages/survival/vignettes/survival.pdf), [Vignette on time dependent survival analysis](https://cran.r-project.org/web/packages/survival/vignettes/timedep.pdf), and [Survival analysis: models and applications Chapter 2.1.1 + 2.1.2 + 5.1](https://clio.columbia.edu/catalog/10052476?counter=2)|[Project 2 Due](homeworks/proj2.md)|
+|2024-11-06|Discussion on [EDA](https://docs.google.com/presentation/d/1MqQaUIA4Fkwsu7JlWTm1R7205OQtoQB5UrqMQjgU9cU/edit?usp=sharing) with focus on NYTimes Comments <br> How to start a problem? discussion on reading|Exploring characteristics of online news comments and commenters with machine learning approaches by Lee and Ryu||
+|2024-11-11|[Survival data and the issue of censoring](https://docs.google.com/presentation/d/1Wdn8OYMl7D2r969LBHCRZU8zQN3APpXW3CBGtvPfiow/edit?usp=sharing)|[Vignette on R package survival](https://cran.r-project.org/web/packages/survival/vignettes/survival.pdf), [Vignette on time dependent survival analysis](https://cran.r-project.org/web/packages/survival/vignettes/timedep.pdf), and [Survival analysis: models and applications Chapter 1 + 2.1.1 + 2.1.2 + 5.1](https://clio.columbia.edu/catalog/10052476?counter=2)|[Project 2 Due](homeworks/proj2.md)|
 |2024-11-13|[Survival curves and the Kaplan-Meier Estimator](https://docs.google.com/presentation/d/1Wdn8OYMl7D2r969LBHCRZU8zQN3APpXW3CBGtvPfiow/edit?usp=sharing)|||
 |2024-11-18|Practice with survival analysis |Framingham Heart Study (Study description on Canvas)||
-|2024-11-20|[Missing data](https://docs.google.com/presentation/d/1zAhlALXWzXGoXpDC3eLZ_2RJFwC0UdrRXTNxzhJfheY/edit?usp=sharing)||- [The prevention and handling of the missing data](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3668100/) <br> - [Homework4](homeworks/hw4.md)|
+|2024-11-20|[Issues with missing data](https://docs.google.com/presentation/d/1zAhlALXWzXGoXpDC3eLZ_2RJFwC0UdrRXTNxzhJfheY/edit?usp=sharing)||- [The prevention and handling of the missing data](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3668100/) <br> - [Homework4](homeworks/hw4.md)|
 |2024-11-25|Discussion - flaws in randomized control studies||[Randomization in the tropics revisited: a theme and eleven variations](https://scholar.princeton.edu/sites/default/files/deaton/files/deaton_randomization_revisited_v2_2019_01.pdf)|
 |2024-11-27|**NO CLASS - Thanksgiving Holiday**|||
 |2024-12-02|[Causal inference - AB testing in tech and traps](https://docs.google.com/presentation/d/1ovVGmmFS7C4kVYPFYt2RSatZEROM7dp_WaivB6n4XOA/edit?usp=sharing)||[Homework5](homeworks/hw5.md)|
@@ -78,9 +83,8 @@ I reserve the right to change the ordering and the content for the course throug
 
 ### Logistics
 Lectures:
-  [TuTh 11:40-12:55 Eastern](https://vergil.registrar.columbia.edu/#/courses/applied%20statistical%20methods) on Zoom (links on Canvas)
+  MW 2:40-4:00 Eastern
 Office Hours:
-  No office hours for TA, use discussion board for questions
   Instructor office hours by appointment only
 
 ### Computer Setup
