@@ -5,10 +5,10 @@
 - Encouraging you to setup your jupyter notebook properly.
 
 ### Format
-Please return a **PDF** file with your solutions on Canvas.
+Please return a **PDF** file with your solutions on GradeScope.
 
 ### Questions
-Please download the data `Canvas/Files/Data/unemployment_cpi_unempl_2000_2020.json`
+Please download the data on CourseWorks `Files/Data/unemployment_cpi_unempl_2000_2020.json`
 This is a dataset from the [Bureau of Labor Statistics](https://www.bls.gov/data/#api)
 regarding inflation and unemployment.
 
@@ -48,6 +48,11 @@ Using your results from Q0, please calculate the inflation rate and add a column
 data named **inflation**. For example, the inflation rate for 2000, 2nd Half should be 
 `(170.2 - 167.6)/167.6 * 100 = 1.55%`. If an inflation cannot be calculated, please
 replace the value with NA.
+
+#### Q1.1 - R's handling of NA values
+
+- If we have a vector of inflation values called `inflation`, where one is `NA`, how does the R command `mean(inflation)` handle the `NA`?
+- How does R's `lm()` function handle NA values if there are NA values in the independent (the X) or dependent variables (the Y)?
 
 #### Q2 - Visualizing the data
 Please plot the scatter plot between the inflation and unemployment rate with the
