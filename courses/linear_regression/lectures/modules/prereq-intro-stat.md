@@ -1,8 +1,8 @@
 # Prerequisites - Introductory Statistics
 
 You should understand the role statistics plays in the scientific method.
-- **Observing** the world through summary statistics and well defined data
-- Formulating a **hypothesis** by simplifying the problem
+- **Observing** the world through summary statistics
+- Formulating a **hypothesis** that explains the problem
 - Collecting the relevant **data** for the question at hand (sampling and experiments)
 - **Analyzing** the relevant data with respect to randomness (hypothesis testing)
 - **Decide** to reject or fail to reject our null hypothesis according to the context (understand type 1 vs type 2 errors; practical vs statistical significance)

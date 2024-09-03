@@ -1,22 +1,21 @@
 # Simulation-based linear regression (with calculus shown but not used)
 
-Simulation-based linear regression is an undergraduate "text" that
+Simulation-based linear regression is an undergraduate "text" that,
+in addition to seeing how regression be used in different context,
 walks through the usual introductory linear regression theorems
 through simulations rather than mathematical proofs. We will generally
 take the 1-2 step approach of
 - "observing" the behavior of the regression model (and code) under different context
 - Talk about its implication in practice
-- Motivating the theoretical notation
-We will also help you translate between problems, simulation code, and
-mathematical expressions of a model.
+- Reference the underlying theory when appropriate
+In the later chapters, we'll cover a few applied problems.
 
-- Why bother with linear regression in the modern age?
+Why should one bother with linear regression in the modern age?
   - Linear regression is still used widely today. Many social sciences still use
     linear regression as **the model** when understanding the relationship between
-    variables. It's also a great instructional tool for people to understand how
-    to assess models, understand common challenges models face, and it is easy to
-    run. There are many modern papers that understand the behavior of deep learning
-    models via linear regression.
+    variables.
+  - Challenges that all models face can be easily understood using linear regression.
+
 - What to expect from this text?
   - What question does it answer vs not?
   - What is linear regression, a summary, an algorithm, or a model?
