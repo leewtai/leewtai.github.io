@@ -42,5 +42,3 @@ For this last section, focus on the 3rd study only.
 ### Conclusion
 
 Please write a conclusion on what you have observed and whether you believe the researchers' model is ideal.
-
-<img src="selfie_demo.png" alt="selfie at University of Montana" width='600'>
