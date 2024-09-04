@@ -1,5 +1,5 @@
 # Statistical Computing and Introduction to Data Science
-GR5206 - Fall 2023
+GR5206 / 4206 - Fall 2024
 
 ## Learning outcomes
 - Understand basic programming
@@ -45,7 +45,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2024-10-04|[Nested data and data wrangling<br>Basic data engineering](https://docs.google.com/presentation/d/1c_hbkqKo-_kqrwFSeuebhyAjaNsKvaCAZCmI3pkI2xc/edit?usp=sharing)|[Python concept 24 and all previous chapters](https://leewtai.github.io/courses/stat_computing/lectures/learning_python_intro.html)|HW2 Due|
 |2024-10-11|Regular expression and interacting with APIs|[Python concepts 13, 17](https://leewtai.github.io/courses/stat_computing/lectures/learning_python_intro.html)||
 |2024-10-18|Designing data pipelines|All previous Python concepts|HW3 Due|
-|2024-10-25|Midterm|||
+|2024-10-25|Midterm in the evening!|||
 |2024-11-01|[Data use cases, relational data, and SQL](https://docs.google.com/presentation/d/18RuceAE4_9vM4k7ILTNcpoA2UCarpObwNjdonlgEpjQ/edit?usp=sharing)<br>Data quality concepts and data engineering|[Python concepts 20](https://leewtai.github.io/courses/stat_computing/lectures/learning_python_intro.html)||
 |2024-11-08|[Modeling data](https://docs.google.com/presentation/d/1StjjdlxBuHEJidpC3D_NczrsBitZaXmuvIven_xs5c4/edit?usp=sharing)<br>"Data science methods"|[Python concepts 18](https://leewtai.github.io/courses/stat_computing/lectures/learning_python_intro.html)||
 |2024-11-15|[Optimization](https://docs.google.com/presentation/d/1zcG_RxtVZMPP-ZjkovMpZwXvI-GKbifcGzuU8vMjU-E/edit?usp=sharing)<br>Objective functions|[Python concepts 19](https://leewtai.github.io/courses/stat_computing/lectures/learning_python_intro.html)|HW4 Due|
