@@ -1,33 +1,35 @@
-# Project 1: What percentage of people are wearing masks in public?
+# Project 1: Trustworthiness Model (Still in draft form)
 
-This project is trying to estimate "what percentage of people are wearing masks in public?"
+This project is meant to see how all the different ways of modeling the same dataset can be different/similar.
 
-Wearing masks is a common practice in Asia to prevent others from getting sick and the
-same rationale applies to preventing the spread of COVID-19. [NY state advises](https://forward.ny.gov/protect-yourself-and-your-family-coronavirus-covid-19) people to "Wear a face mask or cloth face covering that covers your nose and mouth when in public" but this policy is not uniform across the nation.
+We will use the dataset from [Trustworthiness of crowds is gleaned in half a second](https://static1.squarespace.com/static/5daf65330e17a4220c7707ce/t/64378dd57efb4b7d3b265a54/1681362389720/ChweFreemanSPPS.pdf) by Chwe and Freeman. Make sure you read it fully!
 
-The goal of the project is to expose you to the challenges during data collection and understand
-that no data collection process is perfect. The key is the ability to identify the shortcomings
-and propose solutions rather than executing a perfect sampling. However, you will need
-to go outdoors to finish this project.
+The [original data is posted here](https://osf.io/nfgx9/) which we will post on CourseWorks shortly.
 
-You should write this report treating your peers as your target audience. 
-Your description on the measurement process, however, should be written as if targeting a high school
-student. There is no page limit.
+### Re-producing the dataset (can be time-consuming!)
 
-### Deliverables
-- A report that should include:
-  - A sampling methodology which defines your population, sampling frame, and unit of measurement.
-    - What are the stages of in your sampling methodology? Your proposed method must be feasible if you had a year to do this.
-    - Normally, you would set a desired-accuracy for your project, then use the variance formulas for various sampling strategies to then determine the number of samples you should collect. Since this topic course does not dive into the variance calculations, you will not need to describe this step but you should know that we are skipping this intentionally.
-  - A measurement procedures should define what constitutes as "wearing a mask" and "in public".
-  - A description of the possible disagreements between your population and sampling frame and how this would impact your final conclusions.
-  - How you are deriving the estimated percentage (bonus points for deriving associated the uncertainties but this is not required).
-  - Any challenges and/or decisions you have made **during** the data collection process.
-  - How are you validating your sample's quality, e.g. do you have the correct proportions for men vs women for your population (you should pull data from external sources as a bench mark instead of assuming 50/50)?
-- Your data from one data collection session.
-  - You are expected to collect data at least once (one session should produce multiple samples). Please spend between 1-2 hours at most for this session. You should make sure you collect data from a place that will encounter people.
-  - Beyond the variable of interest, "mask or not?", you should also collect other pieces of information to help you validate your sample quality.
-  - Your measurement procedure should be non-intrusive, i.e. you should not interact with people to obtain your data.
-  - Metadata like day, location, and duration of sampling.
-- A selfie of you at the location of sampling :)
+The wrangling code is all written in Python. Please repeat their steps in R.
+You are encouraged to use any AI technology for this step!
+
+The raw data is stored in several separate files, here is the general description.
+- `data/independent_raters/.../demo` contain the subjects' demographic information
+- ...
+
+You should name the output files `s1.csv`, `s2.csv`, and `s3.csv`.
+
+Please submit the code in a .R file so we can run your code for validation.
+
+### Reproducing the results
+
+- For the **third study only**, please reproduce the overall demographic composition of the participants reported in the paper.
+- Please replicate the key result from each study. It is part of the assignment to infer what is the most important key result from each study.
+
+
+### Alternative models
+
+We will fit seveal models
+
+
+
+
   <img src="selfie_demo.png" alt="selfie at University of Montana" width='600'>
