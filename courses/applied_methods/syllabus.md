@@ -13,10 +13,9 @@ This can vary drastically depending on the instructor's background.
 |Causal inference|What else can quantify the impact besides randomized controlled trials?|
 |(if time allows) Sequential analysis|Can we use the data sequentially without cheating?|
 
-### Expectations
 
 ## - Your Job
-  - AI tools like ChatGPT are generally allowed unless explicitly banned for the assignment.
+  - AI tools like ChatGPT are generally allowed unless explicitly banned for the assignment. You are strongly discouraged from using them for intro courses but this is not one of them.
     However, it is best that you prompt ChatGPT to ask you questions rather than having it provide you
     with solutions. You are still responsible for the correctness of your work. Here's an example prompt you could try:
 
@@ -102,7 +101,6 @@ A+ will be rewarded only on exceptional cases.
 #### - Homeworks (25%)
   - Late homeworks will receive 0 credit
   - The TA can grant extensions for these
-  - Your lowest homework grade will be dropped. If you missed Homework0 because you enrolled late, this prevents you from receiving 0.
 #### - Projects (70%)
   - Late projects will be penalized by 50% for **each day** it's late.
   - Projects should be submitted on Gradescope
