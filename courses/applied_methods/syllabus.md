@@ -84,7 +84,7 @@ I reserve the right to change the ordering and the content for the course throug
 Lectures:
   MW 2:40-4:00pm Eastern
 Office Hours:
-  - Instructor office hours by appointment only
+  - Instructor office hours: Thursday 9:30am-11:30am Uris 324 (previously the facuty lounge)
   - TA office hours TBD (Zoom only)
 
 
