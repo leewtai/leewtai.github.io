@@ -85,7 +85,7 @@ Lectures:
   MW 2:40-4:00pm Eastern
 Office Hours:
   - Instructor office hours: Thursday 9:30am-11:30am Uris 324 (previously the facuty lounge)
-  - TA office hours TBD (Zoom only)
+  - TA office hours 4-5pm on [Zoom](https://columbiauniversity.zoom.us/j/6349551141)
 
 
 ### Computer Setup
