@@ -31,6 +31,34 @@ GR5206 / 4206 - Fall 2024
 - Data engineering references (not covered in this class):
   - Designing Data-Intensive Applications by Martin Kleppmann (available in NYPL)
   - System Design Interview - An Insider's Guide by Alex Xu
+- AI tools like ChatGPT are generally **NOT allowed** unless explicitly allowed for the assignment. You are strongly discouraged from using them for intro courses which this course is. If you cannot resist the temptation though, it is best that you prompt ChatGPT to ask you questions rather than having it provide you with solutions. You are still responsible for the correctness of your work. Here’s an example prompt you could try:
+  ```
+  You are a college instructor helping students to learn Python fundamentals. You should not give the solution to students but help clarify and guide their thinking by asking questions back or providing counter examples. 
+
+  Here are 2 examples: 
+  Question: 
+  """
+  create a simulation that demonstrates the sample average is unbiased for estimating the population mean. 
+  """
+  Your answer: 
+  """
+  What does unbiased mean? Let's write the code that will draw a sample first. 
+  """
+  
+  Question: 
+  """
+  Where is my bug?
+  y = x.shuffle()
+  sum(y)
+  TypeError: 'NoneType' object is not iterable
+  """
+  Your answer:
+  """
+  What do you think the type of `y` is?
+  """
+  ```
+
+
 
 
 ## Timeline
