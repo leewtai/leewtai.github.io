@@ -14,7 +14,7 @@ Here we are following the steps in the code.
 - The response data is in the `trustworthiness.zip` file on CourseWorks under `data/S1/decisionTask`. Please combine all of these files into a single data frame.
 - Let's first remove those who failed the attention check.
   - In the column named `"Trial Component"`, if the word `"Press"` exists, then this is an attention task for the participant. Participants are asked to press `E` or `I` key, the actual response is in the column called `Response`.
-  - Please drop any participants who failed 30 or more percent of their attention checks. Does this match the value from study one?
+  - Please drop any participants who failed more than 30 percent of their attention checks. Does this match the value from study one?
 - Using the data under `data/S1/demo`, please make sure the demographic information matches those mentioned in the paper.
 - We want to get the trust level information for each "face"
   - Single face trust levels are in `stim_descriptives/S1_single_faces.csv`.
