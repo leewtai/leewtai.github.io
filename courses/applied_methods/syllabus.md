@@ -56,8 +56,8 @@ I reserve the right to change the ordering and the content for the course throug
 |2024-09-16|Linear Mixed models|[Doing Bayesian Data Analysis by John Kruschke](https://clio.columbia.edu/catalog/11177545)||
 |2024-09-18|[Crash course in Bayesian Statistics](https://docs.google.com/presentation/d/1xHXP7YkbhTw_aHWJS4CKhQwOE1sFZPKL1FvnJxhSpWk/edit?usp=sharing)<br>[notebook](https://drive.google.com/file/d/10JXFCBaoiBVCKtya3nKcTpTAQyQ3vVXd/view?usp=sharing)|||
 |2024-09-23|[Contrasting Bayesian Methods with Classical Methods](https://docs.google.com/presentation/d/14r8G-DP_P_m6aqcml_EFMFb2De2BKVYs9nIPCDDadio/edit?usp=sharing)<br> [notebook](https://colab.research.google.com/drive/103HLsl0GPYq-uISJcPuA0hS2pKd2uBbl?usp=sharing)|||
-|2024-09-25|Introduction to Data Quality |<!--- [Chapter 1 on this dissertation](https://escholarship.org/uc/item/89f9z0tj) AND (https://docs.google.com/presentation/d/19IId2fnQ9dtqfA7uvwWDeIW4cHPjD-emYHY00yvI6bM/edit?usp=sharing)--->|[Homework 1](homeworks/hw1.md)|
-|2024-09-30|Dependent Data - Problems with Temporal Data <!---(https://docs.google.com/presentation/d/1LmREGERJCS5GzmmvR0WFLTxILFC_NBsyugsbCeHdptc/edit?usp=sharing)--->   |||
+|2024-09-25|[Introduction to Data Quality](https://docs.google.com/presentation/d/19IId2fnQ9dtqfA7uvwWDeIW4cHPjD-emYHY00yvI6bM/edit?usp=sharing) ||[Homework 1](homeworks/hw1.md)|
+|2024-09-30|Dependent Data - Problems with Temporal Data <!---(https://docs.google.com/presentation/d/1LmREGERJCS5GzmmvR0WFLTxILFC_NBsyugsbCeHdptc/edit?usp=sharing)--->   |[Chapter 1 on this dissertation](https://escholarship.org/uc/item/89f9z0tj)||
 |2024-10-02|Dependent Data Continued - Time Series and Kalman Filters <!--- (https://docs.google.com/presentation/d/1LmREGERJCS5GzmmvR0WFLTxILFC_NBsyugsbCeHdptc/edit?usp=sharing) --->    ||[Project 1](homeworks/proj1.md) Due|
 |2024-10-07|Practice - Forecasting Temperature|||
 |2024-10-09|Dependent Data - GIS View of Spatial Data <!--- (https://docs.google.com/presentation/d/1p2niILw17C0aN4Jmn7LjJRb8qClX-_QLc58dBAkpZzY/edit?usp=sharing) --->||Homework 2 <!--- ](homeworks/hw2.md) --->|
