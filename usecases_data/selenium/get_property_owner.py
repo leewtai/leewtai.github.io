@@ -21,7 +21,7 @@ logging.basicConfig(format="%(asctime)-15s %(message)s",
 # sales.to_csv("rollingsales_manhattan.csv", quoting=csv.QUOTE_NONNUMERIC, index=False)
 # updatable data
 sales = pd.read_csv("rollingsales_manhattan.csv")
-sales.sample(frac=1)
+sales = sales.sample(frac=1).reset_index()
 sales.BLOCK = sales.BLOCK.astype(str)
 sales.LOT = sales.LOT.astype(str)
 
@@ -73,6 +73,7 @@ for i in iter(unknown_owners):
 
   if i and not i % 40:
     sales.to_csv("rollingsales_manhattan.csv", quoting=csv.QUOTE_NONNUMERIC, index=False)
+    logging.info('stored {i} properties')
   
   driver.back()
   sleep(uniform(2.33, 5.33))
