@@ -21,6 +21,7 @@ logging.basicConfig(format="%(asctime)-15s %(message)s",
 # sales.to_csv("rollingsales_manhattan.csv", quoting=csv.QUOTE_NONNUMERIC, index=False)
 # updatable data
 sales = pd.read_csv("rollingsales_manhattan.csv")
+sales.sample(frac=1)
 sales.BLOCK = sales.BLOCK.astype(str)
 sales.LOT = sales.LOT.astype(str)
 
