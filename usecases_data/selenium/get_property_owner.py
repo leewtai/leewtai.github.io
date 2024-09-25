@@ -69,11 +69,12 @@ for i in iter(unknown_owners):
     logging.error(e)
     logging.error('Cannot find the property owner field')
     logging.error(f"failed with block {block} and lot {lot}")
-    break
+    sales.loc[i, 'Property Owner(s)'] = 'Error, possibly duplicates'
+    continue
 
   if i and not i % 40:
     sales.to_csv("rollingsales_manhattan.csv", quoting=csv.QUOTE_NONNUMERIC, index=False)
-    logging.info('stored {i} properties')
+    logging.info(f'stored {i} properties')
   
   driver.back()
   sleep(uniform(2.33, 5.33))
