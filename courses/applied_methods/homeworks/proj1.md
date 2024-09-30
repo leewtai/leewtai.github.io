@@ -1,4 +1,4 @@
-# Project 1: Trustworthiness Modeling (Still in draft form)
+# Project 1: Trustworthiness Modeling
 
 This project is meant to see how all the different ways of modeling the same dataset can be different/similar.
 
@@ -21,7 +21,7 @@ The [original data is posted here](https://osf.io/nfgx9/) which we posted on Cou
 - How would you validate the results given the copy on CourseWorks?
 - Please submit this part as a separate file named `reproduce_trust.R`
 
-Please use the 3rd study file provided on CourseWorks for the following sections.
+Please use the 3rd study file, `trustworthiness_s3_all_three.csv`, provided on CourseWorks for the following sections.
 
 ### Reproducing the results
 

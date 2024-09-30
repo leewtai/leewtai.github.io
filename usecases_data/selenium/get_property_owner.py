@@ -15,13 +15,19 @@ logging.basicConfig(format="%(asctime)-15s %(message)s",
                     level=logging.INFO)
 
 # original data
+# https://www.nyc.gov/site/finance/property/property-rolling-sales-data.page
+# Does not contain the owner's name, cannot tell if it's a real person or corporation
 # sales = pd.read_excel("rollingsales_manhattan.xlsx", skiprows=4)
 # sales.columns
 # sales['Property Owner(s)'] = "not queried"
 # sales.to_csv("rollingsales_manhattan.csv", quoting=csv.QUOTE_NONNUMERIC, index=False)
 # updatable data
 sales = pd.read_csv("rollingsales_manhattan.csv")
-sales = sales.sample(frac=1).reset_index()
+try:
+    sales = sales.sample(frac=1).reset_index()
+except Exception as e:
+    logging.error(e)
+    logging.error('likely index column already exists')
 sales.BLOCK = sales.BLOCK.astype(str)
 sales.LOT = sales.LOT.astype(str)
 
@@ -85,3 +91,16 @@ if i == sales.shape[0]:
 sales.to_csv("rollingsales_manhattan.csv", quoting=csv.QUOTE_NONNUMERIC, index=False)
 
 driver.quit()
+
+
+# df = pd.read_csv("rollingsales_manhattan.csv")
+# df = df.loc[df['Property Owner(s)'] != 'not queried', :]
+# owner_count = df['Property Owner(s)'].value_counts()
+# owner_count.shape
+
+# features
+# end in INC
+# end in LLC
+# has the word CORP
+# has the word Associates
+# owners
