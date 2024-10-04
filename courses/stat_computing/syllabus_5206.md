@@ -106,6 +106,7 @@ If your final grade is in [93-97), you will earn at least an A, [90-93) will ear
 - In class participation
 - Online question posting (non-private) and answers are all ways to achieve this
 - I will reach out after the midterm if you are at risk of missing some points here.
+- You can miss one of these for free.
 
 ##### Exam accomodations
 In order to receive disability-related academic accommodations for this course, students must first be registered with their school Disability Services (DS) office. Detailed information is available online for both the [Columbia](https://health.columbia.edu/content/disability-services) and Barnard registration processes.
