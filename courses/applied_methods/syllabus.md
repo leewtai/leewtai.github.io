@@ -59,9 +59,9 @@ I reserve the right to change the ordering and the content for the course throug
 |2024-09-25|[Introduction to Data Quality](https://docs.google.com/presentation/d/19IId2fnQ9dtqfA7uvwWDeIW4cHPjD-emYHY00yvI6bM/edit?usp=sharing) ||[Homework 1](homeworks/hw1.md)|
 |2024-09-30|[Dependent Data - Problems with Temporal Data](https://docs.google.com/presentation/d/1LmREGERJCS5GzmmvR0WFLTxILFC_NBsyugsbCeHdptc/edit?usp=sharing)<br>[notebook](https://drive.google.com/file/d/1G8qbKbcqmfUaPSA5THSCOvaeTyfW4XtV/view?usp=sharing)|[Chapter 1 on this dissertation](https://escholarship.org/uc/item/89f9z0tj)||
 |2024-10-02|Dependent Data Continued - Time Series and Kalman Filters <!--- (https://docs.google.com/presentation/d/1LmREGERJCS5GzmmvR0WFLTxILFC_NBsyugsbCeHdptc/edit?usp=sharing) --->    |||
-|2024-10-07|Practice - Forecasting Temperature||[Project 1](homeworks/proj1.md) Due|
+|2024-10-07|[Practice - Forecasting Temperature](https://docs.google.com/presentation/d/1Q05c572OVgQUxS1oSnSnZHTKDe1sG7PbNEjByfDTrrs/edit?usp=sharing)||[Project 1](homeworks/proj1.md) Due|
 |2024-10-09|Dependent Data - GIS View of Spatial Data <!--- (https://docs.google.com/presentation/d/1p2niILw17C0aN4Jmn7LjJRb8qClX-_QLc58dBAkpZzY/edit?usp=sharing) --->|||
-|2024-10-14|Dependent Data continued - Spatial Statistics <!--- (https://docs.google.com/presentation/d/1p2niILw17C0aN4Jmn7LjJRb8qClX-_QLc58dBAkpZzY/edit?usp=sharing)--->|For manipulating spatial data in R: [rspatial.org](https://rspatial.org/)|Homework 2 <!--- ](homeworks/hw2.md) --->|
+|2024-10-14|Dependent Data continued - Spatial Statistics <!--- (https://docs.google.com/presentation/d/1p2niILw17C0aN4Jmn7LjJRb8qClX-_QLc58dBAkpZzY/edit?usp=sharing)--->|For manipulating spatial data in R: [rspatial.org](https://rspatial.org/)|[Homework 2](homeworks/hw2.md)|
 |2024-10-16|Interpolation of Spatial Data| [Some Theory for Kriging - Ch 1.2](https://clio.columbia.edu/catalog/11310671)||
 |2024-10-21|Practice with Kriging|||
 |2024-10-23|Discussion on spatial data privacy||[Twelve Million Phones, One Dataset, Zero Privacy](https://www.nytimes.com/interactive/2019/12/19/opinion/location-tracking-cell-phone.html)|
