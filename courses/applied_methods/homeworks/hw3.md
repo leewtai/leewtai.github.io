@@ -99,9 +99,8 @@ utm_coords <- coordinates(utm_df)
 - Please examin the speed distribution across the different data collection sessions, what can you infer from this comparison?
 
 #### Question 3: Final Project Check-in
-- Please write down the main question for your final project with at most one paragraph.
-- Please articulate the population of interest or the ideal dataset for your problem.
-- Please describe where you might get data for your final project (this can be a simple link).
-
+- Please write down the main question for your final project.
+  - Please articulate the ideal dataset for answering your question
+  - Please articulate how this is related to on-going research on Columbia or how it will help an existing effort you wish to accomplish.
 
 {% include lib/mathjax.html %}
