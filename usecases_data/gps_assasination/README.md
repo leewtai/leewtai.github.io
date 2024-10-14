@@ -3,7 +3,7 @@
 <img src="assassinate_classroom.png" alt="Assassination Classroom" width='300'>
 Image sourced from Wikipedia.
 
-[Assassination classroom by Yusei Matsui](https://en.wikipedia.org/wiki/Assassination_Classroom) is the inspiration for the project! In this comic, a teacher is training students to assassinate himself. Why? Find out yourself :)
+[Assassination classroom by Yusei Matsui](https://en.wikipedia.org/wiki/Assassination_Classroom) is the inspiration for the project! In this comic, a teacher is training students to assassinate himself.
 
 Similarly, your challenge is to use 2 weeks of my phone GPS data to "bomb" me on my usual path in the 3rd week. You'll have 2 attempts!
 
@@ -88,3 +88,13 @@ You'll be given the timestamps and locations when I start moving each day (to an
 first 5 minutes of my travel.
 
 I look forward to your assassination attempts!
+
+
+**In addition** to the requirements listed above, please also answer the following questions:
+- Does the target walk faster or slower when the temperature is colder?
+    - You'll need to get temperature data from an external source.
+- Please visualize the unertainty in the target's position over time and space.
+    - You do not need to cover the duration of the entire trip but this graph should
+      help support your decision on the best time/location for assassinating the target.
+    - You should not plot individual data points on this graph.
+- Please highlight at least one data quality issues and how this impacts your conclusions.
