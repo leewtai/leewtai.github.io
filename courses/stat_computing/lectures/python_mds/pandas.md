@@ -218,8 +218,14 @@ the group.
 
 ```python
 for grp, inds in df_grp.groups.items():
+    # Using the groupby object method
     surv_rate = df_grp.get_group(grp).loc[:, 'Survived'].mean()
+    # Using the indices
+    surv_rate2 = round(df.loc[inds, 'Survived'].mean() * 100, 2)
+
     print('Survival rate for group with Sex {} and Pclass {} is {}%'.format(
         grp[0], grp[1], round(100 * surv_rate, 2)))
-    
+    print(f'Survival rate for group with Sex {grp[0]} and Pclass {grp[0]} is {surv_rate2}')
+        
+     
 ```
