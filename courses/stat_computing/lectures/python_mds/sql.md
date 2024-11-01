@@ -76,8 +76,10 @@ for csv in csvs:
     df = pd.read_csv(csv)
     if re.search('^olist', csv):
         table = re.sub('olist_([a-z_]+)_dataset.csv', r'\1', csv)
-    else:
+    elif csv.startswith('product_category'):
         table = 'product_cat_trans'
+    else:
+        continue
 
     # Converting pandas data types to SQL data types
     col_dts = []
