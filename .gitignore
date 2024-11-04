@@ -46,3 +46,4 @@ _site/*
 *.shx
 *.tif
 grades/
+*.xlsx
