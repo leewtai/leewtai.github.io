@@ -76,5 +76,56 @@ get_biased_neighbors <- function(loc, locs, n=10){
 train_locs <- lapply(test_locs, function(ind) get_biased_neighbors(locations[ind, ], locations))
 ```
 
+#### Question 2: Comparing sampling methods
+
+Please generate data using the following code:
+```{r}
+set.seed(5833)
+n <- 2^20
+# create 5 states with one clear minority
+states <- rep(c('A', 'B', 'C', 'D'), c(n/2, n/2^2, n/2^8, n/2^8))
+states <- c(states, rep('E', n - length(states)))
+# table(states) / n
+streets <- vector('integer', n)
+start <- 1
+end <- 0
+for(state in unique(states)){
+    state_total <- sum(states == state)
+    end <- end + state_total
+    # let there be around 500 people on every street within a state
+    streets[start:end] <- sample(seq_len(round(state_total / 500)), state_total, replace=TRUE)
+    start <- end + 1
+}
+response <- rnorm(n, ifelse(streets < 5, -20, 0), ifelse(states %in% c('B', 'C'), 20, 5))
+special <- 'D'
+response[states == special] <- response[states == special] + rnorm(sum(states == special), 100, sd=50)
+```
+
+This is simulating a scenario where we could leverage people's state and their street to survey them for a variable, called `response`. It's important to know that "streets" are nested within the state, i.e. street 1 in State A is not the same as Street 1 in State B.
+
+For the following sampling methods:
+- An SRS of 2500 people from the population
+- Within each state, an SRS 500 of the people
+- Within each state, cluster sample 1 street out of all streets.
+- Within each state, pick an SRS of 5 streets, then pick an SRS of 100 people from each of those sampled streets.
+
+Please calculate or simulate the following for each of the sampling methods above:
+- The expected number of people within the sample
+- The expected value of the simple sample average of `response`, and is this unbiased for the population average of `response`?
+- The expected value of the weighted sample average of `response`, where the weights for samples from different states are proportional to the states' population relative to the overall population, and is this unbiased for the population average of `response`?
+- The probability of someone in State A street 2 to be sampled?
+- The probability of someone in State D street 2 to be sampled?
+- The expected value of the simple sample average of `response` based on only samples from State D, and is this unbiased for the true average of `response` in State D?
+- The SE of the simple sample average based on only samples from the State 'D'?
+- The Mean Squared Error of the simple sample average based on only samples from the State `D` for estimating the true average of `response` in State D?
+
+
+#### Question 3: Simulation
+
+Imagine a variable, Y, where $Y_{men}\sim N(0, Variance=1)$ and $Y_{women} \sim N(1, Variance=4)$. If we can collect 100 samples from a population of 1000000 people (you should assume exactly 50/50 split between the sex). Which of the following is the most accurate on average for estimating the population average or are they comparable? Please justify your answer with a proof or a simulation.
+- An SRS of 100 from the population using the simple sample average
+- 50 samples from each sex using the simple sample average
+- 20 samples of men and 80 samples of women, using the weighted average where each unit `i` is weighted by `1/P(i being sampled)`
+
 
 {% include lib/mathjax.html %}
