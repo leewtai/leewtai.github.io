@@ -99,8 +99,10 @@ If your final grade is in [93-97), you will earn at least an A, [90-93) will ear
 - Please read these important things related to [submitting homeworks on Ed](ed_hw_faq.md)
 
 #### - Exams (70%)
-- Midterms
-- Final
+- 2 weighing schemes
+  - Midterm (30%) Final (40%)
+  - Midterm (15%) Final (55%)
+You will receive a letter grade from curving each approach and receive the higher letter grade between the 2 approaches.
 
 #### - Participation (5%)
 - In class participation
