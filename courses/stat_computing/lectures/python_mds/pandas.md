@@ -229,3 +229,29 @@ for grp, inds in df_grp.groups.items():
         
      
 ```
+
+#### Class specific methods
+
+There are many data-type-specific methods in pandas that help with the readability of yuor code.
+
+Let's use the `a` and `b` dataset from the merging above.
+
+# Following a Series, with dtype as `str`, with `.str` will allow you to use many different string methods.
+```python
+# To see if the character 'new' or 'san' is in 
+m = a.merge(b, on='city', how='outer')
+print(m.city.str.lower())
+print(m.city.str.lower().str.contains('new|san'))
+
+# notice that `.contains()` is NOT a standard string method
+demo_str = 'hello'
+demo_str.contains('ll')
+```
+
+
+# Following a Series, with dtype as `datetime`, with `.dt` will allow you to use many different datetime methods.
+```python
+m['date'] = pd.to_datetime(['2020-01-01', '2020-02-01', '2020-03-01', '2020-04-01'])
+print(m.date.dt.month)
+print(m.date.dt.day_of_week)
+```
