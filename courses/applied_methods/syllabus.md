@@ -73,10 +73,10 @@ I reserve the right to change the ordering and the content for the course throug
 |2024-11-13|[Survival curves and the Kaplan-Meier Estimator](https://docs.google.com/presentation/d/1Wdn8OYMl7D2r969LBHCRZU8zQN3APpXW3CBGtvPfiow/edit?usp=sharing)<br>[notebook](https://drive.google.com/file/d/17PQU_5El5_Wz5dru7uKAuFydy0y-UbFL/view?usp=sharing)|||
 |2024-11-18|Discussion - flaws in randomized control studies||[Randomization in the tropics revisited: a theme and eleven variations](https://scholar.princeton.edu/sites/default/files/deaton/files/deaton_randomization_revisited_v2_2019_01.pdf)|
 |2024-11-20|Issues with missing data <!---(https://docs.google.com/presentation/d/1zAhlALXWzXGoXpDC3eLZ_2RJFwC0UdrRXTNxzhJfheY/edit?usp=sharing)--->||- [The prevention and handling of the missing data](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3668100/) <br> - [Homework 4](homeworks/hw4.md)|
-|2024-11-25|Practice with survival analysis |Framingham Heart Study (Study description on CourseWorks)||
+|2024-11-25|Final Project Chats|||
 |2024-11-27|**NO CLASS - Thanksgiving Holiday**|||
-|2024-12-02|Causal inference - AB testing in tech and traps <!---(https://docs.google.com/presentation/d/1ovVGmmFS7C4kVYPFYt2RSatZEROM7dp_WaivB6n4XOA/edit?usp=sharing)--->||Homework 5 <!---(homeworks/hw5.md)--->|
-|2024-12-04|Causal Inference - matching algorithms, difference-in-differences||- Joshua D. Angrist and Jörn-Steffen Pischke (2015). Mastering ’Metrics: The Path from Cause to Effect, chapter 5 (see CourseWorks) <br> - [Modern Algorithms for Matching in Observational Studies by Paul Rosenbaum, 2020](https://www-annualreviews-org.ezproxy.cul.columbia.edu/doi/10.1146/annurev-statistics-031219-041058)|
+|2024-12-02|Causal inference - AB testing in tech and traps <!---(https://docs.google.com/presentation/d/1ovVGmmFS7C4kVYPFYt2RSatZEROM7dp_WaivB6n4XOA/edit?usp=sharing)--->||- Joshua D. Angrist and Jörn-Steffen Pischke (2015). Mastering ’Metrics: The Path from Cause to Effect, chapter 5 (see CourseWorks) <br> - [Modern Algorithms for Matching in Observational Studies by Paul Rosenbaum, 2020](https://www-annualreviews-org.ezproxy.cul.columbia.edu/doi/10.1146/annurev-statistics-031219-041058)|
+|2024-12-04|Causal Inference - matching algorithms, difference-in-differences||[Homework 5](homeworks/hw5.md)|
 |2024-12-09|Wrap-up||[Project 3 Due](homeworks/proj3.md)|
 
 

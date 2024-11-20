@@ -3,19 +3,6 @@
 ### Goals
 The purpose of this homework is to give you a sense of "validating" models.
 
-#### Question 0: Project 2 bombing validation.
-On Canvas, you'll find a file called `Data/test_all_gps.zip` that contains all of the data in the third week
-for Project 2. 
-Please **visualize** your projected 2 predictions next to the actual GPS data on week 3, then report whether your
-assassination attempt worked or not, i.e. were they within 5 meters and 10 seconds from the raw GPS values.
-Please take note of the 5 minute constraint from the beginning of each data session.
-
-- Your visualization should only plot the data "close" to your predictions.
-- Your visualization does not have to include both the spatial and temporal distance (but this is possible!)
-  but it should include at least one dimension.
-- If your prediction are near the 5 minute beginning, you should label those points differently.
-
-
 #### Question 1: Final project validation.
 Please visualize the data **with** your model. The previous homework was only related to visualizing the data itself.
 If you visualized your model with your data already, you should avoid to use the same graphic.
@@ -33,3 +20,23 @@ For example:
 - if you are testing a hypothesis, you could plot the test statistic vs the test statistic under the null distribution.
 
 Thought for curious students: how would your model behave if your data was perturbed, contaminated, or stripped of a feature?
+
+
+#### Question 2: Talk to a peer about your final project
+
+There's no deliverable here but these are questions I encourage you to talk to a peer about (because I would likely ask these):
+- Why would someone be interested in this topic?
+- What is the ideal approach you would have taken to tackle this approach if you were not limited by time?
+- What model are you using?
+- Is your model wrong, why do you think it's still okay?
+
+#### Question 3: 
+
+In class we showed how "right censoring" affects us.
+Please create a simulation that shows how left censoring, e.g. we know when people die from cancer but don't know when their cancer started, impact the following:
+- The estimation of the survival curve, i.e. P(T > t)
+- Our ability to detect the effect of a new drug (e.g. that prolong survival)
+- The ability to estimate the parameter in the Cox Proportional Hazard model (coxph() in R) 
+
+You should choose how the censoring happens (this impacts your answer above).
+
