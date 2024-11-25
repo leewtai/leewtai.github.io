@@ -12,10 +12,12 @@ For purely exploratory projects, you should propose what the sufficient dataset,
 You are **encouraged** to use your existing research, in another class, in your lab, or internship, for this project. The only exception is an interview data challenge.
 
 The final project in this class is open-ended with a few requirements. Key deliverables are
-- A 10-15 page **written report** that contains the information below.
-- An abstract written about a peer's final project, your final project can be summarized by multiple people.
+- An oral presentation (8-20 minutes) + Q&A that you [sign up here](https://docs.google.com/spreadsheets/d/1sF_HHbXiCmn8wS5CRtO3fpvwGRUJiGa7SB5iolNhoXc/edit?usp=sharing)
+- This will be done in Rm 614 Watson Hall (612 W 115th St)
 
-### Written report
+
+
+### Presentation Elements
 - The project must identify a research question that data can possibly falsify (10 pts)
   - Articulate the question, e.g. are there more or fewer illegal drug activities in states where neighboring states have legalized it? Or do startup founders who are minorities get asked qualitatively different questions from investors?
     - Feel free to talk to the instructor/TA if you want to identify a potential problem that's fun to you.
@@ -68,7 +70,3 @@ The final project in this class is open-ended with a few requirements. Key deliv
   - Your code should be readable and avoids lots of "copying/pasting" code
 
 
-### Abstract for a peer's project
-This should be **at most** 1 paragraph that describes the question at hand, the key takeaways, and
-the approach used. You should receive your peer's draft report at least a week before the
-project due date to finish this task.
