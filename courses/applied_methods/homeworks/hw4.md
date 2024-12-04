@@ -47,6 +47,7 @@ dist_mat <- as.matrix(dist(locations, diag=TRUE, upper=TRUE))
 cov_mat <- sigma2 * exp(-dist_mat/rho)
 noise <- rnorm(nrow(locations))
 L <- chol(cov_mat)
+# L should be lower triangular, if not, use L = t(L)
 corr_noise <- L %*% noise
 mean_fun <- function(locs){locs[, 1] + locs[, 2] * 3}
 y <- mean_fun(locations) + corr_noise 
