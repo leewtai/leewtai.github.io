@@ -1,4 +1,4 @@
-# Applied Data Mining
+# Applied machine learning
 
 This course will expose students to a variety of data mining applications
 using machine learning methods.

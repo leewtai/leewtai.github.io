@@ -28,5 +28,14 @@ like in the US, e.g. Christmas?
 Do the 2 largest cities, defined by total order amount, have different "total order payment" distributions?
 Please perform a permutation test to test this statement.
 
+#### Q5
+
+Try to predict the time for an order to be delivered after it was paid for using a basic regression model.
+- Define a relevant metric for this, should arriving early be treated the same as arriving late?
+- Make sure you perform cross validation
+- Are there features that were helped your model performance metric by 2% or more?
+
+WARNING: there are some bad data points you'll have to make a decision how to handle the data (e.g. if no delivery was ever made)
+
 
 {% include lib/mathjax.html %}
