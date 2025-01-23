@@ -14,11 +14,24 @@ https://www.kaggle.com/olistbr/brazilian-ecommerce
 I've placed the unzipped data in a folder called "olist" with my .Rmd file.
 
 ```{r olist}
+# setwd()
 list.files("olist/")
-
 ```
 
 #### Try reading the data
 ```{r}
-df <- read.csv("olist/olist_orders_dataset.csv")
+items <- read.csv('olist_order_items_dataset.csv')
+orders <- read.csv('olist_orders_dataset.csv')
+pay <- read.csv('olist_order_payments_dataset.csv')
+geo <- read.csv('olist_geolocation_dataset.csv')
+customer <- read.csv('olist_customers_dataset.csv')
+prod <- read.csv('olist_products_dataset.csv')
+prod_trans <- read.csv('product_category_name_translation.csv')
+```
+
+
+#### Try loading in the pre-merged data on CourseWorks
+```{r}
+df <- read.csv('olist_exercise.csv')
+
 ```
