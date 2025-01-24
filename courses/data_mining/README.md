@@ -64,9 +64,10 @@ Lectures:
   TuTh 2:40pm - 3:55pm, 602 Hamilton Hall
 
 ### Teaching Team
-Wayne Tai Lee (wtl2109)
+
+- Wayne Tai Lee (wtl2109)
   - OH: TuTh 12-2pm at 324 Uris Hall
-Matt Shen (ms7079)
+- Matt Shen (ms7079)
   - OH: Monday 12:30-2:30pm at 10th floor School of Social Work
 
 #### Online Discussion
