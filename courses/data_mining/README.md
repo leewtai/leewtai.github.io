@@ -30,8 +30,8 @@ I reserve the right to change the ordering and the content for the course throug
 |2025-01-21|[Intro to data mining](https://docs.google.com/presentation/d/1LRXc0v-mawZdvVYDJQXQ7MuG2_dCCOH8c2sW4aCerMs/edit?usp=sharing)|- [Brazilian e-commerce on Kaggle](https://www.kaggle.com/olistbr/brazilian-ecommerce)<br>- ISL Chapter 2.2||
 |2025-01-23|[Data mining with basic statistics and regression review](https://docs.google.com/presentation/d/17hPTelOmM_2OhsQnN1pEvUvf_p61rhyUVtSeNX_UHJc/edit?usp=sharing)|ISL Chapter 3|- Have [R studio](https://cran.rstudio.com/) installed<br>- Informal exploration with the Brazilian e-commerce dataset|
 |2025-01-28|Regression review continued|ISL Chapter 3||
-|2025-01-30|[Logistic regression + Naive Bayes](https://docs.google.com/presentation/d/1U7yQPTLVIe-e9W70gHKFapB8XfohsnnUr56kTuESOHQ/edit?usp=sharing)||[Homework 1](homeworks/hw1.md) Due|
-|2025-02-04|[Principal Component Analysis](https://docs.google.com/presentation/d/19C31WjmOkdca-Nm4LBn5rLLadH138BESV4F_gyXgON8/edit?usp=sharing)|ISL 6.3.1 + ISL 10.2||
+|2025-01-30|[Principal Component Analysis](https://docs.google.com/presentation/d/19C31WjmOkdca-Nm4LBn5rLLadH138BESV4F_gyXgON8/edit?usp=sharing)|ISL 6.3.1|[Homework 1](homeworks/hw1.md) Due|
+|2025-02-04|[Logistic regression + Naive Bayes](https://docs.google.com/presentation/d/1U7yQPTLVIe-e9W70gHKFapB8XfohsnnUr56kTuESOHQ/edit?usp=sharing)|ISL 6.3.1 + ISL 10.2||
 |2025-02-06|Principal Component Analysis Applications|ISL 6.3.1 + ISL 10.2||
 |2025-02-11|[Rise of machine learning and "wrong" models - some history](https://docs.google.com/presentation/d/1RweE3ajD5pGn-FnPp-0tf_0iMWRHlMzUaTpp4utvmN8/edit?usp=sharing)|[Paper on Why Biased Estimators given Stein Estimator + Gauss Markov Theorem](https://www.jstor.org/stable/1268284?seq=1#metadata_info_tab_contents) + ISL Chapter 2.2 continued||
 |2025-02-13|[Ridge + Lasso Regression](https://docs.google.com/presentation/d/1W_xNZ5aty4V8sGnc9nBpeVlfY4ws0tkH-fZGm2kngfI/edit?usp=sharing)|ISL 6.2|[Homework 2] Due|
