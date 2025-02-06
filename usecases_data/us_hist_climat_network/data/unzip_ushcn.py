@@ -1,6 +1,8 @@
+import csv
+import os
+import tarfile
 from glob import glob
 from pathlib import Path
-import tarfile
 
 import pandas as pd
 
@@ -14,9 +16,7 @@ ungz_folder.mkdir(exist_ok=True)
 # correspond to different stations.
 for gf in gz_files:
     with tarfile.open(gf, 'r:gz') as gf_tar:
-        
-        import os
-        
+       
         def is_within_directory(directory, target):
             
             abs_directory = os.path.abspath(directory)
@@ -79,7 +79,8 @@ ungz_folder.rmdir()
 Path('csvs').mkdir(exist_ok=True)
 for var in bag:
     df = pd.DataFrame(bag.get(var))
-    df.to_csv("csvs/{}.csv".format(var))
+    df.to_csv(f"csvs/{var}.csv", index=False,
+              quoting=csv.QUOTE_NONNUMERIC)
 
 
 meta_char = {
@@ -92,9 +93,9 @@ meta_char = {
     'utc_offset': (93, 95)}
 
 stations = []
-with open('ushcn-v2.5-stations.txt', 'r') as f:
-    station = {}
+with open('ushcn-v2.5-stations.txt', 'r', encoding='utf-8') as f:
     for line in f.readlines():
+        station = {}
         for var, pos in meta_char.items():
             val = line[pos[0]:pos[1]]
             if var in ['latitude', 'longitude', 'elevation']:
@@ -102,4 +103,6 @@ with open('ushcn-v2.5-stations.txt', 'r') as f:
             station.update({var: val})
         stations.append(station)
 
-meta = pd.DataFrame(stations).to_csv('csvs/stations_meta.csv')
+pd.DataFrame(stations).to_csv('csvs/stations_meta.csv',
+                              index=False,
+                              quoting=csv.QUOTE_NONNUMERIC)
