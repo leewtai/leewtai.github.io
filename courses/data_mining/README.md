@@ -34,7 +34,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2025-02-04|[Logistic regression + Naive Bayes](https://docs.google.com/presentation/d/1U7yQPTLVIe-e9W70gHKFapB8XfohsnnUr56kTuESOHQ/edit?usp=sharing)|ISL 6.3.1 + ISL 10.2||
 |2025-02-06|Principal Component Analysis Applications|ISL 6.3.1 + ISL 10.2||
 |2025-02-11|[Rise of machine learning and "wrong" models - some history](https://docs.google.com/presentation/d/1RweE3ajD5pGn-FnPp-0tf_0iMWRHlMzUaTpp4utvmN8/edit?usp=sharing)|[Paper on Why Biased Estimators given Stein Estimator + Gauss Markov Theorem](https://www.jstor.org/stable/1268284?seq=1#metadata_info_tab_contents) + ISL Chapter 2.2 continued||
-|2025-02-13|[Ridge + Lasso Regression](https://docs.google.com/presentation/d/1W_xNZ5aty4V8sGnc9nBpeVlfY4ws0tkH-fZGm2kngfI/edit?usp=sharing)|ISL 6.2|[Homework 2] Due|
+|2025-02-13|[Ridge + Lasso Regression](https://docs.google.com/presentation/d/1W_xNZ5aty4V8sGnc9nBpeVlfY4ws0tkH-fZGm2kngfI/edit?usp=sharing)|ISL 6.2|[Homework 2](hw2_pca.md) Due|
 |2025-02-18|[Ridge + Lasso Simulations](https://docs.google.com/presentation/d/1yktXlOcSGVHkoPBFiqkE1KiWk4aZ8gNzAAbXG4ixl64/edit?usp=sharing)|ISL 6.2||
 |2025-02-20|[Tree Methods](https://docs.google.com/presentation/d/1tFOm3dSSBV7-PtYAAQgLYkAAp8bVMeUYiPZlP0rCtpE/edit?usp=sharing)|ISL 8.1||
 |2025-02-25|[Tree Methods continued](https://docs.google.com/presentation/d/1tFOm3dSSBV7-PtYAAQgLYkAAp8bVMeUYiPZlP0rCtpE/edit?usp=sharing)|ISL 8.1||
