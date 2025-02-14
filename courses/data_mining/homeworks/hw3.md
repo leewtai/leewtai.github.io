@@ -6,7 +6,7 @@ Context: Finding jobs is difficult. Job descriptions tell us what companies are 
 so we should be able to detect some signal from job descriptions whether we're prepared enough
 for industry. However, there are too many job descriptions to look through.
 
-Please download the dataset, `job_descrip.csv`, from CourseWorks.
+Please download the dataset, `CourseWorks/Files/job_descriptions/job_descrip.csv`, from CourseWorks.
 - This dataset has the "word counts" from a non-random sample of job descriptions from indeed (2021 and before).
   - The column names are the "words" from the job description and the elements are the absolute count of those
     words in the job description.
