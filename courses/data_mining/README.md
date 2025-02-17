@@ -68,7 +68,7 @@ Lectures:
 - Wayne Tai Lee (wtl2109)
   - OH: TuTh 12-2pm at 324 Uris Hall
 - Matt Shen (ms7079)
-  - OH: Monday 12:30-2:30pm at 10th floor School of Social Work
+  - OH: Monday 11:30-1:30pm at 324 Uris Hall
 
 #### Online Discussion
 The TA and grader will check the online discussion for 30 minutes each weekday.
