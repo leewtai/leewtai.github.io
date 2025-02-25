@@ -42,7 +42,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2025-03-04|[Optimization and objective functions](https://docs.google.com/presentation/d/1RKi4H1kxhtwPyP6l1lTSFTAYjDHeE7umpvkc8cMD4F4/edit?usp=sharing)|Slide 5 + ISL Chapter 3.1.1 + 3.3.3||
 |2025-03-06|[Beyond classification accuracy](https://docs.google.com/presentation/d/1Dff7Et1pejUNyRzdyXwjDvoqCK9OGTq2RDODVUUZYPU/edit?usp=sharing)|Slides 6||
 |2025-03-11|[Resampling techniques - accuracy vs robustness](https://docs.google.com/presentation/d/1dEpri9RjpqPSop5SBNv-TneoO0QYKMcyS0E5SEgueoQ/edit?usp=sharing)|Slides 7 + [Resampling from ISL](https://link.springer.com/chapter/10.1007/978-1-4614-7138-7_5)|- Read paper on [Stability](https://arxiv.org/abs/1310.0150)|
-|2025-03-13|[Automated Model Selection](https://docs.google.com/presentation/d/1dEpri9RjpqPSop5SBNv-TneoO0QYKMcyS0E5SEgueoQ/edit?usp=sharing)|Slides 7 + [caret library](https://topepo.github.io/caret/index.html) + [ISL on resampling](https://link.springer.com/chapter/10.1007/978-1-4614-7138-7_5)|[Project 1] Due|
+|2025-03-13|[Automated Model Selection](https://docs.google.com/presentation/d/1dEpri9RjpqPSop5SBNv-TneoO0QYKMcyS0E5SEgueoQ/edit?usp=sharing)|Slides 7 + [caret library](https://topepo.github.io/caret/index.html) + [ISL on resampling](https://link.springer.com/chapter/10.1007/978-1-4614-7138-7_5)|[Project 1](homeworks/proj0.md)|
 |2025-03-18|Spring Break|||
 |2025-03-20|Spring Break|||
 |2025-03-25|[Clustering - Kmeans](https://docs.google.com/presentation/d/1DoWbNOEZGeZkNr4wb9u198GlnS45rxWFoaOwEvMPn-E/edit?usp=sharing)|ISL 10.2||
