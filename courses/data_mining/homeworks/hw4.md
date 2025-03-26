@@ -45,10 +45,8 @@ The [NYTimes has a GitHub repository with COVID data per counties](https://githu
 - Depending on your answer above, what does a random or non-random distribution across the clusters mean about the clusters?
 - Side comment: You have the representative curve for each cluster, the distribution of the states into different clusters. Often these could start giving people ideas for the meaning for different clusters.
 
-### Question 4 - Final Project
 
-Please articulate what the minimal dataset means for your project. Make sure you talk about
-- minimal time range(s) or spatial coverage
-- features that you expect to have
-- the unit of record, i.e. a row in your data frame (people, cars, documents, etc)
-- why this is related to your final project
+### Question 4 - Evaluating clusters
+
+- How would you evaluate these clusters? You do not have to carry out this step but only need to articulate what you might try.
+- (Optional) Try to produce a graph that supports your argument.
