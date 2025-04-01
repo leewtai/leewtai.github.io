@@ -31,7 +31,7 @@ for yr in yr_range:
 df = pd.concat(dfs)
 df.to_csv('household_cnt.csv', index=False, quoting=csv.QUOTE_NONNUMERIC)
 
-
+# you can download the geometries here: https://www.census.gov/cgi-bin/geo/shapefiles/index.php
 geos = gpd.read_file('geos')
 geos = geos.loc[:, ['GEOID', 'INTPTLAT', 'INTPTLON']]
 geos.INTPTLAT = geos.INTPTLAT.astype(float)
