@@ -47,7 +47,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2025-03-20|Spring Break|||
 |2025-03-25|[Clustering - Kmeans](https://docs.google.com/presentation/d/1DoWbNOEZGeZkNr4wb9u198GlnS45rxWFoaOwEvMPn-E/edit?usp=sharing)|ISL 10.2||
 |2025-03-27|[Clustering - Kmeans continued](https://docs.google.com/presentation/d/1RAzfwkMSzoEgLT8hYw0zL7KxCAM4jnjbCyxZgb84QxU/edit?usp=sharing)|ISL 10.2||
-|2025-04-01|K-means with real data|ISL 10.2||
+|2025-04-01|[K-means with real data](https://colab.research.google.com/drive/1yuEhOkuhutHpiEg3UVnv_Vp5gfjTFNRq?usp=sharing)|ISL 10.2||
 |2025-04-03|[Hierarchical clustering](https://docs.google.com/presentation/d/1b-iWZSg5w9dm-01miUvtIIShjctAYKQo2tFMzX3OiXI/edit?usp=sharing)|ISL 10.2||
 |2025-04-08|[Hierarchical clustering with real data](https://docs.google.com/presentation/d/15lNq4NQrEOzcsR0uhkltQfJrSiFQcx-FQPCh_7g9KRQ/edit?usp=sharing)|ISL 10.2||
 |2025-04-10|[DBSCAN](https://docs.google.com/presentation/d/18exR7A0qTMJsclSOFJz4_IaOhvEFPhzqo4MuW6rYVmI/edit?usp=sharing)|[DBSCAN from KDNuggets](https://www.kdnuggets.com/2020/04/dbscan-clustering-algorithm-machine-learning.html)|[Homework 4](homeworks/hw4.md)|
