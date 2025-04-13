@@ -54,7 +54,7 @@ I reserve the right to change the ordering and the content for the course throug
 |2025-04-15|[feature engineering - with text](https://docs.google.com/presentation/d/1BzfHDaGuvM2Vv6Vbi8YF55ZjzFAYFCcaAGcjpl9XkPE/edit?usp=sharing)|[Pre-processing Text](https://www.cambridge.org/core/journals/political-analysis/article/text-preprocessing-for-unsupervised-learning-why-it-matters-when-it-misleads-and-what-to-do-about-it/AA7D4DE0AA6AB208502515AE3EC6989E) + [Speech and Language Chapter 6.5](https://web.stanford.edu/~jurafsky/slp3/)||
 |2025-04-17|Working with text data continued|||
 |2025-04-22|[Independent Component Analysis](https://docs.google.com/presentation/d/141-Q9FFzFjAZr32RXv4D5cBd0SK38DmEzZnxVdGOma0/edit?usp=sharing)|[Stanford ICA Slides](http://statweb.stanford.edu/~tibs/sta306bfiles/ica.pdf)||
-|2025-04-24|[Models on text including Wordfish](https://docs.google.com/presentation/d/1so4mBtaC2f881o2-20RKPyOi_xdxcXm_psQ5UPPECnw/edit?usp=sharing)||[Homework 5]|
+|2025-04-24|[Models on text including Wordfish](https://docs.google.com/presentation/d/1so4mBtaC2f881o2-20RKPyOi_xdxcXm_psQ5UPPECnw/edit?usp=sharing)||[Homework 5](https://github.com/leewtai/Data_mine_us_county)|
 |2025-04-29|Going over final projects in class|||
 |2025-05-01|Going over final projects in class + what we didn't teach||[Final Project](homeworks/proj3.md)|
 
