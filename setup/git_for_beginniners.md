@@ -51,7 +51,7 @@ This document will simply go over:
 - Your teammate should be able to choose where the code will be downloaded on their computer by specifying the "Local Path". Remember that a folder named after the repository will be created where you choose. This is called "cloning"
   <img src="images/git_clone.png" alt="choosing clone path" width='400'>
 - The folder named after your repo should appear along with the file `test.Rmd` within it.
-- You can now edit this file using RStudio or whatever editor you normally use for coding.
+- You can now edit this file using RStudio or whatever editor you use for coding. 
 - Now if any one of you makes a change to the file that Git is tracking, saving the change to the file should trigger GitHub Desktop to mark the exact changes you made.
 - Now look at GitHub Desktop, it should have marked the changes you made.
   <img src="images/git_tracking.png" alt="Git tracking code" width='400'>
@@ -77,6 +77,7 @@ This document will simply go over:
 - Don't forget to "Push Origin" so GitHub will have a copy of the resolution you came up with. Your teammate will be able to see that when they next fetch for changes.
 
 ## Best Practice
+- It's actually best practice to limit all of your changes inside a [branch](https://docs.github.com/en/desktop/making-changes-in-a-branch/managing-branches-in-github-desktop). This allows you to submit bigger chunks of changes all at once without constantly having to keep up to date with the immediate changes happening with the main branch.
 - Before you start working, **fetch** for new code!
 - Before taking a break, always push your code.
   - If this is your first time, you can have bugs in your code. Simply leave a comment about it or comment out the buggy code so your teammate knows something is wrong there. The bigger mistake is definitely waiting too long before making your next Push.
